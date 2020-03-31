@@ -1,0 +1,8 @@
+<view class="delete_tree_1">
+     <image  class=" delete_tree_image"src="/images/2.png"> </image>
+     <button class="button_class" style="width:500rpx" bindtap="delete">删除枯树
+     <view><slot></slot></view>
+     </button>
+     <text>\n</text>
+     <button class="button_class_1" style="width:500rpx" bindtap="default">好</button>
+ </view>
