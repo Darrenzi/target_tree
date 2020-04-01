@@ -7,7 +7,11 @@ Page({
   data: {
 
   },
-
+  choose:function(e){
+    //选中的目标
+    let current = e.detail.target;
+    console.log(current);
+  },
   /**
    * 生命周期函数--监听页面加载
    */
