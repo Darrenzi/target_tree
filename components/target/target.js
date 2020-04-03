@@ -4,7 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    
   },
 
   /**
@@ -44,5 +44,9 @@ Component({
       targets.unshift( {tip:"new", progress:0});
       this.setData({targets:targets});
     },
+  },
+  
+  created:function(){
+
   }
 })
