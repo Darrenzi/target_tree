@@ -9,6 +9,7 @@
   background-color: green;
    box-shadow: 1px 2px 2px 2px rgba(13, 163, 38, 0.849);
 }
+
 .delete_tree_1{
   width: 600rpx;
   height: 700rpx;
@@ -17,11 +18,26 @@
   border-radius: 30rpx;
   margin-top: 140rpx;
   border-color: rgba(13, 163, 38, 0.849);
-  position: absolute
+  position: absolute;
+  z-index: 10;
 }
+
 .delete_tree_image{
   height: 400rpx;
   width: 400rpx;
   margin-left: 100rpx;
   margin-top: 30rpx;
+}
+
+.hide{
+  display: none;
+}
+
+.show{
+  display: block;
+}
+
+.delete_tree_text{
+  font-size: 40rpx;
+  margin-left: 190rpx;
 }

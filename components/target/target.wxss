@@ -2,6 +2,7 @@
   display: flex;
   overflow-x: scroll;
   width: 100%;
+  margin-top: 160rpx;
 }
 .target{
   /* 目标框 */
