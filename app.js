@@ -1,10 +1,19 @@
 //app.js
 App({
-  
+  /**
+   * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
+   */
+  globalData:{
+    user:null
+  },
+
+  //初始化用户信息
   initUser:function(){
     const db = wx.cloud.database();
     const userTable = db.collection('user');
+    let that = this;
     userTable.get().then(res => {
+      //判断是否注册
       if (res.data.length == 0) {
         console.log("用户还未注册");
         //获取用户信息进行注册
@@ -45,16 +54,26 @@ App({
               },
               success: function (res) {
                 console.log(res);
+                db.collection('user').get().then(res=>{
+                  that.globalData.user = res.data[0];
+                  console.log(that.globalData.user);
+                })
               }
             })
+          },
+          fail: function () {
+            console.log("获取用户信息失败");
           }
         })
+      } else {
+        //已注册
+        console.log("已注册");
+        that.globalData.user = res.data[0];
+        console.log(that.globalData.user);
       }
     })
   },
-  /**
-   * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
-   */
+
   onLaunch: function () {
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
@@ -63,7 +82,9 @@ App({
       wx.cloud.init({
         traceUser: true,
       })
-    }   
+    }
+
+    this.initUser();
   },
 
   /**
