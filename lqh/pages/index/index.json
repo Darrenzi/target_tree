@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "delete_tree":"/components/delete_tree/delete_tree/",
-    "target":"/components/target/target/"
-  }
-}

@@ -1,9 +1,0 @@
-<!--components/target/target.wxml-->
-<view class="contianer">
-  <view id="{{index}}" class="target {{current_index==index?'choose':''}}" wx:for="{{targets}}" bindtap="choose" wx:key="targets">
-    <view>{{item.tip}}</view>
-    <view>{{item.progress}}%</view>
-  </view>
-  <view class="target"></view>
-  <view class="add" bindtap="add">+</view>
-</view>
