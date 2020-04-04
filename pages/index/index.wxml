@@ -5,11 +5,10 @@
     <!-- 3.当 open 为 true 时，会加上类名为 c-state 和 cover 的 css 样式 -->
     <!-- bindtouchstart、 bindtouchmove、bindtouchend -->
 
-<image bindtap="tap_ch" src="/images/3.jpg" class="StatusBarImage"></image>
- <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start"
+  <image bindtap="tap_ch" src="/images/3.jpg" class="StatusBarImage"></image>
+<view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start"
        class="page-top {{open ? ['c-state','cover'] : ''}} ">
-
-  <view class="slider_page">
+   <view class="slider_page"> 
      <view class="pages">
        <view class="single_page">
        <text class="font"> 我的森林</text>
@@ -38,7 +37,9 @@
 <view class="Tree"></view>
 <button class="button" >打卡</button>
 <view class="TimeNumber">{{date}}</view>
-<target class="target_1"></target>
+<view class="view_2">
+<view class="view_3">氪金专区</view></view>
+<target class="ButtomTarget"></target>
 
 
 

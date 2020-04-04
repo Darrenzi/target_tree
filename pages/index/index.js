@@ -114,14 +114,14 @@ Page({
     // touchmove事件
     this.data.newmark = e.touches[0].pageX;
 
-    // 手指从右向左移动
-    if (this.data.mark > this.data.newmark) {
-      this.istoright = true;
-    }
-
     // 手指从左向右移动
     if (this.data.mark < this.data.newmark) {
       this.istoright = false;
+    }
+
+    // 手指从右向左移动
+    if (this.data.mark > this.data.newmark) {
+      this.istoright = true;
     }
     this.data.mark = this.data.newmark;
   },

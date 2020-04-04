@@ -1,8 +1,8 @@
 .contianer{
   display: flex;
   overflow-x: scroll;
-  width: 100%;
-  margin-top: 160rpx;
+	background:#c5bcee;
+	width:100%;
 }
 .target{
   /* 目标框 */
