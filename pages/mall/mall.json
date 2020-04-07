@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "inform":"../../components/inform/inform",
+    "confirm":"../../components/confirm/confirm",
+    "loading":"../../components/loading/loading"
+  }
+}
