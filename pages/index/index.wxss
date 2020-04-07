@@ -1,1 +1,145 @@
-/* pages/index/index.wxss */
+.a{
+  height: 1200rpx;
+  width:1000rpx;
+  background-color: green;
+}
+.hide{
+  display: none;
+}
+.show{
+  display: block;
+}
+.text{
+  height: 100rpx;
+  width: 200rpx;
+  background-color: rebeccapurple;
+}
+
+.StatusBarImage{
+  height: 120rpx;
+  width: 110rpx;
+  position: absolute;
+  z-index: 0;
+  top: 0rpx;
+}
+
+.slider_page{
+    height: 100%;
+    width: 500rpx;
+    position: absolute;
+    background-color:rgb(93, 233, 210);
+    z-index: 20;
+    margin-right: 100rpx;
+    top: -100rpx;
+}
+
+.pages{
+ padding-top: 60rpx;
+ z-index: 5
+}
+
+.single_page{
+  background-color: rgba(93, 233, 210, 0.836);
+  padding: 30rpx 30rpx 30rpx 100rpx;
+  border-bottom: 1px solid rgb(196, 23, 52); 
+  z-index: -1 auto
+}
+
+/* 拖动状态栏的函数 */
+.c-state {
+    transform: rotate(0) scale(1) translate(-85%, 0rpx);
+    -webkit-transform: rotate(0) scale(1) translate(-85%, 0rpx);
+}
+
+.page-top {
+    height: 100%;
+    position: fixed;
+    width: 0rpx;
+    background-color:white;
+    z-index: 10;
+    transition:  all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+}
+
+/* 图片样式 */
+.page-top image{
+    position: relative;
+    width: 20rpx;
+    height: 20rpx;
+    left: 20rpx;
+    top: 20rpx;
+}
+
+/* 拖动后的样式 */
+.cover{
+    width: 5%;
+    height: 40%;
+    background-color:rgba(250, 250, 250, 0);
+    opacity: 0;  
+    z-index: -1;
+}
+
+.content{
+    margin-top: 100rpx; 
+}
+
+.font_class{
+display: flex;
+color: burlywood
+}
+
+.Targetschedule{
+ width: 600rpx;
+ height: 20rpx;
+ margin-left:150rpx; 
+ margin-top: 100rpx;
+ opacity: 0.6
+}
+
+.Tree{
+  height: 400rpx;
+  width: 400rpx;
+  border-radius: 400rpx;
+  background-color: blue;
+  margin-top: 100rpx;
+  margin-left: 175rpx;
+}
+.button{
+  margin-top: 50rpx;
+  background-color: pink;
+  opacity: 0.6;
+  color: black
+}
+.view_1{
+  height: 100rpx;
+  width: 100%;
+}
+
+.TimeNumber{
+  font-size: 60rpx;
+  color: black;
+  margin-left: 300rpx;
+}
+
+.ButtomTarget{
+  bottom: 0rpx;
+  margin-bottom: 0rpx;
+  position: absolute;
+  width: 100%;
+}
+
+.view_2{
+  height:100rpx;
+  width: 400rpx;
+  border-radius: 20rpx;
+  background-color: rgba(51, 142, 226, 0.596);
+  color: rgba(93, 134, 15, 0.897);
+  margin-left: 200rpx;
+  font-size: 30px;
+  margin-top: 50rpx;
+}
+.view_3{
+  margin-left: 100rpx;
+}
+
+
