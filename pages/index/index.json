@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "delete_tree":"/components/delete_tree/delete_tree/",
-    "target":"/components/target/target/"
+    "delete_tree":"../../components/delete_tree/delete_tree/",
+    "target":"../../components/target/target/",
+    "inform":"../../components/inform/inform",
+    "confirm":"../../components/confirm/confirm"
   }
 }

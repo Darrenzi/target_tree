@@ -1,0 +1,11 @@
+<!--components/confirm/confirm.wxml-->
+<view class="container" wx:if="{{content!=''&&title!=''}}">
+  <view class="inform">
+    <view class="title">{{title}}</view>
+    <view class="content">{{content}}</view>
+    <view class="button_container">
+      <view class="button" bindtap="confirm">确定</view>
+      <view class="button cancel" bindtap="close">取消</view>
+    </view>
+  </view>
+</view>

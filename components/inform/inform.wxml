@@ -1,0 +1,7 @@
+<!--components/inform/inform.wxml-->
+<view class="container" wx:if="{{content!=''}}">
+  <view class="inform">
+    <view class="title">{{content}}</view>
+    <view class="button" bindtap="close">好</view>
+  </view>
+</view>

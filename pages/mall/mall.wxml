@@ -1,0 +1,59 @@
+<!--pages/mall/mall.wxml-->
+<!-- 显示加载 -->
+<loading content="{{loadContent}}"></loading>
+<!-- 通知 -->
+<inform content="{{inform}}"></inform>
+<!-- 确认 -->
+<confirm content="{{confirm.content}}" title="{{confirm.title}}" bindconfirm="confirm"></confirm>
+
+<view class="top">
+  <view class="back">《</view>
+  <view class="top_title">商城</view>
+  <view class="top_button_container">
+    <view class="top_button top_choose">经典树种</view>
+    <view class="top_button" bindtap="topChoose">高级树种</view>
+  </view>
+</view>
+
+<view class="main">
+  <view class="tip">累积金币解锁各式树苗，缤纷您的目标森林！</view>
+
+  <view class="last">
+    <image src="images/show.jpg"></image>
+  </view>
+  <view class="price">
+    200
+    <image class="coin" src="images/coin.png"></image>
+  </view>
+
+  <view class="tree_container">
+    <view class="tree" wx:for="{{trees}}" wx:key="tree" data-tree="{{item}}" bindtap="choose">
+      <view class="tree_top">
+        <image src="{{item.path[0]}}"></image>
+        <view>{{item.name}}</view>
+      </view>
+      <view class="price">
+        {{item.price}}
+        <image class="coin" src="images/coin.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="detail_container" wx:if="{{current != null}}" bindtap="closeDetail">
+  <view class="detail" catchtap>
+    <image class="detail_main_images" src="{{current.path[0]}}" ></image>
+    <view class="detail_title">{{current.name}}</view>
+    <view class="detail_content">{{current.desc}}</view>
+    <view class="detail_images">
+      <view class="detail_images_item" wx:for="{{current.path}}" wx:key="path">
+        <image src="{{item}}"></image>
+        {{progress[index]}}
+      </view>
+    </view>
+  </view>
+  <view class="button" catchtap="buy">
+    {{current.price}}
+    <image class="coin" src="images/coin.png"></image>
+  </view>
+</view>
