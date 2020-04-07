@@ -20,7 +20,8 @@
   width: 110rpx;
   position: absolute;
   z-index: 0;
-  top: 0rpx;
+  top: 20rpx;
+  margin-left: 10rpx;
 }
 
 .slider_page{
@@ -30,7 +31,7 @@
     background-color:rgb(93, 233, 210);
     z-index: 20;
     margin-right: 100rpx;
-    top: -100rpx;
+    top: -178rpx;
 }
 
 .pages{
@@ -92,7 +93,7 @@ color: burlywood
  width: 600rpx;
  height: 20rpx;
  margin-left:150rpx; 
- margin-top: 100rpx;
+ margin-top: 180rpx;
  opacity: 0.6
 }
 
@@ -132,14 +133,14 @@ color: burlywood
   height:100rpx;
   width: 400rpx;
   border-radius: 20rpx;
-  background-color: rgba(51, 142, 226, 0.596);
-  color: rgba(93, 134, 15, 0.897);
+  background-color: rgba(94, 226, 105, 0.596);
+  color: rgba(241, 95, 217, 0.897);
   margin-left: 200rpx;
   font-size: 30px;
   margin-top: 50rpx;
 }
 .view_3{
-  margin-left: 100rpx;
+  margin-left: 80rpx;
 }
 
 

@@ -31,15 +31,17 @@
     </view>
   </view>
 </view>
+
 <view>
-<progress percent="60" show-info="true" color="pink" stroke-width="100rpx" border-radius="20rpx"  active="true" class="Targetschedule"></progress>
+<target class="ButtomTarget"></target>
+<progress percent="target.item.progress" show-info="true" color="pink" stroke-width="100rpx" border-radius="20rpx"  active="true" class="Targetschedule"></progress>
 </view>
 <view class="Tree"></view>
 <button class="button" >打卡</button>
 <view class="TimeNumber">{{date}}</view>
-<view class="view_2">
-<view class="view_3">氪金专区</view></view>
-<target class="ButtomTarget"></target>
+
+
+
 
 
 

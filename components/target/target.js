@@ -15,7 +15,7 @@ Component({
     current_index:-1,
     targets:[
       {tip:"学习", progress:30},
-      { tip: "学习", progress: 30 },
+      { tip: "学习", progress: 40 },
       { tip: "学习", progress: 30 },
       { tip: "学习", progress: 30 },
       { tip: "学习", progress: 30 },

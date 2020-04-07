@@ -1,5 +1,7 @@
 {
+  "cloud":true,
   "pages": [
+    "pages/FriendSystem/FriendSystem",
     "pages/index/index"
   ],
   "window": {
@@ -7,8 +9,9 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "custom",
     "navigationBarTextStyle": "black",
-    "navigationStyle":"custom"
+    "navigationStyle": "custom"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
+  
 }

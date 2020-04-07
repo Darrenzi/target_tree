@@ -1,0 +1,22 @@
+<view class="page">
+<view class="SideNavigationBar">
+<view class="single_page" bindtap="ChangeShowStatus">
+<text class="font_class">好友列表
+</text></view>
+<view class="single_page" bindtap="ChangeShowStatus_2">
+<text class="font_class">我的排名
+</text></view>
+<view class="single_page" bindtap="ChangeShowStatus_3">
+<text class="font_class">列表排名
+</text></view>
+</view>
+ </view>
+ <view class="hide{{change_1?'':'show'}}">
+<view class="Halfcircle" bindtap="ChangeShowStatus"></view></view>
+ <view class="hide{{change_2?'':'show'}}">
+<view class="Halfcircle_1" bindtap="ChangeShowStatus_2"></view></view>
+ <view class="hide{{change_3?'':'show'}}">
+<view class="Halfcircle_2" bindtap="ChangeShowStatus_3"></view></view>
+<view class="Friend"><view class="line"></view></view>
+
+

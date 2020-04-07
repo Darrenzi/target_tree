@@ -1,0 +1,97 @@
+/* pages/FriendSystem/FriendSystem.wxss */
+
+.SideNavigationBar{
+ height: 100%;
+  width:22%;
+  position: fixed;
+  z-index: 0;
+}
+
+.single_page{
+  display: block;
+  height: 33.3%;
+  width: 100%;
+  position: relative;
+  background-color: rgba(52, 228, 161, 0.849);
+  border-bottom:  2px solid rgb(23, 127, 212);
+  border-radius: 3rpx;
+
+}
+
+.Halfcircle{
+  height: 200rpx;
+  width: 200rpx;
+  border-radius: 200rpx;
+  background-color: white;
+  display: block;
+  position: absolute;
+  margin-top: 20%;
+  left: 100rpx;
+  justify-content: center;
+  z-index: 1
+}
+.Halfcircle_1{
+  height: 200rpx;
+  width: 200rpx;
+  border-radius: 200rpx;
+  background-color: white;
+  display: block;
+  position: absolute;
+  margin-top: 90%;
+  left: 100rpx;
+  justify-content: center;
+  z-index: 1
+}
+.Halfcircle_2{
+  height: 200rpx;
+  width: 200rpx;
+  border-radius: 200rpx;
+  background-color: white;
+  display: block;
+  position: absolute;
+  margin-top: 170%;
+  left: 100rpx;
+  justify-content: center;
+  z-index: 1
+}
+.font_class{
+  font-size: 50rpx;
+  color: white;
+  display: flex;
+  writing-mode: vertical-lr;
+  margin-left: 40rpx;
+  position: relative;
+  top: 130rpx;
+  justify-content: center;
+  left: 5rpx;
+}
+.show{
+  display: block
+}
+
+.hide{
+  display: none
+}
+
+.Friend{
+  height: 300rpx;
+  width: 430rpx;
+  border: 1rpx;
+  border-radius: 50rpx;
+  border-color: antiquewhite;
+  position: absolute;
+  background-color: rgba(0, 255, 255, 0.488);
+  margin-top: 22%;
+  margin-left: 29%;
+  z-index: 3;
+}
+.line{
+  z-index: 4;
+  width: 410rpx;
+  left: 10rpx;
+  right: 10rpx;
+  top: 200rpx;
+  position: absolute;
+  height: 8rpx;
+  background-color: red;
+}
