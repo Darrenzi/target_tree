@@ -1,7 +1,6 @@
 {
- 
+  "cloud":true,
   "pages": [
-
     "pages/FriendSystem/FriendSystem",
     "pages/mall/mall",
     "pages/index/index"
@@ -13,7 +12,6 @@
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },
-  "cloud": true,
   "style": "v2",
   "sitemapLocation": "sitemap.json"
   

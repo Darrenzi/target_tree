@@ -1,67 +1,45 @@
-wx. cloud. init()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-     change_1:true,
+     change_1:false,
      change_2:true,
      change_3:true,
      navList:[],
   },
-
-  getNavList(){
-    let that=this;
-    wx.request({
-      url: 'http://www.phonegap100.com/appapi.php?a=getPortalCate',
-      success(res){
-        console.log(res.data.result)
-         if(true){
-          that.setData({
-            navList:res.data.result
-          })
-      }
-      }
-    })
-  },
-
-
-
 
   
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getNavList();
-
+    wx.cloud.callFunction({
+      name: 'friend',
+      complete: res => {
+        console.log('callFunction test result: ', res)
+        var that=this
+        that.setData({
+          navList:res.result.data
+        })
+      }
+    }) 
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.cloud.callFunction({
-      // 云函数名称
-      name: 'add',
-      // 传给云函数的参数
-      data: {
-        a: 1,
-        b: 2,
-      },
-      success: function(res) {
-        console.log(res.result.sum) // 3
-      },
-      fail: console.error
-    })
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+  
   },
 
   /**
@@ -102,7 +80,7 @@ Page({
   ChangeShowStatus:function(){
     var that = this
     that.setData({
-      change_1: (!that.data.change_1),
+      change_1:false,
       change_2: true,
       change_3:true
     })

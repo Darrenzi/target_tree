@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
   background: rgba(77, 77, 77, 0.712);
-  z-index:10;
+  z-index:20;
 }
 .inform{
   background: white;

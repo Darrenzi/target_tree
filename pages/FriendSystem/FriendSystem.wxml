@@ -11,12 +11,22 @@
 </text></view>
 </view>
  </view>
+ 
  <view class="hide{{change_1?'':'show'}}">
-<view class="Halfcircle" bindtap="ChangeShowStatus"></view></view>
+<view class="Halfcircle" bindtap="ChangeShowStatus"></view>
+<view > <block wx:for="{{navList[0]}}" wx:for-index="idx" wx:if="{{idx!='_id'}}" >
+<view class="Friend"><view class="line"></view><text class="fontstyle">{{idx}}:{{item}}</text>
+</view>
+</block></view>
+</view>
+
+
  <view class="hide{{change_2?'':'show'}}">
 <view class="Halfcircle_1" bindtap="ChangeShowStatus_2"></view></view>
  <view class="hide{{change_3?'':'show'}}">
 <view class="Halfcircle_2" bindtap="ChangeShowStatus_3"></view></view>
-<view class="Friend"><view class="line"></view></view>
+
+
+
 
 

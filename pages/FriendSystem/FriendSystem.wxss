@@ -5,6 +5,9 @@
   width:22%;
   position: fixed;
   z-index: 0;
+  top:-10rpx ;
+  bottom: 0rpx;
+
 }
 
 .single_page{
@@ -24,8 +27,8 @@
   border-radius: 200rpx;
   background-color: white;
   display: block;
-  position: absolute;
-  margin-top: 20%;
+  position: fixed;
+  top:5% ;
   left: 100rpx;
   justify-content: center;
   z-index: 1
@@ -36,7 +39,7 @@
   border-radius: 200rpx;
   background-color: white;
   display: block;
-  position: absolute;
+  position: fixed;
   margin-top: 90%;
   left: 100rpx;
   justify-content: center;
@@ -48,8 +51,8 @@
   border-radius: 200rpx;
   background-color: white;
   display: block;
-  position: absolute;
-  margin-top: 170%;
+  position: fixed;
+  margin-top: 150%;
   left: 100rpx;
   justify-content: center;
   z-index: 1
@@ -65,6 +68,13 @@
   justify-content: center;
   left: 5rpx;
 }
+
+.fontstyle{
+  font-size: 60rpx;
+  margin-left: 80rpx;
+  margin-top: 60rpx;
+  position: absolute;
+}
 .show{
   display: block
 }
@@ -75,23 +85,40 @@
 
 .Friend{
   height: 300rpx;
-  width: 430rpx;
-  border: 1rpx;
+  width: 500rpx;
+  border: 2rpx;
+  box-shadow: 0rpx 5rpx 5rpx rgba(220, 99, 155, 0.541);
   border-radius: 50rpx;
   border-color: antiquewhite;
-  position: absolute;
+  position: relative;
   background-color: rgba(0, 255, 255, 0.488);
-  margin-top: 22%;
-  margin-left: 29%;
+  margin-left: 30%;
   z-index: 3;
+  top: 7%;
+  margin-top: 21%;
+  margin-bottom: 5%;
 }
+
+.VerticalShape{
+  position: relative;
+  align-items: center;
+  margin-left: 20%;
+  top: 200rpx;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 30%;
+  background-color: rgba(235, 54, 41, 0.849);
+  
+}
+
 .line{
   z-index: 4;
   width: 410rpx;
-  left: 10rpx;
+  left: 42rpx;
   right: 10rpx;
   top: 200rpx;
   position: absolute;
-  height: 8rpx;
+  height: 6rpx;
   background-color: red;
 }
