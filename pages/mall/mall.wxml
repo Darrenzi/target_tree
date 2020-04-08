@@ -42,7 +42,7 @@
 
 <view class="detail_container" wx:if="{{current != null}}" bindtap="closeDetail">
   <view class="detail" catchtap>
-    <image class="detail_main_images" src="{{current.path[0]}}" ></image>
+    <image class="detail_main_images" src="{{current.path[1]}}" ></image>
     <view class="detail_title">{{current.name}}</view>
     <view class="detail_content">{{current.desc}}</view>
     <view class="detail_images">
@@ -57,3 +57,4 @@
     <image class="coin" src="images/coin.png"></image>
   </view>
 </view>
+

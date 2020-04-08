@@ -1,0 +1,6 @@
+<!--pages/register/register.wxml-->
+<view class="container">
+  <view>心里有树~</view>
+  <button class="getUserInfo"  open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+</view>
+<loading content="{{loadingContent}}"></loading>
