@@ -1,10 +1,11 @@
 {
-  "cloud":true,
+  "cloud": true,
   "pages": [
+    "pages/index/index",
     "pages/FriendSystem/FriendSystem",
     "pages/mall/mall",
     "pages/register/register",
-    "pages/index/index"
+    "pages/gold/gold"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,5 +16,4 @@
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
-  
 }

@@ -12,6 +12,33 @@ Page({
   },
 
   
+  
+  changeShowStatus:function(){
+    var that = this
+    that.setData({
+      change_1:false,
+      change_2: true,
+      change_3:true
+    })
+  },
+
+  changeShowStatus_2: function () {
+    var that = this
+    that.setData({
+      change_1: true,
+      change_2:false,
+      change_3: true
+    })
+  },
+  changeShowStatus_3: function () {
+    var that = this
+    that.setData({
+      change_1: true,
+      change_2: true,
+      change_3: false
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -19,10 +46,10 @@ Page({
     wx.cloud.callFunction({
       name: 'friend',
       complete: res => {
-        console.log('callFunction test result: ', res)
+        console.log('callFunction test result: ',res)
         var that=this
         that.setData({
-          navList:res.result.data
+          navList:res
         })
       }
     }) 
@@ -77,30 +104,5 @@ Page({
 
   },
 
-  ChangeShowStatus:function(){
-    var that = this
-    that.setData({
-      change_1:false,
-      change_2: true,
-      change_3:true
-    })
-  },
-
-  ChangeShowStatus_2: function () {
-    var that = this
-    that.setData({
-      change_1: true,
-      change_2: (!that.data.change_2),
-      change_3: true
-    })
-  },
-  ChangeShowStatus_3: function () {
-    var that = this
-    that.setData({
-      change_1: true,
-      change_2: true,
-      change_3: (!that.data.change_3)
-    })
-  }
   
 })

@@ -9,6 +9,9 @@
 <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start"
        class="page-top {{open ? ['c-state','cover'] : ''}} ">
    <view class="slider_page"> 
+   <view>
+   <image src="{{ImageUrl}}"></image>
+   </view>
      <view class="pages">
        <view class="single_page">
        <text class="font"> 我的森林</text>
@@ -17,16 +20,19 @@
        <text class="font"> 目标历程</text>
        </view>
        <view class="single_page">
-       <text class="font"> 目标历程</text>
+       <text class="font"> 最新消息</text>
        </view>
        <view class="single_page">
-       <text class="font"> 目标历程</text>
+       <text class="font"> 小伙伴们</text>
        </view>
        <view class="single_page">
-       <text class="font"> 目标历程</text>
+       <text class="font"> 成就</text>
        </view>
        <view class="single_page">
-       <text class="font"> 目标历程</text>
+       <text class="font"> 商店</text>
+       </view>
+        <view class="single_page">
+       <text class="font"> 设置</text>
        </view>
     </view>
   </view>
@@ -37,7 +43,7 @@
 <progress percent="target.item.progress" show-info="true" color="pink" stroke-width="100rpx" border-radius="20rpx"  active="true" class="Targetschedule"></progress>
 </view>
 <view class="Tree"></view>
-<button class="button" >打卡</button>
+<button class="button" bindtap="ToTarget" >打卡</button>
 <view class="TimeNumber">{{date}}</view>
 
 

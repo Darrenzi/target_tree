@@ -9,11 +9,18 @@ Page({
     mark: 0,
     // newmark 是指移动的最新点的x轴坐标 
     newmark: 0,
-    istoright: true
-  
+    istoright: true,
+    ImageUrl:'',
+    list:[]
   },
 
-
+   getImageUrl:function(){
+     const db=wx.cloud.database()
+     let that=this
+     let app=getApp()
+     var userInfo = e.detail.userInfo;
+     console.log(userInfo)
+   },
   // 生命周期函数--监听页面加载
   onLoad: function (options) {
     showView: (options.showView == "true" ? true : false);

@@ -9,21 +9,31 @@
 .show{
   display: block;
 }
+/* 文本 */
 .text{
   height: 100rpx;
   width: 200rpx;
   background-color: rebeccapurple;
 }
-
+/* 侧边栏按钮 */
 .StatusBarImage{
   height: 120rpx;
   width: 110rpx;
   position: absolute;
   z-index: 0;
-  top: 20rpx;
+  top: 5%;
   margin-left: 10rpx;
 }
-
+/* 头像图片 */
+.portrait{
+  height: 70rpx;
+  width: 200rpx;
+  position: relative;
+  margin-left: 100rpx;
+  margin-top: 80rpx;
+  padding:  0 0 0rpx 0rpx;
+  display: block;
+}
 .slider_page{
     height: 100%;
     width: 500rpx;
@@ -35,15 +45,18 @@
 }
 
 .pages{
- padding-top: 60rpx;
+ padding-top: 150rpx;
  z-index: 5
 }
 
 .single_page{
   background-color: rgba(93, 233, 210, 0.836);
-  padding: 30rpx 30rpx 30rpx 100rpx;
-  border-bottom: 1px solid rgb(196, 23, 52); 
-  z-index: -1 auto
+  padding: 80rpx 78rpx 78rpx 80rpx;
+  border-bottom: 1px solid rgb(235, 129, 147); 
+  z-index: -1 auto;
+  position: relative;
+  height: 14%;
+
 }
 
 /* 拖动状态栏的函数 */
@@ -84,9 +97,10 @@
     margin-top: 100rpx; 
 }
 
-.font_class{
+.font{
 display: flex;
-color: burlywood
+color: rgb(81, 88, 9);
+font-size: large;
 }
 
 .Targetschedule{
