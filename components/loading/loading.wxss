@@ -20,6 +20,8 @@
   flex-direction: column;
   justify-items: center;
   align-items: center;
+  font-size: 35rpx;
+  color:gray;
 }
 image{
   width: 320rpx;

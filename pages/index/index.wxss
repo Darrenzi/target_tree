@@ -1,160 +1,168 @@
-.a{
-  height: 1200rpx;
-  width:1000rpx;
-  background-color: green;
+/* pages/index/index.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background: rgb(57, 163, 103);
+  overflow-y: scroll;
+  color:white;
 }
-.hide{
-  display: none;
+/* 左侧选则框 */
+.left{
+  position: fixed;
+  z-index:7;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(61, 61, 61, 0.74);
 }
-.show{
-  display: block;
-}
-/* 文本 */
-.text{
-  height: 100rpx;
-  width: 200rpx;
-  background-color: rebeccapurple;
-}
-/* 侧边栏按钮 */
-.StatusBarImage{
-  height: 120rpx;
-  width: 110rpx;
-  position: absolute;
-  z-index: 0;
-  top: 5%;
-  margin-left: 10rpx;
-}
-/* 头像图片 */
-.portrait{
-  height: 70rpx;
-  width: 200rpx;
-  position: relative;
-  margin-left: 100rpx;
-  margin-top: 80rpx;
-  padding:  0 0 0rpx 0rpx;
-  display: block;
-}
-.slider_page{
-    height: 100%;
-    width: 500rpx;
-    position: absolute;
-    background-color:rgb(93, 233, 210);
-    z-index: 20;
-    margin-right: 100rpx;
-    top: -178rpx;
-}
-
-.pages{
- padding-top: 150rpx;
- z-index: 5
-}
-
-.single_page{
-  background-color: rgba(93, 233, 210, 0.836);
-  padding: 80rpx 78rpx 78rpx 80rpx;
-  border-bottom: 1px solid rgb(235, 129, 147); 
-  z-index: -1 auto;
-  position: relative;
-  height: 14%;
-
-}
-
-/* 拖动状态栏的函数 */
-.c-state {
-    transform: rotate(0) scale(1) translate(-85%, 0rpx);
-    -webkit-transform: rotate(0) scale(1) translate(-85%, 0rpx);
-}
-
-.page-top {
-    height: 100%;
-    position: fixed;
-    width: 0rpx;
-    background-color:white;
-    z-index: 10;
-    transition:  all 0.2s ease;
-    -webkit-transition: all 0.2s ease;
-}
-
-/* 图片样式 */
-.page-top image{
+@keyframes letf_options_in{
+  /* 左侧选择框出现动画 */
+  0%{
     position: relative;
-    width: 20rpx;
-    height: 20rpx;
-    left: 20rpx;
-    top: 20rpx;
+    left: -60%;
+  }
+  100%{
+    position: relative;
+    left: 0;
+  }
+}
+.left_container{
+  height: 100%;
+  width: 60%;
+  background: rgb(57, 163, 103);
+  color:white;
+  animation: letf_options_in 0.5s;
+}
+.left_top{
+  height: 220rpx;
+  width: 100%;
+  background: rgb(36, 109, 67);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.user_icon{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 100%;
+  border:5rpx solid white;
+}
+.user_nu{
+  font-size: 40rpx;
+  max-width: 50%;
+  word-break: break-all;/*允许在单词内换行*/
+  text-align: left;
+  line-height: 45rpx;
+  text-overflow: -o-ellipsis-lastline;/*css3中webkit内核提供的一个方法类似ellipsis*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;/*自适应盒子*/
+  -webkit-line-clamp: 1;/*此处为1行,如果是两行就改成2*/
+  -webkit-box-orient: vertical;
+}
+.left_option{
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35rpx;
+}
+.left_option:active{
+  background: rgb(36, 109, 67);
 }
 
-/* 拖动后的样式 */
-.cover{
-    width: 5%;
-    height: 40%;
-    background-color:rgba(250, 250, 250, 0);
-    opacity: 0;  
-    z-index: -1;
+/* 左上角按钮 */
+.options{
+  position: absolute;
+  top: 80rpx;
+  left: 40rpx;
+  width: 100rpx;
+}
+.line{
+  width: 60rpx;
+  height: 10rpx;
+  background: white;
+  margin-top:5rpx;
 }
 
-.content{
-    margin-top: 100rpx; 
+.top{
+  width: 100%;
+  height: 10%;
+  min-height: 150rpx;
 }
-
-.font{
-display: flex;
-color: rgb(81, 88, 9);
-font-size: large;
+.main{
+  width: 100%;
+  height: 72%;
+  min-height: 920rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
-.Targetschedule{
- width: 600rpx;
- height: 20rpx;
- margin-left:150rpx; 
- margin-top: 180rpx;
- opacity: 0.6
+.containerOfProgress{
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
-
-.Tree{
-  height: 400rpx;
-  width: 400rpx;
-  border-radius: 400rpx;
-  background-color: blue;
-  margin-top: 100rpx;
-  margin-left: 175rpx;
+progress{
+  width: 55%;
+  margin-top:10rpx;
+  margin-bottom: 50rpx;
+  border-radius: 20rpx;
+  box-shadow: 5rpx 5rpx 5rpx 5rpx rgb(196, 196, 196);
+}
+.progress_icon{
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  margin-top:-20rpx;
+  margin-left: -200rpx;
+}
+.tree{
+  width: 430rpx;
+  height: 430rpx;
+  border-radius: 100%;
+  border:30rpx solid rgb(212, 212, 79);
+  background: rgb(252, 238, 158);
+}
+.target_title{
+  width: 70%;
+  min-height: 150rpx;
+  height: 18%;
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-top:30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .button{
-  margin-top: 50rpx;
-  background-color: pink;
-  opacity: 0.6;
-  color: black
-}
-.view_1{
+  position: relative;
+  margin-top:30rpx;
+  background: rgb(212, 212, 79);
+  box-shadow: 5rpx 5rpx 5rpx 5rpx rgb(173, 173, 56);
+  width: 280rpx;
   height: 100rpx;
+  display: flex;
+  font-size: 35rpx;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  border-radius: 10rpx;  
+}
+.button:active{
+  top:5rpx;
+  box-shadow: none;
+}
+
+.bottom{
+  display: flex;
+  align-items: center;
   width: 100%;
+  min-height: 210rpx;
+  height: 18%;
 }
-
-.TimeNumber{
-  font-size: 60rpx;
-  color: black;
-  margin-left: 300rpx;
-}
-
-.ButtomTarget{
-  bottom: 0rpx;
-  margin-bottom: 0rpx;
-  position: absolute;
-  width: 100%;
-}
-
-.view_2{
-  height:100rpx;
-  width: 400rpx;
-  border-radius: 20rpx;
-  background-color: rgba(94, 226, 105, 0.596);
-  color: rgba(241, 95, 217, 0.897);
-  margin-left: 200rpx;
-  font-size: 30px;
-  margin-top: 50rpx;
-}
-.view_3{
-  margin-left: 80rpx;
-}
-
-

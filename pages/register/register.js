@@ -56,7 +56,7 @@ Page({
           that.setData({ loadingContent:''});
           //注册后跳转的界面
           wx.redirectTo({
-            url: '../mall/mall',
+            url: '../index/index',
           })
         })
       },

@@ -4,8 +4,7 @@
     "pages/index/index",
     "pages/FriendSystem/FriendSystem",
     "pages/mall/mall",
-    "pages/register/register",
-    "pages/gold/gold"
+    "pages/register/register"
   ],
   "window": {
     "backgroundTextStyle": "light",
