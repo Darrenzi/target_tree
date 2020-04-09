@@ -16,54 +16,8 @@ App({
       //判断是否注册
       if (res.data.length == 0) {
         console.log("用户还未注册");
-        //获取用户信息进行注册
-        wx.getUserInfo({
-          success: function (res) {
-            // console.log(res);
-            var userInfo = res.userInfo
-            var nickName = userInfo.nickName
-            var avatarUrl = userInfo.avatarUrl
-            var gender = userInfo.gender //性别 0：未知、1：男、2：女
-            var province = userInfo.province
-            var city = userInfo.city
-            switch (gender) {
-              case 0: {
-                gender = "未知";
-                break;
-              }
-              case 1: {
-                gender = "男";
-                break;
-              }
-              case 2: {
-                gender = "女";
-                break;
-              }
-            }
-            city = province + ' ' + city;
-            db.collection('user').add({
-              data: {
-                un: nickName,
-                gender: gender,
-                city: city,
-                //头像图片
-                avatarUrl: avatarUrl,
-                phone: "",
-                tools: [],
-                coin: 0
-              },
-              success: function (res) {
-                console.log(res);
-                db.collection('user').get().then(res=>{
-                  that.globalData.user = res.data[0];
-                  console.log(that.globalData.user);
-                })
-              }
-            })
-          },
-          fail: function () {
-            console.log("获取用户信息失败");
-          }
+        wx.navigateTo({
+          url: '../register/register',
         })
       } else {
         //已注册

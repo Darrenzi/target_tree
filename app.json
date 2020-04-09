@@ -3,6 +3,7 @@
   "pages": [
     "pages/FriendSystem/FriendSystem",
     "pages/mall/mall",
+    "pages/register/register",
     "pages/index/index"
   ],
   "window": {
