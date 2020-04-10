@@ -7,7 +7,7 @@
 <confirm content="{{confirm.content}}" title="{{confirm.title}}" bindconfirm="confirm"></confirm>
 
 <view class="top">
-  <view class="back">《</view>
+  <view class="back" bindtap="backHome">《</view>
   <view class="top_title">商城</view>
   <view class="top_button_container">
     <view class="top_button top_choose">经典树种</view>

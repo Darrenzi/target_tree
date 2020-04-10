@@ -12,15 +12,8 @@ Component({
    */
   data: {
     //当前选中的目标的索引值
-    current_index:-1,
-    targets:[
-      {tip:"学习", progress:30},
-      { tip: "学习", progress: 40 },
-      { tip: "学习", progress: 30 },
-      { tip: "学习", progress: 30 },
-      { tip: "学习", progress: 30 },
-      { tip: "学习end", progress: 30 },
-    ]
+    current_index:0,
+    targets:[]
   },
 
   /**
@@ -47,6 +40,26 @@ Component({
   },
   
   created:function(){
+    const db = wx.cloud.database();
+    let that = this;
+    db.collection('target').get().then(
+      res=>{
+        var targets = [];
+        targets.push(res.data[0]);
+        targets.push(res.data[0]);
+        that.setData({targets:targets});
 
+        // that.setData({targets:res.data});
+
+        //默认选中第一个目标
+        var target = res.data[0];
+        var eventDetail = { target: target } // detail对象，提供给事件监听函数
+        var eventOption = {} // 触发事件的选
+        this.triggerEvent('choose', eventDetail, eventOption)
+      },
+      err=>{
+        console.log('获取目标失败');
+      }
+    )
   }
 })

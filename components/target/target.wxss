@@ -1,35 +1,53 @@
 .contianer{
   display: flex;
+  align-items: center;
+  height: 210rpx;
+  width: 75%;
+  position: relative;
   overflow-x: scroll;
-	background:#c5bcee;
-	width:100%;
+  font-size: 35rpx;
+  color:white;
 }
 .target{
   /* 目标框 */
-  min-width: 22.5%;
-  height:200rpx;
-  border: 1rpx solid black;
+  min-width: 160rpx;
+  height: 180rpx;
+  border: 2rpx solid rgb(212, 212, 79);
+  border-radius: 10rpx;
   text-align: center;
-  margin-left: 1%;
-  margin-right: 1%;
+  margin-left: 12rpx;
+  margin-right: 12rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.targetChoose{
+  /* 目标被选中时的样式 */
+  background: rgb(212, 212, 79);
+}
+.targetLabel{
+  width: 80%;
+  font-size: 38rpx;
+  border-radius: 30rpx;
 }
 .add{
   /* 添加框 */
-  background: rgb(35, 223, 230);
+  background: rgb(212, 212, 79);
   position: absolute;
-  right: 0;
-  min-width: 24%;
-  height:200rpx;
-  border: 1rpx solid black;
+  min-width: 160rpx;
+  height:185rpx;
+  right: 10rpx;
   text-align: center;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100rpx;
+  font-weight: bolder;
 }
 .add:active{
   /* 添加按钮被点击时 */
-  background: rgb(19, 165, 223);
-  color:white;
-}
-.choose{
-  /* 目标被选中时的样式 */
-  background: red;
+  background: rgb(57, 163, 103);
   color:white;
 }

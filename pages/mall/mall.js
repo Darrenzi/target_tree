@@ -18,6 +18,10 @@ Page({
     }
   },
 
+  backHome:function(){
+    wx.navigateBack({});
+  },
+
   topChoose:function(){
     //选中经典树苗或高级
     let inform = "此功能暂未开放，敬请期待..."
@@ -95,7 +99,7 @@ Page({
     wx.cloud.callFunction({
       "name":"getTree",
       success:function(res){
-        // console.log(res);
+        console.log(res);
         that.setData({trees:res.result.data, loadContent:""});
       }
     })
