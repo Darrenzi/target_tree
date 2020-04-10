@@ -71,7 +71,7 @@
 
 .fontstyle{
   font-size: 60rpx;
-  margin-left: 80rpx;
+  margin-left: 130rpx;
   margin-top: 60rpx;
   position: absolute;
 }
@@ -91,7 +91,7 @@
   border-radius: 50rpx;
   border-color: antiquewhite;
   position: relative;
-  background-color: rgba(0, 255, 255, 0.488);
+  background-color: rgba(98, 160, 231, 0.789);
   margin-left: 30%;
   z-index: 3;
   top: 7%;
@@ -120,5 +120,15 @@
   top: 200rpx;
   position: absolute;
   height: 6rpx;
-  background-color: red;
+  background-color: rgba(206, 57, 186, 0.508);
 }
+
+.portrait{ height: 120rpx;
+width: 110rpx;
+position: absolute;
+z-index: 10;
+top: 5%;
+margin-left: 15rpx;
+border-radius: 40rpx;
+margin-top: 25rpx
+;}

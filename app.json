@@ -1,11 +1,11 @@
 {
   "cloud": true,
   "pages": [
-    "pages/index/index",
     "pages/FriendSystem/FriendSystem",
+    "pages/index/index",
+   "pages/createTarget/createTarget",
     "pages/mall/mall",
-    "pages/register/register",
-    "pages/gold/gold"
+    "pages/register/register"
   ],
   "window": {
     "backgroundTextStyle": "light",

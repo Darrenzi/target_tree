@@ -1,74 +1,32 @@
-
+// pages/createTarget/createTarget.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-     change_1:false,
-     change_2:true,
-     change_3:true,
-     navList:[],
-  
-  },
- 
 
-  
-  ChangeShowStatus:function(){
-    
-    var that = this
-    that.setData({
-      change_1:false,
-      change_2: true,
-      change_3:true
-    })
-    
-  },
-
-  ChangeShowStatus_2: function () {
-    var that = this
-    that.setData({
-      change_1: true,
-      change_2:false,
-      change_3: true
-    })
-  },
-  ChangeShowStatus_3: function () {
-    var that = this
-    that.setData({
-      change_1: true,
-      change_2: true,
-      change_3: false
-    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.cloud.callFunction({
-      name: 'friend',})
-      .then(res=>{
-        console.log(res)
-        this.setData({
-          navList:res.result.list,
-        })
-       
-      })
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
@@ -104,7 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  
+  }
 })

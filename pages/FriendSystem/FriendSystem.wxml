@@ -1,5 +1,5 @@
-<view class="page">
-<view class="SideNavigationBar">
+<view class="page"> 
+ <view class="SideNavigationBar">
 <view class="single_page" bindtap="ChangeShowStatus">
 <text class="font_class">好友列表
 </text></view>
@@ -15,7 +15,9 @@
  <view class="hide{{change_1?'':'show'}}">
 <view class="Halfcircle" bindtap="ChangeShowStatus"></view>
 <view><block wx:for="{{navList}}" wx:for-index="idx" wx:if="{{idx!='_id'}}">
-<view class="Friend"><view class="line"></view><text class="fontstyle">{{idx+1}}</text>
+<view class="Friend"><view class="line"></view>
+<image class="portrait" src="{{item.friendList[0].avatarUrl}}"></image>
+<text class="fontstyle">:{{item.friendList[0].un}}</text>
 </view>
 </block></view>
 </view>
@@ -24,6 +26,9 @@
 <view class="Halfcircle_1" bindtap="ChangeShowStatus_2"></view></view>
  <view class="hide{{change_3?'':'show'}}">
 <view class="Halfcircle_2" bindtap="ChangeShowStatus_3"></view></view>
+
+
+
 
 
 
