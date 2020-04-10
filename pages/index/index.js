@@ -13,6 +13,8 @@ Page({
     leftOptionsFlag:false,
     //加载表示符，用于控制加载动画,当值为 "" 隐藏
     loadContent: "加载中...",
+    //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
+    informContent:""
   },
 
   //初始化用户信息
@@ -83,6 +85,53 @@ Page({
       }
     }
   },
+
+  record:function(){
+    //打卡
+    this.setData({loadContent:'正在记录...'});
+    const db = wx.cloud.database();
+    const _ = db.command;
+    let that = this;
+    //获取表中最新打卡记录，判断时间，一天只能打卡一次
+    let date = (new Date()).Format("yyyy-MM-dd");
+    db.collection('record').field({ time: true }).orderBy("time", 'desc').limit(1)
+    .get().then(res=>{
+      let lastDate = (res.data[0].time).Format("yyyy-MM-dd");
+      // console.log(date, lastDate);
+      if(lastDate == date){
+        //判断时间，一天只能打卡一次
+        that.setData({informContent:"您今天已经打卡,劳逸结合才能坚持到最后！", loadContent:""});
+      }
+      else{
+        db.collection('record').add({
+          //添加打卡记录
+          data: {
+            target_id: that.data.currentTarget._id,
+            time: new Date()
+          }
+        }).then(res => {
+          // console.log(res);
+          //更新目标表中的打卡记录及任务进度
+          db.collection('target').doc(that.data.currentTarget._id).update({
+            data: {
+              record: _.inc(1),
+              progress: ((that.data.currentTarget.record + 1) / that.data.currentTarget.amount * 100).toFixed(2)
+            }
+          }).then(res => {
+            // console.log(res);
+            let currentTarget = that.data.currentTarget;
+            currentTarget.record += 1;
+            currentTarget.progress = (currentTarget.record / currentTarget.amount * 100).toFixed(2);
+            //更新数据，清空加载动画，设置通知内容
+            that.setData({ currentTarget: currentTarget, loadContent: '', informContent:"打卡成功！坚持的人最美丽！"});
+            //更新组件中的数据
+            that.selectComponent('#target').update(currentTarget);
+          })
+        })
+      }
+    })
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -137,3 +186,25 @@ Page({
 
   }
 })
+
+//对Date类扩充格式化函数
+// (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423   
+// (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18  
+Date.prototype.Format = function (fmt) {
+  var o = {
+    "M+": this.getMonth() + 1,                 //月份   
+    "d+": this.getDate(),                    //日   
+    "h+": this.getHours(),                   //小时   
+    "m+": this.getMinutes(),                 //分   
+    "s+": this.getSeconds(),                 //秒   
+    "q+": Math.floor((this.getMonth() + 3) / 3),  
+    "S": this.getMilliseconds()             //毫秒   
+  };
+  if (/(y+)/.test(fmt))
+    fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+  for (var k in o)
+    if (new RegExp("(" + k + ")").test(fmt))
+      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+  return fmt;
+}
+

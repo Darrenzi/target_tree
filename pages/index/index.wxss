@@ -81,6 +81,7 @@ page{
   top: 80rpx;
   left: 40rpx;
   width: 100rpx;
+  height: 70rpx;
 }
 .line{
   width: 60rpx;
@@ -119,7 +120,7 @@ progress{
   height: 100rpx;
   position: absolute;
   margin-top:-20rpx;
-  margin-left: -200rpx;
+  margin-left: -225rpx;
 }
 .tree{
   width: 430rpx;

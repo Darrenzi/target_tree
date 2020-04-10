@@ -4,7 +4,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    
+    currentTarget:{
+      type:Object,
+      value:null
+    }
   },
 
   /**
@@ -37,6 +40,12 @@ Component({
       targets.unshift( {tip:"new", progress:0});
       this.setData({targets:targets});
     },
+
+    update:function(currentTarget){
+      //用于父组件调用，更新数据
+      let index = this.data.current_index;
+      this.setData({ [`targets[${index}]`]: currentTarget});
+    }
   },
   
   created:function(){
@@ -45,11 +54,7 @@ Component({
     db.collection('target').get().then(
       res=>{
         var targets = [];
-        targets.push(res.data[0]);
-        targets.push(res.data[0]);
-        that.setData({targets:targets});
-
-        // that.setData({targets:res.data});
+        that.setData({targets:res.data});
 
         //默认选中第一个目标
         var target = res.data[0];

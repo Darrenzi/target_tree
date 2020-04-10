@@ -9,7 +9,8 @@
   justify-content: center;
   align-items: center;
   background: rgba(77, 77, 77, 0.712);
-  z-index:20;
+  z-index:10;
+  color:gray;
 }
 .inform{
   background: white;
@@ -28,6 +29,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 .button{
   position: relative;
