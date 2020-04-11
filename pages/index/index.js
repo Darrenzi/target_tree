@@ -68,6 +68,16 @@ Page({
         that.setData({ loadContent: '' });
         break;
       }
+      case'我的好友':{
+         console.log('跳转至我的好友');
+         wx.navigateTo({
+           url: '../FriendSystem/FriendSystem',
+           complete:function(){
+             that.setData({loadContent: ''})
+           }
+         })
+         break;
+      }
       case '商城': {
         console.log('跳转到商城');
         wx.navigateTo({

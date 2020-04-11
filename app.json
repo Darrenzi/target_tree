@@ -3,7 +3,8 @@
   "pages": [
     "pages/FriendSystem/FriendSystem",
     "pages/index/index",
-   "pages/createTarget/createTarget",
+   
+    "pages/createTarget/createTarget",
     "pages/mall/mall",
     "pages/register/register"
   ],

@@ -5,24 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-     change_1:false,
-     change_2:true,
+     change_1:true,
+     change_2:false,
      change_3:true,
      navList:[],
-  
+     userList:[],
+     sortfriend:[],
+     inputValue:''
   },
  
 
   
   ChangeShowStatus:function(){
-    
     var that = this
     that.setData({
       change_1:false,
       change_2: true,
       change_3:true
     })
-    
   },
 
   ChangeShowStatus_2: function () {
@@ -55,6 +55,23 @@ Page({
         })
        
       })
+    wx.cloud.callFunction({
+      name:'stranger',
+    }).then(res=>{
+      console.log(res)
+      this.setData({
+        userList:res.result.data
+      })
+    })
+
+    wx.cloud.callFunction({
+      name:'sort',
+    }).then(res=>{
+      console.log(res)
+      this.setData({
+        sortfriend:res.result.data
+      })
+    })
   },
 
   /**

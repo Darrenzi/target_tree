@@ -11,8 +11,7 @@ exports.main = async (event, context) => {
           foreignField: "_openid",
           as: "friendList"
       })
-      .end()
-        
+    .end()
     }
 
     
