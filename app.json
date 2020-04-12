@@ -1,9 +1,11 @@
 {
   "cloud": true,
   "pages": [
+    "pages/forest/forest",
     "pages/index/index",
-    "pages/FriendSystem/FriendSystem",
     "pages/mall/mall",
+    "pages/history/history",
+    "pages/FriendSystem/FriendSystem",
     "pages/register/register"
   ],
   "window": {

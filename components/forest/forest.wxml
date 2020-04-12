@@ -1,0 +1,76 @@
+<!--components/forest/forest.wxml-->
+<view class="row row0">
+  <view class="plant tree0">
+    <image class="tree" src="images/tree2.png"></image>
+    <image class="solid" src="images/solid.png"></image>
+  </view>
+  <view class="plant tree1">
+    <image class="tree" src="images/tree.png"></image>
+    <image class="solid" src="images/solid.png"></image>
+  </view>
+  <view class="plant tree2">
+    <image class="tree" src="images/tree.png"></image>
+    <image class="solid" src="images/solid.png"></image>
+  </view>
+   <view class="plant tree3">
+    <image class="tree" src="images/tree.png"></image>
+    <image class="solid" src="images/solid.png"></image>
+  </view>
+</view>
+
+<view class="row row1">
+  <view class="plant tree0">
+    <image class="tree" src="images/tree.png"></image>
+    <image class="solid" src="images/solid.png"></image>
+  </view>
+  <view class="plant tree1">
+    <image class="tree" src="images/tree.png"></image>
+    <image class="solid" src="images/solid.png"></image>
+  </view>
+  <view class="plant tree2">
+    <image class="tree" src="images/tree.png"></image>
+    <image class="solid" src="images/solid.png"></image>
+  </view>
+   <view class="plant tree3">
+    <image class="tree" src="images/tree.png"></image>
+    <image class="solid" src="images/solid.png"></image>
+  </view>
+</view>
+
+<view class="row row2">
+  <view class="plant tree0">
+    <image class="tree" src="images/tree.png"></image>
+    <image class="solid" src="images/solid.png"></image>
+  </view>
+  <view class="plant tree1">
+    <image class="tree" src="images/tree.png"></image>
+    <image class="solid" src="images/solid.png"></image>
+  </view>
+  <view class="plant tree2">
+    <image class="tree" src="images/tree.png"></image>
+    <image class="solid" src="images/solid.png"></image>
+  </view>
+   <view class="plant tree3">
+    <image class="tree" src="images/tree.png"></image>
+    <image class="solid" src="images/solid.png"></image>
+  </view>
+</view>
+
+<view class="row row3">
+  <view class="plant tree0">
+    <image class="tree" src="images/tree.png"></image>
+    <image class="solid" src="images/solid.png"></image>
+  </view>
+  <view class="plant tree1">
+    <image class="tree" src="images/tree.png"></image>
+    <image class="solid" src="images/solid.png"></image>
+  </view>
+  <view class="plant tree2">
+    <image class="tree" src="images/tree.png"></image>
+    <image class="solid" src="images/solid.png"></image>
+  </view>
+   <view class="plant tree3">
+    <image class="tree" src="images/tree.png"></image>
+    <image class="solid" src="images/solid.png"></image>
+  </view>
+</view>

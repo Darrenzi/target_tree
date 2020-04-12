@@ -1,0 +1,29 @@
+/* pages/forest/forest.wxss */
+page{
+  min-height: 100%;
+  width: 100%;
+  background: rgb(6, 83, 60);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color:white;
+  font-size: 35rpx;
+}
+.top{
+  margin-top:100rpx;
+  margin-bottom: 40rpx;
+  font-size: 40rpx;
+}
+.bottom{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+.overview{
+  display: flex;
+  border:1rpx solid white;
+  width: 85%;
+  justify-content: space-between;
+}

@@ -80,6 +80,15 @@ Page({
         })
         break;
       }
+      case '目标历程':{
+        wx.navigateTo({
+          url: '../history/history',
+          complete: function () {
+            that.setData({ loadContent: '' });
+          }
+        })
+        break;
+      }
       default:{
         that.setData({ loadContent: '' });
       }
