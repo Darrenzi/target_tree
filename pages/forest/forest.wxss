@@ -9,8 +9,16 @@ page{
   color:white;
   font-size: 35rpx;
 }
+.back{
+  position: absolute;
+  top:80rpx;
+  left: 20rpx;
+  width: 70rpx;
+  height: 60rpx;
+  font-weight: bolder;
+}
 .top{
-  margin-top:100rpx;
+  margin-top:80rpx;
   margin-bottom: 40rpx;
   font-size: 40rpx;
 }

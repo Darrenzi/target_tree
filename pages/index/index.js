@@ -67,7 +67,32 @@ Page({
     switch (target) {
       case '我的森林': {
         console.log('跳转到我的森林');
-        that.setData({ loadContent: '' });
+        wx.navigateTo({
+          url: '../forest/forest',
+          complete: function () {
+            that.setData({ loadContent: '' });
+          }
+        })
+        break;
+      }
+      case'我的好友':{
+         console.log('跳转至我的好友');
+         wx.navigateTo({
+           url: '../FriendSystem/FriendSystem',
+           complete:function(){
+             that.setData({loadContent: ''})
+           }
+         })
+         break;
+      }
+      case '最新消息':{
+        console.log('最新消息');
+        wx.navigateTo({
+          url: '../messages/messages',
+          complete: function () {
+            that.setData({ loadContent: '' });
+          }
+        })
         break;
       }
       case '商城': {
@@ -121,21 +146,47 @@ Page({
         }).then(res => {
           // console.log(res);
           //更新目标表中的打卡记录及任务进度
-          db.collection('target').doc(that.data.currentTarget._id).update({
-            data: {
-              record: _.inc(1),
-              progress: ((that.data.currentTarget.record + 1) / that.data.currentTarget.amount * 100).toFixed(2)
-            }
-          }).then(res => {
-            // console.log(res);
-            let currentTarget = that.data.currentTarget;
-            currentTarget.record += 1;
-            currentTarget.progress = (currentTarget.record / currentTarget.amount * 100).toFixed(2);
-            //更新数据，清空加载动画，设置通知内容
-            that.setData({ currentTarget: currentTarget, loadContent: '', informContent:"打卡成功！坚持的人最美丽！"});
-            //更新组件中的数据
-            that.selectComponent('#target').update(currentTarget);
-          })
+          let progress = ((that.data.currentTarget.record + 1) / that.data.currentTarget.amount * 100).toFixed(2);
+          if(progress>=100){
+            //打卡后任务完成
+            progress=100;
+            db.collection('target').doc(that.data.currentTarget._id).update({
+              data: {
+                record: _.inc(1),
+                progress: progress,
+                status:1
+              }
+            }).then(res => {
+              // console.log(res);
+              let currentTarget = that.data.currentTarget;
+              currentTarget.record += 1;
+              currentTarget.progress = (currentTarget.record / currentTarget.amount * 100).toFixed(2);
+              //更新数据，清空加载动画，设置通知内容
+              that.setData({ currentTarget: currentTarget, loadContent: '', informContent: "打卡成功！坚持的人最美丽！" });
+              //更新组件中的数据
+              that.selectComponent('#target').update(currentTarget);
+            })
+          }
+          else{
+            //打卡后任务未完成
+            db.collection('target').doc(that.data.currentTarget._id).update({
+              data: {
+                record: _.inc(1),
+                progress: progress
+              }
+            }).then(res => {
+              // console.log(res);
+              let currentTarget = that.data.currentTarget;
+              currentTarget.record += 1;
+              currentTarget.progress = (currentTarget.record / currentTarget.amount * 100).toFixed(2);
+              //更新数据，清空加载动画，设置通知内容
+              that.setData({ currentTarget: currentTarget, loadContent: '', informContent: "打卡成功！坚持的人最美丽！" });
+              //更新组件中的数据
+              that.selectComponent('#target').update(currentTarget);
+            })
+          }
+        }).catch(err=>{
+          that.setData({loadContent:'', informContent:"意外错误"});
         })
       }
     })

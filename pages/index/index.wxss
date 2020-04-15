@@ -129,6 +129,12 @@ progress{
   border:30rpx solid rgb(212, 212, 79);
   background: rgb(252, 238, 158);
 }
+.companydiV{
+    position: absolute;
+    top: -130px;
+    /* left: 80px; */
+    transform: skewY(0) rotateZ(88deg) rotateX(8deg) rotateY(-79deg);
+  }
 .target_title{
   width: 70%;
   min-height: 150rpx;

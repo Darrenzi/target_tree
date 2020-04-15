@@ -35,7 +35,9 @@
     <progress active percent="{{currentTarget.progress}}" activeColor="rgb(212, 212, 79)" stroke-width="35rpx" border-radius="20rpx" backgroundColor="white"/>
   </view>
 
-  <view class="tree"></view>
+  <view class="tree">
+    <view class="companydiV"></view>
+  </view>
   <view class="target_title">{{currentTarget.title}}</view>
   <view class="button" bindtap="record">打卡</view>
 </view>

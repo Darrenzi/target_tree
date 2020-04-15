@@ -9,7 +9,7 @@ page{
 }
 .back{
   position: absolute;
-  top:53rpx;
+  top:65rpx;
   left: 20rpx;
   width: 70rpx;
   height: 60rpx;
@@ -17,7 +17,7 @@ page{
   font-size: 35rpx;
 }
 .top{
-  height: 150rpx;
+  height: 180rpx;
   background: rgb(7, 70, 40);
   display: flex;
   justify-content: center;

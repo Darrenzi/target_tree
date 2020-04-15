@@ -1,24 +1,32 @@
 /* pages/FriendSystem/FriendSystem.wxss */
-
-.SideNavigationBar{
- height: 100%;
-  width:22%;
+.back{
   position: fixed;
-  z-index: 0;
-  top:-10rpx ;
-  bottom: 0rpx;
-
+  z-index: 8;
+  top:80rpx;
+  left: 45rpx;
+  width: 70rpx;
+  height: 60rpx;
+  font-size: 40rpx;
+  font-weight: bolder;
+  color:white;
 }
-
+.SideNavigationBar{
+  position: fixed;
+  z-index:7;
+  top:0;
+  left: 0;
+  width: 23%;
+  height: 100%;
+  background: rgba(61, 61, 61, 0.74);
+}
 .single_page{
   display: block;
   height: 33.3%;
   width: 100%;
   position: relative;
-  background-color: rgba(52, 228, 161, 0.849);
-  border-bottom:  2px solid rgb(23, 127, 212);
+  background-color: rgba(27, 163, 72, 0.897);
   border-radius: 3rpx;
-
+  
 }
 
 .Halfcircle{
@@ -26,53 +34,54 @@
   width: 200rpx;
   border-radius: 200rpx;
   background-color: white;
-  display: block;
+  display: flex;
   position: fixed;
-  top:5% ;
+  top:9% ;
   left: 100rpx;
   justify-content: center;
-  z-index: 1
+  z-index: 8
 }
 .Halfcircle_1{
   height: 200rpx;
   width: 200rpx;
   border-radius: 200rpx;
   background-color: white;
-  display: block;
+  display: flex;
   position: fixed;
-  margin-top: 90%;
+  margin-top: 75%;
   left: 100rpx;
   justify-content: center;
-  z-index: 1
+  z-index: 8
 }
 .Halfcircle_2{
   height: 200rpx;
   width: 200rpx;
   border-radius: 200rpx;
-  background-color: white;
+  background-color:white;
   display: block;
   position: fixed;
-  margin-top: 150%;
+  bottom: 11%;
   left: 100rpx;
   justify-content: center;
-  z-index: 1
+  z-index: 8
 }
 .font_class{
-  font-size: 50rpx;
+  font-size: 40rpx;
+  font-weight: bold;
   color: white;
-  display: flex;
+  display: block;
   writing-mode: vertical-lr;
-  margin-left: 40rpx;
+  margin-left: 35rpx;
   position: relative;
-  top: 130rpx;
+  top: 170rpx;
   justify-content: center;
-  left: 5rpx;
+  left: 4rpx;
 }
 
 .fontstyle{
-  font-size: 60rpx;
-  margin-left: 80rpx;
-  margin-top: 60rpx;
+  font-size: 45rpx;
+  margin-left: 130rpx;
+  margin-top: 50rpx;
   position: absolute;
 }
 .show{
@@ -91,9 +100,9 @@
   border-radius: 50rpx;
   border-color: antiquewhite;
   position: relative;
-  background-color: rgba(0, 255, 255, 0.488);
+  background-color: rgba(80, 233, 174, 0.789);
   margin-left: 30%;
-  z-index: 3;
+  z-index: 9;
   top: 7%;
   margin-top: 21%;
   margin-bottom: 5%;
@@ -108,8 +117,7 @@
   flex-direction: row;
   height: 100%;
   width: 30%;
-  background-color: rgba(235, 54, 41, 0.849);
-  
+  background-color: rgba(235, 54, 41, 0.849); 
 }
 
 .line{
@@ -120,5 +128,22 @@
   top: 200rpx;
   position: absolute;
   height: 6rpx;
-  background-color: red;
+  background-color: rgba(206, 57, 186, 0.508);
+}
+
+.portrait{ height: 120rpx;
+width: 110rpx;
+position: absolute;
+z-index: 10;
+top: 5%;
+margin-left: 20rpx;
+border-radius: 40rpx;
+margin-top: 25rpx;
+}
+
+.coinstyle{
+  position: relative;
+  top: 230rpx;
+  left: 50rpx;
+  font-size: large;
 }

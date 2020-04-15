@@ -1,4 +1,5 @@
 <!--pages/forest/forest.wxml-->
+<view class="back" bindtap="backHome">《</view>
 <view class="top">总览</view>
 <view class="time">2020年4月</view>
 <forest style="zoom:{{zoom}};border:1rpx solid white;"></forest>

@@ -1,0 +1,50 @@
+<!--pages/messages/messages.wxml-->
+<view class="top">
+  <view class="top_title">消息</view>
+  <view class="back" bindtap="backHome">《</view>
+</view>
+
+<view class="option_container">
+  <view class="option" bindtap="choose" data-target="like">
+    <view class="newMsgNum" hidden="{{newLikeNum==0}}">{{newLikeNum}}</view>
+    <image class="option_icon" src='images/xihuan.png'></image>
+    <view class="{{current_show=='like'?'option_choose':''}}">点赞</view>
+  </view>
+  <view class="option" bindtap="choose" data-target="comment">
+    <image class="option_icon" src="images/xiaoxi.png"></image>
+    <view class="newMsgNum" hidden="{{newCommentNum==0}}">{{newCommentNum}}</view>
+    <view class="{{current_show=='comment'?'option_choose':''}}">评论</view>
+  </view>
+  <view class="option" bindtap="choose" data-target="watch">
+    <image class="option_icon" src="images/tixing.png"></image>
+    <view class="{{current_show=='watch'?'option_choose':''}}">围观</view>
+  </view>
+</view>
+
+<view class="main">
+  <view class="noMessage" wx:if="{{current_show=='like'&&like.length==0 ||current_show=='comment'&&comments.length==0 || current_show=='watch'}}">
+    <image class="noMessageIcon" src="images/tree2.png"></image>
+    暂无消息
+  </view>
+  <!-- 展示评论 -->
+  <view id="{{index}}" class="message" wx:for="{{comments}}" hidden="{{current_show!='comment'}}" bindtouchend="operateMessage" wx:key="comment">
+    <image class="avatar" src="{{item.comment_user[0].avatarUrl}}"></image>
+    <view class="overview">
+      <view class="date">{{item.time}}</view>
+      <view class="ellipsis username">{{item.comment_user[0].un}}</view>
+      <view class="ellipsis content">{{item.content}}</view>
+    </view>
+    <view class="messageOperation  {{(current_index==index&&current_show=='comment')?'msgOperationChoose':''}}" catchtouchend="deleteMsg">删除</view>
+  </view>
+
+  <!-- 展示点赞 -->
+  <view id="{{index}}" class="message" wx:for="{{like}}" hidden="{{current_show!='like'}}" bindtouchend="operateMessage" wx:key="like">
+    <image class="avatar" src="{{item.like_user[0].avatarUrl}}"></image>
+    <view class="overview">
+      <view class="date">{{item.time}}</view>
+      <view class="ellipsis username">{{item.like_user[0].un}}</view>
+      <view class="content">赞了你的树</view>
+    </view>
+     <view class="messageOperation {{(current_index==index&&current_show=='like')?'msgOperationChoose':''}}" catchtouchend="deleteMsg">删除</view>
+  </view>
+</view>

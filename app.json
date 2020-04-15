@@ -1,11 +1,13 @@
 {
   "cloud": true,
   "pages": [
-    "pages/forest/forest",
     "pages/index/index",
+    "pages/messages/messages",
+    "pages/FriendSystem/FriendSystem",
+    "pages/forest/forest",
+    "pages/createTarget/createTarget",
     "pages/mall/mall",
     "pages/history/history",
-    "pages/FriendSystem/FriendSystem",
     "pages/register/register"
   ],
   "window": {

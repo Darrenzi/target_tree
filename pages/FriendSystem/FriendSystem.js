@@ -5,15 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-     change_1:false,
-     change_2:true,
+     change_1:true,
+     change_2:false,
      change_3:true,
      navList:[],
+     userList:[],
+     sortfriend:[],
+     inputValue:''
   },
-
+  backHome: function () {
+    wx.navigateBack({});
+  },
   
-  
-  changeShowStatus:function(){
+  ChangeShowStatus:function(){
     var that = this
     that.setData({
       change_1:false,
@@ -22,7 +26,7 @@ Page({
     })
   },
 
-  changeShowStatus_2: function () {
+  ChangeShowStatus_2: function () {
     var that = this
     that.setData({
       change_1: true,
@@ -30,7 +34,7 @@ Page({
       change_3: true
     })
   },
-  changeShowStatus_3: function () {
+  ChangeShowStatus_3: function () {
     var that = this
     that.setData({
       change_1: true,
@@ -44,15 +48,31 @@ Page({
    */
   onLoad: function (options) {
     wx.cloud.callFunction({
-      name: 'friend',
-      complete: res => {
-        console.log('callFunction test result: ',res)
-        var that=this
-        that.setData({
-          navList:res
+      name: 'friend',})
+      .then(res=>{
+        console.log(res)
+        this.setData({
+          navList:res.result.list,
         })
-      }
-    }) 
+       
+      })
+    wx.cloud.callFunction({
+      name:'stranger',
+    }).then(res=>{
+      console.log(res)
+      this.setData({
+        userList:res.result.data
+      })
+    })
+
+    wx.cloud.callFunction({
+      name:'sort',
+    }).then(res=>{
+      console.log(res)
+      this.setData({
+        sortfriend:res.result.data
+      })
+    })
   },
 
   /**
@@ -66,7 +86,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**
