@@ -1,13 +1,13 @@
 <!--components/target/target.wxml-->
 <view class="contianer">
-  <view id="{{index}}" class="target {{current_index==index?'targetChoose':''}}" wx:for="{{targets}}" bindtap="choose" wx:key="targets">
+  <view id="{{index}}" class="target {{current_index==index?'targetChoose':''}}" wx:for="{{usertargets}}" bindtap="choose" wx:key="targets">
     <view class="targetLabel">{{item.label}}</view>
     <view>{{item.progress}}%</view>
   </view>
-  <view class="target" wx:if="{{targets.length<3}}">空</view>
-  <view class="target" wx:if="{{targets.length<2}}">空</view>
-  <view class="target" wx:if="{{targets.length<1}}">空</view>
+  <view class="target" wx:if="{{usertargets.length<3}}">空</view>
+  <view class="target" wx:if="{{usertargets.length<2}}">空</view>
+  <view class="target" wx:if="{{usertargets.length<1}}">空</view>
 </view>
 <view class="add" bindtap="add">
-  <view class="add_icon">+</view>
+  <view class="add_icon" >+</view>
 </view>

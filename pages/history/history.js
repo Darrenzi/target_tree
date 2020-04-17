@@ -1,4 +1,4 @@
-// pages/createTargetSecondStep/createTargetSecondStep.js
+// pages/history/history.js
 Page({
 
   /**
@@ -7,7 +7,9 @@ Page({
   data: {
 
   },
-
+  backHome: function () {
+    wx.navigateBack({});
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,13 +1,25 @@
 {
   "cloud": true,
   "pages": [
-    "pages/FriendSystem/FriendSystem",
+<<<<<<< HEAD
+    "pages/createTarget/createTarget",
     "pages/index/index",
    
+    "pages/FriendSystem/FriendSystem",
+    "pages/register/register",
+    "pages/mall/mall"
+=======
+    "pages/index/index",
+    "pages/messages/messages",
+    "pages/FriendSystem/FriendSystem",
+    "pages/forest/forest",
     "pages/createTarget/createTarget",
     "pages/mall/mall",
+    "pages/history/history",
     "pages/register/register"
+>>>>>>> 61f0267adf9bc2fa5c18836eea46df46d4877bdc
   ],
+
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
@@ -15,6 +27,5 @@
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

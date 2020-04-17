@@ -30,6 +30,7 @@
   width: 80%;
   font-size: 38rpx;
   border-radius: 30rpx;
+
 }
 .add{
   /* 添加框 */
@@ -48,6 +49,6 @@
 }
 .add:active{
   /* 添加按钮被点击时 */
-  background: rgb(57, 163, 103);
+  background: rgba(137, 233, 179, 0.849);
   color:white;
 }

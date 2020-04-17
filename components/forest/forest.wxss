@@ -1,0 +1,70 @@
+/* components/forest/forest.wxss */
+.row{
+  position: relative;
+  display: flex;
+}
+.row0{
+  top:195px;
+  left:-110px;
+  z-index: 0;
+}
+.row1{
+  z-index: 1;
+}
+.row2{
+  z-index:2;
+  top:-195px;
+  left:110px;
+}
+.row3{
+  z-index: 3;
+  top:-390px;
+  left:220px;
+}
+.tree0{
+  left:140px;
+  top:55px;
+  z-index: 4;
+}
+.tree1{
+  z-index: 3;
+}
+.tree2{
+  left:-140px;
+  top:-53px;
+  z-index:2;
+}
+.tree3{
+  left:-280px;
+  top:-107px;
+}
+@keyframes show{
+  0%{
+    opacity: 0;
+    height: 0px;
+    top:135px;
+  }
+  100%{
+    opacity: 1;
+    height: 150px;
+    top:-15px;
+  }
+}
+.plant{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.solid{
+  width:250px;
+  height: 250px;
+}
+.tree{
+  position: absolute;
+  top:-15px;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  animation: show 1s;
+}

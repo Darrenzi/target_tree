@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   background: rgba(77, 77, 77, 0.712);
+  color: gray;
   z-index:9;
 }
 .inform{
@@ -33,6 +34,7 @@
   display: flex;
   align-items: center;
   font-size: 35rpx;
+  text-align: center;
 }
 .button_container{
   display: flex;

@@ -1,0 +1,19 @@
+<!--pages/history/history.wxml-->
+<view class="top">
+  时间历程
+  <view class="back" bindtap="backHome">《</view>
+</view>
+
+<view class="dayItem">
+  <view class="date">周二 / 3月 31</view>
+  <block>
+    <view class="card_title">你创建了一棵烟柳</view>
+    <view class="card">
+      <view class="card_top">
+        10：52
+        <view class="card_image_container"></view>
+      </view>
+      <view class="card_bottom">好好学习</view>
+    </view>
+  </block>
+</view>

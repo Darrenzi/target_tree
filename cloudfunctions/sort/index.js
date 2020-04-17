@@ -6,7 +6,9 @@ const db = cloud.database()
 const _=db.command
 exports.main = async (event, context) => {
   
-    return await db.collection('user').orderBy('coin', 'desc')
+    return await db.collection('user')
+    .where()
+    .orderBy('coin', 'desc')
     .get({
       success:function(res){
         console.log(res.data)

@@ -36,6 +36,7 @@ Page({
   choose:function(e){
     //点击某个树苗
     this.setData({current:e.currentTarget.dataset.tree});
+    console.log(this.data.current);
   },
 
   buy:function(){

@@ -5,16 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-     change_1:true,
-     change_2:false,
+     a:'<',
+     change_1:false,
+     change_2:true,
      change_3:true,
      navList:[],
      userList:[],
      sortfriend:[],
-     inputValue:''
+    
   },
- 
-
+  backHome: function () {
+    wx.navigateBack({});
+  },
   
   ChangeShowStatus:function(){
     var that = this
@@ -42,6 +44,9 @@ Page({
     })
   },
 
+  backhome:function(){
+    wx.navigateBack({});
+  },
   /**
    * 生命周期函数--监听页面加载
    */

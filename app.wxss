@@ -14,3 +14,17 @@
     top:0;
   }
 }
+
+/* 文本超出省略 */
+.ellipsis{
+  font-size: 40rpx;
+  word-break: break-all;/*允许在单词内换行*/
+  text-align: left;
+  line-height: 45rpx;
+  text-overflow: -o-ellipsis-lastline;/*css3中webkit内核提供的一个方法类似ellipsis*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;/*自适应盒子*/
+  -webkit-line-clamp: 1;/*此处为1行,如果是两行就改成2*/
+  -webkit-box-orient: vertical;
+}

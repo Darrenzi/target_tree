@@ -29,7 +29,7 @@
   <view class="tree_container">
     <view class="tree" wx:for="{{trees}}" wx:key="tree" data-tree="{{item}}" bindtap="choose">
       <view class="tree_top">
-        <image src="{{item.path[0]}}"></image>
+        <image src="{{item.main}}"></image>
         <view>{{item.name}}</view>
       </view>
       <view class="price">
@@ -42,7 +42,7 @@
 
 <view class="detail_container" wx:if="{{current != null}}" bindtap="closeDetail">
   <view class="detail" catchtap>
-    <image class="detail_main_images" src="{{current.path[1]}}" ></image>
+    <image src="{{current.main}}" class="mainImage"></image>
     <view class="detail_title">{{current.name}}</view>
     <view class="detail_content">{{current.desc}}</view>
     <view class="detail_images">
