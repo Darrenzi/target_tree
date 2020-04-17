@@ -4,14 +4,15 @@ Component({
    * 组件的属性列表
    */
   properties: {
-<<<<<<< HEAD
+
      usertargets_1:Array,
-=======
+
+
     currentTarget:{
       type:Object,
       value:null
     }
->>>>>>> 61f0267adf9bc2fa5c18836eea46df46d4877bdc
+
   },
 
   /**
@@ -61,13 +62,15 @@ Component({
     db.collection('target').get().then(
       res=>{
         var targets = [];
-<<<<<<< HEAD
+
         targets.push(res.data[0]);
         targets.push(res.data[0]);
         that.setData({targets:targets});
-=======
+
         that.setData({targets:res.data});
->>>>>>> 61f0267adf9bc2fa5c18836eea46df46d4877bdc
+
+        that.setData({targets:res.data});
+
 
         //默认选中第一个目标
         var target = res.data[0];

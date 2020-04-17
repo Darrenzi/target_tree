@@ -39,14 +39,14 @@
     <view class="companydiV"></view>
   </view>
   <view class="target_title">{{currentTarget.title}}</view>
-<<<<<<< HEAD
+
   <view class="button" >打卡</view>
 </view>
 
 <target class="bottom" bindchoose="chooseTarget" usertargets_1="{{[user_targets]}}" ></target>
-=======
+
   <view class="button" bindtap="record">打卡</view>
 </view>
 
 <target id="target" class="bottom" bindchoose="chooseTarget"></target>
->>>>>>> 61f0267adf9bc2fa5c18836eea46df46d4877bdc
+

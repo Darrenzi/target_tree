@@ -14,12 +14,15 @@ Page({
     leftOptionsFlag:false,
     //加载表示符，用于控制加载动画,当值为 "" 隐藏
     loadContent: "加载中...",
-<<<<<<< HEAD
+
     user_targets:[]
-=======
+
     //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
     informContent:""
->>>>>>> 61f0267adf9bc2fa5c18836eea46df46d4877bdc
+
+    //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
+    informContent:""
+
   },
 
   //初始化用户信息
@@ -125,9 +128,7 @@ Page({
     }
   },
 
-<<<<<<< HEAD
 
-=======
   record:function(){
     //打卡
     this.setData({loadContent:'正在记录...'});
@@ -200,7 +201,7 @@ Page({
     })
 
   },
->>>>>>> 61f0267adf9bc2fa5c18836eea46df46d4877bdc
+
   /**
    * 生命周期函数--监听页面加载
    */

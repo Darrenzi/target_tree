@@ -17,6 +17,11 @@ Page({
   backHome: function () {
     wx.navigateBack({});
   },
+
+  backHome: function () {
+    wx.navigateBack({});
+  },
+
   
   ChangeShowStatus:function(){
     var that = this

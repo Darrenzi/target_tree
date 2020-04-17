@@ -1,14 +1,19 @@
-<<<<<<< HEAD
+
  
 <view class="SideNavigationBar">
 <view class="back" bindtap="backhome">{{a}}</view>
 <view class="single_page" bindtap="ChangeShowStatus">
 <text class="font_class">好友列表
-=======
+
 <view class="back" bindtap="backHome">《</view>
 <view class="SideNavigationBar">
 <view class="single_page" bindtap="ChangeShowStatus"><text class="font_class">;好友列表
->>>>>>> 61f0267adf9bc2fa5c18836eea46df46d4877bdc
+
+
+<view class="back" bindtap="backHome">《</view>
+<view class="SideNavigationBar">
+<view class="single_page" bindtap="ChangeShowStatus"><text class="font_class">;好友列表
+
 </text></view>
 <view class="single_page" bindtap="ChangeShowStatus_2">
 <text class="font_class">我的排名
