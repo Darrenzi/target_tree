@@ -2,9 +2,9 @@
   "cloud": true,
   "pages": [
     "pages/index/index",
+    "pages/forest/forest",
     "pages/messages/messages",
     "pages/FriendSystem/FriendSystem",
-    "pages/forest/forest",
     "pages/createTarget/createTarget",
     "pages/mall/mall",
     "pages/history/history",

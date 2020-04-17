@@ -1,11 +1,35 @@
 <!--pages/forest/forest.wxml-->
-<view class="back" bindtap="backHome">《</view>
-<view class="top">总览</view>
-<view class="time">2020年4月</view>
-<forest style="zoom:{{zoom}};border:1rpx solid white;"></forest>
-<view class="bottom">
-  <view class="overview">
-    <view>16个目标</view>
-    <view>2 1</view>
+<loading content="{{loadContent}}"></loading>
+
+<view class="top">
+  我的森林
+  <view class="back" bindtap="backHome">《</view>
+</view>
+
+<view class="date">
+  <view class="dateOption" bindtap="lastMonth">«</view>
+  <view class="dateCotent">{{year}}年{{month}}月</view>
+  <view class="dateOption" bindtap="nextMonth">»</view>
+</view>
+
+<forest class="forest" forest="{{forest}}" style="zoom:{{zoom}};" bindtouchstart="forestTouchStart" bindtouchend="forestTouchEnd"></forest>
+
+<view class="statistics_container">
+  <view class="statistics">
+    <image></image>
+    {{statistics.completed}}
+    <view class="statistics_label">已完成</view>
+  </view>
+
+  <view class="statistics">
+    <image></image>
+    {{statistics.running}}
+    <view class="statistics_label">进行中</view>
+  </view>
+
+  <view class="statistics">
+    <image></image>
+    {{statistics.abandoned}}
+    <view class="statistics_label">已枯萎</view>
   </view>
 </view>

@@ -3,7 +3,7 @@ const cloud = require('wx-server-sdk')
 cloud.init()
 const db=cloud.database()
 exports.main = async (event, context) => {
-      // 添加await关键字 
+    // 添加await关键字 
     return await db.collection("friend").aggregate()
         .lookup({
           from: "user",

@@ -102,10 +102,10 @@ page{
 }
 .overview{
   width: 75%;
-  height: 50%;
+  height: 60%;
 }
 .username{
-  width: 50%;
+  width: 55%;
   margin-bottom:15rpx;
   font-weight: bold;
 }

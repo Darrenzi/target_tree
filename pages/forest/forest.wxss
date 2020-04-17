@@ -2,36 +2,81 @@
 page{
   min-height: 100%;
   width: 100%;
-  background: rgb(6, 83, 60);
   display: flex;
   flex-direction: column;
   align-items: center;
-  color:white;
   font-size: 35rpx;
+  color:rgb(57, 163, 103);
+  background: rgb(255, 255, 255);
 }
 .back{
   position: absolute;
-  top:80rpx;
   left: 20rpx;
   width: 70rpx;
   height: 60rpx;
   font-weight: bolder;
+  color: rgb(57, 163, 103);
 }
 .top{
   margin-top:80rpx;
   margin-bottom: 40rpx;
-  font-size: 40rpx;
-}
-.bottom{
-  position: relative;
+  height: 80rpx;
+  width: 300rpx;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  border-radius: 20rpx;
+  font-size: 40rpx;
+  color: white;
+  background: rgb(57, 163, 103);
+}
+
+.date{
+  display: flex;
+  position: relative;
+  margin-top:100rpx;
+  width: 90%;
+  font-weight: bolder;
+  justify-content: space-around;
+  align-items: center;
+}
+.dateCotent{
+  width: 50%;
+  text-align: center;
+}
+.dateOption{
+  font-size: 50rpx;
+}
+.forest{
+  margin-top:25%;
+}
+
+/* 统计的数据的框架 */
+.statistics_container{
+  position: relative;
   width: 90%;
 }
-.overview{
+.statistics{
+  background: rgb(57, 163, 103);
+  width: 130rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  color:white;
   display: flex;
-  border:1rpx solid white;
-  width: 85%;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  left: 60%;
+  margin-bottom: 20rpx;
+}
+.statistics image{
+  width: 45rpx;
+  height: 45rpx;
+  background: white;
+  border-radius: 100%;
+}
+.statistics_label{
+  position: absolute;
+  right: -120rpx;
+  color:rgb(57, 163, 103);
 }

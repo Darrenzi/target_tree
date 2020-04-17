@@ -1,4 +1,26 @@
 /* components/forest/forest.wxss */
+@keyframes informShow{
+  from{
+    position: absolute;
+    margin-top:250px;
+    opacity: 0;
+  }
+  to{
+    position: absolute;
+    margin-top:90px;
+    opacity: 1;
+  }
+}
+.inform{
+  position: absolute;
+  z-index: 7;
+  margin-left: 310px;
+  margin-top:90px;
+  animation: informShow 0.5s;
+  height: 300px;
+  width: 350px;
+}
+
 .row{
   position: relative;
   display: flex;
@@ -13,17 +35,17 @@
 }
 .row2{
   z-index:2;
-  top:-195px;
+  top:-198px;
   left:110px;
 }
 .row3{
   z-index: 3;
-  top:-390px;
+  top:-393px;
   left:220px;
 }
 .tree0{
   left:140px;
-  top:55px;
+  top:53px;
   z-index: 4;
 }
 .tree1{

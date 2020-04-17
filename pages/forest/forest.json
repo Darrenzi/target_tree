@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "forest":"../../components/forest/forest"
+    "forest":"../../components/forest/forest",
+    "loading":"../../components/loading/loading"
   }
 }

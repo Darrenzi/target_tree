@@ -2,7 +2,10 @@
 <loading content="{{loadContent}}"></loading>
 <inform content="{{informContent}}"></inform>
 
-<view class="left" hidden="{{!leftOptionsFlag}}" bindtouchend="controlLeftOptions">
+<!-- 左侧选择栏出现时的背景 -->
+<view class="coverBackground" hidden="{{!(leftOptionsFlag)}}"></view>
+
+<view class="left {{leftOptionsFlag?'left_show':''}}" bindtouchend="controlLeftOptions">
   <view class="left_container">
     <view class="left_top">
       <image src='{{user.avatarUrl}}' class="user_icon"></image>
