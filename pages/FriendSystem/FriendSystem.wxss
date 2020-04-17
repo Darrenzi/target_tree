@@ -2,6 +2,13 @@
 .back{
   position: fixed;
   z-index: 8;
+
+  top: 2%;
+  font-size: 70rpx;
+  left: 30rpx;
+  color: white;
+  position: fixed;
+
   top:80rpx;
   left: 45rpx;
   width: 70rpx;
@@ -9,6 +16,7 @@
   font-size: 40rpx;
   font-weight: bolder;
   color:white;
+
 }
 .SideNavigationBar{
   position: fixed;
@@ -18,9 +26,10 @@
   width: 23%;
   height: 100%;
   background: rgba(61, 61, 61, 0.74);
+  display: block;
 }
 .single_page{
-  display: block;
+  display: inline-block;
   height: 33.3%;
   width: 100%;
   position: relative;
@@ -48,7 +57,7 @@
   background-color: white;
   display: flex;
   position: fixed;
-  margin-top: 75%;
+  top: 42%;
   left: 100rpx;
   justify-content: center;
   z-index: 8
@@ -60,7 +69,7 @@
   background-color:white;
   display: block;
   position: fixed;
-  bottom: 11%;
+  bottom: 10%;
   left: 100rpx;
   justify-content: center;
   z-index: 8
@@ -69,13 +78,14 @@
   font-size: 40rpx;
   font-weight: bold;
   color: white;
-  display: block;
+  display: flex;
   writing-mode: vertical-lr;
   margin-left: 35rpx;
   position: relative;
-  top: 170rpx;
+  top: 28%;
   justify-content: center;
   left: 4rpx;
+  position: relative;
 }
 
 .fontstyle{
@@ -143,7 +153,14 @@ margin-top: 25rpx;
 
 .coinstyle{
   position: relative;
-  top: 230rpx;
+  top: 185rpx;
   left: 50rpx;
-  font-size: large;
+  font-size: 50rpx;
+}
+.iconpage{
+  height: 80rpx;
+  width: 80rpx;
+  position: relative;
+  top: 210rpx;
+  left: 40rpx;
 }

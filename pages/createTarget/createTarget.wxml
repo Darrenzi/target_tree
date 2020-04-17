@@ -1,2 +1,73 @@
-<!--pages/createTarget/createTarget.wxml-->
-<text>pages/createTarget/createTarget.wxml</text>
+<!-- 设置金额 -->
+<view class="hide {{change?'':'show'}}">
+  <view class="title"><text>设置挑战金额</text></view>
+  <view class="back" bindtap="back">{{a}}</view>
+  <view>
+  <image src="/images/coin.png" class="coin"></image>
+  <input placeholder="请输入挑战金额" class="inputMoney" type="text" maxlength="4" value="{{number}}" bindinput="getInput"></input>
+</view>
+
+<view class="optionalAmount">
+  <button class="buttonclass" bindtap="setdata">50</button>
+  <button class="buttonclass"  bindtap="setdata_1">100</button>
+  <button class="buttonclass"  bindtap="setdata_2">150</button>
+  <button class="buttonclass"  bindtap="setdata_3">200</button>
+  <button class="buttonclass"  bindtap="setdata_4">300</button>
+  <button class="buttonclass"  bindtap="setdata_5">500</button>
+</view>
+<button class="continue" bindtap="toNext" bindtap="changeShowstatus">下一步</button>
+<view class="line"></view>
+<view class="littleTittle">Tips:</view>
+<text class="tips">1:金币将会在完成目标后返还到您的账户。</text>
+</view>
+
+
+<!-- 创建标签以及时间具体名称 -->
+<view class="hide{{change_1?'':'show'}}">
+<view class="target">请选择你的标签</view>
+<input placeholder="输入自定义标签" class="inputTaregt" type="text" maxlength="10"  bindinput="getInputTarget"
+value="{{target}}" ></input>
+<view class="targets">
+<view class="targetClass" bindtap="setTarget">做作业</view>
+<view class="targetClass" bindtap="setTarget_1">阅读</view>
+<view class="targetClass" bindtap="setTarget_2">运动</view>
+<view class="targetClass" bindtap="setTarget_3">早睡</view>
+<view class="targetClass" bindtap="setTarget_4">减肥</view>
+<view class="targetClass" bindtap="setTarget_5">变漂liang</view></view>
+<view class="labeltToContent"> </view>
+<view class="Content" >目标:</view>
+<input class="inputContent" placeholder="请输入目标内容" maxlength="20" bindinput='getInputContent'></input>
+<view class="contentLine"></view>
+<view class="return" bindtap="changeShowstatus">返回上一步</view>
+<view class="nextStep" bindtap="changeShowstatus_1">下一步</view>
+</view>
+
+<!-- 创建record以及rest -->
+<view class="hide{{change_2?'':'show'}}">
+<!-- 选择天数 -->
+<view class="chooseRecord">
+<image src="images/4.png/" class="calendar"></image>请选择目标完成天数</view>
+<view class="records">
+<view class="record" hover-class="chooserecord" hover-stay-time="200" bindtap="setrecord">7天</view>
+<view class="record" hover-class="chooserecord" hover-stay-time="200" bindtap="setrecord_1">10天</view>
+<view class="record" hover-class="chooserecord" hover-stay-time="200" bindtap="setrecord_2">15天</view>
+<view class="record" hover-class="chooserecord" hover-stay-time="200" bindtap="setrecord_3">21天</view>
+</view>
+<view class="day">自定义:</view>
+<input class="inputday" placeholder="请输入你的天数" maxlength="2" value="{{record}}"></input>
+<view class="recordline"> </view>
+<!-- 选择休息时间 -->
+<view class="chooseRest">请选择休息天数</view>
+<view class="rests">
+<view class="rest" hover-class="chooserest" hover-stay-time="200" bindtap="setrest">1天</view>
+<view class="rest" hover-class="chooserest" hover-stay-time="200" bindtap="setrest_1">5天</view>
+<view class="rest" hover-class="chooserest" hover-stay-time="200" bindtap="setrest_2">7天</view>
+<view class="rest" hover-class="chooserest" hover-stay-time="200" bindtap="setrest_3">9天</view></view>
+<view class="restday">自定义:</view>
+<input class="inputrestday" placeholder="请输入你的天数" maxlength="2" value="{{rest}}"></input>
+<view class="restline"> </view>
+<!-- 返回上一层按钮 -->
+<view class="returnTo" bindtap="changeShowStatus_2">上一步</view>
+<view class="end" bindtap="end">完成</view>
+</view>
+

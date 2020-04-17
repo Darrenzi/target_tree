@@ -37,8 +37,11 @@ Component({
     add:function(){
       console.log("添加目标");
       let targets = this.data.targets;
-      targets.unshift( {tip:"new", progress:0});
-      this.setData({targets:targets});
+      wx.navigateTo({
+        url: '../../pages/createTarget/createTarget'
+      })
+      // targets.unshift( {tip:"new", progress:0});
+      // this.setData({targets:targets});
     },
 
     update:function(currentTarget){
@@ -51,7 +54,9 @@ Component({
   created:function(){
     const db = wx.cloud.database();
     let that = this;
-    db.collection('target').get().then(
+    db.collection('target')
+    .orderBy('time', 'desc')
+    .get().then(
       res=>{
         var targets = [];
         that.setData({targets:res.data});

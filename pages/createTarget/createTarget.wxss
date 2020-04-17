@@ -1,1 +1,375 @@
-/* pages/createTarget/createTarget.wxss */
+.title{
+  height: 120rpx;
+  width: 500rpx;
+  position: fixed;
+  border-radius: 30rpx;
+  top: 10%;
+  left: 17%;
+  background-color: antiquewhite;
+  font-size: 50rpx;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.coin{
+  height: 120rpx;
+  width: 120rpx;
+  position: fixed;
+  top: 18%;
+  left: 9%;
+}
+.inputMoney{
+  height: 100rpx;
+  width: 500rpx;
+  border-radius: 50rpx;
+  background-color: rgba(22, 174, 194, 0.6);
+  position: fixed;
+  top: 19%;
+  left: 27%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.buttonclass{
+  height: 100rpx;
+  width: 250rpx;
+  position: relative;
+  background-color: rgba(22, 174, 194, 0.6);
+  display:inline-flex; 
+  margin-top: 5%;
+  border-radius: 30rpx;
+  margin-left: 5%;
+  align-items: center;
+  justify-content: center;
+  box-shadow:  5rpx 5rpx 5rpx 5rpx rgba(235, 227, 114, 0.6);
+  padding: 15rpx,15rpx,15rpx,15rpx;
+}
+.optionalAmount{
+  position: absolute;
+  top: 25%;
+  left: 10%;
+}
+.line{
+  height: 10rpx;
+  width: 650rpx;
+  position: fixed;
+  background-color: rgba(232, 236, 29, 0.844);
+  top: 52%;
+  left: 8%;
+}
+.littleTittle{
+  color: red;
+  position: fixed;
+  top: 54%;
+  left: 9%;
+  font-size: 50rpx;
+}
+.tips{
+  color: rgb(100, 40, 40);
+  position: fixed;
+  top: 58%;
+  left: 9%;
+  font-size: 35rpx;
+}
+.continue{
+  height: 80rpx;
+  width: 500rpx;
+  position: fixed;
+  top:75%;
+  left: 18%;
+  border-radius: 50rpx;
+  background-color: rgba(22, 174, 194, 0.6);
+  box-shadow: 0rpx 5rpx 5rpx 5rpx rgba(235, 227, 114, 0.6);
+}
+
+.back{
+  height:50rpx;
+  width: 50rpx;
+  position: fixed;
+  top: 5%;
+  left: 5%;
+}
+
+.hide{
+  display: none;
+}
+.show{
+  display:block ;
+}
+.target{
+  height: 6%;
+  width: 80%;
+  background-color: rgba(100, 238, 82, 0.6);
+  border-radius: 50rpx;
+  position: fixed;
+  top: 10%;
+  left: 15%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 40rpx;
+}
+
+.labeltToContent{
+  height: 10rpx;
+  width: 70%;
+  background-color: rgba(232, 236, 29, 0.844);
+  position: fixed;
+  top: 50%;
+  left: 15%;
+}
+.Content{
+  position: fixed;
+  top:52% ;
+  left: 15%;
+  font-size: 40rpx;
+}
+.inputContent{
+  position: fixed;
+  top: 52.5%;
+  left: 35%;
+}
+.contentLine{
+  height: 10rpx;
+  width: 55%;
+  position: fixed;
+  top: 56%;
+  left: 27%;
+  background-color: rgba(47, 48, 25, 0.844);
+}
+.fontclass{
+ display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.inputTaregt{
+  position: fixed;
+  top: 18%;
+  left: 22.5%;
+  background-color: rgba(235, 227, 114, 0.6);
+  color: rgba(46, 52, 53, 0.6);
+  height: 6%;
+  width: 60%;
+  border-radius: 50rpx;
+}
+
+.targets{
+  position:fixed;
+  top:25%;
+  left: 15%;
+  display: inline-block;
+  width: 100%;
+  border-width: 5rpx;
+  border-color: salmon;
+
+}
+.targetClass{
+  height:80rpx;
+  width: 30%;
+  position: relative;
+  background-color: rgba(22, 174, 194, 0.6);
+  display:inline-flex; 
+  margin-top: 5%;
+  border-radius: 30rpx;
+  margin-left: 5%;
+  align-items: center;
+  justify-content: center;
+  box-shadow:  5rpx 5rpx 5rpx 5rpx rgba(235, 227, 114, 0.6);
+  padding: 15rpx,15rpx,15rpx,15rpx;
+}
+.return{
+  height: 100rpx;
+  width: 250rpx;
+  position: fixed;
+  top: 65%;
+  left: 12%;
+  background-color: rgba(235, 227, 114, 0.6);
+  border-radius: 20rpx;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.chooseRecord{
+  height: 100rpx;
+  width: 50%;
+  position: fixed;
+  top: 12%;
+  left: 25%;
+  background-color: rgba(22, 174, 194, 0.6);
+  border-radius: 20rpx;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background: linear-gradient(60deg, rgba(33, 216, 106, 0.96), rgb(33, 153, 201)); 
+  }
+  .calendar{
+    height: 50rpx;
+    width: 50rpx;
+    position: fixed;
+    top: 12.9%;
+    left: 26%;
+  }
+  .records{
+    display: inline-flex;
+    position: absolute;
+    height: 20%;
+    
+  }
+  .record{
+    height: 80rpx;
+    width: 180rpx;
+    border-radius: 10rpx;
+    background-color: rgba(77, 231, 46, 0.6);
+    margin-left: 11%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 45%;
+  }
+ .chooserecord{
+  height: 80rpx;
+  width: 180rpx;
+  border-radius: 10rpx;
+  background-color: rgba(46, 231, 222, 0.6);
+  margin-left: 11%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 45%;
+ }
+ .day{
+  position: fixed;
+  margin-left: 18%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 55%;
+  font-size: 45rpx;
+  color:black;
+ }
+ .inputday{
+  position: fixed;
+  margin-left: 50%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 57%;
+  font-size: 40rpx;
+ }
+ .recordline{
+  position: fixed;
+  margin-left: 42%;
+  top: 30%;
+  align-items: center;
+  justify-content: center;
+  font-size: 45rpx;
+  background-color: rgba(232, 236, 29, 0.844);
+  height: 10rpx;
+  width: 400rpx;
+ }
+ .chooseRest{
+   position: fixed;
+   top: 35%;
+   left: 25%;
+   height: 100rpx;
+   width: 55%;
+   border-radius: 20rpx;
+   background: linear-gradient(60deg, rgba(33, 216, 106, 0.96), rgb(33, 153, 201));
+   align-items: center;
+   justify-content: center;
+   display: flex;
+ }
+ .rests{
+  position: fixed;
+  top: 42%;
+  display: flex;
+ }
+ .rest{
+  height: 80rpx;
+  width: 180rpx;
+  border-radius: 10rpx;
+  background-color: rgba(77, 231, 46, 0.6);
+  margin-left: 11%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 3%;
+ }
+ .chooserest{height: 80rpx;
+  width: 180rpx;
+  border-radius: 10rpx;
+  background-color: rgba(93, 235, 223, 0.6);
+  margin-left: 11%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 3%;}
+ .restday{
+  position: fixed;
+  margin-left: 23%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  top: 48.5%;
+  font-size: 45rpx;
+  color:black;
+ }
+ .inputrestday{
+  position: fixed;
+  margin-left: 50%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 107%;
+  font-size: 40rpx;
+ }
+ .restline{
+  position: fixed;
+  margin-left: 41%;
+  top: 53%;
+  align-items: center;
+  justify-content: center;
+  font-size: 45rpx;
+  background-color: rgba(232, 236, 29, 0.844);
+  height: 10rpx;
+  width: 400rpx;
+ }
+ .returnTo{
+   position: fixed;
+   top: 55%;
+   left: 16%;
+   height: 100rpx;
+   width: 250rpx;
+   background-color: rgba(235, 227, 114, 0.6);
+   border-radius: 20rpx;
+   align-items: center;
+   justify-content:center ;
+   display: flex;
+ }
+ .nextStep{
+  height: 100rpx;
+  width: 250rpx;
+  position: fixed;
+  top: 65%;
+  left: 56%;
+  background-color: rgba(235, 227, 114, 0.6);
+  border-radius: 20rpx;
+  align-items: center;
+  justify-content: center;
+  display: flex
+ }
+.end{
+  height: 100rpx;
+  width: 250rpx;
+  position: fixed;
+  top: 55%;
+  left: 56%;
+  background-color: rgba(235, 227, 114, 0.6);
+  border-radius: 20rpx;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+

@@ -129,10 +129,17 @@ Page({
     //获取表中最新打卡记录，判断时间，一天只能打卡一次
     let date = (new Date()).Format("yyyy-MM-dd");
     db.collection('record').field({ time: true }).orderBy("time", 'desc').limit(1)
+    .where({
+      target_id:_.eq(that.data.currentTarget._id)
+    })
     .get().then(res=>{
-      let lastDate = (res.data[0].time).Format("yyyy-MM-dd");
+      // console.log(res);
+      let lastDate = null;
+      if(res.data.length!=0){
+        lastDate = (res.data[0].time).Format("yyyy-MM-dd");
+      }
       // console.log(date, lastDate);
-      if(lastDate == date){
+      if(lastDate != null || lastDate == date){
         //判断时间，一天只能打卡一次
         that.setData({informContent:"您今天已经打卡,劳逸结合才能坚持到最后！", loadContent:""});
       }
@@ -160,7 +167,7 @@ Page({
               // console.log(res);
               let currentTarget = that.data.currentTarget;
               currentTarget.record += 1;
-              currentTarget.progress = (currentTarget.record / currentTarget.amount * 100).toFixed(2);
+              currentTarget.progress = Number((currentTarget.record / currentTarget.amount * 100).toFixed(2));
               //更新数据，清空加载动画，设置通知内容
               that.setData({ currentTarget: currentTarget, loadContent: '', informContent: "打卡成功！坚持的人最美丽！" });
               //更新组件中的数据
@@ -178,7 +185,7 @@ Page({
               // console.log(res);
               let currentTarget = that.data.currentTarget;
               currentTarget.record += 1;
-              currentTarget.progress = (currentTarget.record / currentTarget.amount * 100).toFixed(2);
+              currentTarget.progress = Number((currentTarget.record / currentTarget.amount * 100).toFixed(2));;
               //更新数据，清空加载动画，设置通知内容
               that.setData({ currentTarget: currentTarget, loadContent: '', informContent: "打卡成功！坚持的人最美丽！" });
               //更新组件中的数据
@@ -209,6 +216,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
   },
 
   /**

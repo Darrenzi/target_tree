@@ -1,6 +1,7 @@
 <view class="back" bindtap="backHome">《</view>
 <view class="SideNavigationBar">
 <view class="single_page" bindtap="ChangeShowStatus"><text class="font_class">;好友列表
+
 </text></view>
 <view class="single_page" bindtap="ChangeShowStatus_2">
 <text class="font_class">我的排名
@@ -11,13 +12,16 @@
 </view>
 
  
- <view class="hide{{change_1?'':'show'}}" bindtap="ChangeShowStatus">
-<view><block wx:for="{{navList}}" wx:for-index="idx" wx:if="{{idx!='_id'}}" wx:key="key">
-<view class="Friend"><view class="line"></view>
-<image class="portrait" src="{{item.friendList[0].avatarUrl}}"></image>
-<text class="fontstyle">:{{item.friendList[0].un}}</text>
-</view>
-</block></view>
+<view class="hide{{change_1?'':'show'}}" bindtap="ChangeShowStatus">
+  <view class="Halfcircle"></view>
+  <view>
+    <block wx:for="{{navList}}" wx:for-index="idx" wx:if="{{idx!='_id'}}" wx:key="key">
+      <view class="Friend"><view class="line"></view>
+      <image class="portrait" src="{{item.friendList[0].avatarUrl}}"></image>
+      <text class="fontstyle">:{{item.friendList[0].un}}</text>
+      </view>
+    </block>
+  </view>
 </view>
 
 <view class="hide{{change_2?'':'show'}}">
@@ -26,14 +30,14 @@
 <view class="Friend"><view class="line"></view>
 <image class="portrait" src="{{item.avatarUrl}}"></image>
 <text class="fontstyle">:{{item.un}}</text>
-<text class="coinstyle">金币数量：{{item.coin}}</text>
+<image src="/images/coin.png" class="iconpage"></image>
+<text class="coinstyle">:{{item.coin}}</text>
 </view>
 </block></view>
-
 </view>
 
-
  <view class="hide{{change_3?'':'show'}}" bindtap="ChangeShowStatus_3">
+ <view class="Halfcircle_2"></view>
 <view><block wx:for="{{userList}}" wx:for-index="userIdx" wx:key="key">
 <view class="Friend"><view class="line"></view>
 <image class="portrait" src="{{item.avatarUrl}}"></image>
@@ -42,13 +46,6 @@
 </block></view>
 </view>
 
-<view class="hide{{change_1?'':'show'}}">
-<view class="Halfcircle"></view>
-</view>
-
-<view class="hide{{change_3?'':'show'}}">
-<view class="Halfcircle_2"></view>
-</view>
 
 
 
