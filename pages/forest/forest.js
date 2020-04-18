@@ -60,11 +60,13 @@ Page({
     //显示加载动画
     this.setData({loadContent:'正在收集树苗...'});
 
-    //获取用户目标的树苗的信息
+    // console.log(targetData);
+    //获取用户目标的树苗的信息, treeId未定义会出现无法运行的错误
     let treeId =[];
     for(let i=0;i<targetData.length;i++){
       treeId.push(targetData[i].treeId);
     }
+    // console.log(treeId);
 
     const db = wx.cloud.database();
     const _ = db.command;
