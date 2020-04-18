@@ -1,30 +1,38 @@
 .title{
-  height: 120rpx;
+  height: 80rpx;
   width: 500rpx;
-  position: fixed;
+  position: relative;
   border-radius: 30rpx;
-  top: 10%;
-  left: 17%;
-  background-color: antiquewhite;
-  font-size: 50rpx;
+  margin-top: 160rpx;
+  margin-left: 125rpx;
+  background-color: rgb(230, 230, 215);
+  font-size: 40rpx;
   align-items: center;
   justify-content: center;
   display: flex;
+  color:rgba(139, 213, 55, 0.96) ;
 }
 .coin{
-  height: 120rpx;
-  width: 120rpx;
+  height: 90rpx;
+  width: 90rpx;
+  position: relative;
+  margin-top:20rpx;
+  margin-left: 11%;
+}
+.gereenToyellow{
+  background: linear-gradient(60deg, rgba(219, 224, 187, 0.96), rgb(193, 224, 81));
+  height: 100%;
+  width: 100%;
   position: fixed;
-  top: 18%;
-  left: 9%;
+  display: flex;
 }
 .inputMoney{
-  height: 100rpx;
-  width: 500rpx;
-  border-radius: 50rpx;
-  background-color: rgba(22, 174, 194, 0.6);
-  position: fixed;
-  top: 19%;
+  height: 80rpx;
+  width: 420rpx;
+  border-radius: 20rpx;
+  background-color: rgb(236, 236, 197);
+  position: relative;
+  margin-top: -90rpx;
   left: 27%;
   align-items: center;
   justify-content: center;
@@ -32,55 +40,64 @@
 }
 
 .buttonclass{
-  height: 100rpx;
-  width: 250rpx;
+  height: 130rpx;
+  width: 210rpx;
   position: relative;
-  background-color: rgba(22, 174, 194, 0.6);
-  display:inline-flex; 
-  margin-top: 5%;
+  background-color: rgb(230, 245, 190);
+  display: inline-flex;
+  margin-top: 20rpx;
   border-radius: 30rpx;
-  margin-left: 5%;
+  margin-left: 4%;
   align-items: center;
   justify-content: center;
   box-shadow:  5rpx 5rpx 5rpx 5rpx rgba(235, 227, 114, 0.6);
   padding: 15rpx,15rpx,15rpx,15rpx;
 }
 .optionalAmount{
-  position: absolute;
-  top: 25%;
-  left: 10%;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20rpx;
+ 
 }
 .line{
   height: 10rpx;
   width: 650rpx;
-  position: fixed;
-  background-color: rgba(232, 236, 29, 0.844);
-  top: 52%;
-  left: 8%;
+  position: relative;
+  background-color: rgba(94, 95, 12, 0.844);
+  margin-top: 40rpx;
+  margin-left: 7%;
 }
 .littleTittle{
   color: red;
-  position: fixed;
-  top: 54%;
+  position: relative;
+  margin-top: 20rpx;
   left: 9%;
   font-size: 50rpx;
 }
 .tips{
   color: rgb(100, 40, 40);
-  position: fixed;
-  top: 58%;
+  position: relative;
+  margin-top: 58%;
   left: 9%;
   font-size: 35rpx;
 }
 .continue{
   height: 80rpx;
-  width: 500rpx;
+  width: 300rpx;
   position: fixed;
-  top:75%;
-  left: 18%;
-  border-radius: 50rpx;
-  background-color: rgba(22, 174, 194, 0.6);
+  bottom: 5%;
+  border-radius: 20rpx;
+  background-color: rgb(186, 226, 43);
   box-shadow: 0rpx 5rpx 5rpx 5rpx rgba(235, 227, 114, 0.6);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.continueView{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .back{
@@ -97,14 +114,14 @@
 .show{
   display:block ;
 }
-.target{
-  height: 6%;
-  width: 80%;
-  background-color: rgba(100, 238, 82, 0.6);
+.label{
+  height: 80rpx;
+  width: 500rpx;
+  background-color: rgb(219, 237, 182);
   border-radius: 50rpx;
   position: fixed;
   top: 10%;
-  left: 15%;
+  left: 16%;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -143,41 +160,73 @@
 align-items: center;
 justify-content: center;
 }
-
-.inputTaregt{
-  position: fixed;
-  top: 18%;
-  left: 22.5%;
-  background-color: rgba(235, 227, 114, 0.6);
-  color: rgba(46, 52, 53, 0.6);
-  height: 6%;
-  width: 60%;
-  border-radius: 50rpx;
+.centerlabel{
+  align-items: center;
+  justify-content: center;
+  display: block;
+  top: 40%;
+  position: relative;
 }
-
-.targets{
+.inputLabel{
+  position: fixed;
+  top: 55%;
+  left: 15%;
+  background-color: rgb(243, 240, 202);
+  color: rgba(46, 52, 53, 0.6);
+  height: 5%;
+  width: 70%;
+  border-radius: 20rpx;
+}
+.stTarget{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: fixed;
+  
+}
+.setTargetFont{
+  font-size: 35rpx;
+  height: 100rpx;
+  width: 500rpx;
+  background-color: rgb(51, 126, 13);
+  color: white;
+  position: relative;
+  top: 180rpx;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius:20rpx;
+  left: 24.5%;
+}
+.labels{
   position:fixed;
   top:25%;
-  left: 15%;
   display: inline-block;
   width: 100%;
   border-width: 5rpx;
   border-color: salmon;
-
+  align-items: center;
 }
-.targetClass{
-  height:80rpx;
-  width: 30%;
+.labelClass{
+  height:100rpx;
+  width: 17%;
   position: relative;
   background-color: rgba(22, 174, 194, 0.6);
   display:inline-flex; 
   margin-top: 5%;
   border-radius: 30rpx;
-  margin-left: 5%;
+  margin-left: 6%;
   align-items: center;
   justify-content: center;
   box-shadow:  5rpx 5rpx 5rpx 5rpx rgba(235, 227, 114, 0.6);
   padding: 15rpx,15rpx,15rpx,15rpx;
+}
+.font_label{
+  font-size: 35rpx;
+  color: rgb(235, 110, 52);
+  position: fixed;
+  top: 18%;
+  left: 29%;
 }
 .return{
   height: 100rpx;
@@ -269,80 +318,15 @@ justify-content: center;
   height: 10rpx;
   width: 400rpx;
  }
- .chooseRest{
-   position: fixed;
-   top: 35%;
-   left: 25%;
-   height: 100rpx;
-   width: 55%;
-   border-radius: 20rpx;
-   background: linear-gradient(60deg, rgba(33, 216, 106, 0.96), rgb(33, 153, 201));
-   align-items: center;
-   justify-content: center;
-   display: flex;
- }
- .rests{
-  position: fixed;
-  top: 42%;
-  display: flex;
- }
- .rest{
-  height: 80rpx;
-  width: 180rpx;
-  border-radius: 10rpx;
-  background-color: rgba(77, 231, 46, 0.6);
-  margin-left: 11%;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  margin-top: 3%;
- }
- .chooserest{height: 80rpx;
-  width: 180rpx;
-  border-radius: 10rpx;
-  background-color: rgba(93, 235, 223, 0.6);
-  margin-left: 11%;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  margin-top: 3%;}
- .restday{
-  position: fixed;
-  margin-left: 23%;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  top: 48.5%;
-  font-size: 45rpx;
-  color:black;
- }
- .inputrestday{
-  position: fixed;
-  margin-left: 50%;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  margin-top: 107%;
-  font-size: 40rpx;
- }
- .restline{
-  position: fixed;
-  margin-left: 41%;
-  top: 53%;
-  align-items: center;
-  justify-content: center;
-  font-size: 45rpx;
-  background-color: rgba(232, 236, 29, 0.844);
-  height: 10rpx;
-  width: 400rpx;
- }
+
+
  .returnTo{
    position: fixed;
-   top: 55%;
+   bottom: 4%;
    left: 16%;
-   height: 100rpx;
+   height: 80rpx;
    width: 250rpx;
-   background-color: rgba(235, 227, 114, 0.6);
+   background-color: rgb(235, 227, 114);
    border-radius: 20rpx;
    align-items: center;
    justify-content:center ;
@@ -360,13 +344,213 @@ justify-content: center;
   justify-content: center;
   display: flex
  }
+ .starTime{
+   display: flex;
+   position: relative;
+   margin-top: 230rpx;
+ }
+ .circle{
+   height: 60rpx;
+   width: 60rpx;
+   border-radius: 60rpx;
+   background-color: rgba(150, 150, 134, 0.96);
+   position: fixed;
+   left: 30rpx;
+ }
+ .circle_1{
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 60rpx;
+  background-color: rgba(150, 150, 134, 0.96);
+  position: fixed;
+  left: 30rpx;
+  margin-top: 120rpx;
+ }
+
+ .restday{
+   display: flex;
+ }
+ .circle_2{
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 60rpx;
+  background-color: rgba(150, 150, 134, 0.96);
+  position: fixed;
+  left: 30rpx;
+  margin-top: 200rpx;
+ }
+ .circle_3{
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 60rpx;
+  background-color: rgba(150, 150, 134, 0.96);
+  position: fixed;
+  left: 30rpx;
+  margin-top: 315rpx;
+ }
+ .seeORNot{
+   display: flex;
+ }
+ .seeLine{
+  height: 5rpx;
+  width: 100%;
+  background-color: rgba(139, 213, 55, 0.96);
+  position: fixed;
+  margin-top: 390rpx;
+ }
+ .seeSwitch{
+   position: relative;
+   top: 300rpx;
+   left: 380rpx;
+ }
+ .see_font{
+  position: relative;
+  left: 95rpx;
+  color: black;
+  top:330rpx ;
+ }
+ .stickOrNot{
+   display: flex;
+ }
+ .circle_4{
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 60rpx;
+  background-color: rgba(150, 150, 134, 0.96);
+  position: fixed;
+  left: 30rpx;
+  margin-top: 385rpx;
+ }
+ .stick_font{
+  position: relative;
+  left: 95rpx;
+  color: black;
+  top:390rpx ;
+ }
+ .stickSwitch{
+  position: relative;
+  top: 380rpx;
+  left: 410rpx;
+ }
+ .rest_font{
+  position: relative;
+  left: 95rpx;
+  color: black;
+  top:220rpx ;
+ }
+ .restline{
+  height: 5rpx;
+  width: 100%;
+  background-color: rgba(139, 213, 55, 0.96);
+  position: fixed;
+  margin-top: 280rpx;
+ }
+
+ .inputrest{
+   position: fixed;
+   margin-top: 220rpx;
+   margin-left: 480rpx;
+ }
+ .tian{
+  position: fixed;
+  margin-top: 222rpx;
+  margin-left: 610rpx;
+ }
+ .inputRestLine{
+   width: 150rpx;
+   height: 3rpx;
+   position: fixed;
+   margin-top: 260rpx;
+   margin-left: 460rpx;
+   background-color: rgba(116, 121, 110, 0.96);
+ }
+ .kaishishijian{
+  position: relative;
+  left: 95rpx;
+  color: black;
+  top:15rpx ;
+ }
+ .jieshushijian{
+  position: relative;
+  left: 95rpx;
+  color: black;
+  top:135rpx ;
+ }
+ .today{
+   height: 70rpx;
+   width: 120rpx;
+   background-color: rgba(234, 241, 226, 0.96);
+   align-items: center;
+   justify-content: center;
+   display: flex;
+   position: fixed;
+   left: 600rpx;
+   border-radius: 10rpx;
+ }
+ .today_1{
+  height: 70rpx;
+   width: 120rpx;
+   background-color: rgba(111, 116, 106, 0.96);
+   align-items: center;
+   justify-content: center;
+   display: flex;
+   position: fixed;
+   left: 600rpx;
+   border-radius: 10rpx;
+ }
+ .tomorrow{
+  height: 70rpx;
+  width: 120rpx;
+  background-color: rgba(234, 241, 226, 0.96);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: fixed;
+  left: 450rpx;
+  border-radius: 10rpx;
+}
+.tomorrow_1{
+  height: 70rpx;
+  width: 120rpx;
+  background-color: rgba(125, 128, 122, 0.96);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: fixed;
+  left: 450rpx;
+  border-radius: 10rpx;
+}
+.start_line{
+  height: 5rpx;
+  width: 100%;
+  background-color: rgba(139, 213, 55, 0.96);
+  position: fixed;
+  margin-top: 90rpx;
+}
+.end_line{
+  height: 5rpx;
+  width: 100%;
+  background-color: rgba(139, 213, 55, 0.96);
+  position: fixed;
+  margin-top: 190rpx;
+}
+.endTime{
+  display: flex;
+}
+.section{
+  position: relative;
+  left: 70%;
+  top:135rpx;
+  border-color: rgba(79, 83, 74, 0.96);
+  font-size: 32rpx;
+}
 .end{
-  height: 100rpx;
+  height: 80rpx;
   width: 250rpx;
   position: fixed;
-  top: 55%;
+  bottom:4% ;
   left: 56%;
-  background-color: rgba(235, 227, 114, 0.6);
+  background-color: rgb(235, 227, 114);
   border-radius: 20rpx;
   align-items: center;
   justify-content: center;

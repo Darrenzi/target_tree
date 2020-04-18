@@ -1,73 +1,109 @@
+
+<view class="gereenToyellow"> <!-- 设置背景渐变 -->
+
 <!-- 设置金额 -->
-<view class="hide {{change?'':'show'}}">
-  <view class="title"><text>设置挑战金额</text></view>
-  <view class="back" bindtap="back">{{a}}</view>
-  <view>
-  <image src="/images/coin.png" class="coin"></image>
-  <input placeholder="请输入挑战金额" class="inputMoney" type="text" maxlength="4" value="{{number}}" bindinput="getInput"></input>
+ <view class="hide {{change?'':'show'}}">
+   <view class="title"><text>设置挑战金额</text></view>
+   <view class="back" bindtap="back">{{a}}</view>
+   <view>
+   <image src="/images/coin.png" class="coin"></image>
+   <input placeholder="请输入挑战金额" class="inputMoney" type="text" maxlength="4" value="{{number}}"    bindinput="getInput"></input>
+ </view>
+<view class="optionalAmount">
+  <view class="buttonclass" bindtap="setdata">50</view>
+  <view class="buttonclass"  bindtap="setCoin ">100</view>
+  <view class="buttonclass"  bindtap="setdata_2">150</view>
+  <view class="buttonclass"  bindtap="setdata_3">200</view>
+  <view class="buttonclass"  bindtap="setdata_4">300</view>
+  <view class="buttonclass"  bindtap="setdata_5">500</view>
 </view>
 
-<view class="optionalAmount">
-  <button class="buttonclass" bindtap="setdata">50</button>
-  <button class="buttonclass"  bindtap="setdata_1">100</button>
-  <button class="buttonclass"  bindtap="setdata_2">150</button>
-  <button class="buttonclass"  bindtap="setdata_3">200</button>
-  <button class="buttonclass"  bindtap="setdata_4">300</button>
-  <button class="buttonclass"  bindtap="setdata_5">500</button>
-</view>
-<button class="continue" bindtap="toNext" bindtap="changeShowstatus">下一步</button>
 <view class="line"></view>
 <view class="littleTittle">Tips:</view>
 <text class="tips">1:金币将会在完成目标后返还到您的账户。</text>
+
+<view class="continueView">
+<view class="continue" bindtap="toNext" bindtap="changeShowstatus">下一步</view></view>
 </view>
 
 
 <!-- 创建标签以及时间具体名称 -->
 <view class="hide{{change_1?'':'show'}}">
-<view class="target">请选择你的标签</view>
-<input placeholder="输入自定义标签" class="inputTaregt" type="text" maxlength="10"  bindinput="getInputTarget"
-value="{{target}}" ></input>
-<view class="targets">
-<view class="targetClass" bindtap="setTarget">做作业</view>
-<view class="targetClass" bindtap="setTarget_1">阅读</view>
-<view class="targetClass" bindtap="setTarget_2">运动</view>
-<view class="targetClass" bindtap="setTarget_3">早睡</view>
-<view class="targetClass" bindtap="setTarget_4">减肥</view>
-<view class="targetClass" bindtap="setTarget_5">变漂liang</view></view>
-<view class="labeltToContent"> </view>
-<view class="Content" >目标:</view>
-<input class="inputContent" placeholder="请输入目标内容" maxlength="20" bindinput='getInputContent'></input>
-<view class="contentLine"></view>
+<view class="label">请选择你的标签</view>
+<view class="font_label">一：请选择你的标签</view>
+<view class="labels">
+  <view class="labelClass" bindtap="setTarget">做作业</view>
+  <view class="labelClass" bindtap="setTarget_1">阅读</view>
+  <view class="labelClass" bindtap="setTarget_2">运动</view>
+  <view class="labelClass" bindtap="setTarget_3">早睡</view>
+  <view class="labelClass" bindtap="setTarget_4">减肥</view>
+  <view class="labelClass" bindtap="setTarget_5">变漂liang</view>
+  <view class="labelClass" bindtap="setTarget_5">变漂liang</view>
+  <view class="labelClass" bindtap="setTarget_5">变漂liang</view>
+</view>
+<view class="centerlabel">
+ <input placeholder="输入自定义标签" class="inputLabel" type="text" maxlength="10"  bindinput="getInputTarget"
+ value="{{target}}" ></input>
+</view>
 <view class="return" bindtap="changeShowstatus">返回上一步</view>
-<view class="nextStep" bindtap="changeShowstatus_1">下一步</view>
+<view class="nextStep" bindtap="changeShowstatus_1">下一步</view> 
 </view>
 
-<!-- 创建record以及rest -->
+
+<!-- 第三个页面 -->
 <view class="hide{{change_2?'':'show'}}">
-<!-- 选择天数 -->
-<view class="chooseRecord">
-<image src="images/4.png/" class="calendar"></image>请选择目标完成天数</view>
-<view class="records">
-<view class="record" hover-class="chooserecord" hover-stay-time="200" bindtap="setrecord">7天</view>
-<view class="record" hover-class="chooserecord" hover-stay-time="200" bindtap="setrecord_1">10天</view>
-<view class="record" hover-class="chooserecord" hover-stay-time="200" bindtap="setrecord_2">15天</view>
-<view class="record" hover-class="chooserecord" hover-stay-time="200" bindtap="setrecord_3">21天</view>
+<!-- 创建目标 -->
+ <view class="setTarget">
+   <view class="setTargetFont">目标设置</view>
+ </view>
+ <view class="starTime">
+ <view class="circle"></view>
+ <view class="kaishishijian">开始时间</view>
+ <view class="{{changeView?'today_1':'today'}}" bindtap="changeview">今天</view>
+ <view class="{{changeView_1?'tomorrow_1':'tomorrow'}}" bindtap="changview_1">明天</view>
+ <view class="start_line"></view>
+ </view>
+<!-- 设置结束时间 -->
+ <view class="endTime">
+ <view class="circle_1"></view>
+ <view class="jieshushijian">结束时间</view>
+<view class="section">
+  <picker mode="date"  start="2020-05-01" end="2022-09-01" bindchange="bindDateChange">
+    <view class="picker">
+      当前: {{date}}
+    </view>
+  </picker>
 </view>
-<view class="day">自定义:</view>
-<input class="inputday" placeholder="请输入你的天数" maxlength="2" value="{{record}}"></input>
-<view class="recordline"> </view>
-<!-- 选择休息时间 -->
-<view class="chooseRest">请选择休息天数</view>
-<view class="rests">
-<view class="rest" hover-class="chooserest" hover-stay-time="200" bindtap="setrest">1天</view>
-<view class="rest" hover-class="chooserest" hover-stay-time="200" bindtap="setrest_1">5天</view>
-<view class="rest" hover-class="chooserest" hover-stay-time="200" bindtap="setrest_2">7天</view>
-<view class="rest" hover-class="chooserest" hover-stay-time="200" bindtap="setrest_3">9天</view></view>
-<view class="restday">自定义:</view>
-<input class="inputrestday" placeholder="请输入你的天数" maxlength="2" value="{{rest}}"></input>
-<view class="restline"> </view>
-<!-- 返回上一层按钮 -->
+<view class="end_line"></view>
+</view>
+<!-- 设置休息天数 -->
+<view class="restday">
+<view class="circle_2"></view>
+<view class="rest_font">休息天数</view>
+<input class="inputrest" placeholder="输入天数" type="number" maxlength="3" bindinput="getRest"></input>
+<view class="tian" >天</view>
+<view class="inputRestLine"></view>
+<view class="restline"></view>
+</view>
+<!-- 设置是否可见 -->
+<view class="seeORNot">
+<view  class="circle_3"></view>
+<view class="see_font">在首页显示</view>
+<switch class="seeSwitch"></switch>
+<view class="seeLine"></view>
+</view>
+<!-- 设置是否指定 -->
+<view class="stickOrNot">
+<view class="circle_4"></view>
+<view class="stick_font">是否置顶</view>
+<switch class="stickSwitch"></switch>
+</view>
+<!-- 设置上一步按钮 -->
 <view class="returnTo" bindtap="changeShowStatus_2">上一步</view>
+<!-- 设置完成按钮 -->
 <view class="end" bindtap="end">完成</view>
 </view>
 
+
+<!-- 背景颜色标签 -->
+</view>
