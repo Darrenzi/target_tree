@@ -1,4 +1,5 @@
 // pages/createTarget/createTarget.js
+var util=require('../../utils/util.js')
 Page({
 
   /**
@@ -7,16 +8,68 @@ Page({
   data: {
    numbers:[50,100,200,600,800,1000],
    a:'<',
-   change:false,
+   change:true,
    change_1:true,
-   change_2:true,
+   change_2:false,
    label:'',
    setCoin:'',
    rest:'',
    record:'',
-   content:''
+   content:'',
+   date:'2020-4-16',
+   changeView:false,
+   changeView_1:false,
+   amount:''
   },
+  bindDateChange:function(e){
+    this.setData({
+      date: e.detail.value
+    })
+  },
+  changeview:function(){
+    let date=this.data.date
+    this.setData({
+     changeView:(!this.data.changeView),
+     changeView_1:false
+    })
+    var TIME = util.formatTime(new Date());
+    var startTime=TIME;
+    var endTime=date;
+    console.log("结束时间：",endTime)
+    var start_date = new Date(startTime.replace(/-/g, "/"));
+    var end_date = new Date(endTime.replace(/-/g, "/"));
+    var ms = end_date.getTime() - start_date.getTime();
+     //转换成天数
+    var day = parseInt(ms / (1000 * 60 * 60 * 24));
+     //do something
+    console.log("day = ", day);
+    this.setData({
+      amount:day
+    })
 
+
+  },
+  changview_1:function(){
+    let date=this.data.date
+    this.setData({
+      changeView_1:(!this.data.changeView_1),
+      changeView:false
+     })
+     var TIME = util.formatTime(new Date());
+    var startTime=TIME;
+    var endTime=date;
+    console.log("结束时间：",endTime)
+    var start_date = new Date(startTime.replace(/-/g, "/"));
+    var end_date = new Date(endTime.replace(/-/g, "/"));
+    var ms = end_date.getTime() - start_date.getTime();
+     //转换成天数
+    var day = parseInt(ms / (1000 * 60 * 60 * 24));
+     //do something
+    console.log("day = ", day);
+    this.setData({
+      amount:day+1
+    })
+  },
   //按键输入至input框中
   setdata:function(e){
     this.setData({
@@ -24,7 +77,7 @@ Page({
       setCoin:'50'
     })
   },
-  setdata_1:function(e){
+  setCoin:function(e){
     this.setData({
       number:'100',
       setCoin:'100'
@@ -113,27 +166,10 @@ Page({
     })
   },
 
-  setrest:function(e){
-    this.setData({
-      rest:'1'
-    })
-  },
-  setrest_1:function(e){
-    this.setData({
-      rest:'5'
-    })
-  },
- 
-  setrest_2:function(e){
-    this.setData({
-      rest:'7'
-    })
-  },
-
-  setrest_3:function(e){
-    this.setData({
-      rest:'9'
-    })
+  getRest:function(e){
+this.setData({
+  rest:e.detail.value
+})
   },
 
   back:function(){
@@ -185,14 +221,7 @@ Page({
    var rest=this.data.rest
    var record=this.data.record
    var content=this.data.content
-  //  if(rest>=record){
-  //   wx.showModal({
-  //     title: '失败',
-  //     content: '请确认休息时间和目标时间',
-  //     showCancel: false
-  //  })
-  //   return
-  //  }
+   var amount=this.data.amount
    db.collection('target').add({
      data:{
       supervisor:[],
@@ -200,11 +229,12 @@ Page({
       title:content, //title内容同content
       content:content,
       amount:Number(setCoin),
-      record:Number(record),
+      record:Number(record),//打卡记录
       rest:Number(rest),
       time:new Date(),
       like:0,
       record:0,
+      amount:amount,
       //任务进度
       progress:0.00,
      },
