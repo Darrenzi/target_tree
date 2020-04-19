@@ -203,7 +203,7 @@ progress{
 .chooseTree{
   background:white;
   width: 85%;
-  height: 60%;
+  height: 38%;
   border-radius: 20rpx;
   position: relative;
   overflow-y: scroll;

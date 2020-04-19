@@ -19,7 +19,8 @@ Page({
    date:'2020-4-16',
    changeView:false,
    changeView_1:false,
-   amount:''
+   amount:'',
+   
   },
   bindDateChange:function(e){
     this.setData({
@@ -216,12 +217,13 @@ this.setData({
   },
  end:function(e){
    const db=wx.cloud.database()
-   var label=this.data.label
+   var label =this.data.label
    var setCoin=this.data.setCoin
    var rest=this.data.rest
    var record=this.data.record
    var content=this.data.content
    var amount=this.data.amount
+
    db.collection('target').add({
      data:{
       supervisor:[],
@@ -256,7 +258,7 @@ this.setData({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      
+    console.log(options);
   },
 
   /**

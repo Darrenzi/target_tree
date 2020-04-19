@@ -276,7 +276,7 @@ Page({
   treeAnimation:function(){
     //创建树木动画
     let animation = wx.createAnimation({
-      duration: 1500,
+      duration: 500,
       timingFunction: 'ease',
     });
     this.animation = animation;
@@ -294,7 +294,7 @@ Page({
         treeOpacity:0,
         treeShow: true
       })
-    }, 1500)
+    }, 500)
   },
 
   /**
