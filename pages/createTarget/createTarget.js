@@ -311,18 +311,38 @@ Page({
   })
 
 },
- init:function(){
-   this.setData({
-     loadContent:''
-   })
- },
+
+init:function(){
+  const db = wx.cloud.database();
+  const userTable = db.collection('user');
+ 
+  let app = getApp();
+  userTable.get().then(res => {
+    //判断是否注册
+    if (res.data.length == 0) {
+      console.log("用户还未注册");
+      wx.navigateTo({
+        url: '../register/register',
+      })
+    } else {
+      //已注册
+      console.log("已注册");
+      this.setData({user:res.data[0]});
+      app.globalData.user = res.data[0];
+    }
+    this.setData({ loadContent: '' });
+  },err=>{
+    console.log("加载用户信息错误");
+    this.setData({loadContent:''});
+  })
+},
  
   /**89
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
       console.log("options",options)
-      this.init();
+      this.init()
   },
 
   /**

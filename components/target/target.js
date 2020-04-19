@@ -6,7 +6,8 @@ Component({
   properties: {
     currentTarget:{
       type:Object,
-      value:null
+      value:null,
+      loadContent:''
     }
   },
 
@@ -38,7 +39,7 @@ Component({
       console.log("添加目标");
       let targets = this.data.targets;
       wx.navigateTo({
-        url: '../../pages/createTarget/createTarget'
+        url: '../../pages/createTarget/createTarget',
       })
       // targets.unshift( {tip:"new", progress:0});
       // this.setData({targets:targets});
