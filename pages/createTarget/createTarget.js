@@ -153,12 +153,9 @@ Page({
 
   changeShowstatus:function(){   //
    var setCoin=this.data.setCoin
+   var that=this
     if(setCoin<=0){
-      wx.showModal({
-        title: '创建失败',
-        content: '请输入正确的数额',
-        showCancel: false
-       })
+      that.setData({informContent:"请输入正确的数额"});
       return
      }
      var that=this
@@ -166,7 +163,6 @@ Page({
       change:(!that.data.change),
       change_1:(!that.data.change_1)
      })
-   
   },
   changeShowstatus_1:function(){
     var nowdate = util.formatTime(new Date())
@@ -175,11 +171,8 @@ Page({
     })
     var label=this.data.label
     if(label==""){
-      wx.showModal({
-        title: '创建失败',
-        content: '请输入正确的标签',
-        showCancel: false
-       })
+      var that=this
+      that.setData({informContent:"请输入正确的标签"});
       return
      }
     var that=this
@@ -256,28 +249,17 @@ Page({
    var record=this.data.record
    var content=this.data.content
    var amount=this.data.amount
+   var that=this
    if(amount<=rest){
-    wx.showModal({
-      title: '创建失败',
-      content: '请输入正确的结束时间',
-      showCancel: false
-     })
+    that.setData({informContent:"请输入正确的结束时间"});
     return
    }
    if(rest<0){
-    wx.showModal({
-      title: '创建失败',
-      content: '请输入正确的休息时间',
-      showCancel: false
-     })
+    that.setData({informContent:"请输入正确的休息时间"});
     return
    }
    if(amount<0){
-    wx.showModal({
-      title: '创建失败',
-      content: '请输入正确的结束时间',
-      showCancel: false
-     })
+    that.setData({informContent:"请输入正确的结束时间"});
     return
    }
    
@@ -299,11 +281,12 @@ Page({
      },
      success:function(res){
        console.log(res)
-       wx.showModal({
-        title: '成功',
-        content: '成功创建目标',
-        showCancel: false
-       })
+      //  wx.showModal({
+      //   title: '成功',
+      //   content: '成功创建目标',
+      //   showCancel: false
+      //  })
+      that.setData({informContent:"成功创建目标"});
      }
    }),
   wx.navigateTo({
@@ -315,22 +298,15 @@ Page({
 init:function(){
   const db = wx.cloud.database();
   const userTable = db.collection('user');
- 
   let app = getApp();
   userTable.get().then(res => {
     //判断是否注册
-    if (res.data.length == 0) {
-      console.log("用户还未注册");
-      wx.navigateTo({
-        url: '../register/register',
-      })
-    } else {
       //已注册
       console.log("已注册");
       this.setData({user:res.data[0]});
       app.globalData.user = res.data[0];
-    }
-    this.setData({ loadContent: '' });
+      console.log(res.data[0])
+      this.setData({ loadContent: '' });
   },err=>{
     console.log("加载用户信息错误");
     this.setData({loadContent:''});
