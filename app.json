@@ -2,14 +2,16 @@
   "cloud": true,
   "pages": [
     "pages/createTarget/createTarget",
-    "pages/index/index",
+    "pages/targetList/targetList",
   
+    "pages/index/index",
     "pages/forest/forest",
     "pages/messages/messages",
     "pages/FriendSystem/FriendSystem",
     "pages/mall/mall",
     "pages/history/history",
     "pages/register/register"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
