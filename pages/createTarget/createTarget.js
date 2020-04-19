@@ -8,9 +8,9 @@ Page({
   data: {
    numbers:[50,100,200,600,800,1000],
    a:'<',
-   change:true,
+   change:false,
    change_1:true,
-   change_2:false,
+   change_2:true,
    label:'',
    setCoin:'',
    rest:'',
@@ -20,56 +20,39 @@ Page({
    changeView:false,
    changeView_1:false,
    amount:'',
-   
+
+
+   //树苗Id
+   treeId:"",
+   //显示加载中的动画，为空时不显示
+   loadContent:'',
+   //显示确认窗口,为空时不显示
+    informContent:''
   },
   bindDateChange:function(e){
     this.setData({
       date: e.detail.value
     })
   },
-  changeview:function(){
+  changeview:function(){  //今天
     let date=this.data.date
     this.setData({
-     changeView:(!this.data.changeView),
-     changeView_1:false
+     changeView:true,
+     changeView_1:false,
+     setDate:0
     })
-    var TIME = util.formatTime(new Date());
-    var startTime=TIME;
-    var endTime=date;
-    console.log("结束时间：",endTime)
-    var start_date = new Date(startTime.replace(/-/g, "/"));
-    var end_date = new Date(endTime.replace(/-/g, "/"));
-    var ms = end_date.getTime() - start_date.getTime();
-     //转换成天数
-    var day = parseInt(ms / (1000 * 60 * 60 * 24));
-     //do something
-    console.log("day = ", day);
-    this.setData({
-      amount:day
-    })
+    
 
 
   },
   changview_1:function(){
     let date=this.data.date
     this.setData({
-      changeView_1:(!this.data.changeView_1),
-      changeView:false
+      changeView_1:true,
+      changeView:false,
+      setDate:1
      })
-     var TIME = util.formatTime(new Date());
-    var startTime=TIME;
-    var endTime=date;
-    console.log("结束时间：",endTime)
-    var start_date = new Date(startTime.replace(/-/g, "/"));
-    var end_date = new Date(endTime.replace(/-/g, "/"));
-    var ms = end_date.getTime() - start_date.getTime();
-     //转换成天数
-    var day = parseInt(ms / (1000 * 60 * 60 * 24));
-     //do something
-    console.log("day = ", day);
-    this.setData({
-      amount:day+1
-    })
+  
   },
   //按键输入至input框中
   setdata:function(e){
@@ -78,7 +61,7 @@ Page({
       setCoin:'50'
     })
   },
-  setCoin:function(e){
+  setCoinNumber:function(e){
     this.setData({
       number:'100',
       setCoin:'100'
@@ -200,7 +183,6 @@ this.setData({
     })
   },
   getInput:function(e){
-  
       this.setData({
         setCoin: e.detail.value
       })
@@ -216,6 +198,44 @@ this.setData({
    })
   },
  end:function(e){
+
+   //显示加载动画
+   this.setData({loadContent:"创建中..."});
+
+   let setDate=this.data.setDate
+   let date=this.data.date
+   if(setDate==1){  //选择明天开始目标
+    var TIME = util.formatTime(new Date());
+    var startTime=TIME;
+    var endTime=date;
+    console.log("结束时间：",endTime)
+    var start_date = new Date(startTime.replace(/-/g, "/"));
+    var end_date = new Date(endTime.replace(/-/g, "/"));
+    var ms = end_date.getTime() - start_date.getTime();
+     //转换成天数
+    var day = parseInt(ms / (1000 * 60 * 60 * 24));
+     //do something
+    console.log("day = ", day);
+    this.setData({
+      amount:day-1
+    })
+   }
+   if(setDate==0){
+    var TIME = util.formatTime(new Date());
+    var startTime=TIME;
+    var endTime=date;
+    console.log("结束时间：",endTime)
+    var start_date = new Date(startTime.replace(/-/g, "/"));
+    var end_date = new Date(endTime.replace(/-/g, "/"));
+    var ms = end_date.getTime() - start_date.getTime();
+     //转换成天数
+    var day = parseInt(ms / (1000 * 60 * 60 * 24));
+     //do something
+    console.log("day = ", day);
+    this.setData({
+      amount:day
+    })
+   }
    const db=wx.cloud.database()
    var label =this.data.label
    var setCoin=this.data.setCoin
@@ -224,6 +244,39 @@ this.setData({
    var content=this.data.content
    var amount=this.data.amount
 
+   if(label==""){
+     //显示提示窗口，并取消加载动画
+     this.setData({informContent:"请输入标签", loadContent:''});
+     return;
+   }
+
+   if(amount<=rest){
+     console.log("amount",amount, "rest",rest);
+    wx.showModal({
+      title: '创建失败',
+      content: '请输入正确的休息时间',
+      showCancel: false
+     })
+    return
+   }
+   if(rest<0){
+    wx.showModal({
+      title: '创建失败',
+      content: '请输入正确的休息时间',
+      showCancel: false
+     })
+    return
+   }
+   if(setCoin<=0){
+    wx.showModal({
+      title: '创建失败',
+      content: '成功创建目标',
+      showCancel: false
+     })
+    return
+   }
+
+   let that = this;
    db.collection('target').add({
      data:{
       supervisor:[],
@@ -239,6 +292,8 @@ this.setData({
       amount:amount,
       //任务进度
       progress:0.00,
+      //树苗的id
+      treeId:that.data.treeId
      },
      success:function(res){
        console.log(res)
@@ -259,6 +314,7 @@ this.setData({
    */
   onLoad: function (options) {
     console.log(options);
+    this.setData({treeId:options.treeId});
   },
 
   /**

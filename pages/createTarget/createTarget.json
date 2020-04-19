@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "inform":"../../components/inform/inform",
+    "loading":"../../components/loading/loading"
+  }
 }

@@ -1,3 +1,6 @@
+<loading content="{{loadContent}}"></loading>
+<inform content="{{informContent}}"></inform>
+
 
 <view class="gereenToyellow"> <!-- 设置背景渐变 -->
 
@@ -11,7 +14,7 @@
  </view>
 <view class="optionalAmount">
   <view class="buttonclass" bindtap="setdata">50</view>
-  <view class="buttonclass"  bindtap="setCoin ">100</view>
+  <view class="buttonclass"  bindtap="setCoinNumber">100</view>
   <view class="buttonclass"  bindtap="setdata_2">150</view>
   <view class="buttonclass"  bindtap="setdata_3">200</view>
   <view class="buttonclass"  bindtap="setdata_4">300</view>

@@ -206,20 +206,22 @@ justify-content: center;
   border-width: 5rpx;
   border-color: salmon;
   align-items: center;
+  
 }
-.labelClass{
+.labelClass{  
   height:100rpx;
-  width: 17%;
+  width: 22%;
   position: relative;
   background-color: rgba(22, 174, 194, 0.6);
   display:inline-flex; 
   margin-top: 5%;
   border-radius: 30rpx;
-  margin-left: 6%;
+  margin-left: 2.5%;
   align-items: center;
   justify-content: center;
   box-shadow:  5rpx 5rpx 5rpx 5rpx rgba(235, 227, 114, 0.6);
   padding: 15rpx,15rpx,15rpx,15rpx;
+ 
 }
 .font_label{
   font-size: 35rpx;
@@ -454,14 +456,14 @@ justify-content: center;
  .tian{
   position: fixed;
   margin-top: 222rpx;
-  margin-left: 610rpx;
+  margin-left: 630rpx;
  }
  .inputRestLine{
    width: 150rpx;
    height: 3rpx;
    position: fixed;
-   margin-top: 260rpx;
-   margin-left: 460rpx;
+   margin-top: 265rpx;
+   margin-left: 475rpx;
    background-color: rgba(116, 121, 110, 0.96);
  }
  .kaishishijian{
