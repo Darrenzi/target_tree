@@ -1,3 +1,5 @@
+<loading content="{{loadContent}}"></loading>
+<inform content="{{informContent}}"></inform>
 
 <view class="gereenToyellow"> <!-- 设置背景渐变 -->
 
@@ -59,7 +61,7 @@
  <view class="starTime">
  <view class="circle"></view>
  <view class="kaishishijian">开始时间</view>
- <view class="{{changeView?'today_1':'today'}}" bindtap="changeview">今天</view>
+ <view class="{{changeView?'today':'today_1'}}" bindtap="changeview">今天</view>
  <view class="{{changeView_1?'tomorrow_1':'tomorrow'}}" bindtap="changview_1">明天</view>
  <view class="start_line"></view>
  </view>
