@@ -206,6 +206,10 @@ Page({
   },
 
  end:function(e){
+
+   //显示加载动画
+   this.setData({loadContent:"创建中..."});
+
    let setDate=this.data.setDate
    let date=this.data.date
    if(setDate==1){  //选择明天开始目标
@@ -243,7 +247,7 @@ Page({
    }
    console.log("总打卡时间",this.data.amount)
    const db=wx.cloud.database()
-   var label=this.data.label
+   var label =this.data.label
    var setCoin=this.data.setCoin
    var rest=this.data.rest
    var record=this.data.record
@@ -278,6 +282,8 @@ Page({
       amount:amount,
       //任务进度
       progress:0.00,
+      //树苗的id
+      treeId:that.data.treeId
      },
      success:function(res){
        console.log(res)

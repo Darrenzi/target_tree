@@ -38,11 +38,25 @@
     <progress active percent="{{currentTarget.progress}}" activeColor="rgb(212, 212, 79)" stroke-width="35rpx" border-radius="20rpx" backgroundColor="white"/>
   </view>
 
-  <view class="tree">
-    <view class="companydiV"></view>
+  <view class="tree_container">
+    <!-- 动画显示的树木 -->
+    <image class="tree" src="{{currentTarget.tree}}" style="height:{{treeHeight}}; opacity:{{treeOpacity}}" animation="{{treeAnimation}}" hidden="{{treeShow}}"></image>
+    <!-- 动画结束后显示的固定树木 -->
+    <image class="tree" src="{{currentTarget.tree}}" hidden="{{!treeShow}}"></image>
+    <image class="solid" src="images/solid.png"></image>
   </view>
   <view class="target_title">{{currentTarget.title}}</view>
   <view class="button" bindtap="record">打卡</view>
 </view>
 
-<target id="target" class="bottom" bindchoose="chooseTarget"></target>
+<!-- 选择树苗 -->
+<view class="chooseTreeContainer" wx:if="{{addTargetFlag}}" bindtap="addTarget">
+  <view class="chooseTree" catchtap>
+    <view class="chooseTreeTop">选择树苗</view>
+    <view class="treeOptions">
+      <image class="treeOption" wx:for="{{userTrees}}" src="{{item.path[0]}}" wx:key="tree" bindtap="chooseTree" data-treeid="{{item._id}}"></image>
+    </view>
+  </view>
+</view>
+
+<target id="target" class="bottom" bindchoose="chooseTarget" catchadd="addTarget"></target>

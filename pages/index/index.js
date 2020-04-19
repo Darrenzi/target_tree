@@ -14,7 +14,17 @@ Page({
     //加载表示符，用于控制加载动画,当值为 "" 隐藏
     loadContent: "加载中...",
     //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
-    informContent:""
+    informContent:"",
+
+    //显示选择树苗的窗口
+    addTargetFlag:false,
+    //用户拥有的树苗
+    userTrees:[],
+
+    //用于树木显示动画的控制
+    treeShow:false,
+    treeHeight:0,
+    treeOpacity:0
   },
 
   //初始化用户信息
@@ -35,11 +45,64 @@ Page({
         console.log("已注册");
         this.setData({user:res.data[0]});
         app.globalData.user = res.data[0];
+        that.getUserTree();
       }
       this.setData({ loadContent: '' });
     },err=>{
       console.log("加载用户信息错误");
       this.setData({loadContent:''});
+    })
+  },
+
+  addTarget:function(){
+    // console.log('添加目标');
+    if(this.data.addTargetFlag){
+      this.setData({ addTargetFlag: false });
+    }
+    else{
+      this.setData({ addTargetFlag: true });
+    }
+  },
+
+  chooseTree:function(e){
+    //创建新目标的时选中的树的id
+    let treeId = e.currentTarget.dataset.treeid;
+    console.log(treeId);
+    this.setData({loadContent:"正在路上..."})
+    let that = this;
+    wx.navigateTo({
+      url: '../createTarget/createTarget?treeId='+treeId,
+      success:function(){
+        that.setData({addTargetFlag:false, loadContent:''});
+      },
+      fail:function(){
+        console.log(err);
+      },
+      complete:function(){
+        that.setData({loadContent: '' });
+      }
+    })
+  },
+
+  getUserTree:function(){
+    //获取用户所拥有的树苗
+    const db = wx.cloud.database();
+    const _ = db.command;
+    let that = this;
+    console.log(that.data.user.tools);
+    db.collection('tool')
+    .field({
+      path:true
+    })
+    .where({
+      _id:_.in(that.data.user.tools)
+    }).get()
+    .then(res=>{
+      console.log(res);
+      that.setData({userTrees: res.data});
+    })
+    .catch(err=>{
+      console.log(err);
     })
   },
 
@@ -55,7 +118,14 @@ Page({
   chooseTarget:function(e){
     //选择目标
     // console.log(e);
-    this.setData({currentTarget:e.detail.target});
+    this.setData({currentTarget:e.detail.target, treeShow:false});
+    let that = this;
+    //0.5s进行图片更换
+    setTimeout(function(
+    ){
+      that.treeAnimation();
+    },500)
+
   },
 
   reachTo:function(e){
@@ -133,13 +203,17 @@ Page({
       target_id:_.eq(that.data.currentTarget._id)
     })
     .get().then(res=>{
-      // console.log(res);
+      console.log(res);
       let lastDate = null;
       if(res.data.length!=0){
         lastDate = (res.data[0].time).Format("yyyy-MM-dd");
       }
+      else{
+        lastDate = date;
+      }
+
       // console.log(date, lastDate);
-      if(lastDate != null || lastDate == date){
+      if(lastDate == date){
         //判断时间，一天只能打卡一次
         that.setData({informContent:"您今天已经打卡,劳逸结合才能坚持到最后！", loadContent:""});
       }
@@ -197,8 +271,32 @@ Page({
         })
       }
     })
-
   },
+
+  treeAnimation:function(){
+    //创建树木动画
+    let animation = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease',
+    });
+    this.animation = animation;
+
+    animation.height("250rpx").opacity(1).step();
+
+    this.setData({
+      treeAnimation: animation.export(),
+    })
+
+    let that = this;
+    setTimeout(function () {
+      that.setData({
+        treeHeight:0,
+        treeOpacity:0,
+        treeShow: true
+      })
+    }, 500)
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -210,6 +308,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    
   },
 
   /**
