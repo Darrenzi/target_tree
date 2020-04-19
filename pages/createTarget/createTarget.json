@@ -1,7 +1,3 @@
 {
-  "usingComponents": {
-    "target":"../../components/target/target",
-    "loading":"../../components/loading/loading",
-    "inform":"../../components/inform/inform"
-  }
+  "usingComponents": {}
 }

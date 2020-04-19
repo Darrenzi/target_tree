@@ -8,42 +8,44 @@ Page({
   data: {
    numbers:[50,100,200,600,800,1000],
    a:'<',
-   change:false,
+   change:true,
    change_1:true,
-   change_2:true,
+   change_2:false,
    label:'',
    setCoin:'',
    rest:'',
    record:'',
    content:'',
-   date:'',
+   date:'2020-4-16',
    changeView:false,
    changeView_1:false,
    amount:'',
-   setDate:0,
-   //加载表示符，用于控制加载动画,当值为 "" 隐藏
-   loadContent: "加载中...",
-   //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
-   informContent:""
+   setDate:''
   },
-  bindDateChange:function(e){  //获取多行滑动组件中的值
+  bindDateChange:function(e){
     this.setData({
       date: e.detail.value
     })
   },
-  changeview:function(){  //点击今天
+  changeview:function(){  //今天
+    let date=this.data.date
     this.setData({
-     changeView:false,
+     changeView:true,
      changeView_1:false,
      setDate:0
     })
+    
+
+
   },
-  changview_1:function(){  //点击明天的函数
+  changview_1:function(){
+    let date=this.data.date
     this.setData({
       changeView_1:true,
-      changeView:true,
+      changeView:false,
       setDate:1
      })
+  
   },
   //按键输入至input框中
   setdata:function(e){
@@ -52,7 +54,7 @@ Page({
       setCoin:'50'
     })
   },
-  setCoinNumber:function(e){   
+  setCoinNumber:function(e){
     this.setData({
       number:'100',
       setCoin:'100'
@@ -142,7 +144,7 @@ Page({
   },
 
   getRest:function(e){
-  this.setData({
+this.setData({
   rest:e.detail.value
 })
   },
@@ -151,37 +153,14 @@ Page({
     wx.navigateBack({});
   },
 
-  changeShowstatus:function(){   //
-   var setCoin=this.data.setCoin
-    if(setCoin<=0){
-      wx.showModal({
-        title: '创建失败',
-        content: '请输入正确的数额',
-        showCancel: false
-       })
-      return
-     }
+  changeShowstatus:function(){
      var that=this
      that.setData({
       change:(!that.data.change),
       change_1:(!that.data.change_1)
      })
-   
   },
   changeShowstatus_1:function(){
-    var nowdate = util.formatTime(new Date())
-    this.setData({
-      date:nowdate
-    })
-    var label=this.data.label
-    if(label==""){
-      wx.showModal({
-        title: '创建失败',
-        content: '请输入正确的标签',
-        showCancel: false
-       })
-      return
-     }
     var that=this
     that.setData({
      change:true,
@@ -211,7 +190,6 @@ Page({
     content:e.detail.value
    })
   },
-
  end:function(e){
    let setDate=this.data.setDate
    let date=this.data.date
@@ -235,7 +213,6 @@ Page({
     var TIME = util.formatTime(new Date());
     var startTime=TIME;
     var endTime=date;
-    
     console.log("结束时间：",endTime)
     var start_date = new Date(startTime.replace(/-/g, "/"));
     var end_date = new Date(endTime.replace(/-/g, "/"));
@@ -248,7 +225,6 @@ Page({
       amount:day
     })
    }
-   console.log("总打卡时间",this.data.amount)
    const db=wx.cloud.database()
    var label=this.data.label
    var setCoin=this.data.setCoin
@@ -256,10 +232,18 @@ Page({
    var record=this.data.record
    var content=this.data.content
    var amount=this.data.amount
+   if(label==""){
+    wx.showModal({
+      title: '创建失败',
+      content: '请输入标签',
+      showCancel: false
+     })
+     return
+   }
    if(amount<=rest){
     wx.showModal({
       title: '创建失败',
-      content: '请输入正确的结束时间',
+      content: '请输入正确的休息时间',
       showCancel: false
      })
     return
@@ -272,15 +256,14 @@ Page({
      })
     return
    }
-   if(amount<0){
+   if(setCoin<=0){
     wx.showModal({
       title: '创建失败',
-      content: '请输入正确的结束时间',
+      content: '成功创建目标',
       showCancel: false
      })
     return
    }
-   
    db.collection('target').add({
      data:{
       supervisor:[],
@@ -311,39 +294,32 @@ Page({
   })
 
 },
- init:function(){
-   this.setData({
-     loadContent:''
-   })
- },
- 
   /**89
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
       console.log("options",options)
-      this.init();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-   
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-   
+
   },
 
   /**
