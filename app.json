@@ -1,17 +1,14 @@
 {
   "cloud": true,
   "pages": [
-    "pages/createTarget/createTarget",
-    "pages/targetList/targetList",
-  
+    "pages/history/history",
     "pages/index/index",
+    "pages/createTarget/createTarget",
     "pages/forest/forest",
     "pages/messages/messages",
     "pages/FriendSystem/FriendSystem",
     "pages/mall/mall",
-    "pages/history/history",
     "pages/register/register"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",

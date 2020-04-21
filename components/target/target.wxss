@@ -1,3 +1,4 @@
+
 .contianer{
   display: flex;
   align-items: center;
@@ -7,6 +8,7 @@
   overflow-x: scroll;
   font-size: 35rpx;
   color:white;
+ 
 }
 .target{
   /* 目标框 */
@@ -45,6 +47,7 @@
   align-items: center;
   font-size: 100rpx;
   font-weight: bolder;
+
 }
 .add:active{
   /* 添加按钮被点击时 */

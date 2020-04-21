@@ -1,4 +1,5 @@
 <!--components/target/target.wxml-->
+
 <view class="contianer">
   <view id="{{index}}" class="target {{current_index==index?'targetChoose':''}}" wx:for="{{targets}}" bindtap="choose" wx:key="targets">
     <view class="targetLabel">{{item.label}}</view>
@@ -11,3 +12,4 @@
 <view class="add" bindtap="add">
   <view class="add_icon">+</view>
 </view>
+

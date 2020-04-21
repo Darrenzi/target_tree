@@ -259,7 +259,7 @@ Page({
     this.setData({loadContent:''});
     return
    }
-   if(rest<0){
+   if(rest<=0){
     that.setData({informContent:"请输入正确的休息时间"});
     this.setData({loadContent:''});
     return

@@ -26,6 +26,7 @@ Component({
   methods: {
     choose:function(e){
       let index = e.currentTarget.id;
+      console.log(e.currentTarget)
       if(index == this.data.current_index)return;
       this.setData({current_index:index});
 
@@ -113,7 +114,7 @@ Component({
         for(let i=0;i<res.data.length;i++){
           treeId.push(res.data[i].treeId);
         }
-        // console.log(treeId);
+        console.log("treeId",treeId);
         that.setData({targets:res.data});
         that.getTree(treeId);
       },

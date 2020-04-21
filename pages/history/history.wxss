@@ -16,13 +16,19 @@ page{
   font-weight: bolder;
   font-size: 35rpx;
 }
+.whitespace{
+  height: 120rpx;
+}
 .top{
   height: 180rpx;
+  width: 100%;
   background: rgb(7, 70, 40);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 45rpx;
+  position: fixed;
+  top: 0rpx;
 }
 
 .dayItem{
@@ -30,18 +36,10 @@ page{
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 180rpx;
+  position: fixed;
 }
-.date{
-  width: 250rpx;
-  height: 60rpx;
-  border-radius: 30rpx;
-  border:3rpx solid white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50rpx;
-  margin-top:30rpx;
-}
+
 .card_title{
   width: 80%;
 }
@@ -78,4 +76,184 @@ page{
   color:rgb(66, 66, 66);
   border-bottom-left-radius: 20rpx;
   border-bottom-right-radius: 20rpx;
+}
+
+.bottom{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 210rpx;
+  height: 18%;
+  position: fixed;
+  bottom: -3%;
+}
+
+.fixed_target{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 210rpx;
+  height: 13.7%;
+  position: fixed;
+  bottom: -2%;
+  background-color:rgb(43, 136, 93) ;
+  border: none;
+  padding: 5rpx,5rpx,5rpx,5rpx;
+}
+.color{
+  height: 1000rpx;
+  width: 100%;
+  background-color:rebeccapurple;
+}
+.line{
+  height: 8rpx;
+  width: 550rpx;
+  background-color: rgba(220, 99, 155, 0.541);
+  position: absolute;
+  margin-top: 295rpx;
+ 
+}
+.allTargetContent{
+  position: relative;
+  display: block;
+  z-index: -1;
+
+}
+.targetClass{
+  height: 400rpx;
+  width: 550rpx;
+  border: 2rpx;
+  box-shadow: 0rpx 5rpx 5rpx rgba(220, 99, 155, 0.541);
+  border-radius: 50rpx;
+  border-color: antiquewhite;
+  position: relative;
+  background-color: rgb(199, 243, 128);
+  margin-left: 13%;
+  z-index: 9;
+  margin-bottom: 6%;
+}
+
+.date{
+  width: 250rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  border:3rpx solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50rpx;
+  margin-top:80rpx;
+  margin-bottom: 20rpx;
+  margin-left: 250rpx;
+  position: relative;
+}
+.treeclass{
+  height: 260rpx;
+  width: 260rpx;
+  border-radius: 260rpx;
+  background-color: rgb(37, 198, 219);
+  position: absolute;
+  margin-top: 15rpx;
+  margin-left: 151rpx;
+  align-items: center;
+  justify-content: center;
+  display: block;
+  z-index: 10;
+}
+.outside_tree{
+  height: 280rpx;
+  width: 280rpx;
+  border-radius: 300rpx;
+  background-color: rgb(199, 36, 85);
+  position: absolute;
+  margin-top: 7rpx;
+  margin-left: 142rpx;
+  align-items: center;
+  justify-content: center;
+  display: block;
+  z-index: 9;
+}
+.fontclass{
+  color: rgba(219, 119, 37, 0.541);
+  position: absolute;
+  margin-top: 310rpx;
+  margin-left: 30rpx;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 40rpx;
+}
+.labelclass{
+  color: rgba(219, 119, 37, 0.541);
+  position: absolute;
+  margin-top: 310rpx;
+  margin-left: 120rpx;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 40rpx;
+}
+
+.contianer{
+  display: flex;
+  align-items: center;
+  height: 210rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 0%;
+  overflow-x: scroll;
+  font-size: 35rpx;
+  color:white;
+  background:  linear-gradient(20deg, rgba(116, 168, 56, 0.974), rgb(37, 179, 29))
+}
+/* 下面的目标框的样式 */
+.target{   
+  min-width: 160rpx;
+  height: 183rpx;
+  border: 4rpx solid rgba(109, 218, 226, 0.829);
+  border-radius: 10rpx;
+  text-align: center;
+  margin-left: 12rpx;
+  margin-right: 12rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+/* 下面的目标被选中后框的样式 */
+.targetChoose{
+  min-width: 160rpx;
+  height: 183rpx;
+  border: 4rpx solid rgba(109, 218, 226, 0.829);
+  border-radius: 10rpx;
+  text-align: center;
+  margin-left: 12rpx;
+  margin-right: 12rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(51, 192, 235, 0.829);
+}
+.whitespce_1{
+  height: 200rpx;
+  width: 100%;
+  position: relative;
+  bottom: 0%;
+}
+.nowMonth{
+  position: relative;
+  top:65rpx;
+  left: -100rpx;
+  width: 70rpx;
+  height: 60rpx;
+  font-weight: bolder;
+  font-size: 35rpx;
+  
+}
+.allpage{
+  height: 80%;
+  width: 100%;
+  top:0rpx;
+  position: absolute;
 }

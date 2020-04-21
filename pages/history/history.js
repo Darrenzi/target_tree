@@ -5,16 +5,118 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+       //加载表示符，用于控制加载动画,当值为 "" 隐藏
+       loadContent: "加载中...",
+       //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
+       informContent:"",
+       targetList:Array , //用于存放获得的目标
+       treeId :Array,
+       targetTouchStart:0,
+       month:0,
+       year:0,
+       lastMonth:0,
+       nextMonth:0
   },
   backHome: function () {
     wx.navigateBack({});
   },
+  choose:function(e){
+    let index = e.currentTarget.id;
+    console.log(e.currentTarget)
+    if(index == this.data.current_index)return;
+    this.setData({current_index:index});
+    let target = this.data.targetList[index]
+    console.log(target)
+    var eventDetail = { target: target} // detail对象，提供给事件监听函数
+    var eventOption = {} // 触发事件的选
+    this.triggerEvent('choose', eventDetail, eventOption)
+  },
+  targetTouchStart:function(e){
+    console.log(e)
+    this.setData({ targetTouchStart: e.touches[0].pageX});
+  },
+
+  targetTouchEnd:function(e){
+    let endX = e.changedTouches[0].pageX;
+    let startX = this.data.targetTouchStart;
+    let distance = endX - startX;
+    console.log("distance",distance);
+    if(distance>60){
+      this.lastMonth();
+    }
+    if(distance<-60){
+      this.nextMonth();
+    }
+  },
+
+
+  lastMonth:function(){
+    let month = this.data.month;
+    if (month > 1) {
+      this.setData({ month: month - 1 });
+    } else {
+      this.setData({ year: this.data.year - 1, month: 12 });
+    }
+    this.getTargets();
+  },
+
+  nextMonth:function(){
+    let month = this.data.month;
+    let year = this.data.year;
+    if(month < 12){
+      this.setData({month:month+1});
+    }else{
+      this.setData({ year: year+1, month:1});
+    }
+    this.getTargets();
+  },
+  getDateField:function(year, month){
+    //获得一个月的第一天以及最后一天
+    let firstdate = new Date(year, month-1, 1, 0, 0, 0, 0);
+    let lastdate = new Date(year, month, 0, 23, 59, 59, 59);
+    console.log(firstdate, lastdate);
+    return {
+      firstDay: firstdate,
+      lastDay: lastdate
+    }
+  },
+  getTargets:function(){
+    console.log(this.data.year)
+    let dateField = this.getDateField(this.data.year, this.data.month);
+    const db = wx.cloud.database();
+    const _ = db.command;
+    let that = this;
+    db.collection('target')
+    .orderBy('time', 'desc')
+    .where({
+      time: _.gt(dateField.firstDay).and(_.lt(dateField.lastDay))  //大于第一天小于最后一天
+    }).get()
+      .then(res => {
+        // console.log(res);
+        //统计各类树的总量
+        //that.getStatistics(res.data);
+        //that.getTree(res.data);
+        for(let i=0;i<res.data.length;i++){
+          res.data[i].time=res.data[i].time.toLocaleDateString()
+        }
+         var that=this
+         console.log("targetList",res.data)
+         that.setData({targetList:res.data});
+      })
+      .catch(err => {
+        console.log(err);
+      })
+      this.setData({loadContent:''})
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let date = new Date();
+    this.setData({ year: date.getFullYear(), month: date.getMonth()+1});
+    this.getTargets();
   },
 
   /**

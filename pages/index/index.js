@@ -117,7 +117,7 @@ Page({
 
   chooseTarget:function(e){
     //选择目标
-    // console.log(e);
+     console.log(e);
     this.setData({currentTarget:e.detail.target, treeShow:false});
     let that = this;
     //0.5s进行图片更换
