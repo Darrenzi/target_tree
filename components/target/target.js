@@ -26,9 +26,8 @@ Component({
   methods: {
     choose:function(e){
       let index = e.currentTarget.id;
-      if(index == this.data.current_index)return;
+      // if(index == this.data.current_index)return;
       this.setData({current_index:index});
-
       let target = this.data.targets[index]
       var eventDetail = { target: target} // detail对象，提供给事件监听函数
       var eventOption = {} // 触发事件的选
@@ -110,7 +109,7 @@ Component({
         for(let i=0;i<res.data.length;i++){
           treeId.push(res.data[i].treeId);
         }
-        // console.log(treeId);
+        console.log("treeId",treeId);
         that.setData({targets:res.data});
         that.getTree(treeId);
       },

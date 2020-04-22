@@ -5,7 +5,7 @@
   font-size: 40rpx;
   left: 30rpx;
   color: white;
-  top:60rpx;
+  top: 50rpx;
   width: 70rpx;
   height: 60rpx;
   font-weight: bolder;
@@ -31,41 +31,30 @@
 }
 
 .Halfcircle{
-  height: 200rpx;
-  width: 200rpx;
+  height: 140rpx;
+  width: 140rpx;
   border-radius: 200rpx;
   background-color: white;
   display: flex;
   position: fixed;
-  top:9% ;
-  left: 100rpx;
+  top:12% ;
+  left: 130rpx;
   justify-content: center;
   z-index: 8
 }
 .Halfcircle_1{
-  height: 200rpx;
-  width: 200rpx;
+  height: 140rpx;
+  width: 140rpx;
   border-radius: 200rpx;
   background-color: white;
   display: flex;
   position: fixed;
-  top: 42%;
-  left: 100rpx;
+  top: 45%;
+  left: 130rpx;
   justify-content: center;
   z-index: 8
 }
-.Halfcircle_2{
-  height: 200rpx;
-  width: 200rpx;
-  border-radius: 200rpx;
-  background-color:white;
-  display: block;
-  position: fixed;
-  bottom: 10%;
-  left: 100rpx;
-  justify-content: center;
-  z-index: 8
-}
+
 .font_class{
   font-size: 40rpx;
   font-weight: bold;
@@ -74,16 +63,27 @@
   writing-mode: vertical-lr;
   margin-left: 35rpx;
   position: relative;
-  top: 28%;
+  top: 35%;
   justify-content: center;
   left: 4rpx;
-  position: relative;
+}
+.Halfcircle_2{
+  height: 140rpx;
+  width: 140rpx;
+  border-radius: 200rpx;
+  background-color:white;
+  display: block;
+  position: fixed;
+  bottom:12%;
+  left: 130rpx;
+  justify-content: center;
+  z-index: 8
 }
 
 .fontstyle{
   font-size: 45rpx;
   margin-left: 130rpx;
-  margin-top: 50rpx;
+  margin-top: 30rpx;
   position: absolute;
 }
 .show{
@@ -137,10 +137,9 @@
 width: 110rpx;
 position: absolute;
 z-index: 10;
-top: 5%;
 margin-left: 20rpx;
 border-radius: 40rpx;
-margin-top: 25rpx;
+margin-top: 10rpx;
 }
 
 .coinstyle{

@@ -35,10 +35,10 @@
 <view class="main">
   <view class="containerOfProgress">
     <image src="images/book.png" class="progress_icon"></image>
-    <progress active percent="{{currentTarget.progress}}" activeColor="rgb(212, 212, 79)" stroke-width="35rpx" border-radius="20rpx" backgroundColor="white"/>
+    <progress class="mainProgress" active percent="{{currentTarget.progress}}" activeColor="rgb(212, 212, 79)" stroke-width="35rpx" border-radius="20rpx" backgroundColor="white"/>
   </view>
 
-  <view class="tree_container">
+  <view class="tree_container" bindtap="showTargetDetail">
     <!-- 动画显示的树木 -->
     <image class="tree" src="{{currentTarget.tree}}" style="height:{{treeHeight}}; opacity:{{treeOpacity}}" animation="{{treeAnimation}}" hidden="{{treeShow}}"></image>
     <!-- 动画结束后显示的固定树木 -->
@@ -55,6 +55,52 @@
     <view class="chooseTreeTop">选择树苗</view>
     <view class="treeOptions">
       <image class="treeOption" wx:for="{{userTrees}}" src="{{item.path[0]}}" wx:key="tree" bindtap="chooseTree" data-treeid="{{item._id}}"></image>
+    </view>
+  </view>
+</view>
+
+<!-- 显示目标的详细信息 -->
+<view class="targetDetailContainer" wx:if="{{showTargetFlag}}" bindtap="showTargetDetail">
+  <view class="targetDetail" catchtap>
+    <view class="targetDatailTop">
+      目标详情
+    </view>
+    <view class="targetDetailMain">
+      <view class="targetDetailRow">
+        <view class="targetDetailLabel">标签：</view>
+        {{currentTarget.label}}
+      </view>
+       <view class="targetDetailRow">
+        <view class="targetDetailLabel">标题：</view>
+        <view style="width:82%;">{{currentTarget.title}}</view>
+      </view>
+      <view class="targetDetailRow">
+        <view class="targetDetailLabel">总天数：</view>
+        {{currentTarget.amount}}
+      </view>
+      <view class="targetDetailRow">
+        <view class="targetDetailLabel">进度：</view>
+         <progress class="targetDetailProgress" active percent="{{currentTarget.progress}}" activeColor="rgb(212, 212, 79)" stroke-width="30rpx" border-radius="20rpx" backgroundColor="gray"></progress>
+      </view>
+       <view class="targetDetailRow">
+        <view class="targetDetailLabel">具体内容：</view>
+      </view>
+           <view class="targetDetailContent">
+          {{currentTarget.content}}
+          上一周，一个偶然的机会帮女儿的班级训练跳长绳，不禁想起了刚刚毕业的六2班在去年连续获得两届男女跳长绳冠军，且以绝对的优势超过对手，并创造了每分钟220次的纪录。这是一个运动技能比较差的班级，这从历届的校运动会的排名就可以看出，这次比赛的成功源自于班级的凝聚力，更源自于互相包容，
+
+为了比赛，他们自发组织起来，向体育老师请教，利用课后时间训练，最令人感动的是在这样的活动中，每个人都有一颗包容的心。参加比赛的孩子身材不一，脾气不一，运动技能更不一样。一位孩子一直跳不好，别的孩子真的很着急，这位孩子也想打退堂鼓，担心影响大家。没想到摇绳的一位孩子对他说：“没关系，你跳不好，可能是我摇不够好，下次轮到你的时候，我会特别注意的。”我发现，此后每当轮到这位学生跳的时候，摇绳的孩子总会刻意地加大幅度和速度，那位孩子也就轻松地跳过。看着他们，我知道了什么叫“行有不得反求诸己”。
+
+临近比赛的中午，班级的家长们也加入了帮助孩子训练的队伍，他们跑前跑后忙碌着为孩子提供场地，准备午餐，但孩子就是孩子，有忘记穿好鞋子的，有因为紧张一直出错的，有调整不好绳子长度影响速度的，但家长们予以更多的是鼓励，是帮助!那次比赛结束后，一位孩子悄悄和我说：“张老师，我发现某某妈妈的眼神特别神奇，我每次看到她，就能跳好。”至今我仍不明白那神奇的眼神是什么样的，但那一定是爱与包容的眼神。
+
+六2班在比赛中也有惨败的经历，年段篮球赛是我们心中永远抹不去的痛，赛场上留下了孩子们伤心的眼泪，却没有留下互相埋怨与计较，即使被“剃了光头”，微信群中也是家长们一声声的加油与鼓劲，一些家长还悄悄联系场地，组织孩子们周末去训练……每每想起这些，我都感动不已。
+
+每天早晨，我常是第一个到办公室，办公桌一角摆放着孩子们在教师节送给老师的盆栽，它们郁郁葱葱，长势喜人。这些花草中还有一些是别的老师家里养的不好的花草搬来向我求助的。其实我也不会养花，只是每天给他们喷喷水，奇怪的是这些不同品种的花草在一起，越长越好，一些老师就好奇：怎么花草放在你们办公室就长特别好呢?是呀，怎么在这就长得好呢?一位老教师给出了一个我认为很恰当的解释：“因为它们在一起，有伴，每天都聊聊天，心情好了，就长好了!”是呀，不同的花草对生长环境的要求不同，养花的地方拥挤，一些花草个别枝丫长势旺盛，甚至延伸到别人的地盘，花草却默默包容。花草如人，不同性格，不同特点的人生活在一起，因为包容，我们学会互相欣赏对方，所以就能好好地聊聊天，心情就愉快了，状态就好了，做起各种事情来，自然就越做越好。
+
+今早上班的公交车上遇到一位学生，她欣喜地告诉我在刚结束的语文测试中，原来2班很多孩子名列前茅，听到这些，真是由衷的高兴。感谢中学老师的辛勤教导，我似乎还能看到因为当年班级的爱与包容让他们依旧保持着良好的状态，因为他们知道班级如家一样，不是讲理而是讲情的地方，所以在毕业留言中他们写的最多的就是：说好不分离，要一直一直在一起。也触发了我写毕业留言的灵感：欢喜·在一起。
+
+用心包容，让爱常驻。
+        </view>
     </view>
   </view>
 </view>

@@ -1,14 +1,14 @@
 <view class="back" bindtap="backHome">《</view>
 <view class="SideNavigationBar">
-<view class="single_page" bindtap="ChangeShowStatus"><text class="font_class">好友列表
-
-</text></view>
-<view class="single_page" bindtap="ChangeShowStatus_2">
-<text class="font_class">我的排名
-</text></view>
-<view class="single_page" bindtap="ChangeShowStatus_3">
-<text class="font_class">\t发\t 现
-</text></view>
+  <view class="single_page" bindtap="ChangeShowStatus">
+    <text class="font_class">好友列表</text>
+  </view>
+  <view class="single_page" bindtap="ChangeShowStatus_2">
+    <text class="font_class">我的排名</text>
+  </view>
+  <view class="single_page" bindtap="ChangeShowStatus_3">
+    <text class="font_class">\t发\t 现</text>
+  </view>
 </view>
 
  
@@ -16,9 +16,10 @@
   <view class="Halfcircle"></view>
   <view>
     <block wx:for="{{navList}}" wx:for-index="idx" wx:if="{{idx!='_id'}}" wx:key="key">
-      <view class="Friend"><view class="line"></view>
-      <image class="portrait" src="{{item.friendList[0].avatarUrl}}"></image>
-      <text class="fontstyle">:{{item.friendList[0].un}}</text>
+      <view class="Friend">
+        <view class="line"></view>
+        <image class="portrait" src="{{item.friendList[0].avatarUrl}}"></image>
+        <text class="fontstyle">:{{item.friendList[0].un}}</text>
       </view>
     </block>
   </view>
@@ -45,13 +46,3 @@
 </view>
 </block></view>
 </view>
-
-
-
-
-
-
-
-
-
-

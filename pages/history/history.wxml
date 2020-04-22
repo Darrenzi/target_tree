@@ -1,0 +1,47 @@
+<!--pages/history/history.wxml-->
+
+<loading content="{{loadContent}}"></loading>
+<inform content="{{informContent}}"></inform>
+
+<view class="allpage"  bindtouchstart="targetTouchStart" bindtouchend="targetTouchEnd">
+<view class="top">
+  时间历程
+  <view class="back" bindtap="backHome">
+  <image src="/images/4.png" class="intoFriends"></image>
+  </view>
+  
+</view>
+
+<view class="whitespace"></view>
+
+<block wx:for="{{targetList}}" wx:key="targetKey"  >
+<view class="allTargetContent">
+  <view class="date">{{item.time}}</view>
+  <view class="targetClass">
+   <view class="outside_tree"></view>
+   <view class="treeclass"></view>
+   <view class="line"></view>
+   <view class="fontclass">目标:</view>
+   <view class="labelclass">{{item.label}}</view>
+  </view>
+</view>
+</block>
+ <view class="whitespace_1"></view>
+</view>
+
+<view class="contianer">
+  <view id="{{index}}" class="label {{current_index==index?'labelChoose':''}}" wx:for="{{labelList}}" bindtap="choose" wx:key="targets">
+    <view class="targetLabel">{{item}}</view>
+  </view>
+  <view class="label" wx:if="{{labelList.length<3}}">空</view>
+  <view class="label" wx:if="{{labelList.length<2}}">空</view>
+  <view class="label" wx:if="{{labelList.length<1}}">空</view>
+  <view class="label" wx:if="{{labelList.length<4}}">空</view>
+
+</view>
+
+
+
+
+
+

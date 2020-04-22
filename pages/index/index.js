@@ -21,6 +21,9 @@ Page({
     //用户拥有的树苗
     userTrees:[],
 
+    //显示目标详细信息的标识符
+    showTargetFlag:false,
+
     //用于树木显示动画的控制
     treeShow:false,
     treeHeight:0,
@@ -84,6 +87,17 @@ Page({
     })
   },
 
+  showTargetDetail:function(){
+    console.log(this.data.currentTarget);
+    //点击树木显示目标详情
+    if(this.data.showTargetFlag){
+      this.setData({showTargetFlag:false});
+    }
+    else{
+      this.setData({ showTargetFlag: true });
+    }
+  },
+
   getUserTree:function(){
     //获取用户所拥有的树苗
     const db = wx.cloud.database();
@@ -117,15 +131,14 @@ Page({
 
   chooseTarget:function(e){
     //选择目标
-    // console.log(e);
+     console.log(e);
     this.setData({currentTarget:e.detail.target, treeShow:false});
     let that = this;
-    //0.5s进行图片更换
+    //0.5s后播放图片更换动画
     setTimeout(function(
     ){
       that.treeAnimation();
     },500)
-
   },
 
   reachTo:function(e){
@@ -176,7 +189,12 @@ Page({
         break;
       }
       case '时间历程':{
-        that.setData({ loadContent: '' });
+        wx.navigateTo({
+          url: '../history/history',
+          complete: function () {
+            that.setData({ loadContent: '' });
+          }
+        })
         break;
       }
       default:{
@@ -190,6 +208,7 @@ Page({
 
   record:function(){
     //打卡
+
     if(this.data.currentTarget == undefined)return;
 
     this.setData({loadContent:'正在记录...'});
@@ -316,7 +335,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //触发组件的choose方法选中第一个目标
+    this.selectComponent('#target').choose({currentTarget:{id:0}});
   },
 
   /**

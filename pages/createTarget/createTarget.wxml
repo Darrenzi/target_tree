@@ -32,7 +32,6 @@
 <!-- 创建标签以及时间具体名称 -->
 <view class="hide{{change_1?'':'show'}}">
 <view class="label">请选择你的标签</view>
-<view class="font_label">一：请选择你的标签</view>
 <view class="labels">
   <view class="labelClass" bindtap="setTarget">做作业</view>
   <view class="labelClass" bindtap="setTarget_1">阅读</view>
@@ -47,7 +46,7 @@
  <input placeholder="输入自定义标签" class="inputLabel" type="text" maxlength="10"  bindinput="getInputTarget"
  value="{{target}}" ></input>
 </view>
-<view class="return" bindtap="changeShowstatus">返回上一步</view>
+<view class="return" bindtap="changeShowstatus">上一步</view>
 <view class="nextStep" bindtap="changeShowstatus_1">下一步</view> 
 </view>
 
