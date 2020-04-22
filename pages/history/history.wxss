@@ -2,7 +2,7 @@
 page{
   width: 100%;
   min-height: 100%;  
-  background: rgb(43, 136, 93);
+  background: white;
   color:white;
   font-size: 35rpx;
   overflow: scroll;
@@ -19,16 +19,25 @@ page{
 .whitespace{
   height: 120rpx;
 }
+.intoFriends{
+  height: 50rpx;
+  width: 50rpx;
+  position: absolute;
+  left: -90rpx;
+  top: -38rpx;
+}
 .top{
-  height: 180rpx;
-  width: 100%;
-  background: rgb(7, 70, 40);
+  height: 80rpx;
+  width: 60%;
+  background: rgb(145, 211, 91);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 45rpx;
-  position: fixed;
-  top: 0rpx;
+  position: absolute;
+  top: 80rpx;
+  left: 120rpx;
+  border-radius: 30rpx;
 }
 
 .dayItem{
@@ -108,7 +117,7 @@ page{
 .line{
   height: 8rpx;
   width: 550rpx;
-  background-color: rgba(220, 99, 155, 0.541);
+  background-color: rgb(96, 119, 100);
   position: absolute;
   margin-top: 295rpx;
  
@@ -123,12 +132,12 @@ page{
   height: 400rpx;
   width: 550rpx;
   border: 2rpx;
-  box-shadow: 0rpx 5rpx 5rpx rgba(220, 99, 155, 0.541);
+  box-shadow: 0rpx 2rpx 2rpx rgba(180, 121, 149, 0.541);
   border-radius: 50rpx;
   border-color: antiquewhite;
   position: relative;
-  background-color: rgb(199, 243, 128);
-  margin-left: 13%;
+  border: 8rpx solid rgb(96, 119, 100);
+  margin-left: 12.5%;
   z-index: 9;
   margin-bottom: 6%;
 }
@@ -137,8 +146,9 @@ page{
   width: 250rpx;
   height: 60rpx;
   border-radius: 30rpx;
-  border:3rpx solid white;
+  border:3rpx solid rgb(82, 79, 79);
   display: flex;
+  color: rgba(116, 168, 56, 0.974);
   justify-content: center;
   align-items: center;
   margin-bottom: 50rpx;
@@ -207,7 +217,7 @@ page{
   background:  linear-gradient(20deg, rgba(116, 168, 56, 0.974), rgb(37, 179, 29))
 }
 /* 下面的目标框的样式 */
-.target{   
+.label{   
   min-width: 160rpx;
   height: 183rpx;
   border: 4rpx solid rgba(109, 218, 226, 0.829);
@@ -221,7 +231,7 @@ page{
   align-items: center;
 }
 /* 下面的目标被选中后框的样式 */
-.targetChoose{
+.labelChoose{
   min-width: 160rpx;
   height: 183rpx;
   border: 4rpx solid rgba(109, 218, 226, 0.829);
@@ -235,8 +245,8 @@ page{
   align-items: center;
   background-color: rgba(51, 192, 235, 0.829);
 }
-.whitespce_1{
-  height: 200rpx;
+.whitespace_1{
+  height: 220rpx;
   width: 100%;
   position: relative;
   bottom: 0%;
@@ -244,15 +254,15 @@ page{
 .nowMonth{
   position: relative;
   top:65rpx;
-  left: -100rpx;
-  width: 70rpx;
+  left: -120rpx;
+  width: 80rpx;
   height: 60rpx;
   font-weight: bolder;
   font-size: 35rpx;
   
 }
 .allpage{
-  height: 80%;
+  height: 85%;
   width: 100%;
   top:0rpx;
   position: absolute;

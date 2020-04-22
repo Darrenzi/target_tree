@@ -15,21 +15,69 @@ Page({
        month:0,
        year:0,
        lastMonth:0,
-       nextMonth:0
+       nextMonth:0,
+       labelList:['全部','阅读',"运动","早起","学习","早睡","完美计划","旅行","变漂亮",],
+       current_index:0
   },
   backHome: function () {
     wx.navigateBack({});
   },
   choose:function(e){
     let index = e.currentTarget.id;
-    console.log(e.currentTarget)
+    const db = wx.cloud.database();
+    const _ = db.command;
+    console.log("currentTarget:",e.currentTarget)
+    let nowLabel=this.data.labelList[index]
+    console.log(nowLabel)
+    let dateField = this.getDateField(this.data.year, this.data.month);
+    if(index==0){
+      db.collection('target')
+      .orderBy('time', 'desc')
+      .where({
+        time: _.gt(dateField.firstDay).and(_.lt(dateField.lastDay)) , //大于第一天小于最后一天
+      }).get()
+        .then(res => {
+          for(let i=0;i<res.data.length;i++){
+            res.data[i].time=res.data[i].time.toLocaleDateString()
+          }
+           var that=this
+           console.log("targetList",res.data)
+           that.setData({targetList:res.data});
+           console.log(this.data.month,"月")
+        })
+        .catch(err => {
+          console.log(err);
+        })
+        this.setData({current_index:index});
+        return
+    }
+    db.collection('target')
+    .orderBy('time', 'desc')
+    .where({
+      time: _.gt(dateField.firstDay).and(_.lt(dateField.lastDay)) , //大于第一天小于最后一天
+      label:_.eq(nowLabel)
+    }).get()
+      .then(res => {
+        for(let i=0;i<res.data.length;i++){
+          res.data[i].time=res.data[i].time.toLocaleDateString()
+        }
+         var that=this
+         console.log("targetList",res.data)
+         that.setData({targetList:res.data});
+         console.log(this.data.month,"月")
+         console.log("长度：",this.data.targetList.length)
+         if(this.data.targetList.length==0){
+           this.setData({informContent:"诶呀~该标签还没有目标"});
+          }
+      })
+      .catch(err => {
+        console.log(err);
+      })
+   
+      this.setData({loadContent:''})
+      this.setData({current_index:index});
+    
     if(index == this.data.current_index)return;
-    this.setData({current_index:index});
-    let target = this.data.targetList[index]
-    console.log(target)
-    var eventDetail = { target: target} // detail对象，提供给事件监听函数
-    var eventOption = {} // 触发事件的选
-    this.triggerEvent('choose', eventDetail, eventOption)
   },
   targetTouchStart:function(e){
     console.log(e)
@@ -41,10 +89,10 @@ Page({
     let startX = this.data.targetTouchStart;
     let distance = endX - startX;
     console.log("distance",distance);
-    if(distance>60){
+    if(distance>100){
       this.lastMonth();
     }
-    if(distance<-60){
+    if(distance<-100){
       this.nextMonth();
     }
   },
@@ -53,7 +101,7 @@ Page({
   lastMonth:function(){
     let month = this.data.month;
     if (month > 1) {
-      this.setData({ month: month - 1 });
+      this.setData({ month: month-1 });
     } else {
       this.setData({ year: this.data.year - 1, month: 12 });
     }
@@ -92,16 +140,13 @@ Page({
       time: _.gt(dateField.firstDay).and(_.lt(dateField.lastDay))  //大于第一天小于最后一天
     }).get()
       .then(res => {
-        // console.log(res);
-        //统计各类树的总量
-        //that.getStatistics(res.data);
-        //that.getTree(res.data);
         for(let i=0;i<res.data.length;i++){
           res.data[i].time=res.data[i].time.toLocaleDateString()
         }
          var that=this
          console.log("targetList",res.data)
          that.setData({targetList:res.data});
+         console.log(this.data.month,"月")
       })
       .catch(err => {
         console.log(err);

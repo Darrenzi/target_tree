@@ -1,7 +1,6 @@
 <view class="back" bindtap="backHome">《</view>
 <view class="SideNavigationBar">
 <view class="single_page" bindtap="ChangeShowStatus"><text class="font_class">好友列表
-
 </text></view>
 <view class="single_page" bindtap="ChangeShowStatus_2">
 <text class="font_class">我的排名

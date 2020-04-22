@@ -2,11 +2,11 @@
   "cloud": true,
   "pages": [
     "pages/history/history",
-    "pages/index/index",
+    "pages/FriendSystem/FriendSystem",
     "pages/createTarget/createTarget",
+    "pages/index/index",
     "pages/forest/forest",
     "pages/messages/messages",
-    "pages/FriendSystem/FriendSystem",
     "pages/mall/mall",
     "pages/register/register"
   ],

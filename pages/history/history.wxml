@@ -6,8 +6,10 @@
 <view class="allpage"  bindtouchstart="targetTouchStart" bindtouchend="targetTouchEnd">
 <view class="top">
   时间历程
-  <view class="back" bindtap="backHome">《</view>
-  <view class="nowMonth">{{month}}月</view>
+  <view class="back" bindtap="backHome">
+  <image src="/images/4.png" class="intoFriends"></image>
+  </view>
+  
 </view>
 
 <view class="whitespace"></view>
@@ -24,19 +26,21 @@
   </view>
 </view>
 </block>
+ <view class="whitespace_1"></view>
 </view>
 
 <view class="contianer">
-  <view id="{{index}}" class="target {{current_index==index?'targetChoose':''}}" wx:for="{{targetList}}" bindtap="choose" wx:key="targets">
-    <view class="targetLabel">{{item.label}}</view>
-    <view>{{item.progress}}%</view>
+  <view id="{{index}}" class="label {{current_index==index?'labelChoose':''}}" wx:for="{{labelList}}" bindtap="choose" wx:key="targets">
+    <view class="targetLabel">{{item}}</view>
   </view>
-  <view class="target" wx:if="{{targetList.length<3}}">空</view>
-  <view class="target" wx:if="{{targetList.length<2}}">空</view>
-  <view class="target" wx:if="{{targetList.length<1}}">空</view>
-  <view class="target" wx:if="{{targetList.length<4}}">空</view>
+  <view class="label" wx:if="{{labelList.length<3}}">空</view>
+  <view class="label" wx:if="{{labelList.length<2}}">空</view>
+  <view class="label" wx:if="{{labelList.length<1}}">空</view>
+  <view class="label" wx:if="{{labelList.length<4}}">空</view>
+
 </view>
-<view class="whitespce_1"></view>
+
+
 
 
 
