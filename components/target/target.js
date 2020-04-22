@@ -26,10 +26,8 @@ Component({
   methods: {
     choose:function(e){
       let index = e.currentTarget.id;
-      console.log(e.currentTarget)
-      if(index == this.data.current_index)return;
+      // if(index == this.data.current_index)return;
       this.setData({current_index:index});
-
       let target = this.data.targets[index]
       var eventDetail = { target: target} // detail对象，提供给事件监听函数
       var eventOption = {} // 触发事件的选
@@ -37,13 +35,10 @@ Component({
     },
 
     add:function(){
-      console.log("添加目标");
-      let targets = this.data.targets;
-      wx.navigateTo({
-        url: '../../pages/createTarget/createTarget',
-      })
-      // targets.unshift( {tip:"new", progress:0});
-      // this.setData({targets:targets});
+      // console.log("添加目标");
+      var eventDetail = {} // detail对象，提供给事件监听函数
+      var eventOption = {} // 触发事件的选
+      this.triggerEvent('add', eventDetail, eventOption)
     },
 
     update:function(currentTarget){

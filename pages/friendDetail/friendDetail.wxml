@@ -1,0 +1,24 @@
+<!--pages/friendDetail/friendDetail.wxml-->
+<loading content="{{loadContent}}"></loading>
+<inform content="{{informContent}}"></inform>
+
+<view class="back" bindtap="backHome">《</view>
+<view class="top">
+  <image class="avatar" src="{{user.avatarUrl}}"></image>
+  <view class="userName">{{user.un}}</view>
+</view>
+
+<view class="options">
+  <view class="option {{currentShow=='森林'?'optionChoose':''}}" bindtap="choose" data-target="森林">森林</view>
+  <view class="option {{currentShow=='目标'?'optionChoose':''}}" bindtap="choose" data-target="目标">目标</view>
+</view>
+
+<forest class="forest" forest="{{forest}}" style="zoom:{{zoom}}" wx:if="{{currentShow=='森林'}}"></forest>
+
+<view class="target_container" hidden="{{currentShow!='目标'}}">
+  <view class="target" wx:for="{{targets}}" wx:key="target">
+    <view class="targetLabel">{{item.label}}</view>
+    <view class="targetTitle">{{item.title}}</view>
+    <view id="{{index}}" class="watchButton" bindtap="watch">围观</view>
+  </view>
+</view>

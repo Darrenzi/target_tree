@@ -2,17 +2,13 @@
 .back{
   position: fixed;
   z-index: 8;
-  top: 50rpx;
-  font-size: 70rpx;
-  left: 20rpx;
+  font-size: 40rpx;
+  left: 30rpx;
   color: white;
-  position: fixed;
+  top: 50rpx;
   width: 70rpx;
   height: 60rpx;
-  font-size: 40rpx;
   font-weight: bolder;
-  color:white;
-
 }
 .SideNavigationBar{
   position: fixed;

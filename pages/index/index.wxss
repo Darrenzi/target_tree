@@ -99,22 +99,25 @@ page{
   min-height: 150rpx;
 }
 .main{
+  position: relative;
   width: 100%;
   height: 72%;
   min-height: 920rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
+  top:50rpx;
 }
 .containerOfProgress{
   display: flex;
   justify-content: center;
   width: 100%;
 }
-progress{
+.mainProgress{
+  /* 主界面的进度条 */
   width: 55%;
   margin-top:10rpx;
-  margin-bottom: 50rpx;
+  margin-bottom: 100rpx;
   border-radius: 20rpx;
   box-shadow: 5rpx 5rpx 5rpx 5rpx rgb(196, 196, 196);
 }
@@ -123,7 +126,7 @@ progress{
   height: 100rpx;
   position: absolute;
   margin-top:-20rpx;
-  margin-left: -225rpx;
+  margin-left: -228rpx;
 }
 .tree_container{
   width: 430rpx;
@@ -185,8 +188,8 @@ progress{
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: 210rpx;
-  height: 18%;
+  position: relative;
+  top:70rpx;
 }
 
 .chooseTreeContainer{
@@ -231,4 +234,63 @@ progress{
   margin-top:25rpx;
   margin-left: 20rpx;
   margin-right: 10rpx;
+}
+
+.targetDetailContainer{
+  background: rgba(59, 59, 59, 0.863);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top:0;
+  z-index: 7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.targetDetail{
+  width: 90%;
+  max-height: 70%;
+  background: white;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.targetDatailTop{
+  width: 100%;
+  height: 120rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  background: rgb(98, 175, 149);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40rpx;
+}
+.targetDetailMain{
+  height: 80%;
+  width: 90%;
+  color:gray;
+  margin-top:30rpx;
+  font-size: 35rpx;
+  margin-bottom: 50rpx;
+}
+.targetDetailRow{
+  display: flex;
+  width: 100%;
+}
+.targetDetailLabel{
+  /* 详情界面固定文字的样式 */
+  font-weight: bold;
+  color:rgb(98, 175, 149);
+  width: 120rxp;
+}
+.targetDetailContent{
+  /* 详情界面具体内容的样式 */
+  height: 450rpx;
+  width: 100%;
+  overflow-y:scroll;
+}
+.targetDetailProgress{
+  width: 80%;
 }

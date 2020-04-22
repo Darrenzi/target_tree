@@ -87,20 +87,16 @@ Page({
           if(treeId[i]==res.data[j]._id){
             //根据任务的进度压入不同的树木图片
             if (targetData[i].progress<30){
-              // forest.push(res.data[j].path[0]);
               forest[i] = res.data[j].path[0];
             }
             else if (targetData[i].progress < 60){
-              // forest.push(res.data[j].path[1]);
-              forest[i] = res.data[j].path[0];
+              forest[i] = res.data[j].path[1];
             }
             else if (targetData[i].progress < 90){
-              // forest.push(res.data[j].path[2]);
-              forest[i] = res.data[j].path[0];
+              forest[i] = res.data[j].path[2];
             }
             else{
-              // forest.push(res.data[j].path[3]);
-              forest[i] = res.data[j].path[0];
+              forest[i] = res.data[j].path[3];
             }
             break;
           }

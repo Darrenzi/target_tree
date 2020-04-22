@@ -7,9 +7,9 @@
 </view>
 
 <view class="date">
-  <view class="dateOption" bindtap="lastMonth">«</view>
+  <!-- <view class="dateOption" bindtap="lastMonth">«</view> -->
   <view class="dateCotent">{{year}}年{{month}}月</view>
-  <view class="dateOption" bindtap="nextMonth">»</view>
+  <!-- <view class="dateOption" bindtap="nextMonth">»</view> -->
 </view>
 
 <forest class="forest" forest="{{forest}}" style="zoom:{{zoom}};" bindtouchstart="forestTouchStart" bindtouchend="forestTouchEnd"></forest>
