@@ -6,7 +6,7 @@
 <!-- 设置金额 -->
  <view class="hide {{change?'':'show'}}">
    <view class="title"><text>设置挑战金额</text></view>
-   <view class="back" bindtap="back">{{a}}</view>
+   <view class="back" bindtap="back">《</view>
    <view>
    <image src="/images/coin.png" class="coin"></image>
    <input placeholder="请输入挑战金额" class="inputMoney" type="text" maxlength="4" value="{{number}}"    bindinput="getInput"></input>

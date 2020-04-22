@@ -16,7 +16,7 @@
     
     <view class="left_option" bindtap="reachTo" data-target="我的森林">我的森林</view>
     <view class="left_option" bindtap="reachTo" data-target="我的好友">我的好友</view>
-    <view class="left_option" bindtap="reachTo" data-target="目标历程">目标历程</view>
+    <view class="left_option" bindtap="reachTo" data-target="时间历程">时间历程</view>
     <view class="left_option" bindtap="reachTo" data-target="最新消息">最新消息</view>
     <view class="left_option" bindtap="reachTo" data-target="商城">商城</view>
     <view class="left_option" bindtap="reachTo" data-target="设置">设置</view>

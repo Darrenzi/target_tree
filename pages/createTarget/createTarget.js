@@ -7,7 +7,6 @@ Page({
    */
   data: {
    numbers:[50,100,200,600,800,1000],
-   a:'<',
    change:false,
    change_1:true,
    change_2:true,
@@ -21,6 +20,8 @@ Page({
    changeView_1:false,
    amount:'',
    setDate:0,
+   //树苗的Id
+   treeId:"",
    //加载表示符，用于控制加载动画,当值为 "" 隐藏
    loadContent: "加载中...",
    //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
@@ -327,6 +328,7 @@ init:function(){
    */
   onLoad: function (options) {
       console.log("options",options)
+      this.setData({treeId:options.treeId});
       this.init()
   },
 

@@ -1,0 +1,110 @@
+/* pages/friendDetail/friendDetail.wxss */
+page{
+  width: 100%;
+  min-height: 100%;
+  color:rgb(57, 163, 103);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow:hidden;
+}
+.back{
+  position: absolute;
+  top:80rpx;
+  left: 20rpx;
+  width: 70rpx;
+  height: 60rpx;
+  font-weight: bolder;
+  font-size: 40rpx;
+}
+.top{
+  display: flex;
+  align-items: center;
+  height: 260rpx;
+  width: 100%;
+  margin-top:100rpx;
+}
+.avatar{
+  height: 130rpx;
+  width: 130rpx;
+  border-radius: 100%;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+}
+.userName{
+  font-size: 50rpx;
+  font-weight: bold;
+}
+
+.options{
+  display: flex;
+  margin-top:30rpx;
+  width: 100%;
+}
+.option{
+  position: relative;
+  left: 50rpx;
+  height: 80rpx;
+  width: 180rpx;
+  font-size: 45rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:1rpx solid rgb(57, 163, 103);
+}
+.optionChoose{
+  color:white;
+  background: rgb(57, 163, 103);
+}
+
+.forest{
+  margin-top:800rpx;
+}
+
+.target_container{
+  width: 100%;
+  height: 60%;
+  overflow-y:scroll;
+  position: absolute;
+  bottom:3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.target{
+  display: flex;
+  width: 95%;
+  height: 130rpx;
+  border-bottom: 3rpx solid gainsboro;
+  font-size: 40rpx;
+  align-items: center;
+}
+.targetLabel{
+  background: rgb(57, 163, 103);
+  width: 80rpx;
+  padding: 10rpx;
+  color:white;
+  margin-left: 20rpx;
+}
+.targetTitle{
+  width: 62%;
+  margin-left: 20rpx;
+  margin-right:10rpx;
+  font-size: 35rpx;
+}
+.watchButton{
+  background: rgb(57, 163, 103);
+  box-shadow: 5rpx 5rpx 5rpx 5rpx rgb(12, 100, 50);
+  color:white;
+  font-size: 35rpx;
+  padding: 10rpx;
+  width: 100rpx;
+  text-align: center;
+}
+.watchButton:active{
+  position: relative;
+  top:5rpx;
+  left: 5rpx;
+  box-shadow: none;
+}

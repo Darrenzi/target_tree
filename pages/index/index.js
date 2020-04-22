@@ -55,7 +55,7 @@ Page({
   },
 
   addTarget:function(){
-    // console.log('添加目标');
+    console.log('添加目标');
     if(this.data.addTargetFlag){
       this.setData({ addTargetFlag: false });
     }
@@ -175,16 +175,14 @@ Page({
         })
         break;
       }
-      case '目标历程':{
-        wx.navigateTo({
-          url: '../history/history',
-          complete: function () {
-            that.setData({ loadContent: '' });
-          }
-        })
+      case '时间历程':{
+        that.setData({ loadContent: '' });
         break;
       }
       default:{
+        wx.navigateTo({
+          url: '../friendDetail/friendDetail',
+        })
         that.setData({ loadContent: '' });
       }
     }
@@ -192,6 +190,8 @@ Page({
 
   record:function(){
     //打卡
+    if(this.data.currentTarget == undefined)return;
+
     this.setData({loadContent:'正在记录...'});
     const db = wx.cloud.database();
     const _ = db.command;
@@ -206,13 +206,14 @@ Page({
       console.log(res);
       let lastDate = null;
       if(res.data.length!=0){
+        //取打卡表中的最后一次打卡记录，用于判断是否是同一天
         lastDate = (res.data[0].time).Format("yyyy-MM-dd");
       }
       else{
-        lastDate = date;
+        //打卡表没有记录
+        lastDate = "";
       }
 
-      // console.log(date, lastDate);
       if(lastDate == date){
         //判断时间，一天只能打卡一次
         that.setData({informContent:"您今天已经打卡,劳逸结合才能坚持到最后！", loadContent:""});
@@ -276,7 +277,7 @@ Page({
   treeAnimation:function(){
     //创建树木动画
     let animation = wx.createAnimation({
-      duration: 500,
+      duration: 800,
       timingFunction: 'ease',
     });
     this.animation = animation;
@@ -294,7 +295,7 @@ Page({
         treeOpacity:0,
         treeShow: true
       })
-    }, 500)
+    }, 1000)
   },
 
   /**

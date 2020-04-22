@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "forest":"../../components/forest/forest",
+    "loading":"../../components/loading/loading",
+    "inform":"../../components/inform/inform"
+  }
+}

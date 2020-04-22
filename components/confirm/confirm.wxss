@@ -11,6 +11,7 @@
   background: rgba(77, 77, 77, 0.712);
   color: gray;
   z-index:9;
+  font-size: 35rpx;
 }
 .inform{
   background: white;

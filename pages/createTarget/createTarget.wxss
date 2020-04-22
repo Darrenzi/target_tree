@@ -106,6 +106,7 @@
   position: fixed;
   top: 5%;
   left: 5%;
+  color:rgb(57, 163, 103);
 }
 
 .hide{
