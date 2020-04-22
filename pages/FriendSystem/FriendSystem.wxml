@@ -15,8 +15,10 @@
   <view class="Halfcircle"></view>
   <view>
     <block wx:for="{{navList}}" wx:for-index="idx" wx:if="{{idx!='_id'}}" wx:key="key">
-      <view class="Friend"><view class="line"></view>
+      <view class="FriendList">
+      <view class="FriendLine"></view>
       <image class="portrait" src="{{item.friendList[0].avatarUrl}}"></image>
+      <view class="portrait_outside"></view>
       <text class="fontstyle">:{{item.friendList[0].un}}</text>
       </view>
     </block>

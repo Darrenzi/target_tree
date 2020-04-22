@@ -9,12 +9,12 @@ page{
 }
 .back{
   position: absolute;
-  top:65rpx;
   left: 20rpx;
   width: 70rpx;
   height: 60rpx;
   font-weight: bolder;
-  font-size: 35rpx;
+  font-size: 40rpx;
+  color:rgb(57, 163, 103);
 }
 .whitespace{
   height: 120rpx;
@@ -27,17 +27,20 @@ page{
   top: -38rpx;
 }
 .top{
-  height: 80rpx;
-  width: 60%;
-  background: rgb(145, 211, 91);
+  width: 100%;
+  padding-top:80rpx;
+  color:white;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 45rpx;
-  position: absolute;
-  top: 80rpx;
-  left: 120rpx;
-  border-radius: 30rpx;
+}
+.top_title{
+  width: 40%;
+  padding:20rpx;
+  text-align: center;
+  background: rgb(57, 163, 103);
+  font-size: 40rpx;
+  border-radius: 20rpx;
 }
 
 .dayItem{
@@ -220,7 +223,7 @@ page{
 .label{   
   min-width: 160rpx;
   height: 183rpx;
-  border: 4rpx solid rgba(109, 218, 226, 0.829);
+  border: 4rpx solid rgba(185, 226, 109, 0.829);
   border-radius: 10rpx;
   text-align: center;
   margin-left: 12rpx;
@@ -234,7 +237,7 @@ page{
 .labelChoose{
   min-width: 160rpx;
   height: 183rpx;
-  border: 4rpx solid rgba(109, 218, 226, 0.829);
+  border: 4rpx solid rgba(230, 240, 93, 0.829);
   border-radius: 10rpx;
   text-align: center;
   margin-left: 12rpx;
@@ -243,7 +246,8 @@ page{
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-color: rgba(51, 192, 235, 0.829);
+  background: linear-gradient(60deg, rgba(219, 224, 187, 0.96), rgb(193, 224, 81));
+  color: rgba(61, 73, 71, 0.829);
 }
 .whitespace_1{
   height: 220rpx;
@@ -266,4 +270,24 @@ page{
   width: 100%;
   top:0rpx;
   position: absolute;
+}
+
+.Null_targetList{
+  height: 100rpx;
+  width: 200rpx;
+  position: fixed;
+  top: 500rpx;
+  left: 227rpx;
+}
+.NULL_TEXT{
+  height: 100rpx;
+  width: 500rpx;
+  position: fixed;
+  top: 700rpx;
+  left: 140rpx;
+  color: black;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 40rpx;
 }

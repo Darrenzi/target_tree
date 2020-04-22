@@ -4,12 +4,11 @@
 <inform content="{{informContent}}"></inform>
 
 <view class="allpage"  bindtouchstart="targetTouchStart" bindtouchend="targetTouchEnd">
+
 <view class="top">
-  时间历程
-  <view class="back" bindtap="backHome">
-  <image src="/images/4.png" class="intoFriends"></image>
-  </view>
-  
+ 
+ <view class="top_title"> 时间历程</view>
+ <view class="back" bindtap="backHome">《</view>
 </view>
 
 <view class="whitespace"></view>
@@ -37,7 +36,10 @@
   <view class="label" wx:if="{{labelList.length<2}}">空</view>
   <view class="label" wx:if="{{labelList.length<1}}">空</view>
   <view class="label" wx:if="{{labelList.length<4}}">空</view>
-
+ 
+  <view class="Null_targetList" wx:if="{{NULL_targetList==0}}">
+  <image src="/images/5.png" ></image></view>
+  <text class="NULL_TEXT">欸啊~该标签下暂无目标呢</text>
 </view>
 
 

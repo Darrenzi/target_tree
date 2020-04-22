@@ -17,7 +17,8 @@ Page({
        lastMonth:0,
        nextMonth:0,
        labelList:['全部','阅读',"运动","早起","学习","早睡","完美计划","旅行","变漂亮",],
-       current_index:0
+       current_index:0,
+       NULL_targetList:2.//0表示该数组为空，1表示该数组不为空
   },
   backHome: function () {
     wx.navigateBack({});
@@ -44,6 +45,9 @@ Page({
            console.log("targetList",res.data)
            that.setData({targetList:res.data});
            console.log(this.data.month,"月")
+           console.log("数组长：",this.data.targetList.length)
+           if(this.data.targetList.length==0){this.setData({NULL_targetList:0});}
+               else{this.setData({NULL_targetList:1});}
         })
         .catch(err => {
           console.log(err);
@@ -51,9 +55,9 @@ Page({
         this.setData({current_index:index});
         return
     }
-    db.collection('target')
-    .orderBy('time', 'desc')
-    .where({
+     db.collection('target')
+     .orderBy('time', 'desc')
+     .where({
       time: _.gt(dateField.firstDay).and(_.lt(dateField.lastDay)) , //大于第一天小于最后一天
       label:_.eq(nowLabel)
     }).get()
@@ -66,9 +70,8 @@ Page({
          that.setData({targetList:res.data});
          console.log(this.data.month,"月")
          console.log("长度：",this.data.targetList.length)
-         if(this.data.targetList.length==0){
-           this.setData({informContent:"诶呀~该标签还没有目标"});
-          }
+         if(this.data.targetList.length==0){this.setData({NULL_targetList:0});}
+         else{this.setData({NULL_targetList:1});}
       })
       .catch(err => {
         console.log(err);
@@ -147,6 +150,8 @@ Page({
          console.log("targetList",res.data)
          that.setData({targetList:res.data});
          console.log(this.data.month,"月")
+         if(this.data.targetList.length==0){this.setData({NULL_targetList:0});}
+         else{this.setData({NULL_targetList:1});}
       })
       .catch(err => {
         console.log(err);
