@@ -229,7 +229,7 @@ Page({
       amount:day-1
     })
    }
-   if(setDate==0){
+   if(setDate==0){   //选择今天
     var TIME = util.formatTime(new Date());
     var startTime=TIME;
     var endTime=date;
@@ -291,11 +291,6 @@ Page({
      },
      success:function(res){
        console.log(res)
-      //  wx.showModal({
-      //   title: '成功',
-      //   content: '成功创建目标',
-      //   showCancel: false
-      //  })
       that.setData({informContent:"成功创建目标"});
      }
    }),

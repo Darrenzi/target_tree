@@ -1,13 +1,18 @@
-// pages/set/set.js
+// pages/config/config.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+   
   },
 
+  choose:function(e){
+    let index = e.currentTarget.id;
+    console.log(e)
+    console.log(index)
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -9,10 +9,9 @@ Page({
      change_1:false,
      change_2:true,
      change_3:true,
-     navList:[],
-     userList:[],
-     sortfriend:[],
-    
+     navList:[],//好友列表
+     userList:[], //用于存放除了用户及其好友的数组
+     sortfriend:[],//用于存放好友排名中从数据库拉下来的数据的数组
   },
   backHome: function () {
     wx.navigateBack({});

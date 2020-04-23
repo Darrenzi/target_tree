@@ -129,7 +129,6 @@ page{
   position: relative;
   display: block;
   z-index: -1;
-
 }
 .targetClass{
   height: 400rpx;
@@ -144,7 +143,6 @@ page{
   z-index: 9;
   margin-bottom: 6%;
 }
-
 .date{
   width: 250rpx;
   height: 60rpx;
@@ -155,7 +153,7 @@ page{
   justify-content: center;
   align-items: center;
   margin-bottom: 50rpx;
-  margin-top:80rpx;
+  margin-top:60rpx;
   margin-bottom: 20rpx;
   margin-left: 250rpx;
   position: relative;
