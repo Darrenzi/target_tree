@@ -278,6 +278,7 @@ page{
 .targetDetailRow{
   display: flex;
   width: 100%;
+  margin-bottom: 10rpx;
 }
 .targetDetailLabel{
   /* 详情界面固定文字的样式 */
@@ -287,7 +288,7 @@ page{
 }
 .targetDetailContent{
   /* 详情界面具体内容的样式 */
-  height: 450rpx;
+  max-height: 450rpx;
   width: 100%;
   overflow-y:scroll;
 }

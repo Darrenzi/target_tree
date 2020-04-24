@@ -38,7 +38,7 @@
   <view class="label" wx:if="{{labelList.length<4}}">空</view>
  
   <view class="Null_targetList" wx:if="{{NULL_targetList==0}}">
-  <image src="/images/5.png" ></image></view>
+  <image class="noImage" src="../messages/images/tree2.png" ></image></view>
   <text class="NULL_TEXT">欸啊~该标签下暂无目标呢</text>
 </view>
 

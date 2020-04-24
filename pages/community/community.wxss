@@ -1,0 +1,143 @@
+/* pages/community/community.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  font-size: 30rpx;
+}
+.top{
+  width: 100%;
+  padding-top:80rpx;
+  color:white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top:0;
+  background: white;
+  z-index: 1;
+}
+.top_title{
+  width: 40%;
+  padding:20rpx;
+  text-align: center;
+  background: rgb(57, 163, 103);
+  font-size: 40rpx;
+  border-radius: 20rpx;
+}
+.back{
+  position: absolute;
+  left: 20rpx;
+  width: 70rpx;
+  height: 60rpx;
+  font-weight: bolder;
+  font-size: 40rpx;
+  color:rgb(57, 163, 103);
+}
+
+.main{
+  position: relative;
+  top:200rpx;
+}
+.target{
+  margin-top:30rpx;
+}
+.targetTop{
+  display: flex;
+  align-items: center;
+  margin-bottom:30rpx;
+  position: relative;
+}
+.watchButton{
+  width: 100rpx;
+  height: 50rpx;
+  color:white;
+  background: rgb(57, 163, 103);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+  box-shadow: 5rpx 5rpx 5rpx 5rpx rgb(24, 119, 65);
+  position: absolute;
+  right:40rpx;
+}
+.watchButton:active{
+  margin-top:5rpx;
+  box-shadow: none;
+}
+.avatar{
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 100%;
+  margin-right: 20rpx;
+  margin-left: 30rpx;
+}
+.targetUn{
+  font-weight: bold;
+  color:rgb(57, 163, 103);
+  width: 40%;
+}
+.targetTitle{
+  color:rgb(71, 71, 71);
+  font-weight: bold;
+  font-size: 35rpx;
+  margin-left: 30rpx;
+  margin-bottom: 20rpx;
+  width: 90%;
+}
+.targetContent{
+  color:gray;
+  font-size: 30rpx;
+  word-break: break-all;/*允许在单词内换行*/
+  text-align: left;
+  line-height: 45rpx;
+  text-overflow: -o-ellipsis-lastline;/*css3中webkit内核提供的一个方法类似ellipsis*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;/*自适应盒子*/
+  -webkit-line-clamp: 3;/*此处为1行,如果是两行就改成2*/
+  -webkit-box-orient: vertical;
+  margin-bottom:30rpx;
+  margin-left: 30rpx;
+  width: 90%;
+}
+.targetMoney{
+  margin-left: 30rpx;
+}
+.targetMoney text{
+  color:rgb(209, 79, 79);
+  font-weight: bold;
+}
+.targetBottom{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top:20rpx;
+  border-bottom:2rpx solid gainsboro;
+  height: 80rpx;
+  width: 100%;
+}
+.loading{
+  /* 加载文字的框架 */
+  text-align: center;
+  width: 100%;
+}
+
+.bottom{
+  height: 120rpx;
+  width: 100%;
+  position: fixed;
+  bottom:0;
+  background: rgb(57, 163, 103);
+  display: flex;
+  color:white;
+}
+.bottomOption{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bottomOptionChoose{
+  color:rgb(228, 228, 87);
+}

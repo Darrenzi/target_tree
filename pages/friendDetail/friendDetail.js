@@ -12,6 +12,8 @@ Page({
     targets:[],
     loadContent:"加载中...",
     informContent:"",
+    //当前显示详情的目标的索引
+    currentShowDetail:-1
   },
 
   backHome: function () {
@@ -47,7 +49,7 @@ Page({
   },
 
   getTargets: function () {
-    let userId = this.data.user._openid;
+    let userId = this.data.user.userId;
     // console.log(userId);
     let that = this;
     wx.cloud.callFunction({
@@ -68,15 +70,27 @@ Page({
 
   watch:function(e){
     let index = e.currentTarget.id;
-    console.log(index, e)
     this.setData({informContent:"此功能正在完善中..."})
+  },
+
+  showDetail:function(e){
+    //显示一个目标的详情
+    let index = e.currentTarget.id;
+    // console.log(index);
+    let currentShowDetail = this.data.currentShowDetail;
+    if(currentShowDetail != index){
+      this.setData({ currentShowDetail:index});
+    }
+    else{
+      this.setData({ currentShowDetail: -1 });
+    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let app = getApp();
-    this.setData({user:app.globalData.user});
+    console.log(options);
+    this.setData({user:options});
     this.getTargets();
   },
 

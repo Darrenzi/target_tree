@@ -27,7 +27,7 @@ Page({
     //用于树木显示动画的控制
     treeShow:false,
     treeHeight:0,
-    treeOpacity:0
+    treeOpacity:0,
   },
 
   //初始化用户信息
@@ -131,14 +131,14 @@ Page({
 
   chooseTarget:function(e){
     //选择目标
-     console.log(e);
+    console.log(e);
     this.setData({currentTarget:e.detail.target, treeShow:false});
-    let that = this;
-    //0.5s后播放图片更换动画
-    setTimeout(function(
-    ){
-      that.treeAnimation();
-    },500)
+  },
+
+  imageLoadCompleted:function(){
+    console.log("图片加载完成")
+    //树木图片加载完成后
+    this.treeAnimation();
   },
 
   reachTo:function(e){
@@ -197,10 +197,16 @@ Page({
         })
         break;
       }
-      default:{
+      case '社区':{
         wx.navigateTo({
-          url: '../friendDetail/friendDetail',
+          url: '../community/community',
+          complete: function () {
+            that.setData({ loadContent: '' });
+          }
         })
+        break;
+      }
+      default:{
         that.setData({ loadContent: '' });
       }
     }
@@ -250,6 +256,7 @@ Page({
           let progress = ((that.data.currentTarget.record + 1) / that.data.currentTarget.amount * 100).toFixed(2);
           if(progress>=100){
             //打卡后任务完成
+            console.log('目标完成');
             progress=100;
             db.collection('target').doc(that.data.currentTarget._id).update({
               data: {
@@ -296,7 +303,7 @@ Page({
   treeAnimation:function(){
     //创建树木动画
     let animation = wx.createAnimation({
-      duration: 800,
+      duration: 500,
       timingFunction: 'ease',
     });
     this.animation = animation;
@@ -312,9 +319,10 @@ Page({
       that.setData({
         treeHeight:0,
         treeOpacity:0,
-        treeShow: true
+        treeShow: true,
+        treeAnimation:null
       })
-    }, 1000)
+    }, 500)
   },
 
   /**

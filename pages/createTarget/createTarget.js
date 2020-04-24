@@ -282,6 +282,8 @@ Page({
       rest:Number(rest),
       time:new Date(),
       like:0,
+      comment:0,
+      status:0,
       record:0,
       amount:amount,
       //任务进度

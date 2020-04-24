@@ -1,0 +1,33 @@
+<!--pages/community/community.wxml-->
+<view class="top">
+   <view class="top_title">社区</view>
+  <view class="back" bindtap="backHome">《</view>
+</view>
+
+<scroll-view class="main" scroll-y bindscrolltolower="getMoreTargets">
+  <view class="target" wx:for="{{targets}}" wx:key="target">
+    <view class="targetTop">
+      <image class="avatar" src="{{item.userList[0].avatarUrl}}"></image>
+      <view class="targetUn">{{item.userList[0].un}}</view>
+      <view class="watchButton">投币</view>
+    </view>
+
+    <view class="targetTitle">{{item.title}}</view>
+    <view class="targetContent">{{item.content}}</view>
+    <view class="targetMoney">挑战金币：<text>300</text></view>
+
+    <view class="targetBottom">
+      <view id="{{index}}" bindtap="like">点赞 {{item.like.length}}</view>
+      <view id="{{index}}">评论 {{item.comment}}</view>
+      <view id="{{index}}">围观 {{item.supervisor.length}}</view>
+    </view>
+  </view>
+  <view class="loading" hidden="{{!loadFlag}}">加载中...</view>
+  <!-- 空白占位 -->
+  <view style="height:120rpx;"></view>
+</scroll-view>
+
+<view class="bottom">
+  <view class="bottomOption bottomOptionChoose">推荐</view>
+  <view class="bottomOption">朋友</view>
+</view>

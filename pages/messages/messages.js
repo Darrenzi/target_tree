@@ -151,14 +151,16 @@ Page({
           console.log('is init data', snapshot.type === 'init')
           if (snapshot.type != 'init') {
             let docChanges = snapshot.docChanges;
-            let targetsId = [];
-            for (let i = 0; i < docChanges.length; i++) {
-              targetsId.push(docChanges[i].doc.target_id);
-            }
+            // //发生改变的任务Id
+            // let targetsId = [];
+            // for (let i = 0; i < docChanges.length; i++) {
+            //   targetsId.push(docChanges[i].doc.target_id);
+            // }
+            //待优化，现在为一个改变，全部重新拉取
             wx.cloud.callFunction({
               name: "getLike",
               data: {
-                user_targets: targetsId
+                user_targets: that.data.user_targets
               },
               success: function (res) {
                 let data = res.result.list;
@@ -208,14 +210,15 @@ Page({
           console.log('is init data', snapshot.type === 'init')
           if (snapshot.type != 'init'){
             let docChanges = snapshot.docChanges;
-            let targetsId = [];
-            for (let i = 0; i < docChanges.length; i++) {
-              targetsId.push(docChanges[i].doc.target_id);
-            }
+            // let targetsId = [];
+            // for (let i = 0; i < docChanges.length; i++) {
+            //   targetsId.push(docChanges[i].doc.target_id);
+            // }
+            //待优化，现在为一个改变，全部重新拉取
             wx.cloud.callFunction({
               name: "getComment",
               data: {
-                user_targets: targetsId
+                user_targets: that.user_targets
               },
               success: function (res) {
                 let data = res.result.list;

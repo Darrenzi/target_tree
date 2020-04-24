@@ -110,11 +110,10 @@
   margin-bottom: 5%;
 }
 .FriendList{
-  height: 100rpx;
+  height: 150rpx;
   width: 500rpx;
   border: 2rpx;
   position: relative;
-  
   margin-left: 30%;
   z-index: 9;
   top: 7%;

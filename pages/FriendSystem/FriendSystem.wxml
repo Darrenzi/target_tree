@@ -16,34 +16,39 @@
   <view class="Halfcircle"></view>
   <view>
     <block wx:for="{{navList}}" wx:for-index="idx" wx:if="{{idx!='_id'}}" wx:key="key">
-      <view class="FriendList">
-      <view class="FriendLine"></view>
-      <image class="portrait" src="{{item.friendList[0].avatarUrl}}"></image>
-      <view class="portrait_outside"></view>
-      <text class="fontstyle">:{{item.friendList[0].un}}</text>
+      <view class="FriendList" bindtap="getFriendDetail" id="{{idx}}">
+        <view class="FriendLine"></view>
+        <image class="portrait" src="{{item.friendList[0].avatarUrl}}"></image>
+        <view class="portrait_outside"></view>
+        <text class="fontstyle">{{item.friendList[0].un}}</text>
       </view>
     </block>
   </view>
 </view>
 
 <view class="hide{{change_2?'':'show'}}">
-<view class="Halfcircle_1"></view>
-<view><block wx:for="{{sortfriend}}" wx:for-index="friendidx" wx:key="key">
-<view class="Friend"><view class="line"></view>
-<image class="portrait" src="{{item.avatarUrl}}"></image>
-<text class="fontstyle">:{{item.un}}</text>
-<image src="/images/coin.png" class="iconpage"></image>
-<text class="coinstyle">:{{item.coin}}</text>
-</view>
-</block></view>
+  <view class="Halfcircle_1"></view>
+  <view>
+    <block wx:for="{{sortfriend}}" wx:for-index="friendidx" wx:key="key">
+      <view class="Friend">
+        <view class="line"></view>
+        <image class="portrait" src="{{item.avatarUrl}}"></image>
+        <text class="fontstyle">:{{item.un}}</text>
+        <image src="/images/coin.png" class="iconpage"></image>
+        <text class="coinstyle">:{{item.coin}}</text>
+      </view>
+    </block>
+  </view>
 </view>
 
- <view class="hide{{change_3?'':'show'}}" bindtap="ChangeShowStatus_3">
- <view class="Halfcircle_2"></view>
-<view><block wx:for="{{userList}}" wx:for-index="userIdx" wx:key="key">
-<view class="Friend"><view class="line"></view>
-<image class="portrait" src="{{item.avatarUrl}}"></image>
-<text class="fontstyle">:{{item.un}}</text>
-</view>
-</block></view>
+<view class="hide{{change_3?'':'show'}}" bindtap="ChangeShowStatus_3">
+  <view class="Halfcircle_2"></view>
+  <view>
+    <block wx:for="{{userList}}" wx:for-index="userIdx" wx:key="key">
+      <view class="Friend"><view class="line"></view>
+      <image class="portrait" src="{{item.avatarUrl}}"></image>
+      <text class="fontstyle">:{{item.un}}</text>
+      </view>
+    </block>
+  </view>
 </view>
