@@ -10,7 +10,7 @@ Page({
        //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
        informContent:"",
        targetList:Array , //用于存放获得的目标
-       treeId :Array,
+      // treeId :Array,
        targetTouchStart:0,
        month:0,
        year:0,
@@ -18,7 +18,9 @@ Page({
        nextMonth:0,
        labelList:['全部','阅读',"运动","早起","学习","早睡","完美计划","旅行","变漂亮",],
        current_index:0,
-       NULL_targetList:2.//0表示该数组为空，1表示该数组不为空
+       NULL_targetList:2,//0表示该数组为空，1表示该数组不为空
+       treeList:[],//用于存放树的地址
+       treeList_1:[] //用于暂时存放树的地址
   },
   backHome: function () {
     wx.navigateBack({});
@@ -32,14 +34,16 @@ Page({
     console.log(nowLabel)
     let dateField = this.getDateField(this.data.year, this.data.month);
     if(index==0){
-      db.collection('target')
+       db.collection('target')
       .orderBy('time', 'desc')
       .where({
         time: _.gt(dateField.firstDay).and(_.lt(dateField.lastDay)) , //大于第一天小于最后一天
-      }).get()
+      })
+      .get()
         .then(res => {
           for(let i=0;i<res.data.length;i++){
             res.data[i].time=res.data[i].time.toLocaleDateString()
+            console.log(res.data[i].treeId)
           }
            var that=this
            console.log("targetList",res.data)
@@ -53,6 +57,8 @@ Page({
           console.log(err);
         })
         this.setData({current_index:index});
+        let length=this.data.targetList.length
+        console.log("length",length)
         return
     }
      db.collection('target')
@@ -76,10 +82,11 @@ Page({
       .catch(err => {
         console.log(err);
       })
-   
+
+      
       this.setData({loadContent:''})
       this.setData({current_index:index});
-    
+      
     if(index == this.data.current_index)return;
   },
   targetTouchStart:function(e){
@@ -99,7 +106,6 @@ Page({
       this.nextMonth();
     }
   },
-
 
   lastMonth:function(){
     let month = this.data.month;
@@ -121,6 +127,7 @@ Page({
     }
     this.getTargets();
   },
+
   getDateField:function(year, month){
     //获得一个月的第一天以及最后一天
     let firstdate = new Date(year, month-1, 1, 0, 0, 0, 0);
@@ -131,6 +138,7 @@ Page({
       lastDay: lastdate
     }
   },
+
   getTargets:function(){
     console.log(this.data.year)
     let dateField = this.getDateField(this.data.year, this.data.month);
