@@ -45,6 +45,7 @@ page{
   background: rgb(57, 163, 103);
   font-size: 40rpx;
   border-radius: 20rpx;
+  margin-bottom: 20rpx;
 }
 
 .dayItem{

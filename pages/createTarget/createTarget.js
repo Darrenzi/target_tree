@@ -7,9 +7,9 @@ Page({
    */
   data: {
    numbers:[50,100,200,600,800,1000],
-   change:false,
+   change:true,
    change_1:true,
-   change_2:true,
+   change_2:false,
    custom:true,
    label:'',
    setCoin:'',
@@ -193,6 +193,12 @@ Page({
       that.setData({informContent:"请输入目标内容"});
       return
      }
+     var title=this.data.title
+     if(title==""){
+      var that=this
+      that.setData({informContent:"请输入目标标题"});
+      return
+     }
     var that=this
     that.setData({
      change:true,
@@ -234,6 +240,11 @@ Page({
       this.setData({
         content: e.detail.value
       })
+  },
+  getInputtitle:function(e){
+    this.setData({
+      title: e.detail.value
+    })
   },
   getInputContent:function(e){
    this.setData({

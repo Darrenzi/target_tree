@@ -1,15 +1,16 @@
 <loading content="{{loadContent}}"></loading>
 <inform content="{{informContent}}"></inform>
-<!-- 
-<view class="gereenToyellow"> 设置背景渐变 -->
+
+<view class="gereenToyellow">
 
 <!-- 设置金额 -->
  <view class="hide {{change?'':'show'}}">
-   <view class="title"><text>设置挑战金额</text></view>
+   <view class="title">设置挑战金额</view>
    <view class="back" bindtap="back">《</view>
    <view>
    <image src="images/9.png" class="coin"></image>
    <input placeholder="请输入挑战金额" class="inputMoney" type="text" maxlength="4" value="{{number}}"    bindinput="getInput"></input>
+   <view class="yuan">元</view>
  </view>
 <view class="optionalAmount">
   <view class="buttonclass" bindtap="setdata">50</view>
@@ -22,7 +23,9 @@
 
 <view class="line"></view>
 <view class="littleTittle">Tips:</view>
-<text class="tips">1:金币将会在完成目标后返还到您的账户。</text>
+<text class="tips">1:金币将会在完成目标后返还到您的账户，如果失败则会分给围观的朋友们噢</text>
+<text class="tips_1">2:如果你想让自己充满动力的话，建议 选择数额较高的挑战金币哦
+</text>
 
 <view class="continueView">
 <view class="continue" bindtap="toNext" bindtap="changeShowstatus">下一步</view></view>
@@ -31,7 +34,11 @@
 
 <!-- 创建标签以及时间具体名称 -->
 <view class="hide{{change_1?'':'show'}}">
+<view class="centerlabeltop">
+ <view class="back" bindtap="changeShowstatus">《</view>
 <view class="label">请选择你的标签</view>
+<view class="chooselabel">一：请选择你的标签</view>
+<view class="hot">热门推荐</view></view>
 <view class="labels">
   <view class="labelClass" bindtap="setTarget">
     <image src="images/11.png" class="labelIcon"></image>
@@ -58,13 +65,19 @@
      <image src="images/17.png" class="labelIcon"></image>
       <text class="iconFont">自律</text></view>
 </view>
+
 <view class="custom" bindtap="Tocustom">点我选择自定义标签</view>
+<view class="centertitle">
+ <input placeholder="输入目标标题" class="inputtitle" type="text" maxlength="100"  bindinput="getInputtitle"  ></input>
+ <view class="inputtitleLine"></view>
+</view>
 <view class="centerlabel">
  <input placeholder="输入目标内容" class="inputLabel" type="text" maxlength="1000"  bindinput="getInputTarget"  ></input>
  <view class="inputLine"></view>
 </view>
-<view class="return" bindtap="changeShowstatus">上一步</view>
-<view class="nextStep" bindtap="changeShowstatus_1">下一步</view> 
+ <!-- <view class="return" bindtap="changeShowstatus">上一步</view> -->
+<view class="nextStep" bindtap="changeShowstatus_1">下一步</view>  
+<view class="whitespace_2"></view>
 </view>
 
 <!-- 自定义标签 -->
@@ -79,58 +92,66 @@
 
  <view class="customContainer">
   <view class="labelClass" bindtap="setTarget">
-    <image src="images/11.png" class="labelIcon"></image>
+    <image src="images/1.png" class="labelIcon"></image>
     <text class="iconFont">运动</text></view>
   <view class="labelClass" bindtap="setTarget_1">
-    <image src="images/10.png" class="labelIcon"></image>
+    <image src="images/2.png" class="labelIcon"></image>
     <text class="iconFont">工作</text></view>
   <view class="labelClass" bindtap="setTarget_2">
-    <image src="images/12.png" class="labelIcon"></image>
+    <image src="images/3.png" class="labelIcon"></image>
     <text class="iconFont">剁手</text></view>
   <view class="labelClass" bindtap="setTarget_3">
-     <image src="images/13.png" class="labelIcon"></image>
+     <image src="images/4.png" class="labelIcon"></image>
      <text class="iconFont">游戏</text></view>
   <view class="labelClass" bindtap="setTarget_4">
-     <image src="images/14.png" class="labelIcon"></image>
+     <image src="images/5.png" class="labelIcon"></image>
      <text class="iconFont">早睡</text></view>
   <view class="labelClass" bindtap="setTarget_5">
-     <image src="images/15.png" class="labelIcon"></image>
+     <image src="images/6.png" class="labelIcon"></image>
      <text class="iconFont">拒绝高热量</text></view>
   <view class="labelClass" bindtap="setTarget_6">
-     <image src="images/16.png" class="labelIcon"></image>
+     <image src="images/7.png" class="labelIcon"></image>
      <text class="iconFont">提高颜值</text></view>
   <view class="labelClass" bindtap="setTarget_7">
-     <image src="images/17.png" class="labelIcon"></image>
+     <image src="images/8.png" class="labelIcon"></image>
       <text class="iconFont">自律</text></view>
        <view class="labelClass" bindtap="setTarget_7">
-     <image src="images/17.png" class="labelIcon"></image>
+     <image src="images/9.png" class="labelIcon"></image>
       <text class="iconFont">自律</text></view>
        <view class="labelClass" bindtap="setTarget_7">
-     <image src="images/17.png" class="labelIcon"></image>
+     <image src="images/10.png" class="labelIcon"></image>
       <text class="iconFont">自律</text></view>
        <view class="labelClass" bindtap="setTarget_7">
-     <image src="images/17.png" class="labelIcon"></image>
+     <image src="images/11.png" class="labelIcon"></image>
       <text class="iconFont">自律</text></view>
        <view class="labelClass" bindtap="setTarget_7">
-     <image src="images/17.png" class="labelIcon"></image>
+     <image src="images/12.png" class="labelIcon"></image>
       <text class="iconFont">自律</text></view>
  </view>
-<view class="centerlabel">
- <input placeholder="输入目标内容" class="inputCustom" type="text" maxlength="1000"  bindinput="getInputContent"  value="{{content}}" ></input>
- <view class="input_custom"></view>
+
+<view class="centertitle">
+ <input placeholder="输入目标标题" class="inputtitle" type="text" maxlength="100"  bindinput="getInputtitle"  ></input>
+ <view class="inputtitleLine"></view>
 </view>
+<view class="centerlabel">
+ <input placeholder="输入目标内容" class="inputLabel" type="text" maxlength="1000"  bindinput="getInputTarget" ></input>
+ <view class="inputLine"></view>
+</view>
+
 </view>
 
 
 <!-- 第三个页面 -->
 <view class="hide{{change_2?'':'show'}}">
 <!-- 创建目标 -->
+
  <view class="setTarget">
    <view class="setTargetFont">目标设置</view>
+    <view class="back" bindtap="changeShowStatus_2">《</view>
  </view>
+
  <view class="starTime">
- <view class="circle">
- <image src="images/18.png" class="image_startTime"></image></view>
+   <image src="images/18.png" class="image_startTime"></image>
  <view class="kaishishijian">开始时间</view>
  <view class="{{changeView?'today':'today_1'}}" bindtap="changeview">今天</view>
  <view class="{{changeView_1?'tomorrow_1':'tomorrow'}}" bindtap="changview_1">明天</view>
@@ -138,8 +159,8 @@
  </view>
 <!-- 设置结束时间 -->
  <view class="endTime">
- <view class="circle_1"></view>
  <view class="jieshushijian">结束时间</view>
+ <image src="images/19.png" class="image_endTime"></image>
 <view class="section">
   <picker mode="date"  start="2020-05-01" end="2022-09-01" bindchange="bindDateChange">
     <view class="picker">
@@ -148,35 +169,37 @@
   </picker>
 </view>
 <view class="end_line"></view>
-</view>
+</view> 
 <!-- 设置休息天数 -->
-<view class="restday">
-<view class="circle_2"></view>
-<view class="rest_font">休息天数</view>
-<input class="inputrest" placeholder="输入天数" type="number" maxlength="3" bindinput="getRest"></input>
-<view class="tian" >天</view>
-<view class="inputRestLine"></view>
-<view class="restline"></view>
+ <view class="restday">
+  <image src="images/20.png" class="image_rest"></image>
+  <view class="rest_font">休息天数</view>
+  <input class="inputrest" placeholder="输入天数" type="number" maxlength="3" bindinput="getRest"></input>
+  <view class="tian" >天</view>
+  <view class="inputRestLine"></view>
+  <view class="restline"></view>
 </view>
-<!-- 设置是否可见 -->
-<view class="seeORNot">
-<view  class="circle_3"></view>
-<view class="see_font">在首页显示</view>
-<switch class="seeSwitch"></switch>
-<view class="seeLine"></view>
-</view>
+
 <!-- 设置是否指定 -->
 <view class="stickOrNot">
-<view class="circle_4"></view>
+ <image src="images/21.png" class="image_stick"></image>
 <view class="stick_font">是否置顶</view>
 <switch class="stickSwitch"></switch>
+<view class="stickline"></view>
 </view>
-<!-- 设置上一步按钮 -->
-<view class="returnTo" bindtap="changeShowStatus_2">上一步</view>
+<!-- 权限 -->
+<view class="jurisdiction">
+ <image src="images/22.png" class="image_jurisdiction"></image>
+ <view class="jurisdiction_1">权限设置</view>
+ <view class="jurisdictionIcon">》</view>
+</view> 
+
+
 <!-- 设置完成按钮 -->
-<view class="end" bindtap="end">完成</view>
+
+<view class="nextStep" bindtap="end">完成</view> 
 </view>
 
 
 <!-- 背景颜色标签 -->
-<!-- </view> -->
+</view>

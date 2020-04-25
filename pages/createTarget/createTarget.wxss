@@ -1,95 +1,107 @@
 .title{
-  height: 80rpx;
-  width: 500rpx;
-  position: relative;
-  border-radius: 30rpx;
-  margin-top: 160rpx;
-  margin-left: 125rpx;
-  background-color: rgb(230, 230, 215);
+  width: 40%;
+  padding: 20rpx;
+  text-align: center;
+  background: rgb(57,163,103);
   font-size: 40rpx;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  color:rgba(139, 213, 55, 0.96) ;
+  border-radius: 20rpx;
+  position: relative;
+  margin-top: 180rpx;
+  margin-left: 185rpx;
 }
 .coin{
   height: 90rpx;
   width: 90rpx;
   position: relative;
-  margin-top:20rpx;
+  margin-top:15rpx;
   margin-left: 11%;
 }
 .gereenToyellow{
-  background: linear-gradient(60deg, rgba(219, 224, 187, 0.96), rgb(193, 224, 81));
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  display: flex;
+ overflow: scroll;
+
+}
+.yuan{
+  height: 90rpx;
+  width: 90rpx;
+  position: absolute;
+  margin-top:-60rpx;
+  margin-left: 570rpx;
+  font-size: 35rpx;
 }
 .inputMoney{
   height: 80rpx;
   width: 420rpx;
   border-radius: 20rpx;
-  background-color: rgb(236, 236, 197);
+  
   position: relative;
   margin-top: -90rpx;
   left: 27%;
   align-items: center;
   justify-content: center;
   display: flex;
+  border: 5rpx solid rgba(116, 121, 110, 0.96);
 }
 
 .buttonclass{
   height: 130rpx;
   width: 210rpx;
   position: relative;
-  background-color: rgb(230, 245, 190);
+  background-color: white;
+  color: rgba(230, 131, 78, 0.96);
+  border: 4rpx solid rgba(47, 48, 40, 0.96);
   display: inline-flex;
   margin-top: 20rpx;
   border-radius: 30rpx;
-  margin-left: 4%;
+  margin-left: 20%;
+  margin-right: -15%;
   align-items: center;
   justify-content: center;
-  box-shadow:  5rpx 5rpx 5rpx 5rpx rgba(235, 227, 114, 0.6);
-  padding: 15rpx,15rpx,15rpx,15rpx;
+  font-size: 45rpx;
+  padding: 10rpx,10rpx,10rpx,10rpx;
 }
 .optionalAmount{
-  position: relative;
+  position: absolute;
   align-items: center;
   justify-content: center;
   margin-top: 20rpx;
- 
+
 }
 .line{
   height: 10rpx;
   width: 650rpx;
-  position: relative;
+  position: absolute;
   background-color: rgba(94, 95, 12, 0.844);
-  margin-top: 40rpx;
+  top: 900rpx;
   margin-left: 7%;
 }
 .littleTittle{
   color: red;
-  position: relative;
-  margin-top: 20rpx;
+  position: absolute;
+  top: 920rpx;
   left: 9%;
   font-size: 50rpx;
 }
 .tips{
   color: rgb(100, 40, 40);
-  position: relative;
-  margin-top: 58%;
+  position: absolute;
+  top: 985rpx;
+  left: 9%;
+  font-size: 35rpx;
+}
+.tips_1{
+  color: rgb(100, 40, 40);
+  position: absolute;
+  top: 1075rpx;
   left: 9%;
   font-size: 35rpx;
 }
 .continue{
   height: 80rpx;
   width: 300rpx;
-  position: fixed;
-  bottom: 5%;
+  position: absolute;
+  top: 1400rpx;
   border-radius: 20rpx;
-  background-color: rgb(186, 226, 43);
-  box-shadow: 0rpx 5rpx 5rpx 5rpx rgba(235, 227, 114, 0.6);
+  background-color: rgb(57, 163, 103);
   align-items: center;
   justify-content: center;
   display: flex;
@@ -98,16 +110,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: scroll;
 }
 
 .back{
   height:50rpx;
   width: 50rpx;
-  position: fixed;
-  top: 5%;
+  position: absolute;
+  top: 9.5%;
   left: 5%;
   color:rgb(57, 163, 103);
+  font-size: 35rpx;
 }
+
 
 .hide{
   display: none;
@@ -116,17 +131,15 @@
   display:block ;
 }
 .label{
-  height: 80rpx;
-  width: 400rpx;
-  background-color: rgb(219, 237, 182);
-  border-radius: 40rpx;
-  position: fixed;
-  top: 5%;
-  left: 22%;
-  align-items: center;
-  justify-content: center;
-  display: flex;
+  width: 40%;
+  padding: 20rpx;
+  text-align: center;
+  background: rgb(57,163,103);
   font-size: 40rpx;
+  border-radius: 20rpx;
+  position: absolute;
+  top: 100rpx;
+  left: 200rpx;
 }
 
 .labeltToContent{
@@ -165,22 +178,39 @@ justify-content: center;
   align-items: center;
   justify-content: center;
   display: block;
-  top: 40%;
-  position: relative;
+
 }
 .custom{
-  position: fixed;
+  position: absolute;
   color: rgba(139, 213, 55, 0.96);
   display: flex;
   justify-content: center;
   align-items: center;
   bottom: 28%;
+  top: 800rpx;
   left: 25%;
   font-size: 35rpx;
 }
+.inputtitle{
+  position: absolute;
+  top: 1100rpx;
+  left: 15%;
+  color: rgba(46, 52, 53, 0.6);
+  height: 5%;
+  width: 70%;
+  border-radius: 20rpx;
+}
+.inputtitleLine{
+  height: 2rpx;
+  background-color: rgba(150, 150, 134, 0.96);
+  width: 70%;
+  position: absolute;
+  top: 1170rpx;
+  left: 100rpx;
+}
 .inputLabel{
-  position: fixed;
-  bottom: 20%;
+  position: absolute;
+ top: 1200rpx;
   left: 15%;
   color: rgba(46, 52, 53, 0.6);
   height: 5%;
@@ -191,8 +221,8 @@ justify-content: center;
   height: 5rpx;
   background-color: rgba(150, 150, 134, 0.96);
   width: 70%;
-  position: fixed;
-  bottom:20%;
+  position: absolute;
+  top: 1270rpx;
   left: 100rpx;
 }
 .stTarget{
@@ -205,20 +235,42 @@ justify-content: center;
 .setTargetFont{
   font-size: 35rpx;
   height: 100rpx;
-  width: 500rpx;
+  width: 300rpx;
   background-color: rgb(51, 126, 13);
   color: white;
-  position: relative;
-  top: 180rpx;
+  position: absolute;
+  top: 80rpx;
   align-items: center;
   justify-content: center;
   display: flex;
   border-radius:20rpx;
   left: 24.5%;
 }
+
+.chooselabel{
+  position: absolute;
+  top: 220rpx;
+  left: 248rpx;
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  color: rgba(38, 153, 48, 0.981);
+  
+}
+.hot{
+  position: absolute;
+  top: 300rpx;
+  left: 310rpx;
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  color: rgba(228, 81, 88, 0.981);
+}
 .labels{
-  position:fixed;
-  top:25%;
+  position:absolute;
+  top:340rpx;
   display: inline-block;
   width: 100%;
   border-width: 5rpx;
@@ -371,10 +423,10 @@ justify-content: center;
  .nextStep{
   height: 100rpx;
   width: 250rpx;
-  position: fixed;
-  bottom: 5%;
-  left: 56%;
-  background-color: rgba(235, 227, 114, 0.6);
+  position: absolute;
+  top:1400rpx;
+  left: 250rpx;
+  background-color: rgb(57, 163, 103);
   border-radius: 20rpx;
   align-items: center;
   justify-content: center;
@@ -382,8 +434,8 @@ justify-content: center;
  }
  .starTime{
    display: flex;
-   position: relative;
-   margin-top: 230rpx;
+   position: absolute;
+   top: 250rpx;
  }
  .circle{
    height: 60rpx;
@@ -393,11 +445,36 @@ justify-content: center;
    left: 30rpx;
  }
  .image_startTime{
-   height: 120rpx;
-   width: 120rpx;
-   position: absolute;
-   top: -25rpx;
-   left: -30rpx;
+  height: 120rpx;
+  width: 120rpx;
+  position: absolute;
+  top: -10rpx;
+  left: 15rpx;
+  bottom: 10rpx;
+ }
+ .image_endTime{
+  height: 120rpx;
+  width: 120rpx;
+  position: absolute;
+  top: 345rpx;
+  left: 8rpx;
+  bottom: 10rpx;
+ }
+ .image_rest{
+  height: 90rpx;
+  width: 120rpx;
+  position: absolute;
+  top: 450rpx;
+  left: 10rpx;
+  bottom: 10rpx;
+ }
+ .image_stick{
+  height: 100rpx;
+  width: 100rpx;
+  position: absolute;
+  top: 530rpx;
+  left: 10rpx;
+  bottom: 10rpx;
  }
  .circle_1{
   height: 60rpx;
@@ -411,6 +488,7 @@ justify-content: center;
 
  .restday{
    display: flex;
+   position: absolute;
  }
  .circle_2{
   height: 60rpx;
@@ -452,7 +530,10 @@ justify-content: center;
   top:330rpx ;
  }
  .stickOrNot{
-   display: flex;
+  display: flex;
+   position: absolute;
+ 
+  
  }
  .circle_4{
   height: 60rpx;
@@ -464,59 +545,116 @@ justify-content: center;
   margin-top: 385rpx;
  }
  .stick_font{
-  position: relative;
-  left: 95rpx;
+  position: absolute;
+  left: 105rpx;
   color: black;
-  top:390rpx ;
+  top:565rpx ;
+  font-size: 25rpx;
+  width: 200rpx;
  }
  .stickSwitch{
-  position: relative;
-  top: 380rpx;
-  left: 410rpx;
+  position: absolute;
+  top: 550rpx;
+  left: 460rpx;
+  font-size: 50rpx;
+ }
+ .stickline{
+  height: 5rpx;
+  width: 1000rpx;
+  background-color: rgba(132, 135, 129, 0.96);
+  position: absolute;
+  margin-top: 630rpx;
+ }
+ .jurisdiction{
+  display: flex;
+  position: absolute;
+ }
+ .image_jurisdiction{
+  height: 140rpx;
+  width: 140rpx;
+  position: absolute;
+  top: 600rpx;
+  left: 0rpx;
+  bottom: 10rpx;
+ }
+ .jurisdiction_1{
+  height: 160rpx;
+  width: 160rpx;
+  position: absolute;
+  top: 650rpx;
+  left: 110rpx;
+  bottom: 10rpx;
+  font-size: 25rpx;
+ }
+ .jurisdictionIcon{
+  height: 160rpx;
+  width: 160rpx;
+  position: absolute;
+  top: 640rpx;
+  left: 500rpx;
+  bottom: 10rpx;
+  font-size: 45rpx;
  }
  .rest_font{
-  position: relative;
-  left: 95rpx;
+  position: absolute;
+  left: 105rpx;
   color: black;
-  top:220rpx ;
+  top:480rpx ;
+  width: 200rpx;
+  font-size: 25rpx;
  }
  .restline{
   height: 5rpx;
-  width: 100%;
-  background-color: rgba(49, 59, 38, 0.96);
-  position: fixed;
-  margin-top: 280rpx;
+  width: 1000rpx;
+  background-color: rgba(132, 135, 129, 0.96);
+  position: absolute;
+  margin-top: 530rpx;
  }
 
  .inputrest{
-   position: fixed;
-   margin-top: 220rpx;
-   margin-left: 480rpx;
+   position: absolute;
+   margin-top: 450rpx;
+   margin-left: 450rpx;
  }
  .tian{
-  position: fixed;
-  margin-top: 222rpx;
-  margin-left: 630rpx;
+  position: absolute;
+  margin-top: 472rpx;
+  margin-left: 590rpx;
+  font-size: 25rpx;
  }
  .inputRestLine{
    width: 150rpx;
    height: 3rpx;
-   position: fixed;
-   margin-top: 265rpx;
-   margin-left: 475rpx;
+   position: absolute;
+   margin-top: 505rpx;
+   margin-left: 435rpx;
    background-color: rgba(116, 121, 110, 0.96);
  }
  .kaishishijian{
-  position: relative;
-  left: 95rpx;
+  position: absolute;
+  left: 60rpx;
   color: black;
-  top:15rpx ;
+  top:30rpx ;
+  display: flex;
+  font-size: 25rpx;
+  align-items: center;
+  justify-content: center;
+  width: 200rpx;
  }
  .jieshushijian{
-  position: relative;
-  left: 95rpx;
+  position: absolute;
+  left: 110rpx;
   color: black;
-  top:135rpx ;
+  top:390rpx ;
+  width: 200rpx;
+  font-size: 25rpx;
+ }
+ .picker{
+  position: absolute;
+  left: 450rpx;
+  color: black;
+  top:320rpx ;
+  width: 400rpx;
  }
  .today{
    height: 70rpx;
@@ -525,7 +663,7 @@ justify-content: center;
    align-items: center;
    justify-content: center;
    display: flex;
-   position: fixed;
+   position: absolute;
    left: 600rpx;
    border-radius: 10rpx;
  }
@@ -536,7 +674,7 @@ justify-content: center;
    align-items: center;
    justify-content: center;
    display: flex;
-   position: fixed;
+   position: absolute;
    left: 600rpx;
    border-radius: 10rpx;
  }
@@ -547,7 +685,7 @@ justify-content: center;
   align-items: center;
   justify-content: center;
   display: flex;
-  position: fixed;
+  position: absolute;
   left: 450rpx;
   border-radius: 10rpx;
 }
@@ -558,31 +696,34 @@ justify-content: center;
   align-items: center;
   justify-content: center;
   display: flex;
-  position: fixed;
+  position: absolute;
   left: 450rpx;
   border-radius: 10rpx;
 }
 .start_line{
   height: 5rpx;
-  width: 100%;
-  background-color: rgba(49, 59, 38, 0.96);
-  position: fixed;
-  margin-top: 90rpx;
+  width: 800rpx;
+  background-color: rgba(90, 96, 85, 0.96);
+  position: absolute;
+  top: 90rpx;
+  left: 0rpx;
+
 }
 .end_line{
   height: 5rpx;
-  width: 100%;
-  background-color: rgba(49, 59, 38, 0.96);
-  position: fixed;
-  margin-top: 190rpx;
+  width:1000rpx;
+  background-color: rgba(139, 145, 133, 0.96);
+  position: absolute;
+  top: 440rpx;
 }
 .endTime{
   display: flex;
+  position: absolute;
 }
 .section{
-  position: relative;
+  position: absolute;
   left: 45%;
-  top:135rpx;
+  top:70rpx;
   border-color: rgba(79, 83, 74, 0.96);
   font-size: 32rpx;
 }
@@ -602,30 +743,30 @@ justify-content: center;
 .customLine{
   height: 5rpx;
   width: 90%;
-  position: fixed;
+  position: absolute;
   left: 5%;
-  top: 14%;
+  top: 17.5%;
   background-color: rgba(71, 80, 61, 0.96);
 }
 .custom_font{
   width: 90%;
-  position: fixed;
+  position: absolute;
   left: 6%;
-  top: 15%;
+  top: 18%;
   color: rgba(116, 121, 110, 0.96);
   font-size: 45rpx;
 }
 .customLine_1{
   height: 5rpx;
   width: 90%;
-  position: fixed;
+  position: absolute;
   left: 5%;
-  top: 21%;
+  top: 22%;
   background-color: rgba(88, 94, 81, 0.96);
 }
 .customContainer{
-  position:fixed;
-  top:20%;
+  position:absolute;
+  top:22.2%;
   display: inline-block;
   width: 100%;
   border-width: 5rpx;
@@ -674,4 +815,9 @@ justify-content: center;
   font-weight: bolder;
   font-size: 40rpx;
   color:rgb(57, 163, 103);
+}
+.whitespace_2{
+  height: 200rpx;
+  width: 100%;
+  position: absolute;
 }
