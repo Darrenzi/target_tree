@@ -246,7 +246,7 @@ justify-content: center;
   justify-content: center;
   display: flex;
   border-radius:20rpx;
-  left: 24.5%;
+  left: 30.5%;
 }
 
 .chooselabel{
