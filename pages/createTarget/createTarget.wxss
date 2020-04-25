@@ -564,8 +564,7 @@ justify-content: center;
  .stickline{
   height: 5rpx;
   width: 1000rpx;
-  background-color: rgba(110, 112, 108, 0.96)
-  ;
+  background-color: rgba(110, 112, 108, 0.96);
   position: absolute;
   margin-top: 630rpx;
  }
