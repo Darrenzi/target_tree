@@ -20,6 +20,8 @@
    <view class="treeclass"></view>
    <view class="line"></view>
    <view class="fontclass">目标:</view>
+    <!-- <image class="tree" src="{{currentTarget.tree}}" style="height:{{treeHeight}}; ></image>
+   <image src="image/solid.png"   class="imageSolid"></image> -->
    <view class="labelclass">{{item.label}}</view>
   </view>
 </view>

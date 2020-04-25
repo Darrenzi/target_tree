@@ -148,6 +148,7 @@ page{
   z-index: 9;
   margin-bottom: 6%;
 }
+
 .date{
   width: 280rpx;
   height: 60rpx;
@@ -162,6 +163,14 @@ page{
   margin-bottom: 20rpx;
   margin-left: 250rpx;
   position: relative;
+}
+.imageSolid{
+  position: absolute;
+  z-index: 19;
+  top: 110rpx;
+  left: 126rpx;
+  width: 310rpx;
+  height: 180rpx;
 }
 .treeclass{
   height: 260rpx;

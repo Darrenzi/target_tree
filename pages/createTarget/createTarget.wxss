@@ -7,7 +7,7 @@
   border-radius: 20rpx;
   position: relative;
   margin-top: 160rpx;
-  margin-left: 158rpx;
+  margin-left: 143rpx;
   color: white;
 }
 .coin{
@@ -121,7 +121,7 @@
   height:50rpx;
   width: 50rpx;
   position: absolute;
-  top: 10%;
+  top: 10.5%;
   left: 5%;
   color:rgb(57, 163, 103);
   font-size: 35rpx;
@@ -143,7 +143,7 @@
   border-radius: 20rpx;
   position: relative;
   margin-top: 160rpx;
-  margin-left: 158rpx;
+  margin-left: 143rpx;
   color: white;
 }
 
@@ -246,7 +246,7 @@ justify-content: center;
   border-radius: 20rpx;
   position: relative;
   margin-top: 160rpx;
-  margin-left: 158rpx;
+  margin-left: 143rpx;
   color: white;
 }
 
