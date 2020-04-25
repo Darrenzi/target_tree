@@ -7,9 +7,9 @@ Page({
    */
   data: {
    numbers:[50,100,200,600,800,1000],
-   change:false,
+   change:true,
    change_1:true,
-   change_2:true,
+   change_2:false,
    custom:true,
    label:'',
    setCoin:'',
