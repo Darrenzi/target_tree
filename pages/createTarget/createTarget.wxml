@@ -77,7 +77,6 @@
 </view>
  <!-- <view class="return" bindtap="changeShowstatus">上一步</view> -->
 <view class="nextStep" bindtap="changeShowstatus_1">下一步</view>  
-<view class="whitespace_2"></view>
 </view>
 
 <!-- 自定义标签 -->

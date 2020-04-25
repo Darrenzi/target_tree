@@ -87,6 +87,7 @@
   top: 985rpx;
   left: 9%;
   font-size: 35rpx;
+  right: 9%;
 }
 .tips_1{
   color: rgb(100, 40, 40);
@@ -94,6 +95,7 @@
   top: 1075rpx;
   left: 9%;
   font-size: 35rpx;
+  right: 9%;
 }
 .continue{
   height: 80rpx;
@@ -815,9 +817,4 @@ justify-content: center;
   font-weight: bolder;
   font-size: 40rpx;
   color:rgb(57, 163, 103);
-}
-.whitespace_2{
-  height: 200rpx;
-  width: 100%;
-  position: absolute;
 }
