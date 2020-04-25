@@ -615,8 +615,9 @@ justify-content: center;
 
  .inputrest{
    position: absolute;
-   margin-top: 450rpx;
+   margin-top: 455rpx;
    margin-left: 450rpx;
+   width: 200rpx;
  }
  .tian{
   position: absolute;

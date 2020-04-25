@@ -20,7 +20,6 @@ Page({
        current_index:0,
        NULL_targetList:2,//0表示该数组为空，1表示该数组不为空
        treeList:[],//用于存放树的地址
-       treeList_1:[] //用于暂时存放树的地址
   },
   backHome: function () {
     wx.navigateBack({});
@@ -58,6 +57,9 @@ Page({
         })
         this.setData({current_index:index});
         let length=this.data.targetList.length
+        for(let j=0;j<length;j++){
+          db.collection()
+        }
         console.log("length",length)
         return
     }
