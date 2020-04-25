@@ -1,0 +1,70 @@
+
+<view class="top">
+ <view class="top_title"> 设置</view>
+ <view class="back" bindtap="backHome">《</view>
+</view>
+
+<view class="title_1">设置</view>
+<view class="line"></view>
+
+<view class="bell">
+  <text class="bell_font">铃声选择</text>
+  <switch class="switch_bell"></switch>
+  <view class="switch_line"></view>
+</view>
+
+<view class="countdown">
+  <text class="countdown_font">时间倒数通知</text>
+  <switch class="switch_countdown"></switch>
+  <view class="countdown_line"></view>
+</view>
+
+<view class="screen">
+  <text class="screen_font">保持荧幕开启</text>
+  <switch class="switch_screen"></switch>
+  <view class="screen_line"></view>
+</view>
+
+
+<view class="error">
+  <text class="error_font">自动上传错误报告</text>
+  <switch class="switch_error"></switch>
+  <view class="error_line"></view>
+</view>
+
+ <view class="language">
+  <text class="language_font">变更语言</text>
+  <text class="switchLanguage">简体中文</text>
+  <view class="language_line"></view>
+</view> 
+
+<view class="about">
+   <text class="about_font">关于</text>
+   <view class="about_line"></view>
+</view>
+
+<view class="all">
+  <view class="singleConfig">使用教学</view>
+  <view class="configLine"></view>
+</view>
+
+<view class="problem">
+  <text class="problem_font">常见问题</text>
+  <view class="problemLine"></view>
+</view>
+<view class="problem">
+  <text class="problem_font">联系我们</text>
+  <view class="problemLine"></view>
+</view>
+<view class="problem">
+  <text class="problem_font">隐私权政策</text>
+  <view class="problemLine"></view>
+</view>
+<view class="problem">
+  <text class="problem_font">版本更新</text>
+  <view class="problemLine"></view>
+</view>
+
+
+  
+

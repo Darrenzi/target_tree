@@ -117,12 +117,12 @@
 }
 .label{
   height: 80rpx;
-  width: 500rpx;
+  width: 400rpx;
   background-color: rgb(219, 237, 182);
-  border-radius: 50rpx;
+  border-radius: 40rpx;
   position: fixed;
-  top: 10%;
-  left: 16%;
+  top: 5%;
+  left: 22%;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -168,15 +168,32 @@ justify-content: center;
   top: 40%;
   position: relative;
 }
+.custom{
+  position: fixed;
+  color: rgba(139, 213, 55, 0.96);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 28%;
+  left: 25%;
+  font-size: 35rpx;
+}
 .inputLabel{
   position: fixed;
-  top: 55%;
+  bottom: 20%;
   left: 15%;
-  background-color: rgb(243, 240, 202);
   color: rgba(46, 52, 53, 0.6);
   height: 5%;
   width: 70%;
   border-radius: 20rpx;
+}
+.inputLine{
+  height: 5rpx;
+  background-color: rgba(150, 150, 134, 0.96);
+  width: 70%;
+  position: fixed;
+  bottom:20%;
+  left: 100rpx;
 }
 .stTarget{
    display: flex;
@@ -209,18 +226,34 @@ justify-content: center;
   align-items: center;
   
 }
+.labelIcon{
+  height: 110rpx;
+  width: 110rpx;
+  left: 28rpx;
+  top: 10rpx;
+  position: absolute;
+}
+.iconFont{
+  font-size: 30rpx;
+  display: flex;
+  position: relative;
+  top: 125rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .labelClass{  
-  height:100rpx;
+  height:170rpx;
   width: 22%;
   position: relative;
-  background-color: rgba(22, 174, 194, 0.6);
-  display:inline-flex; 
+
+  display:inline-block; 
   margin-top: 5%;
   border-radius: 30rpx;
   margin-left: 2.5%;
   align-items: center;
   justify-content: center;
-  box-shadow:  5rpx 5rpx 5rpx 5rpx rgba(235, 227, 114, 0.6);
+
   padding: 15rpx,15rpx,15rpx,15rpx;
  
 }
@@ -235,7 +268,7 @@ justify-content: center;
   height: 100rpx;
   width: 250rpx;
   position: fixed;
-  top: 65%;
+  bottom: 5%;
   left: 12%;
   background-color: rgba(235, 227, 114, 0.6);
   border-radius: 20rpx;
@@ -339,7 +372,7 @@ justify-content: center;
   height: 100rpx;
   width: 250rpx;
   position: fixed;
-  top: 65%;
+  bottom: 5%;
   left: 56%;
   background-color: rgba(235, 227, 114, 0.6);
   border-radius: 20rpx;
@@ -356,9 +389,15 @@ justify-content: center;
    height: 60rpx;
    width: 60rpx;
    border-radius: 60rpx;
-   background-color: rgba(150, 150, 134, 0.96);
    position: fixed;
    left: 30rpx;
+ }
+ .image_startTime{
+   height: 120rpx;
+   width: 120rpx;
+   position: absolute;
+   top: -25rpx;
+   left: -30rpx;
  }
  .circle_1{
   height: 60rpx;
@@ -397,7 +436,7 @@ justify-content: center;
  .seeLine{
   height: 5rpx;
   width: 100%;
-  background-color: rgba(139, 213, 55, 0.96);
+  background-color: rgba(49, 59, 38, 0.96);
   position: fixed;
   margin-top: 390rpx;
  }
@@ -444,7 +483,7 @@ justify-content: center;
  .restline{
   height: 5rpx;
   width: 100%;
-  background-color: rgba(139, 213, 55, 0.96);
+  background-color: rgba(49, 59, 38, 0.96);
   position: fixed;
   margin-top: 280rpx;
  }
@@ -493,7 +532,7 @@ justify-content: center;
  .today_1{
   height: 70rpx;
    width: 120rpx;
-   background-color: rgba(111, 116, 106, 0.96);
+   background-color: rgba(225, 232, 140, 0.96);
    align-items: center;
    justify-content: center;
    display: flex;
@@ -515,7 +554,7 @@ justify-content: center;
 .tomorrow_1{
   height: 70rpx;
   width: 120rpx;
-  background-color: rgba(125, 128, 122, 0.96);
+  background-color: rgba(225, 232, 140, 0.96);
   align-items: center;
   justify-content: center;
   display: flex;
@@ -526,14 +565,14 @@ justify-content: center;
 .start_line{
   height: 5rpx;
   width: 100%;
-  background-color: rgba(139, 213, 55, 0.96);
+  background-color: rgba(49, 59, 38, 0.96);
   position: fixed;
   margin-top: 90rpx;
 }
 .end_line{
   height: 5rpx;
   width: 100%;
-  background-color: rgba(139, 213, 55, 0.96);
+  background-color: rgba(49, 59, 38, 0.96);
   position: fixed;
   margin-top: 190rpx;
 }
@@ -542,7 +581,7 @@ justify-content: center;
 }
 .section{
   position: relative;
-  left: 70%;
+  left: 45%;
   top:135rpx;
   border-color: rgba(79, 83, 74, 0.96);
   font-size: 32rpx;
@@ -560,3 +599,79 @@ justify-content: center;
   display: flex;
 }
 
+.customLine{
+  height: 5rpx;
+  width: 90%;
+  position: fixed;
+  left: 5%;
+  top: 14%;
+  background-color: rgba(71, 80, 61, 0.96);
+}
+.custom_font{
+  width: 90%;
+  position: fixed;
+  left: 6%;
+  top: 15%;
+  color: rgba(116, 121, 110, 0.96);
+  font-size: 45rpx;
+}
+.customLine_1{
+  height: 5rpx;
+  width: 90%;
+  position: fixed;
+  left: 5%;
+  top: 21%;
+  background-color: rgba(88, 94, 81, 0.96);
+}
+.customContainer{
+  position:fixed;
+  top:20%;
+  display: inline-block;
+  width: 100%;
+  border-width: 5rpx;
+  border-color: salmon;
+  align-items: center;
+}
+.input_custom{
+  height: 5rpx;
+  background-color: rgba(150, 150, 134, 0.96);
+  width: 70%;
+  position: fixed;
+  bottom:9%;
+  left: 100rpx;
+}
+.inputCustom{
+  position: fixed;
+  bottom: 10%;
+  left: 15%;
+  color: rgba(46, 52, 53, 0.6);
+  height: 4%;
+  width: 70%;
+  border-radius: 20rpx;
+  font-size: 35rpx;
+}
+.cusstom_top{
+  width: 100%;
+  padding-top:80rpx;
+  color:white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.customtoptitle{
+  width: 40%;
+  padding:20rpx;
+  text-align: center;
+  background: rgb(57, 163, 103);
+  font-size: 40rpx;
+  border-radius: 20rpx;
+}
+.customback{
+  position: absolute;
+  left: 20rpx;
+  width: 70rpx;
+  height: 60rpx;
+  font-weight: bolder;
+  font-size: 40rpx;
+  color:rgb(57, 163, 103);
+}

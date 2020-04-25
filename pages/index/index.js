@@ -206,6 +206,15 @@ Page({
         })
         break;
       }
+      case '设置':{
+        wx.navigateTo({
+          url: '../config/config',
+          complete: function () {
+            that.setData({ loadContent: '' });
+          }
+        })
+        break;
+      }
       default:{
         that.setData({ loadContent: '' });
       }

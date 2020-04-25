@@ -17,7 +17,8 @@ page{
   color:rgb(57, 163, 103);
 }
 .whitespace{
-  height: 120rpx;
+  height: 180rpx;
+  position: relative;
 }
 .intoFriends{
   height: 50rpx;
@@ -33,9 +34,12 @@ page{
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  background-color: white;
+  z-index: 100;
 }
 .top_title{
-  width: 40%;
+  width: 35%;
   padding:20rpx;
   text-align: center;
   background: rgb(57, 163, 103);
@@ -129,7 +133,6 @@ page{
   position: relative;
   display: block;
   z-index: -1;
-
 }
 .targetClass{
   height: 400rpx;
@@ -143,7 +146,6 @@ page{
   z-index: 9;
   margin-bottom: 6%;
 }
-
 .date{
   width: 250rpx;
   height: 60rpx;
@@ -154,7 +156,7 @@ page{
   justify-content: center;
   align-items: center;
   margin-bottom: 50rpx;
-  margin-top:80rpx;
+  margin-top:60rpx;
   margin-bottom: 20rpx;
   margin-left: 250rpx;
   position: relative;
@@ -209,24 +211,25 @@ page{
 .contianer{
   display: flex;
   align-items: center;
-  height: 210rpx;
+  height: 225rpx;
   width: 100%;
   position: fixed;
   bottom: 0%;
   overflow-x: scroll;
   font-size: 35rpx;
   color:white;
-  background:  linear-gradient(20deg, rgba(116, 168, 56, 0.974), rgb(37, 179, 29))
+  background:  linear-gradient(170deg, rgb(138, 156, 58), rgb(37, 179, 29))
 }
 /* 下面的目标框的样式 */
 .label{   
   min-width: 160rpx;
-  height: 183rpx;
+  height: 185rpx;
   border: 4rpx solid rgba(185, 226, 109, 0.829);
   border-radius: 10rpx;
   text-align: center;
   margin-left: 12rpx;
   margin-right: 12rpx;
+  margin-bottom: 15rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

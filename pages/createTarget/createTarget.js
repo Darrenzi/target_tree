@@ -10,6 +10,7 @@ Page({
    change:false,
    change_1:true,
    change_2:true,
+   custom:true,
    label:'',
    setCoin:'',
    rest:'',
@@ -86,41 +87,51 @@ Page({
   },
   setTarget:function(e){
     this.setData({
-      target:'做作业',
-      label:'做作业'
+      label:'运动'
     })
   },
   setTarget_1:function(e){
     this.setData({
-      target:'阅读',
-      label:'阅读'
+     
+      label:'工作'
     })
   },
   setTarget_2:function(e){
     this.setData({
-      target:'运动',
-      label:'运动'
+  
+      label:'剁手'
     })
   },
   setTarget_3:function(e){
     this.setData({
-      target:'早睡',
-      label:'早睡'
+    
+      label:'游戏'
     })
   },
   setTarget_4:function(e){
     this.setData({
-      target:'减肥',
-      label:'减肥'
+     
+      label:'早睡'
     })
   },
   setTarget_5:function(e){
     this.setData({
-      target:'变漂亮',
-      label:'变漂亮'
+    
+      label:'拒绝高热量'
     })
   },
-
+  setTarget_6:function(e){
+    this.setData({
+      
+      label:'提高颜值'
+    })
+  },
+  setTarget_7:function(e){
+    this.setData({
+      
+      label:'自律'
+    })
+  },
   setrecord:function(e){
     this.setData({
       record:'7'
@@ -176,18 +187,42 @@ Page({
       that.setData({informContent:"请输入正确的标签"});
       return
      }
+     var content=this.data.content
+     if(content==""){
+      var that=this
+      that.setData({informContent:"请输入目标内容"});
+      return
+     }
     var that=this
     that.setData({
      change:true,
      change_1:true,
-     change_2:false
+     change_2:false,
+     custom:true
     })
  },
   changeShowStatus_2:function(){
     this.setData({
       change:true,
       change_1:false,
-      change_2:true
+      change_2:true,
+      custom:true
+    })
+  },
+  Tocustom:function(){
+    this.setData({
+      change:true,
+      change_1:true,
+      change_2:true,
+      custom:false
+    })
+  },
+  back:function(){
+    this.setData({
+      change:true,
+      change_1:false,
+      change_2:true,
+      custom:true
     })
   },
   getInput:function(e){
@@ -197,7 +232,7 @@ Page({
   },
   getInputTarget:function(e){
       this.setData({
-        label: e.detail.value
+        content: e.detail.value
       })
   },
   getInputContent:function(e){
@@ -229,7 +264,7 @@ Page({
       amount:day-1
     })
    }
-   if(setDate==0){
+   if(setDate==0){   //选择今天
     var TIME = util.formatTime(new Date());
     var startTime=TIME;
     var endTime=date;
@@ -274,10 +309,11 @@ Page({
    db.collection('target').add({
      data:{
       supervisor:[],
+      like:[],
       label:label,
-      title:content, //title内容同content
-      content:content,
-      amount:Number(setCoin),
+      title:'', //标题
+      content:'', //内容
+      coin:Number(setCoin),//总的挑战金币数
       record:Number(record),//打卡记录
       rest:Number(rest),
       time:new Date(),
@@ -285,7 +321,7 @@ Page({
       comment:0,
       status:0,
       record:0,
-      amount:amount,
+      status:0,//任务状态
       //任务进度
       progress:0.00,
       //树苗的id
@@ -293,11 +329,6 @@ Page({
      },
      success:function(res){
        console.log(res)
-      //  wx.showModal({
-      //   title: '成功',
-      //   content: '成功创建目标',
-      //   showCancel: false
-      //  })
       that.setData({informContent:"成功创建目标"});
      }
    }),
