@@ -2,7 +2,9 @@
   "cloud": true,
   "pages": [ 
     "pages/createTarget/createTarget",
-      "pages/history/history",
+    "pages/history/history",
+   
+   
     "pages/index/index",
     "pages/config/config",
     "pages/FriendSystem/FriendSystem",

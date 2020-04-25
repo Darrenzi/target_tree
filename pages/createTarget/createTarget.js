@@ -33,6 +33,11 @@ Page({
       date: e.detail.value
     })
   },
+  backToindex:function(){
+    wx.navigateTo({
+      url:  '../index/index',
+    })
+  },
   changeview:function(){  //点击今天
     this.setData({
      changeView:false,

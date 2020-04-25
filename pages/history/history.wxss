@@ -149,7 +149,7 @@ page{
   margin-bottom: 6%;
 }
 .date{
-  width: 250rpx;
+  width: 280rpx;
   height: 60rpx;
   border-radius: 30rpx;
   border:3rpx solid rgb(82, 79, 79);
