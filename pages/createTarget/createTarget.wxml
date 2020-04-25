@@ -149,7 +149,6 @@
     <view class="back" bindtap="changeShowStatus_2">《</view>
  </view>
 
-<view class="allconfig">
  <view class="starTime">
    <image src="images/18.png" class="image_startTime"></image>
  <view class="kaishishijian">开始时间</view>
@@ -194,7 +193,7 @@
  <view class="jurisdictionIcon">》</view>
 </view> 
 
-</view>
+
 <!-- 设置完成按钮 -->
 
 <view class="nextStep" bindtap="end">完成</view> 
