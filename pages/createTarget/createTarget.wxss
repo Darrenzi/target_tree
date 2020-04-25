@@ -1,13 +1,13 @@
 .title{
-  width: 55%;
+  width: 60%;
   padding: 10rpx;
   text-align: center;
   background: rgb(57,163,103);
   font-size: 40rpx;
   border-radius: 20rpx;
   position: relative;
-  margin-top: 150rpx;
-  margin-left: 193rpx;
+  margin-top: 160rpx;
+  margin-left: 158rpx;
   color: white;
 }
 .coin{
@@ -107,7 +107,7 @@
   border-radius: 20rpx;
   position: absolute;
   top: 1400rpx;
-  left: 238rpx;
+  left: 230rpx;
   color: white;
 }
 .continueView{
@@ -135,15 +135,15 @@
   display:block ;
 }
 .label{
-  width: 55%;
+  width: 60%;
   padding: 10rpx;
   text-align: center;
   background: rgb(57,163,103);
   font-size: 40rpx;
   border-radius: 20rpx;
   position: relative;
-  margin-top: 150rpx;
-  margin-left: 193rpx;
+  margin-top: 160rpx;
+  margin-left: 158rpx;
   color: white;
 }
 
@@ -238,15 +238,15 @@ justify-content: center;
   
 }
 .setTargetFont{
-  width: 55%;
+  width: 60%;
   padding: 10rpx;
   text-align: center;
   background: rgb(57,163,103);
   font-size: 40rpx;
   border-radius: 20rpx;
-  position: absolute;
-  margin-top: 150rpx;
-  margin-left: 193rpx;
+  position: relative;
+  margin-top: 160rpx;
+  margin-left: 158rpx;
   color: white;
 }
 
@@ -432,7 +432,7 @@ justify-content: center;
   border-radius: 20rpx;
   position: absolute;
   top: 1400rpx;
-  left: 238rpx;
+  left: 230rpx;
   color: white;
  }
  .starTime{
@@ -564,7 +564,8 @@ justify-content: center;
  .stickline{
   height: 5rpx;
   width: 1000rpx;
-  background-color: rgba(132, 135, 129, 0.96);
+  background-color: rgba(110, 112, 108, 0.96)
+  ;
   position: absolute;
   margin-top: 630rpx;
  }
@@ -609,7 +610,7 @@ justify-content: center;
  .restline{
   height: 5rpx;
   width: 1000rpx;
-  background-color: rgba(132, 135, 129, 0.96);
+  background-color: rgba(110, 112, 108, 0.96);
   position: absolute;
   margin-top: 530rpx;
  }
@@ -707,16 +708,16 @@ justify-content: center;
 .start_line{
   height: 5rpx;
   width: 800rpx;
-  background-color: rgba(90, 96, 85, 0.96);
+  background-color: rgba(110, 112, 108, 0.96);
   position: absolute;
   top: 90rpx;
   left: 0rpx;
 
 }
 .end_line{
-  height: 5rpx;
+  height: 2rpx;
   width:1000rpx;
-  background-color: rgba(139, 145, 133, 0.96);
+  background-color: rgba(110, 112, 108, 0.96);
   position: absolute;
   top: 440rpx;
 }
