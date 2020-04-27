@@ -75,18 +75,27 @@
 </view>
 
 <view class="custom" bindtap="Tocustom">点我选择自定义标签</view>
+ <!-- <view class="return" bindtap="changeShowstatus">上一步</view> -->
+<view class="nextStep" bindtap="changeShowstatus_1">下一步</view>  
+</view>
+
+
+<!-- 设置目标标题与内容 -->
+<view class="hide{{showtitle?'':'show'}}">
+<view class="centerlabeltop">
+ <view class="back" bindtap="changeShowstatus_4">《</view>
+<view class="label">目标内容</view>
+</view>
 <view class="centertitle">
- <input placeholder="输入目标标题" class="inputtitle" type="text" maxlength="100"  bindinput="getInputtitle"  ></input>
+ <input placeholder="输入目标标题" class="inputtitle" type="text" maxlength="30"  bindinput="getInputtitle"  ></input>
  <view class="inputtitleLine"></view>
 </view>
 <view class="centerlabel">
  <input placeholder="输入目标内容" class="inputLabel" type="text" maxlength="1000"  bindinput="getInputTarget"  ></input>
  <view class="inputLine"></view>
 </view>
- <!-- <view class="return" bindtap="changeShowstatus">上一步</view> -->
-<view class="nextStep" bindtap="changeShowstatus_1">下一步</view>  
+<view class="nextStep" bindtap="changeShowstatus_3">下一步</view>  
 </view>
-
 <!-- 自定义标签 -->
 <view class="hide{{custom?'':'show'}}">
 <view class="cusstom_top">
@@ -133,14 +142,6 @@
 
 </view>
 
-<view class="centertitle">
- <input placeholder="输入目标标题" class="inputtitle" type="text" maxlength="100"  bindinput="getInputtitle"  ></input>
- <view class="inputtitleLine"></view>
-</view>
-<view class="centerlabel">
- <input placeholder="输入目标内容" class="inputLabel" type="text" maxlength="1000"  bindinput="getInputTarget" ></input>
- <view class="inputLine"></view>
-</view>
 
 </view>
 

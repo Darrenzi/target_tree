@@ -7,10 +7,11 @@ Page({
    */
   data: {
    numbers:[50,100,200,600,800,1000],
-   change:false,
+   change:true,
    change_1:true,
    change_2:true,
    custom:true,
+   showtitle:false,
    showCircle:true,
    showCircle_1:true,showCircle_2:true,showCircle_3:true,showCircle_4:true,
    showCircle_5:true,showCircle_6:true,showCircle_7:true,showCircle_8:true,
@@ -370,32 +371,79 @@ Page({
       that.setData({informContent:"请输入正确的标签"});
       return
      }
-     var content=this.data.content
-     if(content==""){
-      var that=this
-      that.setData({informContent:"请输入目标内容"});
-      return
-     }
-     var title=this.data.title
-     if(title==""){
-      var that=this
-      that.setData({informContent:"请输入目标标题"});
-      return
-     }
+   
     var that=this
     that.setData({
      change:true,
      change_1:true,
-     change_2:false,
+     change_2:true,
+     showtitle:false,
      custom:true
     })
  },
   changeShowStatus_2:function(){
     this.setData({
       change:true,
-      change_1:false,
+      change_1:true,
+      showtitle:false,
       change_2:true,
       custom:true
+    })
+  },
+  changeShowstatus_4:function(){
+ 
+    var content=this.data.content
+    if(content==""){
+     var that=this
+     that.setData({informContent:"请输入目标内容"});
+     return
+    }
+    var title=this.data.title
+    if(title==""){
+     var that=this
+     that.setData({informContent:"请输入目标标题"});
+     return
+    }
+    this.setData({
+      change:true,
+      change_1:false,
+      change_2:true,
+      custom:true,
+      showtitle:true
+    })
+  },
+  changeShowstatus_3:function(){
+   
+    var content=this.data.content
+    if(content==""){
+     var that=this
+     that.setData({informContent:"请输入目标内容"});
+     return
+    }
+    var title=this.data.title
+    if(title==""){
+     var that=this
+     that.setData({informContent:"请输入目标标题"});
+     return
+    }
+    var content=this.data.content
+    if(content==""){
+     var that=this
+     that.setData({informContent:"请输入目标内容"});
+     return
+    }
+    var title=this.data.title
+    if(title==""){
+     var that=this
+     that.setData({informContent:"请输入目标标题"});
+     return
+    }
+    this.setData({
+      change:true,
+      change_1:true,
+      change_2:false,
+      custom:true,
+      showtitle:true
     })
   },
   Tocustom:function(){
