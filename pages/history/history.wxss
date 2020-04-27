@@ -15,10 +15,9 @@ page{
   font-weight: bolder;
   font-size: 40rpx;
   color:rgb(57, 163, 103);
-  top: 185rpx;
 }
 .whitespace{
-  height: 200rpx;
+  height: 160rpx;
   position: relative;
 }
 .intoFriends{
@@ -40,16 +39,12 @@ page{
   z-index: 20;
 }
 .top_title{
-  width: 60%;
-  padding: 10rpx;
+  width: 40%;
+  padding:20rpx;
   text-align: center;
-  background: rgb(57,163,103);
+  background: rgb(57, 163, 103);
   font-size: 40rpx;
   border-radius: 20rpx;
-  position: relative;
-  margin-top: 95rpx;
-  margin-left: 8rpx;
-  color: white;
 
 }
 
@@ -171,8 +166,8 @@ page{
 .imageSolid{
   position: absolute;
   z-index: 19;
-  top: 108rpx;
-  left: 119.9rpx;
+  top: 109rpx;
+  left: 118.9rpx;
   width: 314rpx;
   height: 180rpx;
 }
@@ -313,7 +308,7 @@ page{
   width: 200rpx;
   border-radius: 260rpx;
   position: relative;
-  top: 380rpx;
+  top: 340rpx;
   left: 285rpx;
   margin-bottom:400rpx;
   align-items: center;

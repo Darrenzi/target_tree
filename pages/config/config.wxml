@@ -58,11 +58,11 @@
 </view>
 <view class="problem">
   <text class="problem_font">隐私权政策</text>
-  <view class="problemLine"></view>
+  <view class="myselfline"></view>
 </view>
 <view class="problem">
   <text class="problem_font">版本更新</text>
-  <view class="problemLine"></view>
+  <view class="updateLine"></view>
 </view>
 
 
