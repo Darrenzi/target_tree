@@ -143,7 +143,6 @@ page{
 .targetClass{
   height: 400rpx;
   width: 550rpx;
-  border: 2rpx;
   box-shadow: 0rpx 2rpx 2rpx rgba(180, 121, 149, 0.541);
   border-radius: 50rpx;
   border-color: antiquewhite;

@@ -13,12 +13,43 @@
   <view class="option {{currentShow=='目标'?'optionChoose':''}}" bindtap="choose" data-target="目标">目标</view>
 </view>
 
-<forest class="forest" forest="{{forest}}" style="zoom:{{zoom}}" wx:if="{{currentShow=='森林'}}"></forest>
+<view class="date" hidden="{{currentShow !='森林'}}">
+  <!-- <view class="dateOption" bindtap="lastMonth">«</view> -->
+  <view class="dateCotent">{{year}}年{{month}}月</view>
+  <!-- <view class="dateOption" bindtap="nextMonth">»</view> -->
+</view>
+<!-- <forest class="forest" forest="{{forest}}" style="zoom:{{zoom}}" wx:if="{{currentShow=='森林'}}"></forest> -->
+ <forest-default class="forest" forest="{{forest}}" style="zoom:{{zoom}};" bindtouchstart="forestTouchStart" bindtouchend="forestTouchEnd" hidden="{{currentShow !='森林'}}"></forest-default>
+<view class="statistics_container" hidden="{{currentShow!='森林'}}">
+  <view class="statistics">
+    <image></image>
+    {{statistics.completed}}
+    <view class="statistics_label">已完成</view>
+  </view>
+
+  <view class="statistics">
+    <image></image>
+    {{statistics.running}}
+    <view class="statistics_label">进行中</view>
+  </view>
+
+  <view class="statistics">
+    <image></image>
+    {{statistics.abandoned}}
+    <view class="statistics_label">已枯萎</view>
+  </view>
+</view>
+
 
 <view class="target_container" hidden="{{currentShow!='目标'}}">
-  <view class="target" wx:for="{{targets}}" wx:key="target">
-    <view class="targetLabel">{{item.label}}</view>
-    <view class="targetTitle">{{item.title}}</view>
-    <view id="{{index}}" class="watchButton" bindtap="watch">围观</view>
+  <view id="{{index}}" class="target {{currentShowDetail == index?'targetShowDetail':''}}" wx:for="{{targets}}" wx:key="target" bindtap="showDetail">
+    <view class="targetLabel {{currentShowDetail == index?'targetShowDetailLabel':''}}">{{item.label}}</view>
+    <view class="targetTitle {{currentShowDetail == index?'targetShowDetailTitle':''}}">{{item.title}}</view>
+    <view id="{{index}}" class="watchButton" catchtap="watch">围观</view>
+    <view class="targetContent" hidden="{{!(currentShowDetail == index)}}">{{item.content}}</view>
+  </view>
+  <view class="noTarget" wx:if="{{targets.length == 0}}">
+    <image src="../messages/images/tree2.png"></image>
+    <view>暂无目标</view>
   </view>
 </view>

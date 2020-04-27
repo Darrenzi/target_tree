@@ -7,7 +7,7 @@ page{
   flex-direction: column;
   align-items: center;
   position: relative;
-  overflow:hidden;
+  overflow-y:scroll;
 }
 .back{
   position: absolute;
@@ -26,28 +26,29 @@ page{
   margin-top:100rpx;
 }
 .avatar{
-  height: 130rpx;
-  width: 130rpx;
+  height: 120rpx;
+  width: 120rpx;
   border-radius: 100%;
   margin-left: 50rpx;
-  margin-right: 50rpx;
+  margin-right: 20rpx;
 }
 .userName{
-  font-size: 50rpx;
+  font-size: 40rpx;
   font-weight: bold;
+  width: 70%;
 }
 
 .options{
   display: flex;
-  margin-top:30rpx;
+  margin-top:20rpx;
   width: 100%;
 }
 .option{
   position: relative;
   left: 50rpx;
-  height: 80rpx;
-  width: 180rpx;
-  font-size: 45rpx;
+  height: 70rpx;
+  width: 140rpx;
+  font-size: 30rpx;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,8 +59,52 @@ page{
   background: rgb(57, 163, 103);
 }
 
+.date{
+  display: flex;
+  position: relative;
+  margin-top:100rpx;
+  width: 90%;
+  font-weight: bolder;
+  justify-content: space-around;
+  align-items: center;
+}
+.dateCotent{
+  width: 50%;
+  text-align: center;
+}
+
 .forest{
-  margin-top:800rpx;
+  margin-top:25%;
+  margin-bottom:25%;
+}
+/* 统计的数据的框架 */
+.statistics_container{
+  position: relative;
+  width: 90%;
+}
+.statistics{
+  background: rgb(57, 163, 103);
+  width: 130rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  color:white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  left: 60%;
+  margin-bottom: 20rpx;
+}
+.statistics image{
+  width: 45rpx;
+  height: 45rpx;
+  background: white;
+  border-radius: 100%;
+}
+.statistics_label{
+  position: absolute;
+  right: -120rpx;
+  color:rgb(57, 163, 103);
 }
 
 .target_container{
@@ -67,7 +112,7 @@ page{
   height: 60%;
   overflow-y:scroll;
   position: absolute;
-  bottom:3%;
+  bottom:5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,10 +120,12 @@ page{
 .target{
   display: flex;
   width: 95%;
-  height: 130rpx;
+  height: 150rpx;
   border-bottom: 3rpx solid gainsboro;
-  font-size: 40rpx;
+  font-size: 35rpx;
   align-items: center;
+  transition:all 0.5s;
+  position: relative;
 }
 .targetLabel{
   background: rgb(57, 163, 103);
@@ -86,25 +133,72 @@ page{
   padding: 10rpx;
   color:white;
   margin-left: 20rpx;
+  text-align: center;
 }
 .targetTitle{
-  width: 62%;
+  width: 60%;
   margin-left: 20rpx;
   margin-right:10rpx;
   font-size: 35rpx;
+  color:rgb(88, 88, 88);
 }
 .watchButton{
   background: rgb(57, 163, 103);
   box-shadow: 5rpx 5rpx 5rpx 5rpx rgb(12, 100, 50);
   color:white;
-  font-size: 35rpx;
+  font-size: 30rpx;
   padding: 10rpx;
   width: 100rpx;
   text-align: center;
+  position: absolute;
+  right: 10rpx;
 }
 .watchButton:active{
-  position: relative;
-  top:5rpx;
-  left: 5rpx;
+  margin-top:5rpx;
+  margin-left: 5rpx;
   box-shadow: none;
+}
+.targetContent{
+  height: 300rpx;
+  margin-left: 20rpx;
+  margin-right:10rpx;
+  margin-bottom: 40rpx;
+  width: 95%;
+  font-size: 30rpx;
+  overflow-y:scroll;
+  color:gray;
+}
+.targetShowDetail{
+  flex-direction: column;
+  margin-top:10rpx;
+  align-items: flex-start;
+  height: 480rpx;
+}
+.targetShowDetailLabel{
+  width: 120rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.targetShowDetailTitle{
+  width: 90%;
+  font-weight: bold;
+  font-size: 35rpx;
+  margin-top:20rpx;
+}
+
+
+.noTarget{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color:gray;
+}
+.noTarget image{
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 15rpx;
 }

@@ -51,6 +51,17 @@ Page({
   backhome:function(){
     wx.navigateBack({});
   },
+
+  getFriendDetail:function(e){
+    //跳转到好友详情界面
+    //好友信息在列表中的索引值
+    let index = e.currentTarget.id;
+    let user = this.data.navList[index].friendList[0];
+    // console.log(user.un, user.avatarUrl, user._openid);
+    wx.navigateTo({
+      url: '../friendDetail/friendDetail?un='+user.un+"&avatarUrl="+user.avatarUrl+"&userId="+user._openid
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -62,7 +73,7 @@ Page({
         this.setData({
           navList:res.result.list,
         })
-       
+        console.log(this.data.navList)
       })
     wx.cloud.callFunction({
       name:'stranger',

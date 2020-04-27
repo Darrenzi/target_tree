@@ -33,7 +33,6 @@
   height: 80rpx;
   width: 420rpx;
   border-radius: 20rpx;
-  
   position: relative;
   margin-top: -90rpx;
   left: 27%;

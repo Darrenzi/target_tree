@@ -7,7 +7,6 @@
   
     "pages/config/config",
     "pages/FriendSystem/FriendSystem",
-    "pages/forest/forest",
     "pages/messages/messages",
     "pages/mall/mall",
     "pages/register/register"

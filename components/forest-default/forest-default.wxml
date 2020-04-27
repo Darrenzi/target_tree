@@ -1,0 +1,26 @@
+<!--components/forest-default/forest-default.wxml-->
+<view class="forest" hidden="{{hidden}}">
+  <image class="inform" src="../forest/images/inform.png" wx:if="{{forest[0]==''}}"></image>
+  <image class="tree tree0 row0" src="../../images/defaultTree.png" src="{{forest[0]}}" wx:if="{{forest[0]!=''}}"></image>
+  <image class="tree tree1 row0" src="../../images/defaultTree.png" src="{{forest[1]}}" wx:if="{{forest[1]!=''}}"></image>
+  <image class="tree tree2 row0" src="../../images/defaultTree.png" src="{{forest[2]}}" wx:if="{{forest[2]!=''}}"></image>
+  <image class="tree tree3 row0" src="../../images/defaultTree.png" src="{{forest[3]}}" wx:if="{{forest[3]!=''}}"></image>
+
+  <image class="tree tree4 row1" src="../../images/defaultTree.png" src="{{forest[4]}}" wx:if="{{forest[4]!=''}}"></image>
+  <image class="tree tree5 row1" src="../../images/defaultTree.png" src="{{forest[5]}}" wx:if="{{forest[5]!=''}}"></image>
+  <image class="tree tree6 row1" src="../../images/defaultTree.png" src="{{forest[6]}}" wx:if="{{forest[6]!=''}}"></image>
+  <image class="tree tree7 row1" src="../../images/defaultTree.png" src="{{forest[7]}}" wx:if="{{forest[7]!=''}}"></image>
+
+  <image class="tree tree8 row2" src="../../images/defaultTree.png" src="{{forest[8]}}" wx:if="{{forest[8]!=''}}"></image>
+  <image class="tree tree9 row2" src="../../images/defaultTree.png" src="{{forest[9]}}" wx:if="{{forest[9]!=''}}"></image>
+  <image class="tree tree10 row2" src="../../images/defaultTree.png" src="{{forest[10]}}" wx:if="{{forest[10]!=''}}"></image>
+  <image class="tree tree11 row2" src="../../images/defaultTree.png" src="{{forest[11]}}" wx:if="{{forest[11]!=''}}"></image>
+
+  <image class="tree tree12 row3" src="../../images/defaultTree.png" src="{{forest[12]}}" wx:if="{{forest[12]!=''}}"></image>
+  <image class="tree tree13 row3" src="../../images/defaultTree.png" src="{{forest[13]}}" wx:if="{{forest[13]!=''}}"></image>
+  <image class="tree tree14 row3" src="../../images/defaultTree.png" src="{{forest[14]}}" wx:if="{{forest[14]!=''}}"></image>
+  <image class="tree tree15 row3" src="../../images/defaultTree.png" src="{{forest[15]}}" wx:if="{{forest[15]!=''}}"></image>
+
+  <image class="soil" src="../../images/defaultSoil1.png"></image>
+</view>
+

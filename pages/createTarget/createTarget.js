@@ -39,9 +39,7 @@ Page({
     })
   },
   backToindex:function(){
-    wx.navigateTo({
-      url:  '../index/index',
-    })
+    wx.navigateBack();
   },
   changeview:function(){  //点击今天
     this.setData({
@@ -511,14 +509,13 @@ Page({
       content:'', //内容
       coin:Number(setCoin),//总的挑战金币数
       record:Number(record),//打卡记录
-      rest:Number(rest),  //休息数
-      comment:0,   //评论数
-      amount:Number(amount),//总的挑战日期数量
-      time:new Date(),//创建目标日期
-      like:[],
+      rest:Number(rest),
+      time:new Date(),
+      like:0,
+      comment:0,
+      status:0,
       record:0,
       status:0,//任务状态
-      
       //任务进度
       progress:0.00,
       //树苗的id

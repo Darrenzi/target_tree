@@ -7,6 +7,9 @@ Page({
   data: {
    
   },
+  backHome: function () {
+    wx.navigateBack({});
+  },
 
   choose:function(e){
     let index = e.currentTarget.id;

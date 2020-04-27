@@ -1,0 +1,41 @@
+<!--pages/targetDetail/targetDetail.wxml-->
+<view class="top">
+   <view class="top_title">详情</view>
+  <view class="back" bindtap="backHome">《</view>
+</view>
+
+<view class="main">
+  <view class="mainTop">
+    <image class="avatar" src="{{target.avatarUrl}}"></image>
+    <view class="targetUn">{{target.un}}</view>
+  </view>
+
+  <view class="targetTitle">{{target.title}}</view>
+  <view class="targetContent">{{target.content}}</view>
+
+  <view class="messagesLabel">留言区</view>
+  <input class="commentInput" focus="{{commentInputFlag}}" hidden="{{!commentInputFlag}}" confirm-type="send" bindconfirm="sendComment" bindblur="hideCommentInput" value="{{commentInput}}"></input>
+
+  <view class="messages" wx:for="{{comment}}" wx:key="messages">
+    <image class="messageAvatar" src="{{item.comment_user[0].avatarUrl}}"></image>
+    <view class="messageRight">
+      <view class="messageUn">{{item.comment_user[0].un}}</view>
+      <view class="messageContent">{{item.content}}</view>
+      <view class="messageDate">{{item.time}}</view>
+    </view>
+  </view>
+
+  <view class="noComment" wx:if="{{comment.length==0}}">
+    <image class="noCommentIcon" src="../../images/5.png"></image>
+    暂无评论
+  </view>
+</view>
+
+<!-- 占位避免底部遮挡 -->
+<view style="height:150rpx;"></view>
+<view class="bottom">
+  <view class="comment" bindtap="comment">说点什么···</view>
+  <view class="bottomOption">点赞</view>
+  <view class="bottomOption">评论</view>
+  <view class="bottomOption">围观</view>
+</view>

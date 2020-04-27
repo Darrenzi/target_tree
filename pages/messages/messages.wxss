@@ -93,6 +93,7 @@ page{
   border-bottom:5rpx solid gainsboro;
   position: relative;
   overflow: hidden;
+  transition: left 0.8s, width 0.5s;
 }
 .avatar{
   height: 120rpx;
