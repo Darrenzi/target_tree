@@ -5,11 +5,11 @@
 </view>
 
 <scroll-view class="main" scroll-y bindscrolltolower="getMoreTargets">
-  <view class="target" wx:for="{{targets}}" wx:key="target">
+  <view class="target" wx:for="{{targets}}" wx:key="target" bindtap="targetDetail" id="{{index}}">
     <view class="targetTop">
-      <image class="avatar" src="{{item.userList[0].avatarUrl}}"></image>
-      <view class="targetUn">{{item.userList[0].un}}</view>
-      <view class="watchButton">投币</view>
+      <image class="avatar" src="{{item.userList[0].avatarUrl}}" catchtap="goToUserForest" id="{{index}}"></image>
+      <view class="targetUn" catchtap="goToUserForest" id="{{index}}">{{item.userList[0].un}}</view>
+      <view class="watchButton" catchtap>投币</view>
     </view>
 
     <view class="targetTitle">{{item.title}}</view>
@@ -17,7 +17,7 @@
     <view class="targetMoney">挑战金币：<text>300</text></view>
 
     <view class="targetBottom">
-      <view id="{{index}}" bindtap="like">点赞 {{item.like.length}}</view>
+      <view id="{{index}}" catchtap="like">点赞 {{item.like.length}}</view>
       <view id="{{index}}">评论 {{item.comment}}</view>
       <view id="{{index}}">围观 {{item.supervisor.length}}</view>
     </view>

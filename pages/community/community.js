@@ -20,6 +20,32 @@ Page({
     wx.navigateBack({});
   },
 
+  goToUserForest:function(e){
+    let index = e.currentTarget.id;
+    let target = this.data.targets[index];
+    let un = target.userList[0].un;
+    let avatarUrl = target.userList[0].avatarUrl;
+    let userId = target._openid;
+    wx.navigateTo({
+      url: '../friendDetail/friendDetail?un=' + un + "&avatarUrl=" + avatarUrl + "&userId=" + userId
+    })
+  },
+
+  targetDetail:function(e){
+    let index = e.currentTarget.id;
+    console.log(index);
+    let target = this.data.targets[index];
+    let un = target.userList[0].un;
+    let avatarUrl = target.userList[0].avatarUrl;
+    let title = target.title;
+    let content = target.content;
+    let targetId = target._id;
+    wx.navigateTo({
+      url: '../targetDetail/targetDetail?un='+un+"&avatarUrl="+avatarUrl+
+      "&title="+title+"&content="+content+"&targetId="+targetId,
+    })
+  },
+
   getMoreTargets:function(){
     //拉至底部时，再次拉取
     if(this.data.noMoreTarget == true)return;

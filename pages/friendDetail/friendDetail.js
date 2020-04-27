@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    zoom:0.38,
+    zoom:1,
     currentShow:"森林",
     user:null,
     //用户目标
@@ -13,7 +13,20 @@ Page({
     loadContent:"加载中...",
     informContent:"",
     //当前显示详情的目标的索引
-    currentShowDetail:-1
+    currentShowDetail:-1,
+
+    //当前月份
+    month: 0,
+    //当前年份
+    year: 2020,
+
+    //统计目标的数据
+    completed:0,
+    abandoned:0,
+    running:0,
+
+    //滑动开始的X坐标,森林的滑动切换
+    forestTouchStartX: 0
   },
 
   backHome: function () {
@@ -23,6 +36,47 @@ Page({
   choose:function(e){
     let target = e.currentTarget.dataset.target;
     this.setData({currentShow:target});
+  },
+
+  nextMonth: function () {
+    let month = this.data.month;
+    let year = this.data.year;
+    if (month < 12) {
+      this.setData({ month: month + 1 });
+    } else {
+      this.setData({ year: year + 1, month: 1 });
+    }
+    this.getTargets();
+  },
+
+  lastMonth: function () {
+    let month = this.data.month;
+    if (month > 1) {
+      this.setData({ month: month - 1 });
+    } else {
+      this.setData({ year: this.data.year - 1, month: 12 });
+    }
+    this.getTargets();
+  },
+
+  forestTouchStart: function (e) {
+    //监听森林上的滑动,用于滑动切换判断
+    // console.log(e);
+    this.setData({ forestTouchStartX: e.touches[0].pageX });
+  },
+
+  forestTouchEnd: function (e) {
+    //监听森林上的滑动,用于滑动切换判断
+    // console.log(e);
+    let endX = e.changedTouches[0].pageX;
+    let startX = this.data.forestTouchStartX;
+    let distance = endX - startX;
+    // console.log(distance);
+    if (distance > 0) {
+      this.lastMonth();
+    } else {
+      this.nextMonth();
+    }
   },
 
   getTreeImage:function(targetData){
@@ -48,18 +102,36 @@ Page({
     this.setData({forest:forest});
   },
 
+  getDateField: function (year, month) {
+    //获得一个月的第一天以及最后一天
+    let firstdate = new Date(year, month - 1, 1, 0, 0, 0, 0);
+    let lastdate = new Date(year, month, 0, 23, 59, 59, 59);
+    console.log(firstdate, lastdate);
+    return {
+      firstDay: firstdate,
+      lastDay: lastdate
+    }
+  },
+
   getTargets: function () {
+    this.setData({loadContent:"获取树苗中..."})
+    //获取用户某个月的目标
     let userId = this.data.user.userId;
     // console.log(userId);
     let that = this;
+    let month = this.data.month;
+    let year = this.data.year;
+    let dateField = this.getDateField(this.data.year, this.data.month);
     wx.cloud.callFunction({
       name:"getFriendTargets",
       data:{
-        userId: userId
+        userId: userId,
+        dateField:dateField,
       },
       success:function(res){
         console.log(res);
         that.getTreeImage(res.result.list);
+        that.getStatistics(res.result.list);
         that.setData({targets:res.result.list, loadContent:''});
       },
       fail:function(err){
@@ -68,9 +140,30 @@ Page({
     })
   },
 
+  getStatistics: function (targets) {
+    //统计完成还有枯萎的树木的总量
+    let completed = 0;
+    let abandoned = 0;
+    let running = 0;
+
+    for (let i = 0; i < targets.length; i++) {
+      if (targets[i].status == -1) {
+        abandoned += 1;
+      }
+      if (targets[i].status == 1) {
+        completed += 1;
+      }
+      else {
+        running += 1;
+      }
+    }
+    this.setData({ statistics: { completed: completed, abandoned: abandoned, running: running } });
+  },
+
+
   watch:function(e){
     let index = e.currentTarget.id;
-    this.setData({informContent:"此功能正在完善中..."})
+    this.setData({informContent:"此功能正在完善中"})
   },
 
   showDetail:function(e){
@@ -90,7 +183,9 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
-    this.setData({user:options});
+    //获取当前的时间
+    let date = new Date();
+    this.setData({ year: date.getFullYear(), month: date.getMonth() + 1, user: options});
     this.getTargets();
   },
 

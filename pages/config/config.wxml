@@ -38,7 +38,7 @@
   <view class="language_line"></view>
 </view> 
 
-<view class="about">
+<view class="h">
    <text class="about_font">关于</text>
    <view class="about_line"></view>
 </view>

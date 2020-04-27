@@ -7,7 +7,7 @@ page{
   flex-direction: column;
   align-items: center;
   position: relative;
-  overflow:hidden;
+  overflow-y:scroll;
 }
 .back{
   position: absolute;
@@ -26,28 +26,29 @@ page{
   margin-top:100rpx;
 }
 .avatar{
-  height: 130rpx;
-  width: 130rpx;
+  height: 120rpx;
+  width: 120rpx;
   border-radius: 100%;
   margin-left: 50rpx;
-  margin-right: 50rpx;
+  margin-right: 20rpx;
 }
 .userName{
-  font-size: 50rpx;
+  font-size: 40rpx;
   font-weight: bold;
+  width: 70%;
 }
 
 .options{
   display: flex;
-  margin-top:30rpx;
+  margin-top:20rpx;
   width: 100%;
 }
 .option{
   position: relative;
   left: 50rpx;
-  height: 80rpx;
-  width: 180rpx;
-  font-size: 45rpx;
+  height: 70rpx;
+  width: 140rpx;
+  font-size: 30rpx;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,8 +59,52 @@ page{
   background: rgb(57, 163, 103);
 }
 
+.date{
+  display: flex;
+  position: relative;
+  margin-top:100rpx;
+  width: 90%;
+  font-weight: bolder;
+  justify-content: space-around;
+  align-items: center;
+}
+.dateCotent{
+  width: 50%;
+  text-align: center;
+}
+
 .forest{
-  margin-top:800rpx;
+  margin-top:25%;
+  margin-bottom:25%;
+}
+/* 统计的数据的框架 */
+.statistics_container{
+  position: relative;
+  width: 90%;
+}
+.statistics{
+  background: rgb(57, 163, 103);
+  width: 130rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  color:white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  left: 60%;
+  margin-bottom: 20rpx;
+}
+.statistics image{
+  width: 45rpx;
+  height: 45rpx;
+  background: white;
+  border-radius: 100%;
+}
+.statistics_label{
+  position: absolute;
+  right: -120rpx;
+  color:rgb(57, 163, 103);
 }
 
 .target_container{
@@ -67,7 +112,7 @@ page{
   height: 60%;
   overflow-y:scroll;
   position: absolute;
-  bottom:3%;
+  bottom:5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,7 +122,7 @@ page{
   width: 95%;
   height: 150rpx;
   border-bottom: 3rpx solid gainsboro;
-  font-size: 40rpx;
+  font-size: 35rpx;
   align-items: center;
   transition:all 0.5s;
   position: relative;
@@ -88,6 +133,7 @@ page{
   padding: 10rpx;
   color:white;
   margin-left: 20rpx;
+  text-align: center;
 }
 .targetTitle{
   width: 60%;

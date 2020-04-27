@@ -1,0 +1,161 @@
+/* pages/targetDetail/targetDetail.wxss */
+page{
+  width: 100%;
+  min-height: 100%;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  color:rgb(82, 82, 82);
+}
+.top{
+  width: 100%;
+  padding-top:80rpx;
+  color:white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top:0;
+  background: white;
+  z-index: 1;
+}
+.top_title{
+  width: 40%;
+  padding:20rpx;
+  text-align: center;
+  background: rgb(57, 163, 103);
+  font-size: 40rpx;
+  border-radius: 20rpx;
+}
+.back{
+  position: absolute;
+  left: 20rpx;
+  width: 70rpx;
+  height: 60rpx;
+  font-weight: bolder;
+  font-size: 40rpx;
+  color:rgb(57, 163, 103);
+}
+
+.main{
+  margin-top:210rpx;
+  width: 90%;
+  overflow-y: scroll;
+}
+.mainTop{
+  display: flex;
+  align-items: center;
+  margin-bottom:30rpx;
+  width: 90%;
+  position: relative;
+}
+.avatar{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 100%;
+  margin-right: 20rpx;
+}
+.targetUn{
+  font-weight: bold;
+  color:rgb(57, 163, 103);
+  width: 80%;
+  font-size: 40rpx;
+}
+.targetTitle{
+  color:rgb(71, 71, 71);
+  font-weight: bold;
+  font-size: 35rpx;
+  margin-bottom: 20rpx;
+  width: 90%;
+}
+.targetContent{
+  height: 600rpx;
+  overflow-y: scroll;
+  margin-bottom: 100rpx;
+}
+
+.messagesLabel{
+  background: rgb(57, 163, 103);
+  color:white;
+  width: 100%;
+  height:80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.commentInput{
+  width: 100%;
+  border-bottom: 2rpx solid gainsboro;
+}
+.messages{
+  display: flex;
+  width: 100%;
+  position: relative;
+  margin-top:30rpx;
+}
+.messageAvatar{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100%;
+}
+.messageRight{
+  width: 80%;
+  border-bottom: 2rpx solid gainsboro;
+  margin-left: 20rpx;
+}
+.messageUn{
+  font-size: 35rpx;
+  margin-bottom: 10rpx;
+  color:rgb(57, 163, 103);
+}
+.messageContent{
+  max-height: 300rpx;
+  overflow-y:scroll;
+}
+.messageDate{
+  top:0;
+  right: 10rpx;
+  position: absolute;
+}
+
+.noComment{
+  width: 100%;
+  margin-top:100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.noCommentIcon{
+  width: 150rpx;
+  height: 150rpx;
+  margin-bottom: 15rpx;
+}
+
+.bottom{
+  position: fixed;
+  bottom:0;
+  width: 100%;
+  height: 120rpx;
+  border:2rpx solid gainsboro;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: white;
+}
+.comment{
+  background: rgb(231, 231, 231);
+  width: 40%;
+  height: 70%;
+  border-radius: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bottomOption{
+  width: 80rpx;
+  height: 80rpx;
+  border: 1rpx solid black;
+}

@@ -34,9 +34,7 @@ Page({
     })
   },
   backToindex:function(){
-    wx.navigateTo({
-      url:  '../index/index',
-    })
+    wx.navigateBack();
   },
   changeview:function(){  //点击今天
     this.setData({

@@ -1,0 +1,108 @@
+/* components/forest-default/forest-default.wxss */
+.inform{
+  position: absolute;
+  z-index: 5;
+  height: 100px;
+  width: 100px;
+  margin-top:-80px;
+}
+
+.forest{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  zoom:0.9;
+}
+.soil{
+  position: relative;
+  height: 250px;
+  width: 400px;
+}
+.tree{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  animation: treeShow 0.5s;
+}
+.row0{
+  z-index:4;
+}
+.tree0{
+  margin-top:-10px;
+  margin-left: 5px;
+}
+.tree1{
+  margin-top:-30px;
+  margin-left: 53px;
+}
+.tree2{
+  margin-top:-45px;
+  margin-left: 98px;
+}
+.tree3{
+  margin-top: -58px;
+  margin-left: 140px;
+}
+
+.row1{
+  z-index:3;
+}
+.tree4{
+  margin-top:-25px;
+  margin-left: -50px;
+}
+.tree5{
+  margin-top:-42px;
+  margin-left: 5px;
+}
+.tree6{
+  margin-top:-60px;
+  margin-left: 48px;
+}
+.tree7{
+  margin-top:-72px;
+  margin-left: 88px;
+}
+
+.row2{
+  z-index:2;
+}
+.tree8{
+  margin-top:-42px;
+  margin-left: -98px;
+}
+.tree9{
+  margin-top:-57px;
+  margin-left: -50px;
+}
+.tree10{
+  margin-top:-72px;
+  margin-left: -2px;
+}
+.tree11{
+  margin-top:-83px;
+  margin-left: 38px;
+}
+
+.row3{
+  z-index: 1
+}
+.tree12{
+  margin-top:-58px;
+  margin-left: -145px;
+}
+.tree13{
+  margin-top:-72px;
+  margin-left: -95px;
+}
+.tree14{
+  margin-top:-82px;
+  margin-left: -50px;
+}
+.tree15{
+  margin-top:-95px;
+  margin-left: -8px;
+}

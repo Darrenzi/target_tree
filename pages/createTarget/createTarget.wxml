@@ -4,14 +4,14 @@
 <view class="gereenToyellow">
 
 <!-- 设置金额 -->
- <view class="hide {{change?'':'show'}}">
-   <view class="title">设置挑战金额</view>
-   <view class="back" bindtap="backToindex">《</view>
-   <view>
-   <image src="images/9.png" class="coin"></image>
-   <input placeholder="请输入挑战金额" class="inputMoney" type="text" maxlength="4" value="{{number}}"    bindinput="getInput"></input>
-   <view class="yuan">元</view>
- </view>
+<view class="hide {{change?'':'show'}}">
+  <view class="title">设置挑战金额</view>
+  <view class="back" bindtap="backToindex">《</view>
+  <view>
+  <image src="images/9.png" class="coin"></image>
+  <input placeholder="请输入挑战金额" class="inputMoney" type="text" maxlength="4" value="{{number}}"    bindinput="getInput"></input>
+  <view class="yuan">元</view>
+</view>
 <view class="optionalAmount">
   <view class="buttonclass" bindtap="setdata">50</view>
   <view class="buttonclass"  bindtap="setCoinNumber">100</view>
@@ -149,6 +149,7 @@
     <view class="back" bindtap="changeShowStatus_2">《</view>
  </view>
 
+<view class="allconfig">
  <view class="starTime">
    <image src="images/18.png" class="image_startTime"></image>
  <view class="kaishishijian">开始时间</view>
@@ -193,7 +194,7 @@
  <view class="jurisdictionIcon">》</view>
 </view> 
 
-
+</view>
 <!-- 设置完成按钮 -->
 
 <view class="nextStep" bindtap="end">完成</view> 

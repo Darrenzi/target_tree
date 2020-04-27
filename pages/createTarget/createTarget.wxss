@@ -1,13 +1,14 @@
 .title{
-  width: 40%;
-  padding: 20rpx;
+  width: 60%;
+  padding: 10rpx;
   text-align: center;
   background: rgb(57,163,103);
   font-size: 40rpx;
   border-radius: 20rpx;
   position: relative;
-  margin-top: 180rpx;
-  margin-left: 185rpx;
+  margin-top: 160rpx;
+  margin-left: 143rpx;
+  color: white;
 }
 .coin{
   height: 90rpx;
@@ -32,7 +33,6 @@
   height: 80rpx;
   width: 420rpx;
   border-radius: 20rpx;
-  
   position: relative;
   margin-top: -90rpx;
   left: 27%;
@@ -98,15 +98,16 @@
   right: 9%;
 }
 .continue{
-  height: 80rpx;
-  width: 300rpx;
+  width: 35%;
+  padding: 20rpx;
+  text-align: center;
+  background: rgb(57,163,103);
+  font-size: 40rpx;
+  border-radius: 20rpx;
   position: absolute;
   top: 1400rpx;
-  border-radius: 20rpx;
-  background-color: rgb(57, 163, 103);
-  align-items: center;
-  justify-content: center;
-  display: flex;
+  left: 230rpx;
+  color: white;
 }
 .continueView{
   display: flex;
@@ -119,7 +120,7 @@
   height:50rpx;
   width: 50rpx;
   position: absolute;
-  top: 9.5%;
+  top: 10.5%;
   left: 5%;
   color:rgb(57, 163, 103);
   font-size: 35rpx;
@@ -133,15 +134,16 @@
   display:block ;
 }
 .label{
-  width: 40%;
-  padding: 20rpx;
+  width: 60%;
+  padding: 10rpx;
   text-align: center;
   background: rgb(57,163,103);
   font-size: 40rpx;
   border-radius: 20rpx;
-  position: absolute;
-  top: 100rpx;
-  left: 200rpx;
+  position: relative;
+  margin-top: 160rpx;
+  margin-left: 143rpx;
+  color: white;
 }
 
 .labeltToContent{
@@ -190,7 +192,7 @@ justify-content: center;
   align-items: center;
   bottom: 28%;
   top: 800rpx;
-  left: 25%;
+  left: 215rpx;
   font-size: 35rpx;
 }
 .inputtitle{
@@ -235,29 +237,27 @@ justify-content: center;
   
 }
 .setTargetFont{
-  font-size: 35rpx;
-  height: 100rpx;
-  width: 300rpx;
-  background-color: rgb(51, 126, 13);
+  width: 60%;
+  padding: 10rpx;
+  text-align: center;
+  background: rgb(57,163,103);
+  font-size: 40rpx;
+  border-radius: 20rpx;
+  position: relative;
+  margin-top: 160rpx;
+  margin-left: 143rpx;
   color: white;
-  position: absolute;
-  top: 80rpx;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  border-radius:20rpx;
-  left: 24.5%;
 }
 
 .chooselabel{
   position: absolute;
-  top: 220rpx;
+  top: 240rpx;
   left: 248rpx;
   position: absolute;
   justify-content: center;
   display: flex;
   align-items: center;
-  color: rgba(38, 153, 48, 0.981);
+  color: rgba(42, 51, 43, 0.981);
   
 }
 .hot{
@@ -423,16 +423,16 @@ justify-content: center;
    display: flex;
  }
  .nextStep{
-  height: 100rpx;
-  width: 250rpx;
-  position: absolute;
-  top:1400rpx;
-  left: 250rpx;
-  background-color: rgb(57, 163, 103);
+  width: 35%;
+  padding: 20rpx;
+  text-align: center;
+  background: rgb(57,163,103);
+  font-size: 40rpx;
   border-radius: 20rpx;
-  align-items: center;
-  justify-content: center;
-  display: flex
+  position: absolute;
+  top: 1400rpx;
+  left: 230rpx;
+  color: white;
  }
  .starTime{
    display: flex;
@@ -451,14 +451,14 @@ justify-content: center;
   width: 120rpx;
   position: absolute;
   top: -10rpx;
-  left: 15rpx;
+  left: 10rpx;
   bottom: 10rpx;
  }
  .image_endTime{
-  height: 120rpx;
-  width: 120rpx;
+  height: 110rpx;
+  width: 110rpx;
   position: absolute;
-  top: 345rpx;
+  top: 340rpx;
   left: 8rpx;
   bottom: 10rpx;
  }
@@ -467,15 +467,15 @@ justify-content: center;
   width: 120rpx;
   position: absolute;
   top: 450rpx;
-  left: 10rpx;
+  left: 5rpx;
   bottom: 10rpx;
  }
  .image_stick{
-  height: 100rpx;
-  width: 100rpx;
+  height: 95rpx;
+  width: 95rpx;
   position: absolute;
   top: 530rpx;
-  left: 10rpx;
+  left: 15rpx;
   bottom: 10rpx;
  }
  .circle_1{
@@ -557,13 +557,13 @@ justify-content: center;
  .stickSwitch{
   position: absolute;
   top: 550rpx;
-  left: 460rpx;
+  left: 560rpx;
   font-size: 50rpx;
  }
  .stickline{
   height: 5rpx;
   width: 1000rpx;
-  background-color: rgba(132, 135, 129, 0.96);
+  background-color: rgba(110, 112, 108, 0.96);
   position: absolute;
   margin-top: 630rpx;
  }
@@ -583,7 +583,7 @@ justify-content: center;
   height: 160rpx;
   width: 160rpx;
   position: absolute;
-  top: 650rpx;
+  top: 660rpx;
   left: 110rpx;
   bottom: 10rpx;
   font-size: 25rpx;
@@ -593,7 +593,7 @@ justify-content: center;
   width: 160rpx;
   position: absolute;
   top: 640rpx;
-  left: 500rpx;
+  left: 600rpx;
   bottom: 10rpx;
   font-size: 45rpx;
  }
@@ -608,21 +608,21 @@ justify-content: center;
  .restline{
   height: 5rpx;
   width: 1000rpx;
-  background-color: rgba(132, 135, 129, 0.96);
+  background-color: rgba(110, 112, 108, 0.96);
   position: absolute;
   margin-top: 530rpx;
  }
 
  .inputrest{
    position: absolute;
-   margin-top: 455rpx;
-   margin-left: 450rpx;
+   margin-top: 465rpx;
+   margin-left: 550rpx;
    width: 200rpx;
  }
  .tian{
   position: absolute;
   margin-top: 472rpx;
-  margin-left: 590rpx;
+  margin-left: 680rpx;
   font-size: 25rpx;
  }
  .inputRestLine{
@@ -630,7 +630,7 @@ justify-content: center;
    height: 3rpx;
    position: absolute;
    margin-top: 505rpx;
-   margin-left: 435rpx;
+   margin-left: 530rpx;
    background-color: rgba(116, 121, 110, 0.96);
  }
  .kaishishijian{
@@ -648,7 +648,7 @@ justify-content: center;
   position: absolute;
   left: 110rpx;
   color: black;
-  top:390rpx ;
+  top:385rpx ;
   width: 200rpx;
   font-size: 25rpx;
  }
@@ -706,16 +706,16 @@ justify-content: center;
 .start_line{
   height: 5rpx;
   width: 800rpx;
-  background-color: rgba(90, 96, 85, 0.96);
+  background-color: rgba(110, 112, 108, 0.96);
   position: absolute;
   top: 90rpx;
   left: 0rpx;
 
 }
 .end_line{
-  height: 5rpx;
+  height: 2rpx;
   width:1000rpx;
-  background-color: rgba(139, 145, 133, 0.96);
+  background-color: rgba(110, 112, 108, 0.96);
   position: absolute;
   top: 440rpx;
 }
@@ -818,4 +818,8 @@ justify-content: center;
   font-weight: bolder;
   font-size: 40rpx;
   color:rgb(57, 163, 103);
+}
+.allconfig{
+  position: absolute;
+  top: 100rpx;
 }

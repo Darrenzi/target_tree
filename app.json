@@ -1,12 +1,15 @@
 {
   "cloud": true,
-  "pages": [ 
+  "pages": [
     "pages/index/index",
-    "pages/history/history",
+    "pages/friendDetail/friendDetail",
+    "pages/forest/forest",
+    "pages/community/community",
+    "pages/targetDetail/targetDetail",
     "pages/createTarget/createTarget",
+    "pages/history/history",
     "pages/config/config",
     "pages/FriendSystem/FriendSystem",
-    "pages/forest/forest",
     "pages/messages/messages",
     "pages/mall/mall",
     "pages/register/register"

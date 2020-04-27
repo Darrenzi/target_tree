@@ -218,7 +218,7 @@ Page({
             wx.cloud.callFunction({
               name: "getComment",
               data: {
-                user_targets: that.user_targets
+                user_targets: that.data.user_targets
               },
               success: function (res) {
                 let data = res.result.list;

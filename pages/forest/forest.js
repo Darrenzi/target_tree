@@ -6,7 +6,7 @@ Page({
    */
   data: {
     //森林的缩放比例
-    zoom:0.32,
+    zoom:1,
     //当前月份
     month:0,
     //当前年份
@@ -16,6 +16,12 @@ Page({
     statistics:null,
     //加载动画中的内容
     loadContent:'',
+    //当前显示的
+    currentShow:'森林',
+    //当前显示详情的目标的索引
+    currentShowDetail: -1,
+    //用户目标
+    targets: [],
 
     //滑动开始的X坐标,森林的滑动切换
     forestTouchStartX:0
@@ -23,6 +29,25 @@ Page({
   
   backHome: function () {
     wx.navigateBack({});
+  },
+
+  choose: function (e) {
+    //选择显示的内容，森林或目标
+    let target = e.currentTarget.dataset.target;
+    this.setData({ currentShow: target });
+  },
+
+  showDetail: function (e) {
+    //显示一个目标的详情
+    let index = e.currentTarget.id;
+    // console.log(index);
+    let currentShowDetail = this.data.currentShowDetail;
+    if (currentShowDetail != index) {
+      this.setData({ currentShowDetail: index });
+    }
+    else {
+      this.setData({ currentShowDetail: -1 });
+    }
   },
 
   getDateField:function(year, month){
@@ -121,6 +146,7 @@ Page({
     }).get()
       .then(res => {
         // console.log(res);
+        that.setData({targets:res.data});
         //统计各类树的总量
         that.getStatistics(res.data);
         that.getTree(res.data);
