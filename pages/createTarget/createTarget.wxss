@@ -282,10 +282,32 @@ justify-content: center;
   
 }
 .labelIcon{
-  height: 110rpx;
-  width: 110rpx;
+  height: 109rpx;
+  width: 109rpx;
   left: 28rpx;
-  top: 10rpx;
+  top: 10.5rpx;
+  position: absolute;
+}
+.labelIcon_1{
+  height: 107rpx;
+  width: 107rpx;
+  left: 30rpx;
+  top: 15rpx;
+  position: absolute;
+
+}
+.labelIcon_2{
+  height: 107rpx;
+  width: 107rpx;
+  left: 32rpx;
+  top: 14rpx;
+  position: absolute;
+}
+.labelIcon_3{
+  height: 107rpx;
+  width: 107rpx;
+  left: 30rpx;
+  top: 16rpx;
   position: absolute;
 }
 .iconFont{
@@ -301,16 +323,24 @@ justify-content: center;
   height:170rpx;
   width: 22%;
   position: relative;
-
   display:inline-block; 
   margin-top: 5%;
   border-radius: 30rpx;
   margin-left: 2.5%;
   align-items: center;
   justify-content: center;
-
   padding: 15rpx,15rpx,15rpx,15rpx;
- 
+}
+.colorCircle{
+
+  height: 120rpx;
+  width: 120rpx;
+  left: 25rpx;
+  top: 9.5rpx;
+  position: absolute;
+  border-radius: 110rpx;
+  background-color: rgb(235, 110, 52);
+  z-index: -1;
 }
 .font_label{
   font-size: 35rpx;
@@ -616,21 +646,21 @@ justify-content: center;
 
  .inputrest{
    position: absolute;
-   margin-top: 465rpx;
-   margin-left: 550rpx;
+   margin-top: 470rpx;
+   margin-left: 540rpx;
    width: 200rpx;
  }
  .tian{
   position: absolute;
-  margin-top: 472rpx;
+  margin-top: 480rpx;
   margin-left: 680rpx;
-  font-size: 25rpx;
+  font-size: 35rpx;
  }
  .inputRestLine{
    width: 150rpx;
    height: 3rpx;
    position: absolute;
-   margin-top: 505rpx;
+   margin-top: 515rpx;
    margin-left: 530rpx;
    background-color: rgba(116, 121, 110, 0.96);
  }
@@ -804,12 +834,16 @@ justify-content: center;
   align-items: center;
 }
 .customtoptitle{
-  width: 40%;
-  padding:20rpx;
+  width: 60%;
+  padding: 10rpx;
   text-align: center;
-  background: rgb(57, 163, 103);
+  background: rgb(57,163,103);
   font-size: 40rpx;
   border-radius: 20rpx;
+  position: relative;
+  margin-top: 80rpx;
+  margin-left: 0rpx;
+  color: white;
 }
 .customback{
   position: absolute;
