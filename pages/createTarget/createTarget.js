@@ -7,11 +7,11 @@ Page({
    */
   data: {
    numbers:[50,100,200,600,800,1000],
-   change:true,
+   change:false,
    change_1:true,
    change_2:true,
    custom:true,
-   showtitle:false,
+   showtitle:true,
    showCircle:true,
    showCircle_1:true,showCircle_2:true,showCircle_3:true,showCircle_4:true,
    showCircle_5:true,showCircle_6:true,showCircle_7:true,showCircle_8:true,
