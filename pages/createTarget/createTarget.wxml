@@ -87,7 +87,7 @@
 <view class="label">目标内容</view>
 </view>
 <view class="centertitle">
- <input placeholder="输入目标标题" class="inputtitle" type="text" maxlength="30"  bindinput="getInputtitle"  ></input>
+ <input placeholder="输入目标标题" class="inputtitle" type="text" maxlength="24"  bindinput="getInputtitle"  ></input>
  <view class="inputtitleLine"></view>
 </view>
 <view class="centerlabel">
@@ -96,6 +96,7 @@
 </view>
 <view class="nextStep" bindtap="changeShowstatus_3">下一步</view>  
 </view>
+
 <!-- 自定义标签 -->
 <view class="hide{{custom?'':'show'}}">
 <view class="cusstom_top">

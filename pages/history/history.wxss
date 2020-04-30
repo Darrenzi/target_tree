@@ -123,17 +123,59 @@ page{
   background-color:rebeccapurple;
 }
 .line{
-  height: 8rpx;
-  width: 550rpx;
+  height: 5rpx;
+  width: 500rpx;
   background-color: rgb(96, 119, 100);
   position: absolute;
   margin-top: 295rpx;
- 
+  margin-left: 25rpx;
+}
+.imageClendar{
+  height: 65rpx;
+  width: 65rpx;
+  position: absolute;
+  margin-top: 155rpx;
+  margin-left:400rpx;
+}
+.allDay{
+  height: 40rpx;
+  width: 120rpx;
+  border-radius: 20rpx;
+  position: absolute;
+  margin-top: 172rpx;
+  margin-left:425rpx;
+  background-color: rgba(89, 96, 87, 0.967);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 25rpx;
+}
+.allCoin{
+  height: 40rpx;
+  width: 120rpx;
+  border-radius: 20rpx;
+  position: absolute;
+  margin-top: 242rpx;
+  margin-left:425rpx;
+  background-color: rgba(89, 96, 87, 0.967);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 25rpx;
+}
+.imagepig{
+  height: 65rpx;
+  width: 65rpx;
+  position: absolute;
+  margin-top: 230rpx;
+  margin-left: 400rpx;
 }
 .allTargetContent{
   position: relative;
   display: block;
   z-index: -1;
+  align-items: center;
+  justify-content: center;
 }
 .targetClass{
   height: 400rpx;
@@ -142,10 +184,31 @@ page{
   border-radius: 50rpx;
   border-color: antiquewhite;
   position: relative;
-  border: 8rpx solid rgb(96, 119, 100);
-  margin-left: 12.5%;
+  border: 5rpx solid rgb(96, 119, 100);
+  margin-left: 102rpx;
   z-index: 9;
   margin-bottom: 6%;
+}
+.targetLabel{
+  border: 3rpx solid rgba(38, 51, 23, 0.974);
+  height: 50rpx;
+  width: 100rpx;
+
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 30rpx;
+
+}
+.imagelabel{
+  height: 80rpx;
+  width: 80rpx;
+  margin-top: 10rpx;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
 }
 
 .date{
@@ -167,8 +230,8 @@ page{
   position: absolute;
   z-index: 19;
   top: 109rpx;
-  left: 118.9rpx;
-  width: 314rpx;
+  left: 97.9rpx;
+  width: 315rpx;
   height: 180rpx;
 }
 .treeclass{
@@ -178,7 +241,7 @@ page{
   background-color: rgb(252, 252, 252);
   position: absolute;
   margin-top: 15rpx;
-  margin-left: 146rpx;
+  margin-left: 125rpx;
   align-items: center;
   justify-content: center;
   display: block;
@@ -191,7 +254,7 @@ page{
   background-color: rgb(128, 110, 38);
   position: absolute;
   margin-top: 6rpx;
-  margin-left: 136rpx;
+  margin-left: 115rpx;
   align-items: center;
   justify-content: center;
   display: block;
@@ -205,17 +268,18 @@ page{
   align-items: center;
   justify-content: center;
   display: flex;
-  font-size: 40rpx;
+  font-size: 30rpx;
 }
 .labelclass{
   color: black;
   position: absolute;
   margin-top: 310rpx;
   margin-left: 120rpx;
+  margin-right:30rpx;
   align-items: center;
   justify-content: center;
   display: flex;
-  font-size: 40rpx;
+  font-size: 30rpx;
 }
 
 .contianer{
@@ -234,7 +298,7 @@ page{
 .label{   
   min-width: 160rpx;
   height: 185rpx;
-  border: 4rpx solid rgba(48, 130, 64, 0.829);
+  border: 4rpx solid rgba(0, 0, 0, 0.829);
   border-radius: 10rpx;
   text-align: center;
   margin-left: 10rpx;
@@ -249,7 +313,7 @@ page{
 .labelChoose{
   min-width: 160rpx;
   height: 183rpx;
-  border: 4rpx solid rgba(230, 240, 93, 0.829);
+  border: 4rpx solid rgba(0, 0, 0, 0.829);
   border-radius: 10rpx;
   text-align: center;
   margin-left: 12rpx;
@@ -258,7 +322,7 @@ page{
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background: linear-gradient(60deg, rgba(32, 138, 50, 0.96), rgb(193, 224, 81));
+  background: linear-gradient(60deg, rgba(232, 240, 88, 0.96), rgb(228, 222, 46));
   color: rgba(61, 73, 71, 0.829);
 }
 .whitespace_1{
@@ -306,14 +370,23 @@ page{
 .tree{
   height: 160rpx;
   width: 200rpx;
-  border-radius: 260rpx;
-  position: relative;
-  top: 340rpx;
-  left: 285rpx;
-  margin-bottom:400rpx;
+  position: absolute;
+  top: 330rpx;
+  left: 275rpx;
+  margin-bottom:110rpx; 
   align-items: center;
   justify-content: center;
   display: block;
   z-index: -1;
- 
+}
+
+.treeContainer{
+  height: 550rpx;
+  width: 550rpx;
+  position: relative;
+  margin-left: 0rpx;
+  z-index: -1;
+  display: flex;
+  align-items: center;              
+  justify-content: center;
 }

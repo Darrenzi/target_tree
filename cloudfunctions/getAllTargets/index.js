@@ -7,7 +7,9 @@ cloud.init()
 exports.main = async (event, context) => {
   let page = event.page;
   const db = cloud.database();
-  return await db.collection('target').aggregate()
+
+  return await db.collection('target')
+  .aggregate()
   .lookup({
     from:"user",
     localField:"_openid",

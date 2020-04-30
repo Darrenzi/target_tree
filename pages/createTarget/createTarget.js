@@ -23,9 +23,10 @@ Page({
    record:'',
    content:'',
    date:'',
+   title:'',
    changeView:false,
    changeView_1:false,
-   amount:'',
+   amount:0,
    setDate:0,
    //树苗的Id
    treeId:"",
@@ -40,7 +41,9 @@ Page({
     })
   },
   backToindex:function(){
-    wx.navigateBack();
+    wx.navigateTo({
+      url: '../index/index',
+    })
   },
   changeview:function(){  //点击今天
     this.setData({
@@ -510,7 +513,6 @@ Page({
     var TIME = util.formatTime(new Date());
     var startTime=TIME;
     var endTime=date;
-    
     console.log("结束时间：",endTime)
     var start_date = new Date(startTime.replace(/-/g, "/"));
     var end_date = new Date(endTime.replace(/-/g, "/"));
@@ -528,9 +530,9 @@ Page({
    var label =this.data.label
    var setCoin=this.data.setCoin
    var rest=this.data.rest
-   var record=this.data.record
    var content=this.data.content
    var amount=this.data.amount
+   var title=this.data.title
    var that=this
    if(amount<=rest){
     that.setData({informContent:"请输入正确的结束时间"});
@@ -550,24 +552,21 @@ Page({
    
    db.collection('target').add({
      data:{
-      supervisor:[],
-      like:[],
-      label:label,
-      title:'', //标题
-      content:'', //内容
+      supervisor:[],//监督者ID列表
+      like:[],//点赞用户列表
+      label:label,//用户创建的目标的标签
+      title:title, //目标标题
+      content:content, //目标内容
       coin:Number(setCoin),//总的挑战金币数
-      record:Number(record),//打卡记录
-      rest:Number(rest),
-      time:new Date(),
-      like:0,
-      comment:0,
-      status:0,
-      record:0,
+      rest:Number(rest),//用户创建目标的休息天数
+      time:new Date(),//用户创建目标的时间
+      amount:Number(amount),//总打卡时间
+      comment:0,//用户该目标的评论数
+      status:0,//用户当前目标的状态
+      record:0,//用户目标打卡次数
       status:0,//任务状态
-      //任务进度
-      progress:0.00,
-      //树苗的id
-      treeId:that.data.treeId
+      progress:0.00,  //任务进度
+      treeId:that.data.treeId //树苗的id
      },
      success:function(res){
        console.log(res)

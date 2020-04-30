@@ -6,22 +6,24 @@ Page({
    */
   data: {
      a:'<',
-     change_1:false,
-     change_2:true,
+     change_1:true,
+     change_2:false,
      change_3:true,
+     temp:[],
      navList:[],//好友列表
      userList:[], //用于存放除了用户及其好友的数组
      sortfriend:[],//用于存放好友排名中从数据库拉下来的数据的数组
+     myrank:[],
+     loadContent:'',
+     informContent:'',
+     date:'4月30日'
   },
   backHome: function () {
-    wx.navigateBack({});
+   wx.navigateTo({
+     url: '../index/index',
+   })
   },
 
-  backHome: function () {
-    wx.navigateBack({});
-  },
-
-  
   ChangeShowStatus:function(){
     var that = this
     that.setData({
@@ -62,10 +64,54 @@ Page({
       url: '../friendDetail/friendDetail?un='+user.un+"&avatarUrl="+user.avatarUrl+"&userId="+user._openid
     })
   },
+  init:function(){
+   this.setData({
+     loadContent:'加载好友中...'
+   })
+    const db = wx.cloud.database();
+    const _ = db.command;
+    db.collection('friend')
+    .get()
+    .then(res=>{
+      console.log("res",res.data)
+      this.setData({
+        temp:res.data
+      })
+      console.log("temp",this.data.temp)
+    //   let length=this.data.temp.length
+    //   for(let i=0;i<length;i++){
+    //     db.collection('user')
+    //     .where({
+    //       _openid:_.eq(this.data.temp[i].sender)
+    //     })
+    //     .get()
+    //     .then(res=>{
+    //       console.log("friend",res.data[0])
+    //       this.data.navList.push(res.data[0]),
+    //       this.setData({
+    //       navList:this.data.navList
+    //     })
+    //     })
+    //     .catch(err => {
+    //       console.log(err);
+    //     })
+    //   }
+    //   this.setData({
+    //     loadContent:''
+    //   })
+     })
+    .catch(err => {
+      console.log(err);
+    })
+ 
+  },
+  //排名，获取每天好友创建目标的数量，从而根据数量来进行自己的排名
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     wx.cloud.callFunction({
       name: 'friend',})
       .then(res=>{
@@ -92,6 +138,8 @@ Page({
         sortfriend:res.result.data
       })
     })
+    //this.init()
+
   },
 
   /**

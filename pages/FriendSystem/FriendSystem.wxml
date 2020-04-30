@@ -1,3 +1,7 @@
+
+<loading content="{{loadContent}}"></loading>
+<inform content="{{informContent}}"></inform>
+
 <view class="back" bindtap="backHome">《</view>
 <view class="SideNavigationBar">
   <view class="single_page" bindtap="ChangeShowStatus">
@@ -7,22 +11,22 @@
     <text class="font_class">我的排名</text>
   </view>
   <view class="single_page" bindtap="ChangeShowStatus_3">
-    <text class="font_class">\t发\t 现</text>
+    <text class="font_class">本周排名</text>
   </view>
 </view>
 
- 
+
 <view class="hide{{change_1?'':'show'}}" bindtap="ChangeShowStatus">
   <view class="Halfcircle"></view>
   <view>
-    <block wx:for="{{navList}}" wx:for-index="idx" wx:if="{{idx!='_id'}}" wx:key="key">
+    <view wx:for="{{navList}}" wx:for-index="idx" wx:if="{{idx!='_id'}}" wx:key="key">
       <view class="FriendList" bindtap="getFriendDetail" id="{{idx}}">
-        <view class="FriendLine"></view>
+         <view class="FriendLine"></view>
         <image class="portrait" src="{{item.friendList[0].avatarUrl}}"></image>
         <view class="portrait_outside"></view>
-        <text class="fontstyle">{{item.friendList[0].un}}</text>
+        <text class="fontstyle">:{{item.friendList[0].un}}</text>
       </view>
-    </block>
+    </view>
   </view>
 </view>
 
@@ -32,10 +36,13 @@
     <block wx:for="{{sortfriend}}" wx:for-index="friendidx" wx:key="key">
       <view class="Friend">
         <view class="line"></view>
-        <image class="portrait" src="{{item.avatarUrl}}"></image>
-        <text class="fontstyle">:{{item.un}}</text>
-        <image src="/images/coin.png" class="iconpage"></image>
-        <text class="coinstyle">:{{item.coin}}</text>
+        <view class="date">{{date}}</view>
+        <image class="iconpage" src="{{item.avatarUrl}}"></image>
+        <text class="coinstyle">{{item.coin}}</text>
+        <text class="ranking">1</text>
+        <text class="rank_font">\t名\t次</text>
+        <text class="textCoin">金币数</text>
+        <text class="sort_font">夺得4月30日排行冠军</text>
       </view>
     </block>
   </view>
@@ -44,10 +51,12 @@
 <view class="hide{{change_3?'':'show'}}" bindtap="ChangeShowStatus_3">
   <view class="Halfcircle_2"></view>
   <view>
-    <block wx:for="{{userList}}" wx:for-index="userIdx" wx:key="key">
+    <block wx:for="{{sortfriend}}" wx:for-index="userIdx" wx:key="key">
       <view class="Friend"><view class="line"></view>
       <image class="portrait" src="{{item.avatarUrl}}"></image>
       <text class="fontstyle">:{{item.un}}</text>
+      <image src="image/coin.png" class="coin" ></image>
+      <text class="coinnumber">{{item.coin}}</text>
       </view>
     </block>
   </view>
