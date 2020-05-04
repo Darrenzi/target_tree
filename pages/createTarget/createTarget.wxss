@@ -1,14 +1,13 @@
 .title{
-  width: 60%;
-  padding: 10rpx;
+  margin-top: 70rpx;
+  margin-left: 203rpx; 
+  color: white; 
+  width: 40%;
+  padding:20rpx;
   text-align: center;
-  background: rgb(57,163,103);
+  background: rgb(57, 163, 103);
   font-size: 40rpx;
   border-radius: 20rpx;
-  position: relative;
-  margin-top: 160rpx;
-  margin-left: 143rpx;
-  color: white;
 }
 .coin{
   height: 90rpx;
@@ -53,7 +52,7 @@
   margin-top: 20rpx;
   border-radius: 30rpx;
   margin-left: 20%;
-  margin-right: -15%;
+  margin-right: -14.9%;
   align-items: center;
   justify-content: center;
   font-size: 45rpx;
@@ -117,13 +116,14 @@
 }
 
 .back{
-  height:50rpx;
-  width: 50rpx;
   position: absolute;
-  top: 10.5%;
-  left: 5%;
+  left: 20rpx;
+  width: 70rpx;
+  height: 60rpx;
+  font-weight: bolder;
+  font-size: 40rpx;
   color:rgb(57, 163, 103);
-  font-size: 35rpx;
+  top: 90rpx;
 }
 
 
@@ -134,16 +134,15 @@
   display:block ;
 }
 .label{
-  width: 60%;
-  padding: 10rpx;
+  margin-top: 70rpx;
+  margin-left: 203rpx; 
+  color: white; 
+  width: 40%;
+  padding:20rpx;
   text-align: center;
-  background: rgb(57,163,103);
+  background: rgb(57, 163, 103);
   font-size: 40rpx;
   border-radius: 20rpx;
-  position: relative;
-  margin-top: 160rpx;
-  margin-left: 143rpx;
-  color: white;
 }
 
 .labeltToContent{
@@ -237,16 +236,15 @@ justify-content: center;
   
 }
 .setTargetFont{
-  width: 60%;
-  padding: 10rpx;
+  margin-top: 70rpx;
+  margin-left: 203rpx; 
+  color: white; 
+  width: 40%;
+  padding:20rpx;
   text-align: center;
-  background: rgb(57,163,103);
+  background: rgb(57, 163, 103);
   font-size: 40rpx;
   border-radius: 20rpx;
-  position: relative;
-  margin-top: 160rpx;
-  margin-left: 143rpx;
-  color: white;
 }
 
 .chooselabel{
@@ -833,16 +831,14 @@ justify-content: center;
   align-items: center;
 }
 .customtoptitle{
-  width: 60%;
-  padding: 10rpx;
+  width: 40%;
+  padding:20rpx;
   text-align: center;
-  background: rgb(57,163,103);
+  background: rgb(57, 163, 103);
   font-size: 40rpx;
   border-radius: 20rpx;
-  position: relative;
-  margin-top: 80rpx;
-  margin-left: 0rpx;
-  color: white;
+  margin-top: -10rpx;
+  margin-left: -5rpx; 
 }
 .customback{
   position: absolute;

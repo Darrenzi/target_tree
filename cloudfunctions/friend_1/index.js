@@ -11,16 +11,14 @@ exports.main = async (event, context) => {
   return await db.collection('friend').aggregate()
     .match(
       {
-        sender:_.eq(userOpenid)
+        _openid: _.eq(userOpenid)
       }
-  )
+)
     .lookup({
       from: 'user',
-      localField: '_openid',
+      localField: 'sender',
       foreignField: '_openid',
       as: 'friendList'
     })
     .end();
-    
-
-}
+  }

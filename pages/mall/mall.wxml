@@ -17,15 +17,6 @@
 
 <view class="main">
   <view class="tip">累积金币解锁各式树苗，缤纷您的目标森林！</view>
-
-  <view class="last">
-    <image src="images/show.jpg"></image>
-  </view>
-  <view class="price">
-    200
-    <image class="coin" src="images/coin.png"></image>
-  </view>
-
   <view class="tree_container">
     <view class="tree" wx:for="{{trees}}" wx:key="tree" data-tree="{{item}}" catchtap="choose">
       <view class="tree_top">
@@ -35,7 +26,7 @@
       </view>
       <view class="price">
         {{item.price}}
-        <image class="coin" src="images/coin.png"></image>
+        <image class="coin" src="../../images/coin.png"></image>
       </view>
     </view>
   </view>

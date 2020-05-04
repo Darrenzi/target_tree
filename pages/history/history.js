@@ -15,7 +15,26 @@ Page({
        year:0,
        lastMonth:0,
        nextMonth:0,
-       labelList:["全部","运动","工作","剁手","游戏","早睡","拒绝高热量","提高颜值","自律",],
+       labelList:[
+         {label:"全部",
+         imagesrc:'image/1.png'},
+         {label:"运动",
+         imagesrc:'image/1.png'},
+         {label:"工作",
+         imagesrc:'image/2.png'},
+         {label:"剁手",
+         imagesrc:'image/3.png'},
+         {label:"游戏",
+         imagesrc:'image/4.png'},
+         {label:"早睡",
+         imagesrc:'image/5.png'},
+         {label:"减肥",
+         imagesrc:'image/6.png'},
+         {label:"学习",
+         imagesrc:'image/7.png'},
+         {label:"自律",
+         imagesrc:'image/8.png'},],
+       nowLabel:'',//表示现在所点击的标签
        current_index:0,
        NULL_targetList:2,//0表示该数组为空，1表示该数组不为空
        treeList:[],//用于存放树的地址
@@ -36,7 +55,10 @@ Page({
     let index = e.currentTarget.id;
     const db = wx.cloud.database();
     const _ = db.command;
-    let nowLabel=this.data.labelList[index]
+    this.setData({
+      nowLabel:this.data.labelList[index].label
+    })
+    let nowLabel=this.data.labelList[index].label
     console.log(nowLabel)
     let dateField = this.getDateField(this.data.year, this.data.month);
     if(index==0){
@@ -53,9 +75,9 @@ Page({
          this.setData({targetList:res.data});
          console.log("targetList",res.data)
          console.log(this.data.month,"月")
-         if(this.data.targetList.length==0){this.setData({NULL_targetList:0});}
+         if(this.data.targetList.length==0){
+           this.setData({NULL_targetList:0});}
               else{this.setData({NULL_targetList:1});}
-          
          let length=this.data.targetList.length;
           for(let j=0;j<length;j++){
             db.collection('tool')
@@ -64,6 +86,11 @@ Page({
              })
             .get()
             .then(res => {
+            console.log("res",res)
+            let treeid = "targetList[" + j +"].src"  
+            this.setData({
+               [treeid]:res.data[0].path,
+            })
             this.data.treeList.push(res.data[0])
             this.setData({
             loadContent:'',
@@ -76,7 +103,6 @@ Page({
       .catch(err => {
         console.log(err);
        })
-      
       this.setData({current_index:index});
       return;
       }
@@ -84,6 +110,7 @@ Page({
        treeList:[],
        targetList:[]
      })
+     console.log("nowlabel",nowLabel)
      db.collection('target')
      .orderBy('time', 'desc')
      .where({
@@ -108,6 +135,10 @@ Page({
             })
            .get()
            .then(res => {
+            let treeid = "targetList[" + j +"].src"  
+            this.setData({
+               [treeid]:res.data[0].path,
+            })
            this.data.treeList.push(res.data[0])
            this.setData({
            loadContent:'',
@@ -183,19 +214,69 @@ Page({
     }
   },
 
-  getTargets:function(){
+  getTargets:function(e){
     console.log(this.data.year)
-    this.setData({
-      loadContent:'加载中...'
-    })
+    let nowLabel=this.data.nowLabel;
     let dateField = this.getDateField(this.data.year, this.data.month);
     const db = wx.cloud.database();
     const _ = db.command;
-    let that = this;
+    this.setData({
+      loadContent:'加载中'
+    })
+
+    if(nowLabel==''||nowLabel=='全部'){
+      db.collection('target')
+      .orderBy('time', 'desc')
+      .where({
+        time: _.gt(dateField.firstDay).and(_.lt(dateField.lastDay)),  //大于第一天小于最后一天
+      }).get()
+        .then(res => {
+          for(let i=0;i<res.data.length;i++){
+            res.data[i].time=res.data[i].time.toLocaleDateString()
+          }
+           var that=this
+           console.log("targetList",res.data)
+           that.setData({targetList:res.data});
+           console.log(this.data.month,"月")
+           if(this.data.targetList.length==0){
+             this.setData({NULL_targetList:0}); 
+             this.setData({loadContent:''})
+             return}
+           else{this.setData({NULL_targetList:1});}
+           let length=this.data.targetList.length;
+           for(let j=0;j<length;j++){
+             db.collection('tool')
+             .where({
+               _id:_.eq(this.data.targetList[j].treeId)
+              })
+             .get()
+             .then(res => {
+              let treeid = "targetList[" + j +"].src"  
+              this.setData({
+                 [treeid]:res.data[0].path,
+              })
+             this.data.treeList.push(res.data[0])
+             this.setData({
+             loadContent:'',
+             treeList: this.data.treeList
+             })
+           })
+         }
+         this.setData({
+           loadContent:''
+         })
+        })
+        .catch(err => {
+          console.log(err);
+        })
+        return
+    }
+
     db.collection('target')
     .orderBy('time', 'desc')
     .where({
-      time: _.gt(dateField.firstDay).and(_.lt(dateField.lastDay))  //大于第一天小于最后一天
+      time: _.gt(dateField.firstDay).and(_.lt(dateField.lastDay)),  //大于第一天小于最后一天
+      label:_.eq(this.data.nowLabel)
     }).get()
       .then(res => {
         for(let i=0;i<res.data.length;i++){
@@ -229,8 +310,6 @@ Page({
       .catch(err => {
         console.log(err);
       })
-    
-     
       this.setData({loadContent:''})
 
   },

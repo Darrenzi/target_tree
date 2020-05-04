@@ -8,7 +8,9 @@ Page({
    
   },
   backHome: function () {
-    wx.navigateBack({});
+  wx.navigateTo({
+    url: '../index/index',
+  })
   },
 
   choose:function(e){

@@ -9,11 +9,7 @@
     "pages/community/community",
     "pages/targetDetail/targetDetail",
     "pages/createTarget/createTarget",
-    "pages/history/history",
-    "pages/config/config",
-    "pages/FriendSystem/FriendSystem",
-    "pages/messages/messages",
-    "pages/register/register"
+    "pages/history/history"
   ],
   "window": {
     "backgroundTextStyle": "light",

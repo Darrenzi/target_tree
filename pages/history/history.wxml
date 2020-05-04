@@ -16,36 +16,43 @@
  <view class="allTargetContent">  <!--显示目标  -->
   <view class="date">{{item.time}}</view>
   <view class="targetClass">
-   <view class="outside_tree"></view>
    <view class="treeclass"></view>
    <view class="line"></view>
    <view class="fontclass">目标:</view>
-  <image src="image/solid.png"   class="imageSolid"></image>
-   <view class="labelclass">{{item.label}}</view>
+   <view class="allDay">{{item.amount}}</view>
+   <image src="image/23.png" class="imageClendar"></image>
+   <view class="allCoin">{{item.coin}}</view>
+   <image src="image/24.png" class="imagepig"></image>
+   <image src="image/solid.png"   class="imageSolid"></image>
+   <view class="labelclass">{{item.title}}</view>
+    <image src="{{item.src[0]}}" class="tree"></image>
   </view>
-</view>
+ </view>
 </block>
- <view class="whitespace_1"></view>
+   <view class="whitespace_1"></view>
+   
 </view>
 
-<view wx:for="{{treeList}}">
-<image src="{{item.main}}" class="tree"></image>
-</view>
+ <view wx:for="{{treeList}}" class="treeContainer"></view>
 
 
 
 <view class="contianer">
   <view id="{{index}}" class="label {{current_index==index?'labelChoose':''}}" wx:for="{{labelList}}" bindtap="choose" wx:key="targets">
-    <view class="targetLabel">{{item}}</view>
+  <image class="imagelabel" src="{{item.imagesrc}}"></image>
+    <view class="targetLabel">{{item.label}}</view>
   </view>
+
+
   <view class="label" wx:if="{{labelList.length<3}}">空</view>
   <view class="label" wx:if="{{labelList.length<2}}">空</view>
   <view class="label" wx:if="{{labelList.length<1}}">空</view>
   <view class="label" wx:if="{{labelList.length<4}}">空</view>
  
   <view class="Null_targetList" wx:if="{{NULL_targetList==0}}">
-  <image class="noImage" src="../messages/images/tree2.png" ></image></view>
-  <text class="NULL_TEXT">欸啊~该标签下暂无目标呢</text>
+    <image class="noImage" src="../messages/images/tree2.png" ></image>
+    <text class="NULL_TEXT">欸啊~该标签下暂无目标呢</text>>
+  </view>
 </view>
 
 

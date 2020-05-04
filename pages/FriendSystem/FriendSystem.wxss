@@ -5,10 +5,12 @@
   font-size: 40rpx;
   left: 30rpx;
   color: white;
-  top: 50rpx;
+  top: 70rpx;
   width: 70rpx;
   height: 60rpx;
   font-weight: bolder;
+
+
 }
 .SideNavigationBar{
   position: fixed;
@@ -83,6 +85,7 @@
 .fontstyle{
   font-size: 35rpx;
   margin-left: 145rpx;
+  margin-right: 20rpx;
   margin-top: 40rpx;
   position: absolute;
 }
@@ -106,6 +109,7 @@
   margin-left: 30%;
   z-index: 9;
   top: 7%;
+
   margin-top: 21%;
   margin-bottom: 5%;
 }
@@ -148,7 +152,7 @@
   width: 410rpx;
   left: 42rpx;
   right: 10rpx;
-  top: 200rpx;
+  top: 180rpx;
   position: absolute;
   height: 6rpx;
   background-color: rgba(206, 57, 186, 0.508);
@@ -176,15 +180,73 @@ z-index: 9;
   z-index: 8;
 }
 
+.date{
+  height: 50rpx;
+  width: 200rpx;
+  border: 3rpx solid rgb(29, 27, 29);
+  position: absolute;
+  top:-70rpx;
+  border-radius: 20rpx;
+  left: 140rpx;
+  font-size: 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .coinstyle{
   position: relative;
-  top: 185rpx;
+  top: 25rpx;
+  left: 220rpx;
+  font-size: 70rpx;
+}
+.coin{
+  position: relative;
+  top: 200rpx;
   left: 50rpx;
-  font-size: 50rpx;
+  width: 100rpx;
+  height: 100rpx;
+  font-size: 70rpx;
+}
+.coinnumber{
+  position: relative;
+  top: 170rpx;
+  left: 170rpx;
+  width: 100rpx;
+  height: 100rpx;
+  font-size: 60rpx;
+}
+.textCoin{
+  position: relative;
+  top: 60rpx;
+  left: 135rpx;
+  font-size: 30rpx;
+}
+.ranking{
+  position: absolute;
+  top: 35rpx;
+  left: 40rpx;
+  font-size: 70rpx;
+  width: 50rpx;
+  height: 50rpx;
+
+}
+.rank_font{
+  position: absolute;
+  top: 110rpx;
+  left: 50rpx;
+  font-size: 30rpx;
+}
+.sort_font{
+  position: absolute;
+  top: 230rpx;
+  left: 130rpx;
+  font-size: 35rpx;
+  width: 400rpx;
 }
 .iconpage{
   height: 80rpx;
   width: 80rpx;
+  border-radius: 50rpx;
   position: relative;
   top: 210rpx;
   left: 40rpx;

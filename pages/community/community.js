@@ -116,7 +116,7 @@ Page({
         page: page
       },
       success: function (res) {
-        console.log(res);
+        console.log("alltargets",res);
         if(res.result.list.length != 0)
         {
           let targets = that.data.targets;
