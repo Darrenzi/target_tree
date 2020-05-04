@@ -11,6 +11,11 @@ Page({
    change_1:true,
    change_2:true,
    custom:true,
+   showCircle:true,
+   showCircle_1:true,showCircle_2:true,showCircle_3:true,showCircle_4:true,
+   showCircle_5:true,showCircle_6:true,showCircle_7:true,showCircle_8:true,
+   showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
+   showCircle_13:true,showCircle_14:true,showCircle_15:true,
    label:'',
    setCoin:'',
    rest:'',
@@ -90,51 +95,226 @@ Page({
   },
   setTarget:function(e){
     this.setData({
-      label:'运动'
+      label:'运动',
+      showCircle:false,
+      showCircle_1:true,
+      showCircle_2:true,
+      showCircle_3:true,
+      showCircle_4:true,
+      showCircle_5:true,
+      showCircle_6:true,
+      showCircle_7:true,
+      showCircle_8:true,
+   showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
+   showCircle_13:true,showCircle_14:true,showCircle_15:true,
     })
   },
   setTarget_1:function(e){
     this.setData({
-     
+      showCircle:true,
+      showCircle_1:false,
+      showCircle_2:true,
+      showCircle_3:true,
+      showCircle_4:true,
+      showCircle_5:true,
+      showCircle_6:true,
+      showCircle_7:true,
+      showCircle_8:true,
+   showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
+   showCircle_13:true,showCircle_14:true,showCircle_15:true,
       label:'工作'
     })
   },
   setTarget_2:function(e){
     this.setData({
-  
-      label:'剁手'
+      label:'剁手',
+      showCircle:true,
+      showCircle_1:true,
+      showCircle_2:false,
+      showCircle_3:true,
+      showCircle_4:true,
+      showCircle_5:true,
+      showCircle_6:true,
+      showCircle_7:true,
+      showCircle_8:true,
+      showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
+      showCircle_13:true,showCircle_14:true,showCircle_15:true,
     })
   },
   setTarget_3:function(e){
     this.setData({
-    
-      label:'游戏'
+      
+      label:'游戏',
+      showCircle:true,
+      showCircle_1:true,
+      showCircle_2:true,
+      showCircle_3:false,
+      showCircle_4:true,
+      showCircle_5:true,
+      showCircle_6:true,
+      showCircle_7:true,
+      showCircle_8:true,
+      showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
+      showCircle_13:true,showCircle_14:true,showCircle_15:true,
     })
   },
   setTarget_4:function(e){
     this.setData({
-     
+      showCircle:true,
+      showCircle_1:true,
+      showCircle_2:true,
+      showCircle_3:true,
+      showCircle_4:false,
+      showCircle_5:true,
+      showCircle_6:true,
+      showCircle_7:true,
+      showCircle_8:true,
+      showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
+      showCircle_13:true,showCircle_14:true,showCircle_15:true,
       label:'早睡'
     })
   },
   setTarget_5:function(e){
     this.setData({
-    
+      showCircle:true,
+      showCircle_1:true,
+      showCircle_2:true,
+      showCircle_3:true,
+      showCircle_4:true,
+      showCircle_5:false,
+      showCircle_6:true,
+      showCircle_7:true,
+      showCircle_8:true,
+      showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
+      showCircle_13:true,showCircle_14:true,showCircle_15:true,
       label:'拒绝高热量'
     })
   },
   setTarget_6:function(e){
     this.setData({
-      
+      showCircle:true,
+      showCircle_1:true,
+      showCircle_2:true,
+      showCircle_3:true,
+      showCircle_4:true,
+      showCircle_5:true,
+      showCircle_6:false,
+      showCircle_7:true,
+      showCircle_8:true,
+      showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
+      showCircle_13:true,showCircle_14:true,showCircle_15:true,
       label:'提高颜值'
     })
   },
   setTarget_7:function(e){
     this.setData({
-      
+      showCircle:true,
+      showCircle_1:true,
+      showCircle_2:true,
+      showCircle_3:true,
+      showCircle_4:true,
+      showCircle_5:true,
+      showCircle_6:true,
+      showCircle_7:false,
+      showCircle_8:true,
+      showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
+      showCircle_13:true,showCircle_14:true,showCircle_15:true,
       label:'自律'
     })
   },
+  setTarget_8:function(e){
+    this.setData({
+      showCircle:true,
+      showCircle_1:true,
+      showCircle_2:true,
+      showCircle_3:true,
+      showCircle_4:true,
+      showCircle_5:true,
+      showCircle_6:true,
+      showCircle_7:true,
+      showCircle_8:false,
+      showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
+      showCircle_13:true,showCircle_14:true,showCircle_15:true,
+      label:'自律'
+    })
+  },
+  setTarget_9:function(e){
+    this.setData({
+      showCircle:true,
+      showCircle_1:true,
+      showCircle_2:true,
+      showCircle_3:true,
+      showCircle_4:true,
+      showCircle_5:true,
+      showCircle_6:true,
+      showCircle_7:true,
+      showCircle_8:true,
+      showCircle_9:false,showCircle_10:true,showCircle_11:true,showCircle_12:true,
+      showCircle_13:true,showCircle_14:true,showCircle_15:true,
+      label:'自律'
+    })
+  },
+  setTarget_10:function(e){
+    this.setData({
+      showCircle:true,showCircle_1:true,showCircle_2:true,
+      showCircle_3:true,showCircle_4:true,showCircle_5:true,
+      showCircle_6:true,showCircle_7:true,showCircle_8:true,
+      showCircle_9:true,showCircle_10:false,showCircle_11:true,showCircle_12:true,
+      showCircle_13:true,showCircle_14:true,showCircle_15:true,
+      label:'自律'
+    })
+  },
+  setTarget_11:function(e){
+    this.setData({
+      showCircle:true,showCircle_1:true,showCircle_2:true,
+      showCircle_3:true,showCircle_4:true,showCircle_5:true,
+      showCircle_6:true,showCircle_7:true,showCircle_8:true,
+      showCircle_9:true,showCircle_10:true,showCircle_11:false,showCircle_12:true,
+      showCircle_13:true,showCircle_14:true,showCircle_15:true,
+      label:'自律'
+    })
+  },
+  setTarget_12:function(e){
+    this.setData({
+      showCircle:true,showCircle_1:true,showCircle_2:true,
+      showCircle_3:true,showCircle_4:true,showCircle_5:true,
+      showCircle_6:true,showCircle_7:true,showCircle_8:true,
+      showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:false,
+      showCircle_13:true,showCircle_14:true,showCircle_15:true,
+      label:'自律'
+    })
+  },
+  setTarget_13:function(e){
+    this.setData({
+      showCircle:true,showCircle_1:true,showCircle_2:true,
+      showCircle_3:true,showCircle_4:true,showCircle_5:true,
+      showCircle_6:true,showCircle_7:true,showCircle_8:true,
+      showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
+      showCircle_13:false,showCircle_14:true,showCircle_15:true,
+      label:'自律'
+    })
+  },
+  setTarget_14:function(e){
+    this.setData({
+      showCircle:true,showCircle_1:true,showCircle_2:true,
+      showCircle_3:true,showCircle_4:true,showCircle_5:true,
+      showCircle_6:true,showCircle_7:true,showCircle_8:true,
+      showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
+      showCircle_13:true,showCircle_14:false,showCircle_15:true,
+      label:'自律'
+    })
+  },
+  setTarget_15:function(e){
+    this.setData({
+      showCircle:true,showCircle_1:true,showCircle_2:true,
+      showCircle_3:true,showCircle_4:true,showCircle_5:true,
+      showCircle_6:true,showCircle_7:true,showCircle_8:true,
+      showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
+      showCircle_13:true,showCircle_14:true,showCircle_15:false,
+      label:'自律'
+    })
+  },
+  
   setrecord:function(e){
     this.setData({
       record:'7'

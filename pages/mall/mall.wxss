@@ -115,13 +115,20 @@ page{
   font-size: 40rpx;
   font-weight: bold;
   color:rgb(87, 87, 87);
+  position: relative;
 }
-.tree_top image{
+.treeBackground{
   width: 90%;
   height: 60%;
   border-radius: 10rpx;
   margin-top:5%;
   margin-bottom: 12%;
+}
+.treeIcon{
+  position: absolute;
+  height: 170rpx;
+  width: 170rpx;
+  top:50rpx;
 }
 
 .detail_container{
@@ -147,13 +154,20 @@ page{
   align-items: center;
   overflow-y:scroll;
   animation: in 0.5s;
+  position: relative;
 }
-.mainImage{
+.mainImageBackground{
   width: 90%;
   min-height: 450rpx;
   border-radius: 10rpx;
   margin-top:30rpx;
   margin-bottom: 20rpx;
+}
+.mainImage{
+  position: absolute;
+  width: 300rpx;
+  height: 300rpx;
+  top:115rpx;
 }
 .detail_images{
   margin-top:2%;

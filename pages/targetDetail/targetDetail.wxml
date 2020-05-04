@@ -1,4 +1,6 @@
 <!--pages/targetDetail/targetDetail.wxml-->
+<input-coin hidden="{{!inputCoinFlag}}" inputCoinMsg="{{inputCoinMsg}}"></input-coin>
+
 <view class="top">
    <view class="top_title">详情</view>
   <view class="back" bindtap="backHome">《</view>
@@ -6,13 +8,20 @@
 
 <view class="main">
   <view class="mainTop">
-    <image class="avatar" src="{{target.avatarUrl}}"></image>
-    <view class="targetUn">{{target.un}}</view>
+    <image class="avatar" src="{{target.avatarUrl}}" bindtap="goToUserForest"></image>
+    <view class="targetUn" bindtap="goToUserForest">{{target.un}}</view>
+    <view class="watchButton {{watchFlag == '已围观'?'watched':''}}" bindtap="watch">{{watchFlag}}</view>
   </view>
 
   <view class="targetTitle">{{target.title}}</view>
   <view class="targetContent">{{target.content}}</view>
+  <view class="progress_container">
+    进度:<progress active percent="{{target.progress}}" show-info style="width:70%;"></progress>
+  </view>
 
+  <view class="insertCoinContainer">
+    <view class="insertCoin" bindtap="showInputCoin">赞赏</view>
+  </view>
   <view class="messagesLabel">留言区</view>
   <input class="commentInput" focus="{{commentInputFlag}}" hidden="{{!commentInputFlag}}" confirm-type="send" bindconfirm="sendComment" bindblur="hideCommentInput" value="{{commentInput}}"></input>
 
@@ -34,8 +43,14 @@
 <!-- 占位避免底部遮挡 -->
 <view style="height:150rpx;"></view>
 <view class="bottom">
-  <view class="comment" bindtap="comment">说点什么···</view>
-  <view class="bottomOption">点赞</view>
-  <view class="bottomOption">评论</view>
-  <view class="bottomOption">围观</view>
+  <view class="comment" bindtap="comment">
+    <image class="bottomOption" src="../../images/shuru.png" bindtap="like"></image>
+    说点什么···
+  </view>
+  <image class="bottomOption" src="../messages/images/xihuan.png" bindtap="like"></image>
+  <view>{{target.like.length}}</view>
+  <image class="bottomOption" src="../messages/images/xiaoxi.png" bindtap="comment"></image>
+  <view>{{comment.length}}</view>
+  <image class="bottomOption" src="../../images/liulan.png"></image>
+  <view>{{target.supervisor.length}}</view>
 </view>

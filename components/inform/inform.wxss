@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(77, 77, 77, 0.712);
+  background: rgba(56, 56, 56, 0.63);
   z-index:10;
   color:gray;
   font-size: 35rpx;

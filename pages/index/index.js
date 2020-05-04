@@ -88,7 +88,7 @@ Page({
   },
 
   showTargetDetail:function(){
-    console.log(this.data.currentTarget);
+    if(this.data.currentTarget == undefined)return;
     //点击树木显示目标详情
     if(this.data.showTargetFlag){
       this.setData({showTargetFlag:false});
@@ -223,13 +223,81 @@ Page({
 
   record:function(){
     //打卡
-
     if(this.data.currentTarget == undefined)return;
-
     this.setData({loadContent:'正在记录...'});
     const db = wx.cloud.database();
     const _ = db.command;
     let that = this;
+    let currentTarget = this.data.currentTarget;
+
+    //判断目标是否已经失败
+    let currentTimeStamp = Number(new Date());
+    let startTimeStamp = Number(currentTarget.time);
+    //计算目标确立时间到当前的天数
+    let dayNum = ((currentTimeStamp - startTimeStamp) / 86400000).toFixed(0);
+    //没有打卡的次数
+    let noRecordNum = dayNum - currentTarget.record;
+    if(noRecordNum > currentTarget.rest){
+      //没有打卡天数大于休息的天数，认定为失败
+      console.log("目标失败");
+      db.collection('target').doc(currentTarget._id)
+      .update({
+        data:{
+          status: -1
+        }
+      })
+      .then(res=>{
+        console.log(res);
+        let userCoin = that.data.user.coin - currentTarget.coin;
+        let user = that.data.user;
+        user.coin = userCoin;
+        //扣除用户押下的金币数
+        db.collection('user').doc(that.data.user._id)
+        .update({
+          data:{
+            coin:userCoin
+          }
+        })
+        .then(res=>{
+          console.log(res);
+
+          //将目标赌金的一半平分给围观用户
+          let supervisor = currentTarget.supervisor;
+          let reward = currentTarget.coin/(2*supervisor.length);
+          console.log(supervisor, reward);
+          wx.cloud.callFunction({
+            name:"rewardWatchUser",
+            data:{
+              supervisor:supervisor,
+              reward:reward
+            },
+            success:function(res){
+              console.log("赌金分给围观用户成功");
+            },
+            fail:function(err){
+              console.log(err,"赌金分给围观用户失败");
+            }
+          })
+          //调用目标组件删除完成的目标
+          let targetComponent = that.selectComponent('#target');
+          targetComponent.deleteTarget();
+
+          that.setData({ user: user, loadContent:"", informContent:"目标已失败，将扣除相应金币，并种植一棵枯树"});
+        })
+        .catch(err=>{
+          console.log(err, "\n扣除金币失败");
+          that.setData({ loadContent: '', informContent: "意外错误" });
+        })
+      })
+      .catch(err=>{
+        console.log("更新目标状态失败");
+        console.log(err);
+        that.setData({ loadContent: '', informContent: "意外错误" });
+      })
+      return;
+    }
+
+
     //获取表中最新打卡记录，判断时间，一天只能打卡一次
     let date = (new Date()).Format("yyyy-MM-dd");
     db.collection('record').field({ time: true }).orderBy("time", 'desc').limit(1)
@@ -260,47 +328,15 @@ Page({
             time: new Date()
           }
         }).then(res => {
-          // console.log(res);
           //更新目标表中的打卡记录及任务进度
           let progress = ((that.data.currentTarget.record + 1) / that.data.currentTarget.amount * 100).toFixed(2);
           if(progress>=100){
             //打卡后任务完成
-            console.log('目标完成');
-            progress=100;
-            db.collection('target').doc(that.data.currentTarget._id).update({
-              data: {
-                record: _.inc(1),
-                progress: progress,
-                status:1
-              }
-            }).then(res => {
-              // console.log(res);
-              let currentTarget = that.data.currentTarget;
-              currentTarget.record += 1;
-              currentTarget.progress = Number((currentTarget.record / currentTarget.amount * 100).toFixed(2));
-              //更新数据，清空加载动画，设置通知内容
-              that.setData({ currentTarget: currentTarget, loadContent: '', informContent: "打卡成功！坚持的人最美丽！" });
-              //更新组件中的数据
-              that.selectComponent('#target').update(currentTarget);
-            })
+            that.completeTarget();
           }
           else{
             //打卡后任务未完成
-            db.collection('target').doc(that.data.currentTarget._id).update({
-              data: {
-                record: _.inc(1),
-                progress: progress
-              }
-            }).then(res => {
-              // console.log(res);
-              let currentTarget = that.data.currentTarget;
-              currentTarget.record += 1;
-              currentTarget.progress = Number((currentTarget.record / currentTarget.amount * 100).toFixed(2));;
-              //更新数据，清空加载动画，设置通知内容
-              that.setData({ currentTarget: currentTarget, loadContent: '', informContent: "打卡成功！坚持的人最美丽！" });
-              //更新组件中的数据
-              that.selectComponent('#target').update(currentTarget);
-            })
+            that.updateTarget(progress);
           }
         }).catch(err=>{
           that.setData({loadContent:'', informContent:"意外错误"});
@@ -309,6 +345,109 @@ Page({
     })
   },
 
+  updateTarget:function(newProgress){
+    //打卡后任务未完成
+    let currentTarget = this.data.currentTarget;
+    let that = this;
+    const db = wx.cloud.database();
+    const _ = db.command;
+    db.collection('target').doc(currentTarget._id).update({
+      data: {
+        record: _.inc(1),
+        progress: Number(newProgress)
+      }
+    }).then(res => {
+      that.changeTargetTree(currentTarget, newProgress);
+      //清空加载动画，设置通知内容
+      that.setData({ loadContent: '', informContent: "打卡成功！坚持的人最美丽！" });
+    })
+    .catch(err=>{
+      console.log("更新任务状态失败");
+      console.log(err);
+      this.setData({ loadContent: "", informContent: "意外错误" });
+    })
+  },
+
+  changeTargetTree: function (currentTarget, newProgress){
+    //根据任务进度更改树木图片
+    let userTrees = this.data.userTrees;
+    let currentTree = null;
+    console.log(currentTarget.treeId, userTrees);
+    for(let i =0;i<userTrees.length;i++){
+      if(currentTarget.treeId == userTrees[i]._id){
+        currentTree = userTrees[i];
+        break;
+      }
+    }
+    if(newProgress==30){
+      //打卡后进度进入第二阶段
+      currentTarget.tree = currentTree.path[1];
+    }
+    else if (newProgress == 60){
+      //打卡后进度进入第三阶段
+      currentTarget.tree = currentTree.path[2];
+    }
+    else if (newProgress == 90){
+      //打卡后进度进入第四阶段
+      currentTarget.tree = currentTree.path[3];
+    }
+    //更新当前页面的数据
+    currentTarget.record += 1;
+    currentTarget.progress = newProgress;
+    this.setData({currentTarget:currentTarget});
+    //更新组件中的数据
+    this.selectComponent('#target').update(currentTarget);
+  },
+
+  completeTarget:function(){
+    //打卡后任务完成
+    let user = this.data.user;
+    let currentTarget = this.data.currentTarget;
+    let that = this;
+    const db = wx.cloud.database();
+    const _ = db.command;
+
+    db.collection('target').doc(currentTarget._id).update({
+      data: {
+        record: _.inc(1),
+        progress: 100,
+        status: 1
+      }
+    }).then(res => {
+      currentTarget.record += 1;
+      currentTarget.progress = 100;
+      //奖励金币=10倍的天数+赌金+赞赏
+      let reward = 10*currentTarget.amount + currentTarget.coin;
+      console.log(reward);
+      console.log(user._id);
+      db.collection("user").doc(user._id)
+      .update({
+        data:{
+          coin: _.inc(reward)
+        }
+      })
+      .then(res=>{
+        console.log(res);
+        //调用目标组件删除完成的目标
+        let targetComponent = that.selectComponent('#target');
+        targetComponent.deleteTarget();
+
+        // 更新数据，清空加载动画，设置通知内容
+        that.setData({loadContent: '', informContent: "目标完成，获得 " + reward + " 金币"});
+      })
+      .catch(err=>{
+        console.log("奖励金币失败");
+        console.log(err);
+        this.setData({loadContent:"", informContent:"意外错误"});
+      })
+    })
+    .catch(err=>{
+      console.log("更新任务状态失败");
+      console.log(err);
+      this.setData({ loadContent: "", informContent: "意外错误" });
+    })
+  },
+  
   treeAnimation:function(){
     //创建树木动画
     let animation = wx.createAnimation({

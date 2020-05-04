@@ -5,19 +5,48 @@ Page({
    * 页面的初始数据
    */
   data: {
+    //登陆的用户
+    user:{},
     targets:[],
     //当前显示的内容
     currentShow:"推荐",
     //目标分页
     page:0,
+
+    //围观的目标
+    watchTargets:[],
     //没有更多目标的标识符，防止无效的网络拉取
     noMoreTarget:false,
     //拉到底部时显示加载文字的标识符
     loadFlag:false,
+    //是否显示投币界面
+    inputCoinFlag:false,
+    //投币的用户及目标信息
+    inputCoinMsg:{},
+    loadContent:"加载中..."
   },
 
   backHome: function () {
     wx.navigateBack({});
+  },
+  
+  choose:function(e){
+    //选择显示的目标，围观或者推荐
+    let targetShow = e.currentTarget.dataset.target;
+    this.setData({currentShow: targetShow});
+  },
+
+  showInputCoin:function(e){
+    //显示投币界面
+    let index = e.currentTarget.id;
+    let target = this.data.targets[index];
+    let user = getApp().globalData.user;
+    let inputCoinMsg = {};
+    inputCoinMsg.targetId = target._id;
+    inputCoinMsg.targetUserId = target._openid;
+    inputCoinMsg.targetTitle = target.title;
+    inputCoinMsg.userCoin = user.coin;
+    this.setData({ inputCoinFlag: true, inputCoinMsg: inputCoinMsg});
   },
 
   goToUserForest:function(e){
@@ -33,25 +62,49 @@ Page({
 
   targetDetail:function(e){
     let index = e.currentTarget.id;
-    console.log(index);
-    let target = this.data.targets[index];
+    // console.log(index);
+    let targets = this.data.targets;
+    if(this.data.currentShow == "围观"){
+      targets = this.data.watchTargets;
+    }
+    let target = targets[index];
     let un = target.userList[0].un;
     let avatarUrl = target.userList[0].avatarUrl;
+    let _openid = target.userList[0]._openid;
     let title = target.title;
     let content = target.content;
     let targetId = target._id;
+    let like = target.like.toString();
+    let _id = target._id;
+    let supervisor = target.supervisor.toString();
+    let progress = target.progress;
     wx.navigateTo({
-      url: '../targetDetail/targetDetail?un='+un+"&avatarUrl="+avatarUrl+
-      "&title="+title+"&content="+content+"&targetId="+targetId,
+      url: '../targetDetail/targetDetail?un='+un+"&avatarUrl="+avatarUrl+"&_openid="+_openid+
+      "&title="+title+"&content="+content+"&targetId="+targetId+"&like="+like+"&_id="+_id
+        + "&supervisor=" + supervisor + "&progress=" + progress,
     })
   },
 
   getMoreTargets:function(){
     //拉至底部时，再次拉取
+    console.log("加载更多");
     if(this.data.noMoreTarget == true)return;
     let page = this.data.page + 10;
     this.setData({page:page, loadFlag:true});
     this.getTargets(page); 
+  },
+
+  getWatchTargets:function(){
+    let that = this;
+    wx.cloud.callFunction({
+      name:"getWatchTargets",
+      success:function(res){
+        that.setData({watchTargets:res.result.list});
+      },
+      fail:function(err){
+        console.log(err);
+      }
+    })
   },
 
   getTargets:function(page){
@@ -69,7 +122,7 @@ Page({
           let targets = that.data.targets;
           targets = targets.concat(res.result.list);
           // console.log(targets);
-          that.setData({ targets: targets });
+          that.setData({ targets: targets, loadContent:"" });
         }
         else{
           //没有更多内容
@@ -98,6 +151,23 @@ Page({
       console.log('取消点赞');
       operation = 'cancel';
     }
+    switch (operation) {
+      case "like": {
+        target.like.push(userId);
+        let targets = this.data.targets;
+        targets[index] = target;
+        this.setData({ targets: targets });
+        break;
+      }
+      case "cancel": {
+        let userIndex = target.like.indexOf(userId);
+        target.like.splice(userIndex, 1);
+        let targets = this.data.targets;
+        targets[index] = target;
+        this.setData({ targets: targets });
+        break;
+      }
+    }
     let that = this;
     wx.cloud.callFunction({
       name:"changeLike",
@@ -111,10 +181,6 @@ Page({
         //删除修改数组
         switch(operation){
           case 'like':{
-            target.like.push(userId);
-            let targets = that.data.targets;
-            targets[index] = target;
-            that.setData({targets:targets});
             //插入点赞表
             db.collection('like').add({
               data:{
@@ -131,11 +197,6 @@ Page({
             break;
           }
           case 'cancel':{
-            let userIndex = target.like.indexOf(userId);
-            target.like.splice(userIndex, 1);
-            let targets = that.data.targets;
-            targets[index] = target;
-            that.setData({ targets: targets });
             // 删除点赞表记录
             wx.cloud.callFunction({
               name:"cancelLike",
@@ -165,6 +226,7 @@ Page({
    */
   onLoad: function (options) {
     this.getTargets(0);
+    this.getWatchTargets();
   },
 
   /**

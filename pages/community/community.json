@@ -1,4 +1,6 @@
 {
   "usingComponents": {
+    "input-coin":"../../components/input-coin/input-coin",
+    "loading":"../../components/loading/loading"
   }
 }

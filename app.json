@@ -1,6 +1,8 @@
 {
   "cloud": true,
   "pages": [
+    "pages/home/home",
+    "pages/mall/mall",
     "pages/index/index",
     "pages/friendDetail/friendDetail",
     "pages/forest/forest",
@@ -11,7 +13,6 @@
     "pages/config/config",
     "pages/FriendSystem/FriendSystem",
     "pages/messages/messages",
-    "pages/mall/mall",
     "pages/register/register"
   ],
   "window": {

@@ -27,9 +27,10 @@
   </view>
 
   <view class="tree_container">
-    <view class="tree" wx:for="{{trees}}" wx:key="tree" data-tree="{{item}}" bindtap="choose">
+    <view class="tree" wx:for="{{trees}}" wx:key="tree" data-tree="{{item}}" catchtap="choose">
       <view class="tree_top">
-        <image src="{{item.main}}"></image>
+        <image class="treeBackground" src="images/soil.png"></image>
+        <image class="treeIcon" src="{{item.path[3]}}"></image>
         <view>{{item.name}}</view>
       </view>
       <view class="price">
@@ -42,7 +43,8 @@
 
 <view class="detail_container" wx:if="{{current != null}}" bindtap="closeDetail">
   <view class="detail" catchtap>
-    <image src="{{current.main}}" class="mainImage"></image>
+    <image src="images/soil.png" class="mainImageBackground"></image>
+    <image src="{{current.path[3]}}" class="mainImage"></image>
     <view class="detail_title">{{current.name}}</view>
     <view class="detail_content">{{current.desc}}</view>
     <view class="detail_images">

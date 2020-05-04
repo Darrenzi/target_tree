@@ -50,6 +50,26 @@ Page({
     }
   },
 
+  targetDetail: function (e) {
+    //跳转到某个目标的详情界面
+    let user = getApp().globalData.user;
+    let index = e.currentTarget.id;
+    let target = this.data.targets[index];
+    let un = user.un;
+    let avatarUrl = user.avatarUrl;
+    let title = target.title;
+    let content = target.content;
+    let targetId = target._id;
+    let like = target.like.toString();
+    let _id = target._id;
+    let supervisor = target.supervisor.toString();
+    let progress = target.progress;
+    wx.navigateTo({
+      url: '../targetDetail/targetDetail?un=' + un + "&avatarUrl=" + avatarUrl +
+        "&title=" + title + "&content=" + content + "&targetId=" + targetId + "&like=" + like + "&_id=" + _id + "&supervisor=" + supervisor + "&progress=" + progress,
+    })
+  },
+
   getDateField:function(year, month){
     //获得一个月的第一天以及最后一天
     let firstdate = new Date(year, month-1, 1, 0, 0, 0, 0);
@@ -83,15 +103,15 @@ Page({
 
   getTree:function(targetData){
     //显示加载动画
-    this.setData({loadContent:'正在收集树苗...'});
+    // this.setData({loadContent:'正在收集树苗...'});
 
-    // console.log(targetData);
+    console.log(targetData);
     //获取用户目标的树苗的信息, treeId未定义会出现无法运行的错误
     let treeId =[];
     for(let i=0;i<targetData.length;i++){
       treeId.push(targetData[i].treeId);
     }
-    // console.log(treeId);
+    console.log(treeId);
 
     const db = wx.cloud.database();
     const _ = db.command;
@@ -108,7 +128,7 @@ Page({
       let forest = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
       for (let i = 0; i < targetData.length;i++){
         //根据目标的treeId,判断目标的树秒
-        for(let j=0;j<res.data.length;i++){
+        for(let j=0;j<res.data.length;j++){
           if(treeId[i]==res.data[j]._id){
             //根据任务的进度压入不同的树木图片
             if (targetData[i].progress<30){
@@ -145,7 +165,7 @@ Page({
       time: _.gt(dateField.firstDay).and(_.lt(dateField.lastDay))
     }).get()
       .then(res => {
-        // console.log(res);
+        // console.log(res.data);
         that.setData({targets:res.data});
         //统计各类树的总量
         that.getStatistics(res.data);

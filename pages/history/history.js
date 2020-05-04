@@ -10,25 +10,32 @@ Page({
        //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
        informContent:"",
        targetList:Array , //用于存放获得的目标
-      // treeId :Array,
        targetTouchStart:0,
        month:0,
        year:0,
        lastMonth:0,
        nextMonth:0,
-       labelList:['全部','阅读',"运动","早起","学习","早睡","完美计划","旅行","变漂亮",],
+       labelList:["全部","运动","工作","剁手","游戏","早睡","拒绝高热量","提高颜值","自律",],
        current_index:0,
        NULL_targetList:2,//0表示该数组为空，1表示该数组不为空
        treeList:[],//用于存放树的地址
+
   },
   backHome: function () {
-    wx.navigateBack({});
+    wx.navigateTo({
+      url: '../index/index',
+    })
   },
   choose:function(e){
+    this.setData({
+      loadContent:'加载中...',
+        treeList:[],
+        targetList:[]
+      })
+    let that=this
     let index = e.currentTarget.id;
     const db = wx.cloud.database();
     const _ = db.command;
-    console.log("currentTarget:",e.currentTarget)
     let nowLabel=this.data.labelList[index]
     console.log(nowLabel)
     let dateField = this.getDateField(this.data.year, this.data.month);
@@ -39,30 +46,44 @@ Page({
         time: _.gt(dateField.firstDay).and(_.lt(dateField.lastDay)) , //大于第一天小于最后一天
       })
       .get()
-        .then(res => {
-          for(let i=0;i<res.data.length;i++){
+      .then(res => {
+        for(let i=0;i<res.data.length;i++){
             res.data[i].time=res.data[i].time.toLocaleDateString()
-            console.log(res.data[i].treeId)
-          }
-           var that=this
-           console.log("targetList",res.data)
-           that.setData({targetList:res.data});
-           console.log(this.data.month,"月")
-           console.log("数组长：",this.data.targetList.length)
-           if(this.data.targetList.length==0){this.setData({NULL_targetList:0});}
-               else{this.setData({NULL_targetList:1});}
-        })
-        .catch(err => {
-          console.log(err);
-        })
-        this.setData({current_index:index});
-        let length=this.data.targetList.length
-        for(let j=0;j<length;j++){
-          db.collection()
+         }
+         this.setData({targetList:res.data});
+         console.log("targetList",res.data)
+         console.log(this.data.month,"月")
+         if(this.data.targetList.length==0){this.setData({NULL_targetList:0});}
+              else{this.setData({NULL_targetList:1});}
+          
+         let length=this.data.targetList.length;
+          for(let j=0;j<length;j++){
+            db.collection('tool')
+            .where({
+              _id:_.eq(this.data.targetList[j].treeId)
+             })
+            .get()
+            .then(res => {
+            this.data.treeList.push(res.data[0])
+            this.setData({
+            loadContent:'',
+            treeList: this.data.treeList
+            })
+          })
         }
-        console.log("length",length)
-        return
-    }
+        this.setData({loadContent:''})
+      })
+      .catch(err => {
+        console.log(err);
+       })
+      
+      this.setData({current_index:index});
+      return;
+      }
+     this.setData({
+       treeList:[],
+       targetList:[]
+     })
      db.collection('target')
      .orderBy('time', 'desc')
      .where({
@@ -73,22 +94,37 @@ Page({
         for(let i=0;i<res.data.length;i++){
           res.data[i].time=res.data[i].time.toLocaleDateString()
         }
-         var that=this
          console.log("targetList",res.data)
          that.setData({targetList:res.data});
          console.log(this.data.month,"月")
          console.log("长度：",this.data.targetList.length)
          if(this.data.targetList.length==0){this.setData({NULL_targetList:0});}
          else{this.setData({NULL_targetList:1});}
+         let length=this.data.targetList.length;
+         for(let j=0;j<length;j++){
+           db.collection('tool')
+           .where({
+             _id:_.eq(this.data.targetList[j].treeId)
+            })
+           .get()
+           .then(res => {
+           this.data.treeList.push(res.data[0])
+           this.setData({
+           loadContent:'',
+           treeList: this.data.treeList
+           })
+         })
+       }
+       this.setData({
+         loadContent:'',
+       })
       })
       .catch(err => {
         console.log(err);
       })
 
-      
       this.setData({loadContent:''})
       this.setData({current_index:index});
-      
     if(index == this.data.current_index)return;
   },
   targetTouchStart:function(e){
@@ -116,6 +152,9 @@ Page({
     } else {
       this.setData({ year: this.data.year - 1, month: 12 });
     }
+    this.setData({
+      treeList:[]
+    })
     this.getTargets();
   },
 
@@ -127,6 +166,9 @@ Page({
     }else{
       this.setData({ year: year+1, month:1});
     }
+    this.setData({
+      treeList:[]
+    })
     this.getTargets();
   },
 
@@ -143,6 +185,9 @@ Page({
 
   getTargets:function(){
     console.log(this.data.year)
+    this.setData({
+      loadContent:'加载中...'
+    })
     let dateField = this.getDateField(this.data.year, this.data.month);
     const db = wx.cloud.database();
     const _ = db.command;
@@ -162,11 +207,32 @@ Page({
          console.log(this.data.month,"月")
          if(this.data.targetList.length==0){this.setData({NULL_targetList:0});}
          else{this.setData({NULL_targetList:1});}
+         let length=this.data.targetList.length;
+         for(let j=0;j<length;j++){
+           db.collection('tool')
+           .where({
+             _id:_.eq(this.data.targetList[j].treeId)
+            })
+           .get()
+           .then(res => {
+           this.data.treeList.push(res.data[0])
+           this.setData({
+           loadContent:'',
+           treeList: this.data.treeList
+           })
+         })
+       }
+       this.setData({
+         loadContent:''
+       })
       })
       .catch(err => {
         console.log(err);
       })
+    
+     
       this.setData({loadContent:''})
+
   },
 
 

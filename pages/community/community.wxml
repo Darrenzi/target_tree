@@ -1,33 +1,75 @@
 <!--pages/community/community.wxml-->
+<!-- 投币界面 -->
+<input-coin hidden="{{!inputCoinFlag}}" inputCoinMsg="{{inputCoinMsg}}"></input-coin>
+<loading content="{{loadContent}}"></loading>
+
 <view class="top">
    <view class="top_title">社区</view>
   <view class="back" bindtap="backHome">《</view>
 </view>
 
-<scroll-view class="main" scroll-y bindscrolltolower="getMoreTargets">
+<!-- 推荐 -->
+<scroll-view class="main" scroll-y bindscrolltolower="getMoreTargets" hidden="{{currentShow != '推荐'}}" lower-threshold="0">
   <view class="target" wx:for="{{targets}}" wx:key="target" bindtap="targetDetail" id="{{index}}">
     <view class="targetTop">
       <image class="avatar" src="{{item.userList[0].avatarUrl}}" catchtap="goToUserForest" id="{{index}}"></image>
       <view class="targetUn" catchtap="goToUserForest" id="{{index}}">{{item.userList[0].un}}</view>
-      <view class="watchButton" catchtap>投币</view>
+      <view class="watchButton" catchtap="showInputCoin" id="{{index}}">投币</view>
     </view>
 
     <view class="targetTitle">{{item.title}}</view>
     <view class="targetContent">{{item.content}}</view>
-    <view class="targetMoney">挑战金币：<text>300</text></view>
+    <view class="targetMoney">挑战金币：<text>{{item.coin}}</text></view>
 
     <view class="targetBottom">
-      <view id="{{index}}" catchtap="like">点赞 {{item.like.length}}</view>
-      <view id="{{index}}">评论 {{item.comment}}</view>
-      <view id="{{index}}">围观 {{item.supervisor.length}}</view>
+      <view class="targetBotoomOption">
+        <image id="{{index}}" class="targetBotoomIcon" src="../messages/images/xihuan.png" catchtap="like"></image>
+          {{item.like.length}}
+      </view>
+      <view class="targetBotoomOption">
+        <image id="{{index}}" class="targetBotoomIcon" src="../messages/images/xiaoxi.png"></image>
+        {{item.comment}}
+      </view>
+      <view class="targetBotoomOption">
+        <image id="{{index}}" class="targetBotoomIcon" src="../../images/liulan.png"></image>
+        {{item.supervisor.length}}
+      </view>
     </view>
   </view>
   <view class="loading" hidden="{{!loadFlag}}">加载中...</view>
-  <!-- 空白占位 -->
-  <view style="height:120rpx;"></view>
+</scroll-view>
+
+<!-- 围观 -->
+<scroll-view class="main" scroll-y hidden="{{currentShow != '围观'}}">
+  <view class="target" wx:for="{{watchTargets}}" wx:key="watchTarget" bindtap="targetDetail" id="{{index}}">
+    <view class="targetTop">
+      <image class="avatar" src="{{item.userList[0].avatarUrl}}" catchtap="goToUserForest" id="{{index}}"></image>
+      <view class="targetUn" catchtap="goToUserForest" id="{{index}}">{{item.userList[0].un}}</view>
+      <view class="watchButton" catchtap="showInputCoin" id="{{index}}">投币</view>
+    </view>
+
+    <view class="targetTitle">{{item.title}}</view>
+    <view class="targetContent">{{item.content}}</view>
+    <view class="targetMoney">挑战金币：<text>{{item.coin}}</text></view>
+
+    <view class="targetBottom">
+      <view class="targetBotoomOption">
+        <image id="{{index}}" class="targetBotoomIcon" src="../messages/images/xihuan.png" catchtap="like"></image>
+          {{item.like.length}}
+      </view>
+      <view class="targetBotoomOption">
+        <image id="{{index}}" class="targetBotoomIcon" src="../messages/images/xiaoxi.png"></image>
+        {{item.comment}}
+      </view>
+      <view class="targetBotoomOption">
+        <image id="{{index}}" class="targetBotoomIcon" src="../../images/liulan.png"></image>
+        {{item.supervisor.length}}
+      </view>
+    </view>
+  </view>
 </scroll-view>
 
 <view class="bottom">
-  <view class="bottomOption bottomOptionChoose">推荐</view>
-  <view class="bottomOption">朋友</view>
+  <view class="bottomOption {{currentShow=='推荐'?'bottomOptionChoose':''}}" bindtap="choose" data-target="推荐">推荐</view>
+  <view class="bottomOption {{currentShow=='围观'?'bottomOptionChoose':''}}" bindtap="choose" data-target="围观">围观</view>
 </view>

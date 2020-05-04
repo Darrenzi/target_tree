@@ -37,6 +37,8 @@ page{
 .main{
   position: relative;
   top:200rpx;
+  margin-bottom:120rpx;
+  height: 90%;
 }
 .target{
   margin-top:30rpx;
@@ -82,7 +84,7 @@ page{
   font-size: 35rpx;
   margin-left: 30rpx;
   margin-bottom: 20rpx;
-  width: 90%;
+  width: 100%;
 }
 .targetContent{
   color:gray;
@@ -116,10 +118,20 @@ page{
   height: 80rpx;
   width: 100%;
 }
+.targetBotoomOption{
+  display: flex;
+  align-items: center;
+}
+.targetBotoomIcon{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
 .loading{
   /* 加载文字的框架 */
   text-align: center;
   width: 100%;
+  margin-bottom:40rpx;
 }
 
 .bottom{

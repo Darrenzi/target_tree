@@ -1,0 +1,43 @@
+<!--components/target/target.wxml-->
+<view class="contianer">
+  <!-- {{current_index==index?'targetChoose':''}} -->
+  <view id="{{index}}" class="target2" wx:for="{{targets}}" bindtap="choose" wx:key="targets">
+    <view class="target2Container">
+      <view class="targetLabel">{{item.label}}</view>
+      <view>{{item.progress}}%</view>
+    </view>
+  </view>
+  <view class="target2" wx:if="{{targets.length<3}}">
+    <view class="target2Container">
+      <view class="add_icon">
+        <view>创建</view>
+        <view>目标</view>
+      </view>
+    </view>
+  </view>
+  <view class="target2" wx:if="{{targets.length<2}}">
+    <view class="target2Container">
+      <view class="add_icon">
+        <view>创建</view>
+        <view>目标</view>
+      </view>
+    </view>
+  </view>
+  <view class="target2" wx:if="{{targets.length<1}}">
+    <view class="target2Container">
+      <view class="add_icon">
+        <view>创建</view>
+        <view>目标</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="add" bindtap="add">
+  <view class="target2Container">
+    <view class="add_icon">
+      <view>创建</view>
+      <view>目标</view>
+    </view>
+  </view>
+</view>
+

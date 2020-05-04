@@ -20,14 +20,19 @@
    <view class="treeclass"></view>
    <view class="line"></view>
    <view class="fontclass">目标:</view>
-    <!-- <image class="tree" src="{{currentTarget.tree}}" style="height:{{treeHeight}}; ></image>
-   <image src="image/solid.png"   class="imageSolid"></image> -->
+  <image src="image/solid.png"   class="imageSolid"></image>
    <view class="labelclass">{{item.label}}</view>
   </view>
 </view>
 </block>
  <view class="whitespace_1"></view>
 </view>
+
+<view wx:for="{{treeList}}">
+<image src="{{item.main}}" class="tree"></image>
+</view>
+
+
 
 <view class="contianer">
   <view id="{{index}}" class="label {{current_index==index?'labelChoose':''}}" wx:for="{{labelList}}" bindtap="choose" wx:key="targets">

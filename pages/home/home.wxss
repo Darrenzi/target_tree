@@ -1,0 +1,308 @@
+/* pages/home/home.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  color:gray;
+  background: rgb(252, 252, 252)
+}
+.coverBackground{
+  /* 左侧选择栏出现时的背景 */
+  position: fixed;
+  z-index: 7;
+  width: 100%;
+  height: 100%;
+  background: rgba(56, 56, 56, 0.63);
+}
+/* 左侧选则框 */
+.left{
+  position: fixed;
+  z-index:7;
+  top:0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(61, 61, 61, 0.74); */
+  transition: all 0.5s;
+}
+.left_show{
+  /* 左侧选择框展示时的样式 */
+  left:0;
+}
+.left_container{
+  position: relative;
+  height: 100%;
+  width: 60%;
+  background: rgb(46, 117, 82);
+  color:white;
+  transition: all 0.5s;
+}
+.left_top{
+  height: 220rpx;
+  width: 100%;
+  background: rgb(129, 199, 129);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.user_icon{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 100%;
+  border:5rpx solid white;
+}
+.user_nu{
+  color:rgb(63, 63, 63);
+  margin-left: -30rpx;
+  font-size: 40rpx;
+  max-width: 50%;
+  word-break: break-all;/*允许在单词内换行*/
+  text-align: left;
+  line-height: 45rpx;
+  text-overflow: -o-ellipsis-lastline;/*css3中webkit内核提供的一个方法类似ellipsis*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;/*自适应盒子*/
+  -webkit-line-clamp: 1;/*此处为1行,如果是两行就改成2*/
+  -webkit-box-orient: vertical;
+}
+.left_option{
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  font-size: 35rpx;
+}
+.left_option:active{
+  background: rgb(36, 109, 67);
+}
+.left_option_icon{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+  margin-left: 100rpx;
+}
+
+/* 左上角按钮 */
+.options{
+  position: absolute;
+  top: 80rpx;
+  left: 40rpx;
+  width: 100rpx;
+  height: 70rpx;
+}
+.line{
+  width: 65rpx;
+  height: 10rpx;
+  background: white;
+  border:2rpx solid gainsboro;
+  border-radius: 10rpx;
+  margin-top:5rpx;
+}
+
+.top{
+  width: 100%;
+  height: 10%;
+  min-height: 150rpx;
+}
+.main{
+  position: relative;
+  width: 100%;
+  height: 72%;
+  min-height: 1000rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top:50rpx;
+}
+.containerOfProgress{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.mainProgress{
+  /* 主界面的进度条 */
+  width: 55%;
+  margin-top:10rpx;
+  margin-bottom: 100rpx;
+  border-radius: 20rpx;
+  box-shadow: 5rpx 5rpx 5rpx 5rpx rgb(196, 196, 196);
+}
+.progress_icon{
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  margin-top:-20rpx;
+  margin-left: -228rpx;
+}
+.tree_container{
+  width: 430rpx;
+  height: 430rpx;
+  border-radius: 100%;
+  border:10rpx solid rgb(20, 134, 20);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.tree{
+  position: absolute;
+  bottom:170rpx;
+  width:200rpx;
+  height: 200rpx;
+  z-index: 1;
+  opacity: 1;
+}
+.solid{
+  position: absolute;
+  margin-top:50rpx;
+  height: 280rpx;
+  width: 280rpx;
+}
+.target_title{
+  width: 70%;
+  min-height: 150rpx;
+  height: 18%;
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-top:30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button{
+  position: relative;
+  margin-top:30rpx;
+  background: rgb(223, 169, 22);
+  box-shadow: 0rpx 15rpx 5rpx 12rpx rgb(165, 130, 35);
+  width: 300rpx;
+  height: 100rpx;
+  display: flex;
+  font-size: 40rpx;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  border-radius: 40rpx;  
+}
+.button:active{
+  top:5rpx;
+  box-shadow: none;
+}
+.bottom{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  top:60rpx;
+}
+
+.chooseTreeContainer{
+  background: rgba(59, 59, 59, 0.863);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top:0;
+  z-index: 7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chooseTree{
+  background:white;
+  width: 85%;
+  height: 38%;
+  border-radius: 20rpx;
+  position: relative;
+  overflow-y: scroll;
+}
+.chooseTreeTop{
+  width: 85%;
+  height: 150rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  background: rgb(98, 175, 149);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40rpx;
+  position: fixed;
+  color:white;
+}
+.treeOptions{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top:150rpx;
+}
+.treeOption{
+  height: 180rpx;
+  width: 180rpx;
+  margin-top:25rpx;
+  margin-left: 20rpx;
+  margin-right: 10rpx;
+}
+
+.targetDetailContainer{
+  background: rgba(59, 59, 59, 0.863);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top:0;
+  z-index: 7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.targetDetail{
+  width: 90%;
+  max-height: 70%;
+  background: white;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.targetDatailTop{
+  width: 100%;
+  height: 120rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  background: rgb(98, 175, 149);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40rpx;
+  color:white;
+}
+.targetDetailMain{
+  height: 80%;
+  width: 90%;
+  color:gray;
+  margin-top:30rpx;
+  font-size: 35rpx;
+  margin-bottom: 50rpx;
+}
+.targetDetailRow{
+  display: flex;
+  width: 100%;
+  margin-bottom: 10rpx;
+}
+.targetDetailLabel{
+  /* 详情界面固定文字的样式 */
+  font-weight: bold;
+  color:rgb(98, 175, 149);
+  width: 120rxp;
+}
+.targetDetailContent{
+  /* 详情界面具体内容的样式 */
+  max-height: 450rpx;
+  width: 100%;
+  overflow-y:scroll;
+}
+.targetDetailProgress{
+  width: 80%;
+}

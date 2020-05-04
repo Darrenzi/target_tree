@@ -7,13 +7,18 @@ Page({
   data: {
     zoom:1,
     currentShow:"森林",
-    user:null,
+    //目标拥有者
+    targetUser:null,
     //用户目标
     targets:[],
     loadContent:"加载中...",
     informContent:"",
     //当前显示详情的目标的索引
     currentShowDetail:-1,
+    //当前用户是否与目标用户已为好友的标识符
+    judgeFriendFlag:false,
+    //当前目标用户是否为用户自己
+    himself:false,
 
     //当前月份
     month: 0,
@@ -116,7 +121,7 @@ Page({
   getTargets: function () {
     this.setData({loadContent:"获取树苗中..."})
     //获取用户某个月的目标
-    let userId = this.data.user.userId;
+    let userId = this.data.targetUser.userId;
     // console.log(userId);
     let that = this;
     let month = this.data.month;
@@ -178,6 +183,85 @@ Page({
       this.setData({ currentShowDetail: -1 });
     }
   },
+
+  targetDetail: function (e) {
+    //跳转到某个目标的详情界面
+    let index = e.currentTarget.id;
+    let target = this.data.targets[index];
+    let un = this.data.targetUser.un;
+    let avatarUrl = this.data.targetUser.avatarUrl;
+    let title = target.title;
+    let content = target.content;
+    let targetId = target._id;
+    let like = target.like.toString();
+    let _id = target._id;
+    let supervisor = target.supervisor.toString();
+    let progress = target.progress;
+    wx.navigateTo({
+      url: '../targetDetail/targetDetail?un=' + un + "&avatarUrl=" + avatarUrl +
+        "&title=" + title + "&content=" + content + "&targetId=" + targetId + "&like=" + like + "&_id=" + _id + "&supervisor=" + supervisor + "&progress="+progress,
+    })
+  },
+
+  judgeFriend:function(){
+    //判断用户是否已经为好友
+    let targetUser = this.data.targetUser;
+    let user = getApp().globalData.user;
+    if(targetUser.userId == user._openid){
+      this.setData({judgeFriendFlag:true, himself:true});
+      return;
+    }
+    let that = this;
+    const db = wx.cloud.database();
+    const _ = db.command;
+    console.log(targetUser.userId, user._openid);
+    db.collection('friend').where(_.or([
+      {
+        _openid: _.eq(targetUser.userId),
+        sender: _.eq(user._openid)
+      },
+      {
+        _openid: _.eq(user._openid),
+        sender: _.eq(targetUser.userId)
+      },
+    ]))
+    .get()
+    .then(res => {
+      console.log(res);
+      if (res.data.length != 0) {
+        //说明已互为好友
+        this.setData({ judgeFriendFlag: true });
+      }
+    })
+  },
+
+  addFriend: function () {
+    // this.setData({loadContent:"正在进入对方朋友圈..."})
+    const db = wx.cloud.database();
+    const _ = db.command;
+    let that = this;
+    let targetUser = this.data.targetUser;
+    let user = getApp().globalData.user;
+    db.collection('friendRequest').add({
+      data: {
+        //接受好友请求的用户
+        receiver: that.data.targetUser.userId,
+        //接受请求的用户是否已经处理，-1已拒绝，0未处理，1已同意
+        status: 0,
+        time: new Date()
+      }
+    })
+      .then(res => {
+        console.log(res);
+        that.setData({
+          informContent: "已为您发出好友请求",
+          loadContent: ""
+        })
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -185,8 +269,9 @@ Page({
     console.log(options);
     //获取当前的时间
     let date = new Date();
-    this.setData({ year: date.getFullYear(), month: date.getMonth() + 1, user: options});
+    this.setData({ year: date.getFullYear(), month: date.getMonth() + 1, targetUser: options});
     this.getTargets();
+    this.judgeFriend();
   },
 
   /**

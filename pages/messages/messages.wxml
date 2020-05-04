@@ -1,28 +1,37 @@
 <!--pages/messages/messages.wxml-->
 <view class="top">
-  <view class="top_title">消息</view>
-  <view class="back" bindtap="backHome">《</view>
+  <view class="top_container">
+    <view class="top_title">消息</view>
+    <view class="back" bindtap="backHome">《</view>
+  </view>
+
+  <view class="option_container">
+    <view class="option" bindtap="choose" data-target="like">
+      <view class="newMsgNum" hidden="{{newLikeNum==0}}">{{newLikeNum}}</view>
+      <image class="option_icon" src='images/xihuan.png'></image>
+      <view class="{{current_show=='like'?'option_choose':''}}">点赞</view>
+    </view>
+    <view class="option" bindtap="choose" data-target="comment">
+      <image class="option_icon" src="images/xiaoxi.png"></image>
+      <view class="newMsgNum" hidden="{{newCommentNum==0}}">{{newCommentNum}}</view>
+      <view class="{{current_show=='comment'?'option_choose':''}}">评论</view>
+    </view>
+    <view class="option" bindtap="choose" data-target="newFriend">
+      <image class="option_icon" src="../../images/wode.png"></image>
+      <view class="newMsgNum" hidden="{{newFriendNum==0}}">{{newFriendNum}}</view>
+      <view class="{{current_show=='newFriend'?'option_choose':''}}">新朋友</view>
+    </view>
+    <view class="option" bindtap="choose" data-target="tip">
+      <image class="option_icon" src="images/tixing.png"></image>
+      <view class="newMsgNum" hidden="{{newTipNum==0}}">{{newTipNum}}</view>
+      <view class="{{current_show=='tip'?'option_choose':''}}">提醒</view>
+    </view>
+  </view>
 </view>
 
-<view class="option_container">
-  <view class="option" bindtap="choose" data-target="like">
-    <view class="newMsgNum" hidden="{{newLikeNum==0}}">{{newLikeNum}}</view>
-    <image class="option_icon" src='images/xihuan.png'></image>
-    <view class="{{current_show=='like'?'option_choose':''}}">点赞</view>
-  </view>
-  <view class="option" bindtap="choose" data-target="comment">
-    <image class="option_icon" src="images/xiaoxi.png"></image>
-    <view class="newMsgNum" hidden="{{newCommentNum==0}}">{{newCommentNum}}</view>
-    <view class="{{current_show=='comment'?'option_choose':''}}">评论</view>
-  </view>
-  <view class="option" bindtap="choose" data-target="watch">
-    <image class="option_icon" src="images/tixing.png"></image>
-    <view class="{{current_show=='watch'?'option_choose':''}}">围观</view>
-  </view>
-</view>
 
 <view class="main">
-  <view class="noMessage" wx:if="{{current_show=='like'&&like.length==0 ||current_show=='comment'&&comments.length==0 || current_show=='watch'}}">
+  <view class="noMessage" wx:if="{{current_show=='like'&&like.length==0 ||current_show=='comment'&&comments.length==0 || current_show=='newFriend'&&newFriend.length==0 || current_show == 'tip'&&tip.length==0}}">
     <image class="noMessageIcon" src="images/tree2.png"></image>
     暂无消息
   </view>
@@ -46,5 +55,25 @@
       <view class="content">赞了你的树</view>
     </view>
      <view class="messageOperation {{(current_index==index&&current_show=='like')?'msgOperationChoose':''}}" catchtouchend="deleteMsg">删除</view>
+  </view>
+
+  <!-- 展示好友申请 -->
+  <view class="message" hidden="{{current_show!='newFriend'}}" wx:for="{{newFriend}}" wx:key="friend">
+    <image class="avatar" src="{{item.userList[0].avatarUrl}}"></image>
+    <view class="overview">
+      <view class="date">{{item.time}}</view>
+      <view class="ellipsis username">{{item.userList[0].un}}</view>
+      <view class="content">申请添成为您的好友</view>
+      <view class="addFriendButton {{item.status==0?'':'addFriendAccept'}}" id="{{index}}" bindtap="addFriend">{{item.status==0?'同意':'已同意'}}</view>
+    </view>
+  </view>
+
+  <!-- 展示系统消息 -->
+  <view class="systemMessage" hidden="{{current_show!='tip'}}" wx:for="{{tip}}" wx:key="tip" bindtouchend="operateMessage" id="{{index}}">
+    <view class="overview">
+      <view class="ellipsis username" style="margin-top:20rpx;">{{item.title}}</view>
+      <view class="content">{{item.content}}</view>
+    </view>
+      <view class="messageOperation {{(current_index==index&&current_show=='tip')?'msgOperationChoose':''}}" catchtouchend="deleteMsg">删除</view>
   </view>
 </view>

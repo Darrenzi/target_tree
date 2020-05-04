@@ -5,8 +5,17 @@ page{
   font-size: 35rpx;
 }
 .top{
+  display: flex;
+  position: fixed;
+  top:80rpx;
   width: 100%;
-  padding-top:80rpx;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  z-index: 1;
+}
+.top_container{
+  width: 100%;
   color:white;
   display: flex;
   justify-content: center;
@@ -29,11 +38,11 @@ page{
   font-size: 40rpx;
   color:rgb(57, 163, 103);
 }
-
 .option_container{
-  margin-top:50rpx;
+  width: 100%;
   height: 180rpx;
   display: flex;
+  margin-top:50rpx;
   justify-content: space-evenly;
   border-bottom:20rpx solid rgba(127, 212, 164, 0.884);
 }
@@ -45,7 +54,8 @@ page{
   background: rgb(57, 163, 103);
   color:white;
   height: 50rpx;
-  width: 100rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
   border-radius: 20rpx;
 }
 .newMsgNum{
@@ -69,6 +79,8 @@ page{
 }
 
 .main{
+  position: relative;
+  top:420rpx;
   width: 100%;
   overflow-y: scroll;
 }
@@ -90,6 +102,18 @@ page{
   justify-content: space-evenly;
   width: 100%;
   height: 180rpx;
+  border-bottom:5rpx solid gainsboro;
+  position: relative;
+  overflow: hidden;
+  transition: left 0.8s, width 0.5s;
+}
+.systemMessage{
+  /* 系统消息 */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  min-height: 180rpx;
   border-bottom:5rpx solid gainsboro;
   position: relative;
   overflow: hidden;
@@ -134,5 +158,19 @@ page{
   /* animation: operation_in 0.5s; */
 }
 .msgOperationChoose{
+  height: 100%;
   right: 0;
+}
+.addFriendButton{
+  position: absolute;
+  right: 50rpx;
+  bottom: 10rpx;
+  background: rgb(57, 163, 103);
+  color:white;
+  padding: 15rpx;
+}
+.addFriendAccept
+{
+  background: white;
+  color:rgb(57, 163, 103);
 }

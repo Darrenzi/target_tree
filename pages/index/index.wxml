@@ -14,14 +14,30 @@
       </view>
     </view>
     
-    <view class="left_option" bindtap="reachTo" data-target="我的森林">我的森林</view>
-    <view class="left_option" bindtap="reachTo" data-target="我的好友">我的好友</view>
-    <view class="left_option" bindtap="reachTo" data-target="时间历程">时间历程</view>
-    <view class="left_option" bindtap="reachTo" data-target="最新消息">最新消息</view>
-    <view class="left_option" bindtap="reachTo" data-target="社区">社区</view>
-    <view class="left_option" bindtap="reachTo" data-target="商城">商城</view>
-    <view class="left_option" bindtap="reachTo" data-target="设置">设置</view>
-    <view class="left_option" bindtap="reachTo" data-target="更多">更多</view>
+    <view class="left_option" bindtap="reachTo" data-target="我的森林">
+      <image class="left_option_icon" src="images/我的森林.png"></image>我的森林
+    </view>
+    <view class="left_option" bindtap="reachTo" data-target="我的好友">
+      <image class="left_option_icon" src="images/小伙伴们.png"></image>我的好友
+    </view>
+    <view class="left_option" bindtap="reachTo" data-target="时间历程">
+      <image class="left_option_icon" src="images/历程.png"></image>时间历程
+    </view>
+    <view class="left_option" bindtap="reachTo" data-target="最新消息">
+      <image class="left_option_icon" src="images/最新消息.png"></image>最新消息
+    </view>
+    <view class="left_option" bindtap="reachTo" data-target="社区">
+      <image class="left_option_icon" src="images/社区.png"></image>社区
+    </view>
+    <view class="left_option" bindtap="reachTo" data-target="商城">
+      <image class="left_option_icon" src="images/商店.png"></image>商城
+    </view>
+    <view class="left_option" bindtap="reachTo" data-target="设置">
+      <image class="left_option_icon" src="images/设置.png"></image>设置
+    </view>
+    <view class="left_option" bindtap="reachTo" data-target="更多">
+      <image class="left_option_icon" src="images/商店.png"></image>更多
+    </view>
   </view>
 </view>
 

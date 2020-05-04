@@ -1,0 +1,77 @@
+/* components/input-coin/input-coin.wxss */
+.InsertCoinBackground{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(56, 56, 56, 0.63);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35rpx;
+  top:0;
+  left: 0;
+}
+.InsertCoinContainer{
+  width: 80%;
+  border-radius: 20rpx;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.InsertCoinTop{
+  background: rgb(57, 163, 103);
+  width: 100%;
+  height: 100rpx;
+  color:white;
+  font-size: 40rpx;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 20rpx;
+  border-top-left-radius: 20rpx;
+}
+.InsertCoinInputContainer{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top:100rpx;
+  margin-bottom: 50rpx;
+  color:gray;
+}
+.InsertCoinInput{
+  width: 50%;
+  border-bottom:2rpx solid gainsboro;
+  margin-left: 10rpx;
+}
+.InsertCoinInputIcon{
+  width: 80rpx;
+  height: 80rpx;
+  position: relative;
+  top:-25rpx;
+}
+.InsertCoinButtonContainer{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.InsertCoinButton{
+  width: 150rpx;
+  height: 70rpx;
+  background: rgb(57, 163, 103);
+  border-radius: 20rpx;
+  color:white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 6rpx 6rpx 5rpx 5rpx rgb(27, 83, 51);
+  margin-top:20rpx;
+  margin-bottom: 40rpx;
+}
+.InsertCoinButton:active{
+  box-shadow: none;
+  margin-top:6rpx;
+  margin-left: 6rpx;
+}

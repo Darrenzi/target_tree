@@ -66,7 +66,7 @@ page{
   text-align: center;
 }
 .dateOption{
-  font-size: 50rpx;
+  font-size: 35rpx;
 }
 .forest{
   margin-top:30%;
@@ -80,27 +80,23 @@ page{
 }
 .statistics{
   background: rgb(57, 163, 103);
-  width: 130rpx;
-  height: 60rpx;
-  border-radius: 30rpx;
+  width: 180rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
   color:white;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
   position: relative;
-  left: 60%;
+  left: 70%;
   margin-bottom: 20rpx;
 }
 .statistics image{
-  width: 45rpx;
-  height: 45rpx;
+  width: 60rpx;
+  height: 60rpx;
   background: white;
   border-radius: 100%;
-}
-.statistics_label{
-  position: absolute;
-  right: -120rpx;
-  color:rgb(57, 163, 103);
+  margin-left: 10rpx;
+  margin-right: 30rpx;
 }
 
 .target_container{
@@ -138,6 +134,11 @@ page{
   font-size: 35rpx;
   color:rgb(88, 88, 88);
 }
+.watchMore{
+  position: absolute;
+  right: 30rpx;
+  bottom:20rpx;
+}
 .targetContent{
   height: 300rpx;
   margin-left: 20rpx;
@@ -152,7 +153,7 @@ page{
   flex-direction: column;
   margin-top:10rpx;
   align-items: flex-start;
-  height: 480rpx;
+  height: 550rpx;
 }
 .targetShowDetailLabel{
   width: 120rpx;

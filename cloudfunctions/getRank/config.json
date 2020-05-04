@@ -1,0 +1,9 @@
+{
+  "triggers": [
+    {
+      "name": "getRank",
+      "type": "timer",
+      "config": "0 0 18 * * * *"
+    }
+  ]
+}

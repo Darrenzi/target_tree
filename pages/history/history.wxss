@@ -15,9 +15,10 @@ page{
   font-weight: bolder;
   font-size: 40rpx;
   color:rgb(57, 163, 103);
+  top: 185rpx;
 }
 .whitespace{
-  height: 180rpx;
+  height: 200rpx;
   position: relative;
 }
 .intoFriends{
@@ -36,16 +37,20 @@ page{
   align-items: center;
   position: fixed;
   background-color: white;
-  z-index: 100;
+  z-index: 20;
 }
 .top_title{
-  width: 35%;
-  padding:20rpx;
+  width: 60%;
+  padding: 10rpx;
   text-align: center;
-  background: rgb(57, 163, 103);
+  background: rgb(57,163,103);
   font-size: 40rpx;
   border-radius: 20rpx;
-  margin-bottom: 20rpx;
+  position: relative;
+  margin-top: 95rpx;
+  margin-left: 8rpx;
+  color: white;
+
 }
 
 .dayItem{
@@ -166,19 +171,19 @@ page{
 .imageSolid{
   position: absolute;
   z-index: 19;
-  top: 110rpx;
-  left: 126rpx;
-  width: 310rpx;
+  top: 108rpx;
+  left: 119.9rpx;
+  width: 314rpx;
   height: 180rpx;
 }
 .treeclass{
   height: 260rpx;
   width: 260rpx;
   border-radius: 260rpx;
-  background-color: rgb(37, 198, 219);
+  background-color: rgb(252, 252, 252);
   position: absolute;
   margin-top: 15rpx;
-  margin-left: 151rpx;
+  margin-left: 146rpx;
   align-items: center;
   justify-content: center;
   display: block;
@@ -188,17 +193,17 @@ page{
   height: 280rpx;
   width: 280rpx;
   border-radius: 300rpx;
-  background-color: rgb(199, 36, 85);
+  background-color: rgb(128, 110, 38);
   position: absolute;
-  margin-top: 7rpx;
-  margin-left: 142rpx;
+  margin-top: 6rpx;
+  margin-left: 136rpx;
   align-items: center;
   justify-content: center;
   display: block;
   z-index: 9;
 }
 .fontclass{
-  color: rgba(219, 119, 37, 0.541);
+  color: black;
   position: absolute;
   margin-top: 310rpx;
   margin-left: 30rpx;
@@ -208,7 +213,7 @@ page{
   font-size: 40rpx;
 }
 .labelclass{
-  color: rgba(219, 119, 37, 0.541);
+  color: black;
   position: absolute;
   margin-top: 310rpx;
   margin-left: 120rpx;
@@ -227,17 +232,17 @@ page{
   bottom: 0%;
   overflow-x: scroll;
   font-size: 35rpx;
-  color:white;
-  background:  linear-gradient(170deg, rgb(138, 156, 58), rgb(37, 179, 29))
+  color:rgb(17, 16, 16);
+  background:  white
 }
 /* 下面的目标框的样式 */
 .label{   
   min-width: 160rpx;
   height: 185rpx;
-  border: 4rpx solid rgba(185, 226, 109, 0.829);
+  border: 4rpx solid rgba(48, 130, 64, 0.829);
   border-radius: 10rpx;
   text-align: center;
-  margin-left: 12rpx;
+  margin-left: 10rpx;
   margin-right: 12rpx;
   margin-bottom: 15rpx;
   display: flex;
@@ -258,7 +263,7 @@ page{
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background: linear-gradient(60deg, rgba(219, 224, 187, 0.96), rgb(193, 224, 81));
+  background: linear-gradient(60deg, rgba(32, 138, 50, 0.96), rgb(193, 224, 81));
   color: rgba(61, 73, 71, 0.829);
 }
 .whitespace_1{
@@ -291,13 +296,14 @@ page{
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100rpx;
 }
 .NULL_TEXT{
   height: 100rpx;
-  width: 500rpx;
+  width: 600rpx;
   position: fixed;
-  top: 700rpx;
-  left: 140rpx;
+  top: 720rpx;
+  left: 85rpx;
   color: black;
   align-items: center;
   justify-content: center;
@@ -307,4 +313,17 @@ page{
 .noImage{
   height: 200rpx;
   width: 200rpx;
+}
+.tree{
+  height: 160rpx;
+  width: 200rpx;
+  border-radius: 260rpx;
+  position: relative;
+  top: 380rpx;
+  left: 285rpx;
+  margin-bottom:400rpx;
+  align-items: center;
+  justify-content: center;
+  display: block;
+  z-index: -1;
 }

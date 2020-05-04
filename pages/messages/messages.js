@@ -11,14 +11,22 @@ Page({
     comments:[],
     //点赞列表
     like:[],
-    //当前展示的内容,like:点赞， comment:评论, wacth:"围观"
+    //好友申请列表
+    newFriend:[],
+    //系统提醒列表
+    tip:[],
+    //当前展示的内容,like:点赞， comment:评论, wacth:围观, tip:提醒
     current_show:"like",
     //当前选中的数据在其对应的数组的索引值
     current_index:-1,
     //新的评论数
     newCommentNum:0,
     //新的点赞数
-    newLikeNum:0
+    newLikeNum:0,
+    //新的朋友数
+    newFriendNum:0,
+    //新的系统提示
+    newTipNum:0
   },
 
   backHome: function () {
@@ -30,8 +38,8 @@ Page({
     // console.log(e);
     //数据在数组中的索引
     let index = e.currentTarget.id;
+    console.log(index);
     if(this.data.current_index != -1){
-      //点击同一个则关闭删除按钮
       this.setData({ current_index: -1 });
     }
     else{
@@ -43,19 +51,35 @@ Page({
     //删除某条消息
     let index = this.data.current_index;
     let currentData = [];
+    let that = this;
+    let id = "";//记录的id
     switch(this.data.current_show){
       case 'comment':{
         currentData = this.data.comments;
+        id = currentData[index]._id;
+        let comments = this.data.comments;
+        comments.splice(index, 1);
+        this.setData({comments: comments});
         break;
       }
       case 'like':{
         currentData = this.data.like;
+        id = currentData[index]._id;
+        let like = this.data.like;
+        like.splice(index, 1);
+        this.setData({ like: like});
+        break;
+      }
+      case 'tip': {
+        currentData = this.data.tip;
+        id = currentData[index]._id;
+        let tip = this.data.tip;
+        tip.splice(index, 1);
+        this.setData({ tip: tip });
         break;
       }
     }
-    console.log(currentData[index]);
-    let id = currentData[index]._id;
-    let that = this;
+    this.setData({ current_index: -1 });
     wx.cloud.callFunction({
       name:"deleteMsg",
       data:{
@@ -64,7 +88,6 @@ Page({
       },
       success:function(res){
         console.log(res);
-        that.setData({current_index:-1});
       },
       fail:function(err){
         console.log(err);
@@ -76,6 +99,7 @@ Page({
     const db = wx.cloud.database();
     const _ = db.command;
     let that = this;
+    let user = getApp().globalData.user;
     db.collection('target').field({_id:true}).get().then(res=>{
       console.log(res);
       //用户所有的任务id
@@ -83,12 +107,6 @@ Page({
       for(let i=0;i<res.data.length;i++){
         user_targets.push(res.data[i]._id);
       }
-
-      that.setData({user_targets:user_targets});
-      //开启评论监听
-      that.watchComment();
-      //开启点赞监听
-      that.watchLike();
       
       //获取评论
       wx.cloud.callFunction({
@@ -99,11 +117,16 @@ Page({
         success:function(res){
           console.log(res);
           let data = res.result.list;
-          //获取日期
+          let newCommentNum = 0;
           for(let i=0;i<data.length;i++){
-            data[i].time = data[i].time.substr(5,5);
+            let timeStamp = Number(new Date(data[i].time));
+            data[i].time = data[i].time.substr(5, 5);
+            data[i].timeStamp = timeStamp;
+            if (timeStamp > that.data.lastDate.commentTimeStamp) {
+              newCommentNum += 1;
+            }
           }
-          that.setData({comments:data});
+          that.setData({comments:data, newCommentNum:newCommentNum});
         },
         fail:function(err){
           console.log(err);
@@ -120,138 +143,76 @@ Page({
           let data = res.result.list;
           console.log(data);
           //获取日期
-          for (let i = 0; i < data.length; i++) {
+          let newLikeNum = 0;//新的点赞信息数
+          for(let i = 0; i < data.length; i++) {
+            let timeStamp = Number(new Date(data[i].time));
             data[i].time = data[i].time.substr(5, 5);
+            data[i].timeStamp = timeStamp;
+            if(timeStamp > that.data.lastDate.likeTimeStamp){
+              newLikeNum += 1;
+            }
           }
-          that.setData({ like: data });
+          that.setData({ like: data, newLikeNum:newLikeNum});
         },
         fail:function(err){
           console.log(err);
         }
       })
-    })
-  },
 
-  //监听点赞
-  watchLike: async function () {
-    let that = this;
-    const db = wx.cloud.database();
-    const _ = db.command;
-    const watcher = await db.collection('like')
-      .field({
-        target_id: true
+      //获取好友申请
+      wx.cloud.callFunction({
+        name:"getFriendRequest",
+        data:{
+          receiver:user._openid
+        },
+        success:function(res){
+          console.log(res);
+          let data = res.result.list;
+          let newFriendNum = 0;
+          for (let i = 0; i < data.length; i++) {
+            let timeStamp = Number(new Date(data[i].time));
+            data[i].time = data[i].time.substr(5, 5);
+            data[i].timeStamp = timeStamp;
+            if (timeStamp > that.data.lastDate.newFriendTimeStamp) {
+              newFriendNum += 1;
+            }
+          }
+          that.setData({ newFriend: data, newFriendNum: newFriendNum });
+        },
+        fail:function(err){
+          console.log(err)
+        }
       })
+
+      //获取系统提醒
+      db.collection('tip')
       .where({
-        target_id: _.in(that.data.user_targets)
+        receiver: _.eq(user._openid)
       })
-      .watch({
-        onChange: function (snapshot) {
-          console.log('docs\'s changed events', snapshot.docChanges)
-          console.log('query result snapshot after the event', snapshot.docs)
-          console.log('is init data', snapshot.type === 'init')
-          if (snapshot.type != 'init') {
-            let docChanges = snapshot.docChanges;
-            // //发生改变的任务Id
-            // let targetsId = [];
-            // for (let i = 0; i < docChanges.length; i++) {
-            //   targetsId.push(docChanges[i].doc.target_id);
-            // }
-            //待优化，现在为一个改变，全部重新拉取
-            wx.cloud.callFunction({
-              name: "getLike",
-              data: {
-                user_targets: that.data.user_targets
-              },
-              success: function (res) {
-                let data = res.result.list;
-                console.log(res);
-                //获取日期
-                for (let i = 0; i < data.length; i++) {
-                  data[i].time = data[i].time.substr(5, 5);
-                }
-                that.setData({ like: data });
-                if (that.data.current_show != "like") {
-                  //如果当前不是展示点赞，则在右上角显示新评论的提示
-                  let newLikeNum = that.data.newLikeNum;
-                  that.setData({ newLikeNum: newLikeNum + docChanges.length });
-                }
-              },
-              fail: function (err) {
-                console.log(err);
-              }
-            })
+      .orderBy("time", "desc")
+      .get()
+      .then(res=>{
+        console.log(res);
+        let data = res.data;
+        let newTipNum = 0;
+        for (let i = 0; i < data.length; i++) {
+          let timeStamp = Number(data[i].time);
+          data[i].timeStamp = timeStamp;
+          if (timeStamp > that.data.lastDate.tipTimeStamp) {
+            newTipNum += 1;
           }
-        },
-        onError: function (err) {
-          console.error('the watch closed because of error', err)
         }
+        that.setData({ tip:data, newTipNum: newTipNum });
       })
-    console.log(watcher);
-    this.setData({ likeWatcher: watcher });
-  },
-
-
-  //监听评论
-  watchComment:async function(){
-    let that = this;
-    const db = wx.cloud.database();
-    const _ = db.command;
-    const watcher =  await db.collection('comment')
-    .field({
-      target_id:true
+      .catch(err=>{
+        console.log(err);
+      })
     })
-    .where({
-      target_id:_.in(that.data.user_targets)
-      })
-      .watch({
-        onChange: function (snapshot) {
-          console.log('docs\'s changed events', snapshot.docChanges)
-          console.log('query result snapshot after the event', snapshot.docs)
-          console.log('is init data', snapshot.type === 'init')
-          if (snapshot.type != 'init'){
-            let docChanges = snapshot.docChanges;
-            // let targetsId = [];
-            // for (let i = 0; i < docChanges.length; i++) {
-            //   targetsId.push(docChanges[i].doc.target_id);
-            // }
-            //待优化，现在为一个改变，全部重新拉取
-            wx.cloud.callFunction({
-              name: "getComment",
-              data: {
-                user_targets: that.data.user_targets
-              },
-              success: function (res) {
-                let data = res.result.list;
-                //获取日期
-                for (let i = 0; i < data.length; i++) {
-                  data[i].time = data[i].time.substr(5, 5);
-                }
-                that.setData({ comments: data});
-                if(that.data.current_show != "comment"){
-                  //如果当前不是展示评论，则在右上角显示新评论的提示
-                  let newCommentNum = that.data.newCommentNum;
-                  that.setData({ newCommentNum: newCommentNum+docChanges.length});
-                }
-              },
-              fail: function (err) {
-                console.log(err);
-              }
-            })
-          }
-        },
-        onError: function (err) {
-          console.error('the watch closed because of error', err)
-        }
-      })
-    // console.log(watcher);
-    this.setData({commentWatcher:watcher});
   },
 
   choose:function(e){
-    // 选择显示点赞或评论
-    // console.log(e);
+    // 选择显示点赞，评论，新盆友，提醒
     let target = e.currentTarget.dataset.target;
-    // console.log(target);
     this.setData({ current_show: target, current_index:-1});
     //清空新消息的提示
     switch(target){
@@ -267,8 +228,63 @@ Page({
         }
         break;
       }
+      case 'newFriend':{
+        if (this.data.newFriendNum != 0) {
+          this.setData({ newFriendNum: 0 });
+        }
+        break;
+      }
+      case 'tip':{
+        if (this.data.newTipNum != 0) {
+          this.setData({ newTipNum: 0 });
+        }
+        break;
+      }
     }
   },
+
+  addFriend:function(e){
+    //同意添加好友
+    let index = e.currentTarget.id;
+    let status = this.data.newFriend[index].status;
+    if(status != 0)return;
+
+    //修改数组中的数据
+    let newFriend = this.data.newFriend;
+    newFriend[index].status = 1;
+    this.setData({newFriend:newFriend});
+
+    let sender = this.data.newFriend[index]._openid;
+    let recordId = this.data.newFriend[index]._id;
+    console.log(sender);
+    const db = wx.cloud.database();
+    db.collection('friend').add({
+      data: {
+        sender: sender
+      }
+    })
+    .then(res=>{
+      console.log(res);
+      //更新好友申请的状态
+      wx.cloud.callFunction({
+        name:"friendRequestStatus",
+        data:{
+          id:recordId,
+          status:1
+        },
+        success:function(res){
+          console.log(res);
+        },
+        fail:function(err){
+          console.log(err);
+        }
+      })
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+  },
+
   /*
    * 生命周期函数--监听页面加载
    */
@@ -287,7 +303,35 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    try {
+      //获取存储在本地的最后拉取消息的时间戳
+      let lastDateString = wx.getStorageSync('lastDate');
+      console.log(lastDateString);
+      if (lastDateString != "") {
+        //本地有记录
+        let lastDate = JSON.parse(lastDateString);
+        console.log(lastDate);
+        this.setData({lastDate:lastDate});
+      }
+      else{
+         //本地无记录
+        let lastDate = {
+          likeTimeStamp:0,
+          commentTimeStamp:0,
+          newFriendTimeStamp:0,
+          tipTimeStamp:0
+        };
+        this.setData({ lastDate: lastDate });
+      }
+    } catch (e) {
+      let lastDate = {
+        likeTimeStamp: 0,
+        commentTimeStamp: 0,
+        newFriendTimeStamp: 0,
+        tipTimeStamp: 0
+      };
+      this.setData({ lastDate: lastDate });
+    }
   },
 
   /**
@@ -301,8 +345,34 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    this.data.commentWatcher.close();
-    this.data.likeWatcher.close()
+    //储存最后拉取消息的时间
+    let likeTimeStamp = 0;
+    if(this.data.like.length>0){
+     likeTimeStamp = this.data.like[0].timeStamp;
+    }
+    let commentTimeStamp = 0;
+    if (this.data.comments.length > 0) {
+      commentTimeStamp = this.data.comments[0].timeStamp;
+    }
+    let newFriendTimeStamp = 0
+    if (this.data.newFriend.length > 0) {
+      newFriendTimeStamp = this.data.newFriend[0].timeStamp;
+    }
+    let tipTimeStamp = 0
+    if (this.data.tip.length > 0) {
+      tipTimeStamp = this.data.tip[0].timeStamp;
+    }
+    let lastDate = {
+      likeTimeStamp: likeTimeStamp,
+      commentTimeStamp:commentTimeStamp,
+      newFriendTimeStamp: newFriendTimeStamp,
+      tipTimeStamp: tipTimeStamp
+    };
+    let lastDateString = JSON.stringify(lastDate);
+    wx.setStorage({
+      key: 'lastDate',
+      data: lastDateString,
+    });
   },
 
   /**
