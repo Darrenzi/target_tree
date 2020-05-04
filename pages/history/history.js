@@ -86,6 +86,11 @@ Page({
              })
             .get()
             .then(res => {
+            console.log("res",res)
+            let treeid = "targetList[" + j +"].src"  
+            this.setData({
+               [treeid]:res.data[0].path,
+            })
             this.data.treeList.push(res.data[0])
             this.setData({
             loadContent:'',
@@ -130,6 +135,10 @@ Page({
             })
            .get()
            .then(res => {
+            let treeid = "targetList[" + j +"].src"  
+            this.setData({
+               [treeid]:res.data[0].path,
+            })
            this.data.treeList.push(res.data[0])
            this.setData({
            loadContent:'',
@@ -242,6 +251,10 @@ Page({
               })
              .get()
              .then(res => {
+              let treeid = "targetList[" + j +"].src"  
+              this.setData({
+                 [treeid]:res.data[0].path,
+              })
              this.data.treeList.push(res.data[0])
              this.setData({
              loadContent:'',

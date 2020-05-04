@@ -25,6 +25,7 @@
    <image src="image/24.png" class="imagepig"></image>
    <image src="image/solid.png"   class="imageSolid"></image>
    <view class="labelclass">{{item.title}}</view>
+    <image src="{{item.src[0]}}" class="tree"></image>
   </view>
  </view>
 </block>
@@ -33,7 +34,7 @@
 </view>
 
  <view wx:for="{{treeList}}" class="treeContainer">
-      <image src="{{item.main}}" class="tree"></image>
+
     </view>
 
 

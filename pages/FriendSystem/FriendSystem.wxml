@@ -11,7 +11,7 @@
     <text class="font_class">我的排名</text>
   </view>
   <view class="single_page" bindtap="ChangeShowStatus_3">
-    <text class="font_class">本周排名</text>
+    <text class="font_class">本月排名</text>
   </view>
 </view>
 
@@ -36,13 +36,13 @@
     <block wx:for="{{sortfriend}}" wx:for-index="friendidx" wx:key="key">
       <view class="Friend">
         <view class="line"></view>
-        <view class="date">{{date}}</view>
+        <view class="date">{{item.date}}</view>
         <image class="iconpage" src="{{item.avatarUrl}}"></image>
         <text class="coinstyle">{{item.coin}}</text>
-        <text class="ranking">1</text>
+        <text class="ranking">{{item.rank}}</text>
         <text class="rank_font">\t名\t次</text>
         <text class="textCoin">金币数</text>
-        <text class="sort_font">夺得4月30日排行冠军</text>
+        <text class="sort_font">夺得{{item.date}}排行冠军</text>
       </view>
     </block>
   </view>
@@ -51,7 +51,7 @@
 <view class="hide{{change_3?'':'show'}}" bindtap="ChangeShowStatus_3">
   <view class="Halfcircle_2"></view>
   <view>
-    <block wx:for="{{sortfriend}}" wx:for-index="userIdx" wx:key="key">
+    <block wx:for="{{tempSort}}" wx:for-index="userIdx" wx:key="key">
       <view class="Friend"><view class="line"></view>
       <image class="portrait" src="{{item.avatarUrl}}"></image>
       <text class="fontstyle">:{{item.un}}</text>
@@ -61,3 +61,7 @@
     </block>
   </view>
 </view>
+
+  <view class="Null_targetList" wx:if="{{NULL_targetList==0}}">
+    <text class="NULL_TEXT">欸啊~当天还没有排名呢</text>
+    </view>

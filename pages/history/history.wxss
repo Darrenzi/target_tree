@@ -326,7 +326,7 @@ page{
   color: rgba(61, 73, 71, 0.829);
 }
 .whitespace_1{
-  height: 220rpx;
+  height: 190rpx;
   width: 100%;
   position: relative;
   bottom: 0%;
@@ -342,10 +342,11 @@ page{
   
 }
 .allpage{
-  height: 85%;
+  height:100% ;
   width: 100%;
   top:0rpx;
   position: absolute;
+
 }
 
 .Null_targetList{
@@ -371,13 +372,13 @@ page{
   height: 160rpx;
   width: 200rpx;
   position: absolute;
-  top: 330rpx;
-  left: 275rpx;
+  top: 30rpx;
+  left: 165rpx;
   margin-bottom:110rpx; 
   align-items: center;
   justify-content: center;
   display: block;
-  z-index: -1;
+  z-index: 20;
 }
 
 .treeContainer{
