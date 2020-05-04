@@ -13,27 +13,30 @@ Page({
        targetTouchStart:0,
        month:0,
        year:0,
+       now_day:0,
+       now_month:0,
+       now_year:0,
        lastMonth:0,
        nextMonth:0,
        labelList:[
          {label:"全部",
-         imagesrc:'image/1.png'},
+         imagesrc:'/pages/createTarget/images/1.png'},
          {label:"运动",
-         imagesrc:'image/1.png'},
+         imagesrc:'/pages/createTarget/images/1.png'},
          {label:"工作",
-         imagesrc:'image/2.png'},
+         imagesrc:'/pages/createTarget/images/2.png'},
          {label:"剁手",
-         imagesrc:'image/3.png'},
+         imagesrc:'/pages/createTarget/images/3.png'},
          {label:"游戏",
-         imagesrc:'image/4.png'},
+         imagesrc:'/pages/createTarget/images/4.png'},
          {label:"早睡",
-         imagesrc:'image/5.png'},
+         imagesrc:'/pages/createTarget/images/5.png'},
          {label:"减肥",
-         imagesrc:'image/6.png'},
+         imagesrc:'/pages/createTarget/images/6.png'},
          {label:"学习",
-         imagesrc:'image/7.png'},
+         imagesrc:'/pages/createTarget/images/7.png'},
          {label:"自律",
-         imagesrc:'image/8.png'},],
+          imagesrc:'/pages/createTarget/images/8.png'},],
        nowLabel:'',//表示现在所点击的标签
        current_index:0,
        NULL_targetList:2,//0表示该数组为空，1表示该数组不为空
@@ -41,9 +44,8 @@ Page({
 
   },
   backHome: function () {
-    wx.navigateTo({
-      url: '../index/index',
-    })
+  wx.navigateBack({
+  })
   },
   choose:function(e){
     this.setData({
@@ -69,10 +71,24 @@ Page({
       })
       .get()
       .then(res => {
+        this.setData({targetList:res.data});
         for(let i=0;i<res.data.length;i++){
-            res.data[i].time=res.data[i].time.toLocaleDateString()
+            
+            this.setData({
+              now_day:res.data[i].time.getDate(),
+              now_month:res.data[i].time.getMonth()+1,
+              now_year:res.data[i].time.getFullYear()
+            })
+            let curday="targetList[" + i +"].day"  
+            let curmonth="targetList[" + i +"].month" 
+            let curyear="targetList[" + i +"].year" 
+            this.setData({
+              [curday]:this.data.now_day,
+              [curmonth]:this.data.now_month,
+              [curyear]:this.data.now_year
+            })
          }
-         this.setData({targetList:res.data});
+         
          console.log("targetList",res.data)
          console.log(this.data.month,"月")
          if(this.data.targetList.length==0){
@@ -118,11 +134,23 @@ Page({
       label:_.eq(nowLabel)
     }).get()
       .then(res => {
+        this.setData({targetList:res.data});
         for(let i=0;i<res.data.length;i++){
-          res.data[i].time=res.data[i].time.toLocaleDateString()
-        }
-         console.log("targetList",res.data)
-         that.setData({targetList:res.data});
+            
+            this.setData({
+              now_day:res.data[i].time.getDate(),
+              now_month:res.data[i].time.getMonth()+1,
+              now_year:res.data[i].time.getFullYear()
+            })
+            let curday="targetList[" + i +"].day"  
+            let curmonth="targetList[" + i +"].month" 
+            let curyear="targetList[" + i +"].year" 
+            this.setData({
+              [curday]:this.data.now_day,
+              [curmonth]:this.data.now_month,
+              [curyear]:this.data.now_year
+            })
+         }
          console.log(this.data.month,"月")
          console.log("长度：",this.data.targetList.length)
          if(this.data.targetList.length==0){this.setData({NULL_targetList:0});}
@@ -231,12 +259,23 @@ Page({
         time: _.gt(dateField.firstDay).and(_.lt(dateField.lastDay)),  //大于第一天小于最后一天
       }).get()
         .then(res => {
-          for(let i=0;i<res.data.length;i++){
-            res.data[i].time=res.data[i].time.toLocaleDateString()
-          }
-           var that=this
-           console.log("targetList",res.data)
-           that.setData({targetList:res.data});
+          this.setData({targetList:res.data});
+        for(let i=0;i<res.data.length;i++){
+            
+            this.setData({
+              now_day:res.data[i].time.getDate(),
+              now_month:res.data[i].time.getMonth()+1,
+              now_year:res.data[i].time.getFullYear()
+            })
+            let curday="targetList[" + i +"].day"  
+            let curmonth="targetList[" + i +"].month" 
+            let curyear="targetList[" + i +"].year" 
+            this.setData({
+              [curday]:this.data.now_day,
+              [curmonth]:this.data.now_month,
+              [curyear]:this.data.now_year
+            })
+         }
            console.log(this.data.month,"月")
            if(this.data.targetList.length==0){
              this.setData({NULL_targetList:0}); 
@@ -279,12 +318,23 @@ Page({
       label:_.eq(this.data.nowLabel)
     }).get()
       .then(res => {
+        this.setData({targetList:res.data});
         for(let i=0;i<res.data.length;i++){
-          res.data[i].time=res.data[i].time.toLocaleDateString()
-        }
-         var that=this
-         console.log("targetList",res.data)
-         that.setData({targetList:res.data});
+            
+            this.setData({
+              now_day:res.data[i].time.getDate(),
+              now_month:res.data[i].time.getMonth()+1,
+              now_year:res.data[i].time.getFullYear()
+            })
+            let curday="targetList[" + i +"].day"  
+            let curmonth="targetList[" + i +"].month" 
+            let curyear="targetList[" + i +"].year" 
+            this.setData({
+              [curday]:this.data.now_day,
+              [curmonth]:this.data.now_month,
+              [curyear]:this.data.now_year
+            })
+         }
          console.log(this.data.month,"月")
          if(this.data.targetList.length==0){this.setData({NULL_targetList:0});}
          else{this.setData({NULL_targetList:1});}

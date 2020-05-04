@@ -36,13 +36,13 @@
     <block wx:for="{{sortfriend}}" wx:for-index="friendidx" wx:key="key">
       <view class="Friend">
         <view class="line"></view>
-        <view class="date">{{item.date}}</view>
+        <view class="date">{{item.month}}月{{item.day}}日</view>
         <image class="iconpage" src="{{item.avatarUrl}}"></image>
         <text class="coinstyle">{{item.coin}}</text>
         <text class="ranking">{{item.rank}}</text>
         <text class="rank_font">\t名\t次</text>
         <text class="textCoin">金币数</text>
-        <text class="sort_font">夺得{{item.date}}排行冠军</text>
+        <text class="sort_font">夺得{{item.month}}月{{item.day}}日排行冠军</text>
       </view>
     </block>
   </view>
@@ -55,13 +55,11 @@
       <view class="Friend"><view class="line"></view>
       <image class="portrait" src="{{item.avatarUrl}}"></image>
       <text class="fontstyle">:{{item.un}}</text>
-      <image src="image/coin.png" class="coin" ></image>
+      <image src="/images/coin.png" class="coin" ></image>
       <text class="coinnumber">{{item.coin}}</text>
       </view>
     </block>
   </view>
 </view>
 
-  <view class="Null_targetList" wx:if="{{NULL_targetList==0}}">
-    <text class="NULL_TEXT">欸啊~当天还没有排名呢</text>
-    </view>
+ 

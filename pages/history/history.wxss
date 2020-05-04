@@ -229,8 +229,8 @@ page{
   position: absolute;
   z-index: 19;
   top: 109rpx;
-  left: 97.9rpx;
-  width: 315rpx;
+  left: 85.9rpx;
+  width: 305rpx;
   height: 180rpx;
 }
 .treeclass{
@@ -370,13 +370,14 @@ page{
 .noImage{
   height: 200rpx;
   width: 200rpx;
+  margin-left: 68rpx;
 }
 .tree{
   height: 160rpx;
   width: 200rpx;
   position: absolute;
-  top: 30rpx;
-  left: 165rpx;
+  top: 40rpx;
+  left: 140rpx;
   margin-bottom:110rpx; 
   align-items: center;
   justify-content: center;

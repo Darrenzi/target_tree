@@ -1,15 +1,19 @@
 {
   "cloud": true,
   "pages": [
+     
+    "pages/history/history",
+    "pages/index/index",
+    "pages/createTarget/createTarget",
     "pages/home/home",
     "pages/mall/mall",
-    "pages/index/index",
+  
     "pages/friendDetail/friendDetail",
     "pages/forest/forest",
     "pages/community/community",
-    "pages/targetDetail/targetDetail",
-    "pages/createTarget/createTarget",
-    "pages/history/history"
+    "pages/targetDetail/targetDetail"
+
+
   ],
   "window": {
     "backgroundTextStyle": "light",

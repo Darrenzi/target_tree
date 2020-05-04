@@ -196,12 +196,12 @@ z-index: 9;
 .coinstyle{
   position: relative;
   top: 25rpx;
-  left: 220rpx;
+  left: 170rpx;
   font-size: 70rpx;
 }
 .coin{
   position: relative;
-  top: 200rpx;
+  top: 190rpx;
   left: 50rpx;
   width: 100rpx;
   height: 100rpx;
@@ -218,7 +218,7 @@ z-index: 9;
 .textCoin{
   position: relative;
   top: 60rpx;
-  left: 135rpx;
+  left: 80rpx;
   font-size: 30rpx;
 }
 .ranking{

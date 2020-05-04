@@ -196,7 +196,7 @@ justify-content: center;
 }
 .inputtitle{
   position: absolute;
-  top: 1100rpx;
+  top: 330rpx;
   left: 15%;
   color: rgba(46, 52, 53, 0.6);
   height: 5%;
@@ -208,12 +208,12 @@ justify-content: center;
   background-color: rgba(150, 150, 134, 0.96);
   width: 70%;
   position: absolute;
-  top: 1170rpx;
+  top: 400rpx;
   left: 100rpx;
 }
 .inputLabel{
   position: absolute;
- top: 1200rpx;
+  top: 650rpx;
   left: 15%;
   color: rgba(46, 52, 53, 0.6);
   height: 5%;
@@ -225,7 +225,7 @@ justify-content: center;
   background-color: rgba(150, 150, 134, 0.96);
   width: 70%;
   position: absolute;
-  top: 1270rpx;
+  top: 720rpx;
   left: 100rpx;
 }
 .stTarget{
@@ -852,4 +852,18 @@ justify-content: center;
 .allconfig{
   position: absolute;
   top: 100rpx;
+}
+.texttitle{
+  font-size: 55rpx;
+  height: 100rpx;
+  width: 200rpx;
+  margin-left: 75rpx;
+  margin-top: 80rpx;
+}
+.textcontent{
+  font-size: 55rpx;
+  height: 100rpx;
+  width: 200rpx;
+  margin-left: 75rpx;
+  margin-top: 180rpx;
 }

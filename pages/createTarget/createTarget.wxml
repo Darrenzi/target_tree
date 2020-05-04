@@ -8,7 +8,7 @@
   <view class="title">设置挑战金额</view>
   <view class="back" bindtap="backToindex">《</view>
   <view>
-  <image src="images/9.png" class="coin"></image>
+  <image src="/images/coin.png" class="coin"></image>
   <input placeholder="请输入挑战金额" class="inputMoney" type="text" maxlength="4" value="{{number}}"    bindinput="getInput"></input>
   <view class="yuan">元</view>
 </view>
@@ -86,11 +86,13 @@
  <view class="back" bindtap="changeShowstatus_4">《</view>
 <view class="label">目标内容</view>
 </view>
+<view class="texttitle">标题</view>
 <view class="centertitle">
  <input placeholder="输入目标标题" class="inputtitle" type="text" maxlength="24"  bindinput="getInputtitle"  ></input>
  <view class="inputtitleLine"></view>
 </view>
 <view class="centerlabel">
+<view class="textcontent">内容</view>
  <input placeholder="输入目标内容" class="inputLabel" type="text" maxlength="1000"  bindinput="getInputTarget"  ></input>
  <view class="inputLine"></view>
 </view>
@@ -100,7 +102,7 @@
 <!-- 自定义标签 -->
 <view class="hide{{custom?'':'show'}}">
 <view class="cusstom_top">
- <view class="customtoptitle"> 目标内容</view>
+ <view class="customtoptitle">目标内容</view>
  <view class="back" bindtap="back">《</view>
 </view>
 <view class="customLine"></view>

@@ -15,6 +15,8 @@ Page({
      loadContent:'',
      informContent:'',
      today:'5月1日',
+     now_month:0,
+     now_day:0,
      now_rank:0,//表示用户今天的排位
      now_coin:0,//表示用户今天的金币
      myself:'',//用户自己的openid
@@ -26,9 +28,7 @@ Page({
      
     },
   backHome: function () {
-   wx.navigateTo({
-     url: '../index/index',
-   })
+    wx.navigateBack({})
   },
 
   ChangeShowStatus:function(){
@@ -90,7 +90,10 @@ Page({
         mydbrank:[]
       })
       this.setData({
-        today:this.data.temp_5[m].time.toLocaleDateString()
+        today:this.data.temp_5[m].time.toLocaleDateString(),
+        now_day:this.data.temp_5[m].time.getDate(),
+        now_month:this.data.temp_5[m].time.getMonth()+1
+        
       })
       console.log("today",this.data.today)
       console.log("dbrank",this.data.dbrank);
@@ -142,11 +145,15 @@ Page({
       let avatarUrl= "sortfriend[" + m +"].avatarUrl"  
       let date="sortfriend[" + m +"].date"  
       let rank="sortfriend[" + m +"].rank"  
+      let day="sortfriend[" + m +"].day"  
+      let month="sortfriend[" + m +"].month"  
       this.setData({
            [coin]:this.data.now_coin,
            [avatarUrl]:mydbrank[0].avatarUrl,
            [date]:this.data.today,
-           [rank]:this.data.now_rank
+           [rank]:this.data.now_rank,
+           [day]:this.data.now_day,
+           [month]:this.data.now_month
         })
       this.setData({
         sortfriend:this.data.sortfriend
