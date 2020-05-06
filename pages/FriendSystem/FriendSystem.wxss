@@ -120,7 +120,7 @@
   position: relative;
   margin-left: 30%;
   z-index: 9;
-  top: 7%;
+  top: 8%;
   margin-top: 21%;
   margin-bottom: 5%;
 }
@@ -187,7 +187,7 @@ z-index: 9;
   position: absolute;
   top:-70rpx;
   border-radius: 20rpx;
-  left: 140rpx;
+  left: 135rpx;
   font-size: 25rpx;
   display: flex;
   align-items: center;
@@ -250,4 +250,87 @@ z-index: 9;
   position: relative;
   top: 210rpx;
   left: 40rpx;
+}
+.findfriend{
+  height: 80rpx;
+  width: 80rpx;
+  position: absolute;
+  top: 89rpx;
+  margin-left: 486rpx;
+  font-size: 50rpx;
+}
+.circle{
+  height: 60rpx;
+  width: 60rpx;
+  position: absolute;
+  top: 90rpx;
+  border:5rpx solid rgba(61, 61, 61, 0.74);
+  margin-left: 470rpx;
+  font-size: 50rpx;
+  border-radius: 80rpx;
+  background-color: rgba(255, 255, 255, 0.508);
+}
+.modal-box{
+  position:fixed;
+  background:rgba(0,0,0,0.4);
+  top:0rpx;
+  width:100%;
+  height:100%;
+  z-index: 99;
+}
+.modal-content{
+  position: fixed;
+  background-color: rgb(255, 255, 255);
+  height: 300rpx;
+  width: 450rpx;
+  margin-left: 150rpx;
+  margin-top: 500rpx;
+  border-radius: 40rpx;
+}
+.return{
+  position: fixed;
+  top: 730rpx;
+  height: 50rpx;
+  width: 100rpx;
+  border-radius: 20rpx;
+  left: 220rpx;
+  font-size: 35rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(41, 118, 44, 0.94);
+  color: aliceblue;
+}
+.submit{
+  position: fixed;
+  top: 730rpx;
+  height: 50rpx;
+  width: 100rpx;
+  border-radius: 20rpx;
+  left: 425rpx;
+  font-size: 35rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(41, 118, 44, 0.94);
+  color: aliceblue;
+}
+.inputFriendID{
+  position: fixed;
+  top: 600rpx;
+  height: 50rpx;
+  width: 400rpx;
+  border-radius: 20rpx;
+  left: 180rpx;
+  font-size: 30rpx;
+}
+.friendIdline{
+  position: fixed;
+  top: 650rpx;
+  height: 5rpx;
+  width: 380rpx;
+  border-radius: 20rpx;
+  left: 184rpx;
+  font-size: 35rpx;
+  background-color: rgb(0, 0, 0);
 }

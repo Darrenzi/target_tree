@@ -25,12 +25,78 @@ Page({
      dbrank:[],//用于存放从数据库中拉取下来的排名
      mydbrank:[],//用于存放当天的自己以及好友的各种东西
      sortfriend:[],//用于存放好友排名中从数据库拉下来的数据的数组
-     
+     hidden:true,
+     friendName:'',//用户输入的好友名字
+     friendId:'',//用户输入的好友的openid
+     inputValue:'',
     },
   backHome: function () {
     wx.navigateBack({})
   },
 
+  findfriend:function(){
+    this.setData({
+      hidden:false
+    })
+  },
+  return:function(){
+    this.setData({
+      hidden:true
+    })
+  },
+  getInput:function(e){
+    this.setData({
+      friendName:e.detail.value
+    })
+  },
+  add:function(){
+    this.setData({
+      friendName:this.data.friendName
+    })
+    wx.cloud.callFunction({
+      name: 'sendFriendRequest',
+      data: {
+        friendName:this.data.friendName
+      },})
+      .then(res => {
+        console.log(res)
+        console.log(res.result.data.length) 
+        if(res.result.data.length==0){
+          this.setData({
+            informContent:'没有找到这个人呢!',
+            hidden:true,
+            inputValue:''
+          })
+          return
+        }
+        this.setData({
+           friendId:res.result.data[0]._openid,
+           hidden:true
+        })
+        const db=wx.cloud.database()
+        db.collection('friendRequest')
+        .add({
+         data: {
+         //接受好友请求的用户
+           receiver:this.data.friendId,
+          //接受请求的用户是否已经处理，-1已拒绝，0未处理，1已同意
+          status:0,
+          time: new Date()
+          }
+       })
+       .then(res=>{
+         console.log("添加成功",res)
+         this.setData({
+          informContent:'成功向对方发送请求'
+         })
+       })
+
+      })
+      .catch(err=>{
+        console.log("查找失败")
+        console.log(err);
+      })
+  },
   ChangeShowStatus:function(){
     var that = this
     that.setData({
@@ -267,34 +333,7 @@ Page({
         console.log("N_length",length)
         console.log("navlist",this.data.navList)
       })
-      
-      // wx.cloud.callFunction({
-      //   name: 'friend_1',})
-      //   .then(res=>{
-      //     console.log("friend",res)
-      //     this.setData({
-      //       temp:res.result.list
-      //     })
-      //     let L_length=this.data.temp.length;
-      //     console.log("L_length",L_length)
-      //   })
-       wx.cloud.callFunction({
-         name:'stranger',
-       }).then(res=>{
-        console.log(res)
-        this.setData({
-        userList:res.result.data
-      })
-     })
 
-    // wx.cloud.callFunction({
-    //   name:'sort',
-    // }).then(res=>{
-    //   console.log(res)
-    //   this.setData({
-    //     sortfriend:res.result.data
-    //   })
-    // })
     this.init()
     this.setData({
       loadContent:''

@@ -19,6 +19,19 @@
 <view class="hide{{change_1?'':'show'}}" bindtap="ChangeShowStatus">
   <view class="Halfcircle"></view>
   <view>
+    <view bindtap="findfriend">
+      <view class="findfriend">+</view>
+      <view class="circle"></view>
+    </view>
+    <view class="modal-box" hidden="{{hidden}}">
+     <view class="modal-content">
+       <input placeholder="输入好友ID" class="inputFriendID" type="text" maxlength="20"
+         bindinput="getInput" value="{{inputValue}}" ></input>
+         <view class="friendIdline"></view>
+       <view class="return" bindtap="return">返回</view>
+       <view class="submit" bindtap="add">添加</view>
+     </view>
+    </view>
     <view wx:for="{{navList}}" wx:for-index="idx" wx:if="{{idx!='_id'}}" wx:key="key">
       <view class="FriendList" bindtap="getFriendDetail" id="{{idx}}">
          <view class="FriendLine"></view>

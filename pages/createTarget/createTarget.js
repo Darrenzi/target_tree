@@ -458,7 +458,7 @@ Page({
         setCoin: e.detail.value
       })
   },
-  getInputTarget:function(e){
+  getInput:function(e){
       this.setData({
         content: e.detail.value
       })
