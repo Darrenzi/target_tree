@@ -349,11 +349,16 @@ Page({
   back:function(){
     wx.navigateBack({});
   },
-
+  backToCoin:function(){
+     this.setData({
+      change:false,
+      change_1:true,
+     })
+  },
   changeShowstatus:function(){   //
    var setCoin=this.data.setCoin
    var that=this
-    if(setCoin<0){
+    if(setCoin<=0){
       that.setData({informContent:"请输入正确的数额"});
       return
      }
@@ -363,6 +368,7 @@ Page({
       change_1:(!that.data.change_1)
      })
   },
+
   changeShowstatus_1:function(){
     var nowdate = util.formatTime(new Date())
     this.setData({

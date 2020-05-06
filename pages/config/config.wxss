@@ -268,31 +268,27 @@
 }
 
 textarea {
-  width: 425rpx;
+  width: 365rpx;
   padding: 25rpx 0;  
   position: absolute;
   background-color: rgb(255, 255, 255);
-  margin-left: -87rpx;
+  margin-left: 10rpx;
 }
 
 .textarea-wrp {
   top: 550rpx;
   background-color: rgb(255, 255, 255);
-  margin-left: 100rpx;
+  margin-left: 50rpx;
   position: fixed;
- 
 }
-.border{
+.border_area{
+  width: 380rpx;
+  height: 350rpx;
+  border: 3rpx solid rgb(0, 0, 0);
   position: fixed;
-  top: 550rpx;
-  height: 10rpx;
-  width: 400rpx;
-  border-radius: 20rpx;
-  left: 160rpx;
-  border: 3rpx solid rgba(41, 118, 44, 0.94);
-  color: aliceblue;
- 
+  left: 185rpx;
 }
+
 .page-section{
   width: 100%;
   margin-bottom: 60rpx;
@@ -323,16 +319,16 @@ textarea {
 }
 .modal-content{
   position: fixed;
-  background-color: rgb(145, 197, 149);
-  height: 300rpx;
+  background-color: rgb(255, 255, 255);
+  height: 550rpx;
   width: 450rpx;
   margin-left: 150rpx;
-  margin-top: 500rpx;
+  margin-top: 450rpx;
   border-radius: 40rpx;
 }
 .return{
   position: fixed;
-  top: 730rpx;
+  top: 920rpx;
   height: 50rpx;
   width: 100rpx;
   border-radius: 20rpx;
@@ -344,9 +340,23 @@ textarea {
   color: aliceblue;
   background-color:  rgba(41, 118, 44, 0.94);
 }
+.idea{
+  position: fixed;
+  top: 480rpx;
+  height: 60rpx;
+  width: 250rpx;
+  border-radius: 20rpx;
+  left: 257.5rpx;
+  font-size: 35rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: aliceblue;
+  background-color:  rgba(41, 118, 44, 0.94);
+}
 .submit{
   position: fixed;
-  top: 730rpx;
+  top: 920rpx;
   height: 50rpx;
   width: 100rpx;
   border-radius: 20rpx;

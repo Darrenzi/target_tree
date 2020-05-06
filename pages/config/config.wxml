@@ -70,11 +70,13 @@
      <view class="modal-content">
      <view class="return" bindtap="return">返回</view>
      <view class="submit" bindtap="submit">提交</view>
+     <view class="idea">请输入你的意见</view>
     <view class="border"></view>
       <view class="page-section">
         <view class="textarea-wrp">
-         
-         <textarea auto-focus="true" placeholder="输入意见" bindinput="getInputTarget" style="height: 3em"  maxlength="500" placeholder-style="top:30rpx" value="{{input}}"/>
+         <view class="border_area">
+         <textarea auto-focus="true" placeholder="输入意见" bindinput="getInputTarget" style="height: 3em"  maxlength="100" placeholder-style="top:30rpx" auto-height value="{{input}}"/>
+       </view>
        </view>
       </view>
     </view>

@@ -88,7 +88,6 @@ Page({
               [curyear]:this.data.now_year
             })
          }
-         
          console.log("targetList",res.data)
          console.log(this.data.month,"月")
          if(this.data.targetList.length==0){
@@ -124,7 +123,7 @@ Page({
       }
      this.setData({
        treeList:[],
-       targetList:[]
+       targetList:[],
      })
      console.log("nowlabel",nowLabel)
      db.collection('target')
@@ -251,7 +250,6 @@ Page({
     this.setData({
       loadContent:'加载中'
     })
-
     if(nowLabel==''||nowLabel=='全部'){
       db.collection('target')
       .orderBy('time', 'desc')
@@ -310,7 +308,7 @@ Page({
         })
         return
     }
-
+    
     db.collection('target')
     .orderBy('time', 'desc')
     .where({
@@ -346,6 +344,10 @@ Page({
             })
            .get()
            .then(res => {
+            let treeid = "targetList[" + j +"].src"  
+            this.setData({
+               [treeid]:res.data[0].path,
+            })
            this.data.treeList.push(res.data[0])
            this.setData({
            loadContent:'',
@@ -353,9 +355,6 @@ Page({
            })
          })
        }
-       this.setData({
-         loadContent:''
-       })
       })
       .catch(err => {
         console.log(err);
