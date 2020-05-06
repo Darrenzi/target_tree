@@ -52,7 +52,7 @@
 <view class="main">
   <view class="containerOfProgress">
     <image src="images/book.png" class="progress_icon"></image>
-    <progress class="mainProgress" active percent="{{currentTarget.progress}}" activeColor="rgb(212, 212, 79)" stroke-width="35rpx" border-radius="20rpx" backgroundColor="white"/>
+    <progress class="mainProgress" active percent="{{currentTarget.progress}}" activeColor="rgb(212, 212, 79)" stroke-width="35rpx" border-radius="20rpx" backgroundColor="white" active-mode="forwards"/>
   </view>
 
   <view class="tree_container" bindtap="showTargetDetail">

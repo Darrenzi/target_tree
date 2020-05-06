@@ -11,7 +11,7 @@
   <view class="top_title">商城</view>
   <view class="top_button_container">
     <view class="top_button top_choose">经典树种</view>
-    <view class="top_button" bindtap="topChoose">高级树种</view>
+    <view class="top_button" bindtap="topChoose">高级土地</view>
   </view>
 </view>
 
@@ -47,7 +47,7 @@
   </view>
   <view class="button" catchtap="buy">
     {{current.price}}
-    <image class="coin" src="images/coin.png"></image>
+    <image class="coin" src="../../images/coin.png"></image>
   </view>
 </view>
 

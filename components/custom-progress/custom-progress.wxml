@@ -1,0 +1,9 @@
+<!--components/custom-progress/custom-progress.wxml-->
+<view class="progress">
+  <view class="main" style="width:{{percent}}%">
+    <view class="top"></view>
+    <view class="bottom"></view>
+  </view>
+  <view class="content">{{record}}/{{amount}}</view>
+</view>
+

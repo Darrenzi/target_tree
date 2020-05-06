@@ -18,7 +18,6 @@
 </view>
 
 <block>
-  <!-- <forest class="forest" forest="{{forest}}" style="zoom:{{zoom}};" bindtouchstart="forestTouchStart" bindtouchend="forestTouchEnd"></forest> -->
   <forest-default class="forest" forest="{{forest}}" style="zoom:{{zoom}};" bindtouchstart="forestTouchStart" bindtouchend="forestTouchEnd" hidden="{{currentShow !='森林'}}"></forest-default>
   <view class="statistics_container" hidden="{{currentShow !='森林'}}">
     <view class="statistics">

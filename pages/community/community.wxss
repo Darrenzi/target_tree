@@ -84,7 +84,7 @@ page{
   font-size: 35rpx;
   margin-left: 30rpx;
   margin-bottom: 20rpx;
-  width: 100%;
+  width: 90%;
 }
 .targetContent{
   color:gray;

@@ -371,6 +371,7 @@ Page({
   changeTargetTree: function (currentTarget, newProgress){
     //根据任务进度更改树木图片
     let userTrees = this.data.userTrees;
+    let oldProgress = currentTarget.progress;
     let currentTree = null;
     console.log(currentTarget.treeId, userTrees);
     for(let i =0;i<userTrees.length;i++){
@@ -379,15 +380,15 @@ Page({
         break;
       }
     }
-    if(newProgress==30){
+    if (oldProgress<30 && newProgress>=30){
       //打卡后进度进入第二阶段
       currentTarget.tree = currentTree.path[1];
     }
-    else if (newProgress == 60){
+    else if (oldProgress < 60 &&newProgress >= 60){
       //打卡后进度进入第三阶段
       currentTarget.tree = currentTree.path[2];
     }
-    else if (newProgress == 90){
+    else if (oldProgress < 90 && newProgress >= 90){
       //打卡后进度进入第四阶段
       currentTarget.tree = currentTree.path[3];
     }

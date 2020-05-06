@@ -1,6 +1,6 @@
 <!--components/forest-default/forest-default.wxml-->
 <view class="forest" hidden="{{hidden}}">
-  <image class="inform" src="../forest/images/inform.png" wx:if="{{forest[0]==''}}"></image>
+  <image class="inform" src="inform.png" wx:if="{{forest[0]==''}}"></image>
   <image class="tree tree0 row0" src="../../images/defaultTree.png" src="{{forest[0]}}" wx:if="{{forest[0]!=''}}"></image>
   <image class="tree tree1 row0" src="../../images/defaultTree.png" src="{{forest[1]}}" wx:if="{{forest[1]!=''}}"></image>
   <image class="tree tree2 row0" src="../../images/defaultTree.png" src="{{forest[2]}}" wx:if="{{forest[2]!=''}}"></image>

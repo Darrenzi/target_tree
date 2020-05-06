@@ -1,5 +1,5 @@
 <!--pages/home/home.wxml-->
-<!-- <loading content="{{loadContent}}"></loading> -->
+<loading content="{{loadContent}}"></loading>
 <inform content="{{informContent}}"></inform>
 
 <!-- 左侧选择栏出现时的背景 -->
@@ -52,7 +52,7 @@
 <view class="main">
   <view class="containerOfProgress">
     <image src="../index/images/book.png" class="progress_icon"></image>
-    <progress class="mainProgress" active percent="{{currentTarget.progress}}" activeColor="rgb(98, 175, 149)" stroke-width="35rpx" border-radius="20rpx" backgroundColor="white"/>
+    <custom-progress class="mainProgress" percent="{{currentTarget.progress}}" record="{{currentTarget.record}}" amount="{{currentTarget.amount}}"></custom-progress>
   </view>
 
   <view class="tree_container" bindtap="showTargetDetail">

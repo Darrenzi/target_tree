@@ -1,5 +1,8 @@
 {
   "usingComponents": {
-    "target":"../../components/target2/target"
+    "target":"../../components/target2/target",
+    "loading":"../../components/loading/loading",
+    "inform":"../../components/inform/inform",
+    "custom-progress": "../../components/custom-progress/custom-progress"
   }
 }

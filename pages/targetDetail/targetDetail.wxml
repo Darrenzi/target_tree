@@ -35,7 +35,7 @@
   </view>
 
   <view class="noComment" wx:if="{{comment.length==0}}">
-    <image class="noCommentIcon" src="../../images/5.png"></image>
+    <image class="noCommentIcon" src="../messages/images/tree2.png"></image>
     暂无评论
   </view>
 </view>
