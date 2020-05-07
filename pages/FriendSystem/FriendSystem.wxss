@@ -395,10 +395,27 @@ z-index: 9;
 }
 .alldetail{
   position: relative;
- 
   height: 80rpx;
   width: 450rpx;
   margin-left: 30rpx;
   border-radius: 40rpx;
   margin-top: 40rpx;
+}
+.cancleCircle{
+  position: fixed;
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 60rpx;
+  top: 1000rpx;
+  left: 430rpx;
+  border: 3rpx solid rgb(0, 0, 0);
+}
+.cancle{
+  position: fixed;
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 60rpx;
+  top: 1005rpx;
+  left: 450rpx;
+  font-size: 40rpx;
 }
