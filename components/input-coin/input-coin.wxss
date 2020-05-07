@@ -72,6 +72,6 @@
 }
 .InsertCoinButton:active{
   box-shadow: none;
-  margin-top:6rpx;
+  margin-top:26rpx;
   margin-left: 6rpx;
 }

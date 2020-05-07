@@ -17,7 +17,7 @@ page{
   color:rgb(57, 163, 103);
 }
 .whitespace{
-  height: 160rpx;
+  height: 190rpx;
   position: relative;
 }
 .intoFriends{
@@ -29,7 +29,8 @@ page{
 }
 .top{
   width: 100%;
-  padding-top:80rpx;
+  height: 12.5%;
+  padding-top: 30rpx;
   color:white;
   display: flex;
   justify-content: center;
@@ -37,6 +38,7 @@ page{
   position: fixed;
   background-color: white;
   z-index: 6;
+  
 }
 .top_title{
   width: 40%;
@@ -139,11 +141,11 @@ page{
 }
 .allDay{
   height: 40rpx;
-  width: 120rpx;
+  width: 100rpx;
   border-radius: 20rpx;
   position: absolute;
   margin-top: 172rpx;
-  margin-left:425rpx;
+  margin-left:435rpx;
   background-color: rgba(89, 96, 87, 0.967);
   align-items: center;
   display: flex;
@@ -152,11 +154,11 @@ page{
 }
 .allCoin{
   height: 40rpx;
-  width: 120rpx;
+  width: 100rpx;
   border-radius: 20rpx;
   position: absolute;
   margin-top: 242rpx;
-  margin-left:425rpx;
+  margin-left:435rpx;
   background-color: rgba(89, 96, 87, 0.967);
   align-items: center;
   display: flex;
@@ -225,13 +227,21 @@ page{
   margin-left: 250rpx;
   position: relative;
 }
+.curdate{
+  position: fixed;
+  color: rgb(43, 136, 93);
+  top: 180rpx;
+  left: 297rpx;
+  font-size: 35rpx;
+  width: 300rpx;
+}
 .imageSolid{
   position: absolute;
   z-index: 19;
-  top: 109rpx;
-  left: 85.9rpx;
-  width: 305rpx;
-  height: 180rpx;
+  top: 100rpx;
+  left: 155.9rpx;
+  width: 200rpx;
+  height: 200rpx;
 }
 .treeclass{
   height: 260rpx;
@@ -373,11 +383,11 @@ page{
   margin-left: 68rpx;
 }
 .tree{
-  height: 160rpx;
+  height: 200rpx;
   width: 200rpx;
   position: absolute;
-  top: 40rpx;
-  left: 140rpx;
+  top: 0rpx;
+  left: 160rpx;
   margin-bottom:110rpx; 
   align-items: center;
   justify-content: center;

@@ -93,7 +93,12 @@
 </view>
 <view class="centerlabel">
 <view class="textcontent">内容</view>
- <input placeholder="输入目标内容" class="inputLabel" type="text" maxlength="1000"  bindinput="getInputTarget"  ></input>
+ <!-- <input placeholder="输入目标内容" class="inputLabel" type="text" maxlength="1000"  bindinput="getInputTarget"  ></input> -->
+  <view class="page-section">
+    <view class="textarea-wrp">
+      <textarea auto-focus="true" placeholder="输入目标内容" bindinput="getInput" style="height: 3em"  maxlength="500" placeholder-style="top:30rpx"/>
+    </view>
+  </view>
  <view class="inputLine"></view>
 </view>
 <view class="nextStep" bindtap="changeShowstatus_3">下一步</view>  

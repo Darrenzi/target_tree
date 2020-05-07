@@ -32,29 +32,9 @@ Page({
 
   //初始化用户信息
   initUser: function(){
-    const db = wx.cloud.database();
-    const userTable = db.collection('user');
-    let that = this;
-    let app = getApp();
-    userTable.get().then(res => {
-      //判断是否注册
-      if (res.data.length == 0) {
-        console.log("用户还未注册");
-        wx.navigateTo({
-          url: '../register/register',
-        })
-      } else {
-        //已注册
-        console.log("已注册");
-        this.setData({user:res.data[0]});
-        app.globalData.user = res.data[0];
-        that.getUserTree();
-      }
-      this.setData({ loadContent: '' });
-    },err=>{
-      console.log("加载用户信息错误");
-      this.setData({loadContent:''});
-    })
+    let user = getApp().globalData.user;
+    this.setData({ user: user });
+    this.getUserTree();
   },
 
   addTarget:function(){
@@ -113,10 +93,11 @@ Page({
     }).get()
     .then(res=>{
       console.log(res);
-      that.setData({userTrees: res.data});
+      that.setData({userTrees: res.data ,loadContent:""});
     })
     .catch(err=>{
       console.log(err);
+      that.setData({loadContent:""});
     })
   },
 

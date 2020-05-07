@@ -1,6 +1,26 @@
 <!--pages/register/register.wxml-->
 <view class="container">
-  <view>心里有树~</view>
-  <button class="getUserInfo"  open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  <view class="top">
+    <view class="top_title">主题选择</view>
+  </view>
+
+  <view class="title">选择后可在设置中更改哦~</view>
+
+  <view class="themeContainer">
+    <radio-group class="themeChoose" bindchange="chooseTheme">
+      <label>
+        <radio id="white" value="white" checked>白色</radio>
+        <image src="images/white.jpg" class="themeOption"></image>
+      </label>
+
+      <label>
+        <radio value="green" id="green">绿色</radio>
+        <image src="images/green.jpg" class="themeOption"></image>
+      </label>
+    </radio-group>
+  </view>
+
+  <button class="getUserInfo"  open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录     </button>
 </view>
+
 <loading content="{{loadingContent}}"></loading>

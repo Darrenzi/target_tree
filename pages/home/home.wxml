@@ -15,28 +15,25 @@
     </view>
     
     <view class="left_option" bindtap="reachTo" data-target="我的森林">
-      <image class="left_option_icon" src="../index/images/我的森林.png"></image>我的森林
+      <image class="left_option_icon" src="../../images/forest.png"></image>我的森林
     </view>
     <view class="left_option" bindtap="reachTo" data-target="我的好友">
-      <image class="left_option_icon" src="../index/images/小伙伴们.png"></image>我的好友
+      <image class="left_option_icon" src="../../images/friend.png"></image>我的好友
     </view>
     <view class="left_option" bindtap="reachTo" data-target="时间历程">
-      <image class="left_option_icon" src="../index/images/历程.png"></image>时间历程
+      <image class="left_option_icon" src="../../images/history.png"></image>时间历程
     </view>
     <view class="left_option" bindtap="reachTo" data-target="最新消息">
-      <image class="left_option_icon" src="../index/images/最新消息.png"></image>最新消息
+      <image class="left_option_icon" src="../../images/messages.png"></image>最新消息
     </view>
     <view class="left_option" bindtap="reachTo" data-target="社区">
-      <image class="left_option_icon" src="../index/images/社区.png"></image>社区
+      <image class="left_option_icon" src="../../images/community.png"></image>社区
     </view>
     <view class="left_option" bindtap="reachTo" data-target="商城">
-      <image class="left_option_icon" src="../index/images/商店.png"></image>商城
+      <image class="left_option_icon" src="../../images/mall.png"></image>商城
     </view>
     <view class="left_option" bindtap="reachTo" data-target="设置">
-      <image class="left_option_icon" src="../index/images/设置.png"></image>设置
-    </view>
-    <view class="left_option" bindtap="reachTo" data-target="更多">
-      <image class="left_option_icon" src="../index/images/商店.png"></image>更多
+      <image class="left_option_icon" src="../../images/config.png"></image>设置
     </view>
   </view>
 </view>
@@ -51,7 +48,7 @@
 
 <view class="main">
   <view class="containerOfProgress">
-    <image src="../index/images/book.png" class="progress_icon"></image>
+    <image src="images/progress.png" class="progress_icon"></image>
     <custom-progress class="mainProgress" percent="{{currentTarget.progress}}" record="{{currentTarget.record}}" amount="{{currentTarget.amount}}"></custom-progress>
   </view>
 
@@ -63,7 +60,9 @@
     <image class="solid" src="../../images/defaultSoil.png"></image>
   </view>
   <view class="target_title">{{currentTarget.title}}</view>
-  <view class="button" bindtap="record">打卡</view>
+  <view class="button" bindtap="record">
+    <view class="buttonInner">打卡</view>
+  </view>
 </view>
 
 <!-- 选择树苗 -->
@@ -71,7 +70,7 @@
   <view class="chooseTree" catchtap>
     <view class="chooseTreeTop">选择树苗</view>
     <view class="treeOptions">
-      <image class="treeOption" wx:for="{{userTrees}}" src="{{item.path[0]}}" wx:key="tree" bindtap="chooseTree" data-treeid="{{item._id}}"></image>
+      <image class="treeOption" wx:for="{{userTrees}}" src="{{item.path[3]}}" wx:key="tree" bindtap="chooseTree" data-treeid="{{item._id}}"></image>
     </view>
   </view>
 </view>

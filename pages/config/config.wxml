@@ -1,4 +1,5 @@
-
+<loading content="{{loadContent}}"></loading>
+<inform content="{{informContent}}"></inform>
 <view class="top">
  <view class="top_title"> 设置</view>
  <view class="back" bindtap="backHome">《</view>
@@ -54,16 +55,36 @@
 </view>
 <view class="problem">
   <text class="problem_font">联系我们</text>
-  <view class="problemLine"></view>
+  <view class="contactLine"></view>
 </view>
 <view class="problem">
   <text class="problem_font">隐私权政策</text>
   <view class="myselfline"></view>
 </view>
 <view class="problem">
-  <text class="problem_font">版本更新</text>
+  <view class="problem_font" bindtap="getidea" >意见反馈</view>
   <view class="updateLine"></view>
 </view>
+
+<view class="modal-box" hidden="{{hidden}}">
+     <view class="modal-content">
+     <view class="return" bindtap="return">返回</view>
+     <view class="submit" bindtap="submit">提交</view>
+    <view class="border"></view>
+      <view class="page-section">
+        <view class="textarea-wrp">
+         
+         <textarea auto-focus="true" placeholder="输入意见" bindinput="getInputTarget" style="height: 3em"  maxlength="500" placeholder-style="top:30rpx" value="{{input}}"/>
+       </view>
+      </view>
+    </view>
+
+      <view>
+    
+      </view>
+    </view>
+
+
 
 
   

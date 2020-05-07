@@ -8,9 +8,12 @@
 <view class="top">
  <view class="top_title"> 时间历程</view>
  <view class="back" bindtap="backHome">《</view>
+ <view class="curdate">{{year}}年{{month}}月</view>
 </view>
 
-<view class="whitespace"></view>
+<view class="whitespace">
+
+</view>
 
 <block wx:for="{{targetList}}" wx:key="targetKey"  >
  <view class="allTargetContent">  <!--显示目标  -->

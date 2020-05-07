@@ -76,10 +76,10 @@ Page({
     let endX = e.changedTouches[0].pageX;
     let startX = this.data.forestTouchStartX;
     let distance = endX - startX;
-    // console.log(distance);
-    if (distance > 0) {
+    if (distance > 100) {
       this.lastMonth();
-    } else {
+    }
+    if (distance < -100) {
       this.nextMonth();
     }
   },
@@ -163,12 +163,6 @@ Page({
       }
     }
     this.setData({ statistics: { completed: completed, abandoned: abandoned, running: running } });
-  },
-
-
-  watch:function(e){
-    let index = e.currentTarget.id;
-    this.setData({informContent:"此功能正在完善中"})
   },
 
   showDetail:function(e){

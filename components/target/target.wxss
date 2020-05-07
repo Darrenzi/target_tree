@@ -17,7 +17,7 @@
   border: 2rpx solid rgb(212, 212, 79);
   border-radius: 10rpx;
   text-align: center;
-  margin-left: 12rpx;
+  margin-left: 15rpx;
   margin-right: 12rpx;
   display: flex;
   flex-direction: column;

@@ -188,7 +188,7 @@ page{
   height: 550rpx;
 }
 .targetShowDetailLabel{
-  width: 120rpx;
+  width: 25%;
   height: 80rpx;
   display: flex;
   justify-content: center;

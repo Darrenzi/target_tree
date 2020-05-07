@@ -5,8 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    theme:"white"
   },
+
+  chooseTheme:function(e){
+    console.log(e);
+    this.setData({theme:e.detail.value});
+  },
+
   bindGetUserInfo: function (e) {
     //显示加载动画
     this.setData({ loadingContent:"正在入库..."});
@@ -43,7 +49,7 @@ Page({
         //头像图片
         avatarUrl: avatarUrl,
         phone: "",
-        tools: [],
+        tools: ["42c9a7b15e9034250071852a36490bf9"],
         coin: 0
       },
       success: function (res) {
@@ -54,10 +60,25 @@ Page({
           // console.log(app.globalData.user);
           //清空加载动画
           that.setData({ loadingContent:''});
-          //注册后跳转的界面
-          wx.redirectTo({
-            url: '../index/index',
+          //注册后跳转的界面,储存主题信息
+          wx.setStorage({
+            key: 'theme',
+            data: that.data.theme
           })
+          //根据主题跳转
+          switch(that.data.theme){
+            case "white":{
+              wx.redirectTo({
+                url: '../home/home',
+              })
+              break;
+            }
+            case "green":{
+              wx.redirectTo({
+                url: '../index/index'
+              })
+            }
+          }
         })
       },
       fail:function(err){

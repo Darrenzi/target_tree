@@ -3,8 +3,8 @@ page{
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-  color:gray;
-  background: rgb(252, 252, 252)
+  color:gray;  
+  background: rgba(248, 241, 232, 0.5);
 }
 .coverBackground{
   /* 左侧选择栏出现时的背景 */
@@ -33,14 +33,14 @@ page{
   position: relative;
   height: 100%;
   width: 60%;
-  background: rgb(46, 117, 82);
+  background: rgb(0, 126, 80);
   color:white;
   transition: all 0.5s;
 }
 .left_top{
   height: 220rpx;
   width: 100%;
-  background: rgb(129, 199, 129);
+  background: rgb(153, 203, 153);
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -134,7 +134,7 @@ page{
   height: 100rpx;
   position: relative;
   left: 28rpx;
-  top:-15rpx;
+  top:-18rpx;
   z-index:2;
 }
 .tree_container{
@@ -177,8 +177,8 @@ page{
 .button{
   position: relative;
   margin-top:30rpx;
-  background: rgb(240, 179, 13);
-  box-shadow: 0rpx 15rpx 5rpx 12rpx rgb(165, 130, 35);
+  background: rgb(241, 179, 44);
+  box-shadow: 0rpx 12rpx 5rpx 5rpx rgb(142, 111, 34);
   width: 300rpx;
   height: 100rpx;
   display: flex;
@@ -188,6 +188,17 @@ page{
   align-items: center;
   color:white;
   border-radius: 30rpx;  
+  border-top:12rpx solid rgb(247, 218, 140);
+}
+.buttonInner{
+  background: rgb(245, 196, 48);
+  width: 90%;
+  height: 70%;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40rpx;
 }
 .button:active{
   top:5rpx;

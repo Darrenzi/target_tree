@@ -1,0 +1,4 @@
+<!--pages/loading/loading.wxml-->
+<image src="loading.gif" class="loading"></image>
+<view>正在加载...</view>
+<inform content="{{informContent}}"></inform>

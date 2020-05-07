@@ -21,17 +21,17 @@
   <forest-default class="forest" forest="{{forest}}" style="zoom:{{zoom}};" bindtouchstart="forestTouchStart" bindtouchend="forestTouchEnd" hidden="{{currentShow !='森林'}}"></forest-default>
   <view class="statistics_container" hidden="{{currentShow !='森林'}}">
     <view class="statistics">
-      <image src="../../images/已完成.png"></image>
+      <image src="../../images/completed.png"></image>
       {{statistics.completed}}
     </view>
 
     <view class="statistics">
-      <image src="../../images/正在生长.png"></image>
+      <image src="../../images/grow.png"></image>
       {{statistics.running}}
     </view>
 
     <view class="statistics">
-      <image src="../../images/枯叶.png"></image>
+      <image src="../../images/fail.png"></image>
       {{statistics.abandoned}}
     </view>
   </view>

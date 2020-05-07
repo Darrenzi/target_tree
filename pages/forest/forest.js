@@ -6,7 +6,7 @@ Page({
    */
   data: {
     //森林的缩放比例
-    zoom:1,
+    zoom:0.95,
     //当前月份
     month:0,
     //当前年份
@@ -103,7 +103,7 @@ Page({
 
   getTree:function(targetData){
     //显示加载动画
-    // this.setData({loadContent:'正在收集树苗...'});
+    this.setData({loadContent:'正在收集树苗...'});
 
     console.log(targetData);
     //获取用户目标的树苗的信息, treeId未定义会出现无法运行的错误
@@ -205,14 +205,13 @@ Page({
 
   forestTouchEnd:function(e){
     //监听森林上的滑动,用于滑动切换判断
-    // console.log(e);
     let endX = e.changedTouches[0].pageX;
     let startX = this.data.forestTouchStartX;
     let distance = endX - startX;
-    // console.log(distance);
-    if(distance>0){
+    if(distance>100){
       this.lastMonth();
-    }else{
+    }
+    if(distance<-100){
       this.nextMonth();
     }
   },
