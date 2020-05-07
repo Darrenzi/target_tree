@@ -481,10 +481,8 @@ Page({
   },
 
  end:function(e){
-
    //显示加载动画
    this.setData({loadContent:"创建中..."});
-
    let setDate=this.data.setDate
    let date=this.data.date
    if(setDate==1){  //选择明天开始目标
@@ -533,8 +531,8 @@ Page({
     this.setData({loadContent:''});
     return
    }
-   if(rest<=0){
-    that.setData({informContent:"请输入正确的休息时间"});
+   if(rest<0||rest>(0.2*amount)){
+    that.setData({informContent:"休息时间只能是总时间的0.2倍噢"});
     this.setData({loadContent:''});
     return
    }
@@ -564,12 +562,15 @@ Page({
      },
      success:function(res){
        console.log(res)
-      that.setData({informContent:"成功创建目标"});
+      that.setData({
+        informContent:"成功创建目标",
+        loadContent:''
+    });
      }
    }),
-  wx.navigateTo({
-    url: '../index/index',
-  })
+wx.navigateBack({
+ 
+})
  
 },
 

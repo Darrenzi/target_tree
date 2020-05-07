@@ -41,10 +41,10 @@ Component({
     centain:function(){
       console.log(this.properties.inputCoinMsg)
       this.setData({loadContent:"正在投币..."});
+      console.log(this.properties.inputCoinMsg.userCoin, this.data.coin);
       if(this.properties.inputCoinMsg.userCoin < this.data.coin){
-        console.log("金币不足");
         let informContent = "金币不足, 剩余金币数:" + this.properties.inputCoinMsg.userCoin;
-        this.setData({ informContent: informContent});
+        this.setData({ informContent: informContent, loadContent:''});
         return;
       }
       let that = this;

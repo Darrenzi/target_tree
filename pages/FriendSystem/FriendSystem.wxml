@@ -41,6 +41,9 @@
           <view class="addline"></view> 
           </view>
      </view>
+     <view bindtap="cancle">
+     <view class="cancleCircle"></view>
+     <view class="cancle">X</view></view>
     </view>
   </view>
 

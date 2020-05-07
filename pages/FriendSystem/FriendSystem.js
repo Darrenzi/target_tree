@@ -58,12 +58,15 @@ Page({
 
   check:function(){
     this.setData({
-      friendName:this.data.friendName
+      friendName:this.data.friendName,
+      loadContent:'正在搜索中...',
+      hidden:true
     })
     if(this.data.friendName==this.data.myselfName||this.data.friendName==''){
       this.setData({
         informContent:'请输入正确的用户名称噢~',
-        hidden:true
+        hidden:true,
+        loadContent:''
       })
       return
     }
@@ -73,6 +76,9 @@ Page({
         friendName:this.data.friendName
       },})
       .then(res => {
+        this.setData({
+          loadContent:''
+        })
         console.log(res)
         console.log(res.result.data.length) 
         if(res.result.data.length==0){
@@ -87,7 +93,8 @@ Page({
           getFriendName:res.result.data,
           hidden:true,
           showSameName:false,
-          inputValue:''
+          inputValue:'',
+          
         })
       })
       .catch(err=>{
@@ -128,9 +135,14 @@ Page({
       informContent:'好友请求已发送~',
       showSameName:true
     })
-
   })
+  },
 
+  cancle:function(){
+    this.setData({
+      hidden:false,
+      showSameName:true
+    })
   },
   ChangeShowStatus:function(){
     var that = this

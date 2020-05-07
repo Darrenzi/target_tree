@@ -7,7 +7,7 @@
     <view class="InsertCoinTop">你的赞赏会让对方更有动力！</view>
     <view class="InsertCoinInputContainer">
       <view>金币数:</view>
-      <input class="InsertCoinInput" bindblur="getCoin" type="number" value="{{coin}}"></input>
+      <input class="InsertCoinInput" bindinput="getCoin" type="number" value="{{coin}}"></input>
       <image class="InsertCoinInputIcon" src="../../images/pig.png"></image>
     </view>
     <view class="InsertCoinButtonContainer">
