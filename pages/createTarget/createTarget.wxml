@@ -9,7 +9,7 @@
   <view class="back" bindtap="backToindex">《</view>
   <view>
   <image src="/images/coin.png" class="coin"></image>
-  <input placeholder="请输入挑战金额" class="inputMoney" type="text" maxlength="4" value="{{number}}"    bindinput="getInput"></input>
+  <input placeholder="请输入挑战金额" class="inputMoney" type="text" maxlength="4" value="{{number}}"    bindinput="getInputCoin"></input>
   <view class="yuan">元</view>
 </view>
 <view class="optionalAmount">
@@ -93,7 +93,6 @@
 </view>
 <view class="centerlabel">
 <view class="textcontent">内容</view>
- <!-- <input placeholder="输入目标内容" class="inputLabel" type="text" maxlength="1000"  bindinput="getInputTarget"  ></input> -->
   <view class="page-section">
     <view class="textarea-wrp">
     <view class="border">

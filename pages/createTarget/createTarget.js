@@ -7,19 +7,19 @@ Page({
    */
   data: {
    numbers:[50,100,200,600,800,1000],
-   change:true,
+   change:false,
    change_1:true,
    change_2:true,
    custom:true,
-   showtitle:false,
+   showtitle:true,
    showCircle:true,
    showCircle_1:true,showCircle_2:true,showCircle_3:true,showCircle_4:true,
    showCircle_5:true,showCircle_6:true,showCircle_7:true,showCircle_8:true,
    showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
    showCircle_13:true,showCircle_14:true,showCircle_15:true,
    label:'',
-   setCoin:'',
-   rest:'',
+   setCoin:0,
+   rest:0,
    record:'',
    content:'',
    date:'',
@@ -356,16 +356,24 @@ Page({
      })
   },
   changeShowstatus:function(){   //
-   var setCoin=this.data.setCoin
-   var that=this
-    if(setCoin<=0){
-      that.setData({informContent:"请输入正确的数额"});
+    let app=getApp()
+    let userCoin=app.globalData.user.coin
+    console.log("userCoin",userCoin)
+    console.log("setCOin",this.data.setCoin)
+    if(userCoin<this.data.setCoin){
+      this.setData({
+       informContent:"诶呀，你的金币不够呢",
+     })
+     return
+   }
+   console.log("test")
+    if(this.data.setCoin<=0){
+      this.setData({informContent:"请输入正确的数额"});
       return
      }
-     var that=this
-     that.setData({
-      change:(!that.data.change),
-      change_1:(!that.data.change_1)
+     this.setData({
+      change:(!this.data.change),
+      change_1:(!this.data.change_1)
      })
   },
 
@@ -459,7 +467,7 @@ Page({
       custom:true
     })
   },
-  getInput:function(e){
+  getInputCoin:function(e){
       this.setData({
         setCoin: e.detail.value
       })
