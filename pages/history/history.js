@@ -53,8 +53,9 @@ Page({
         treeList:[],
         targetList:[]
       })
-    let that=this
+    
     let index = e.currentTarget.id;
+    console.log("index",index)
     const db = wx.cloud.database();
     const _ = db.command;
     this.setData({
@@ -88,7 +89,6 @@ Page({
               [curyear]:this.data.now_year
             })
          }
-         
          console.log("targetList",res.data)
          console.log(this.data.month,"月")
          if(this.data.targetList.length==0){
@@ -124,7 +124,7 @@ Page({
       }
      this.setData({
        treeList:[],
-       targetList:[]
+       targetList:[],
      })
      console.log("nowlabel",nowLabel)
      db.collection('target')
@@ -249,9 +249,10 @@ Page({
     const db = wx.cloud.database();
     const _ = db.command;
     this.setData({
-      loadContent:'加载中'
+      loadContent:'加载中',
+      targetList:[],
+      
     })
-
     if(nowLabel==''||nowLabel=='全部'){
       db.collection('target')
       .orderBy('time', 'desc')
@@ -310,7 +311,7 @@ Page({
         })
         return
     }
-
+    
     db.collection('target')
     .orderBy('time', 'desc')
     .where({
@@ -346,6 +347,10 @@ Page({
             })
            .get()
            .then(res => {
+            let treeid = "targetList[" + j +"].src"  
+            this.setData({
+               [treeid]:res.data[0].path,
+            })
            this.data.treeList.push(res.data[0])
            this.setData({
            loadContent:'',
@@ -353,9 +358,6 @@ Page({
            })
          })
        }
-       this.setData({
-         loadContent:''
-       })
       })
       .catch(err => {
         console.log(err);

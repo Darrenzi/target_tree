@@ -20,6 +20,7 @@ Page({
      now_rank:0,//表示用户今天的排位
      now_coin:0,//表示用户今天的金币
      myself:'',//用户自己的openid
+     myselfName:'',//用户自己的用户名
      tempSort:[],//暂时存放排序结果
      temp_5:[],//用于存放前五天的数据
      dbrank:[],//用于存放从数据库中拉取下来的排名
@@ -29,6 +30,8 @@ Page({
      friendName:'',//用户输入的好友名字
      friendId:'',//用户输入的好友的openid
      inputValue:'',
+     getFriendName:[],//用于存放用户从数据库中找到同名的数据
+     showSameName:true,//查询后展示查询到的结果
     },
   backHome: function () {
     wx.navigateBack({})
@@ -36,12 +39,15 @@ Page({
 
   findfriend:function(){
     this.setData({
-      hidden:false
+      hidden:false,
+      getFriendName:[]
     })
   },
   return:function(){
     this.setData({
-      hidden:true
+      hidden:true,
+      friendName:'',
+      inputValue:''
     })
   },
   getInput:function(e){
@@ -49,10 +55,18 @@ Page({
       friendName:e.detail.value
     })
   },
-  add:function(){
+
+  check:function(){
     this.setData({
       friendName:this.data.friendName
     })
+    if(this.data.friendName==this.data.myselfName||this.data.friendName==''){
+      this.setData({
+        informContent:'请输入正确的用户名称噢~',
+        hidden:true
+      })
+      return
+    }
     wx.cloud.callFunction({
       name: 'sendFriendRequest',
       data: {
@@ -70,32 +84,53 @@ Page({
           return
         }
         this.setData({
-           friendId:res.result.data[0]._openid,
-           hidden:true
+          getFriendName:res.result.data,
+          hidden:true,
+          showSameName:false,
+          inputValue:''
         })
-        const db=wx.cloud.database()
-        db.collection('friendRequest')
-        .add({
-         data: {
-         //接受好友请求的用户
-           receiver:this.data.friendId,
-          //接受请求的用户是否已经处理，-1已拒绝，0未处理，1已同意
-          status:0,
-          time: new Date()
-          }
-       })
-       .then(res=>{
-         console.log("添加成功",res)
-         this.setData({
-          informContent:'成功向对方发送请求'
-         })
-       })
-
       })
       .catch(err=>{
         console.log("查找失败")
         console.log(err);
       })
+  },
+  add:function(e){
+    let index = e.currentTarget.id;
+    console.log("index",index)
+    let receiver=this.data.getFriendName[index]._openid
+    let navListLen=this.data.navList.length
+    for(let i=0;i<navListLen;i++){
+      console.log("111")
+      if(receiver=this.data.navList[i].friendList[0]._openid){
+        this.setData({
+          informContent:"你已经添加了这个好友啦",
+          showSameName:'true'
+        })
+        return
+      }
+    }
+    const db=wx.cloud.database()
+    const _=db.command
+    db.collection('friendRequest')
+    .add({
+     data: {
+      //接受好友请求的用户
+      receiver:receiver,
+      //接受请求的用户是否已经处理，-1已拒绝，0未处理，1已同意
+      status:0,
+      time: new Date()
+    }
+  })
+  .then(res=>{
+    console.log("res",res,"添加成功")
+    this.setData({
+      informContent:'好友请求已发送~',
+      showSameName:true
+    })
+
+  })
+
   },
   ChangeShowStatus:function(){
     var that = this
@@ -115,7 +150,8 @@ Page({
     })
     this.setData({
       tempSort:[],
-      mydbrank:[]
+      mydbrank:[],
+      loadContent:'加载中...'
     })
     const db=wx.cloud.database()
     const _=db.command
@@ -222,7 +258,8 @@ Page({
            [month]:this.data.now_month
         })
       this.setData({
-        sortfriend:this.data.sortfriend
+        sortfriend:this.data.sortfriend,
+        loadContent:''
       })
      }
     })
@@ -237,7 +274,8 @@ Page({
       change_3: false
     })
     this.setData({
-      tempSort:[]
+      tempSort:[],
+      loadContent:'加载中...'
     })
     const db=wx.cloud.database()
     const _=db.command
@@ -266,7 +304,8 @@ Page({
     let tempSort=this.data.tempSort
     console.log("sort",tempSort.sort(compare('coin')))
     this.setData({
-      tempSort:tempSort.sort(compare('coin'))
+      tempSort:tempSort.sort(compare('coin')),
+      loadContent:''
     })
     
   })
@@ -300,8 +339,11 @@ Page({
   onLoad: function (options) {   
     let app=getApp()
     let userOpenid=app.globalData.user._openid
+    let userUn=app.globalData.user.un
     this.setData({
-      myself:userOpenid
+      myself:userOpenid,
+      myselfName:userUn,
+      loadContent:'加载中...'
     })
     console.log("userOpenid",userOpenid);
     wx.cloud.callFunction({

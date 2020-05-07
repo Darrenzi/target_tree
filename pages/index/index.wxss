@@ -2,9 +2,15 @@
 page{
   width: 100%;
   height: 100%;
-  background: rgb(98, 175, 149);
   overflow-y: scroll;
   color:white;
+
+
+
+
+  
+  
+  background: rgb(123, 184, 164);
 }
 .coverBackground{
   /* 左侧选择栏出现时的背景 */
@@ -137,7 +143,7 @@ page{
   width: 430rpx;
   height: 430rpx;
   border-radius: 100%;
-  border:30rpx solid rgb(212, 212, 79);
+  border:25rpx solid rgb(212, 212, 79);
   background: rgb(252, 238, 158);
   position: relative;
   display: flex;
@@ -174,7 +180,7 @@ page{
   position: relative;
   margin-top:30rpx;
   background: rgb(212, 212, 79);
-  box-shadow: 10rpx 10rpx 5rpx 5rpx rgb(173, 173, 56);
+  box-shadow: 8rpx 8rpx 5rpx 5rpx rgb(173, 173, 56);
   width: 280rpx;
   height: 100rpx;
   display: flex;
@@ -182,7 +188,7 @@ page{
   justify-content: center;
   align-items: center;
   color:white;
-  border-radius: 10rpx;  
+  border-radius: 20rpx;  
 }
 .button:active{
   top:5rpx;

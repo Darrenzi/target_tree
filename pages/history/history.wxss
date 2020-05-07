@@ -219,7 +219,7 @@ page{
   border-radius: 30rpx;
   border:3rpx solid rgb(82, 79, 79);
   display: flex;
-  color: rgba(116, 168, 56, 0.974);
+  color: rgb(43, 136, 93);
   justify-content: center;
   align-items: center;
   margin-top:60rpx;
@@ -230,10 +230,26 @@ page{
 .curdate{
   position: fixed;
   color: rgb(43, 136, 93);
-  top: 180rpx;
+  top: 190rpx;
   left: 297rpx;
+
+  width: 200rpx;
+}
+.dateOption{
+  position: fixed;
+  color: rgb(43, 136, 93);
+  top: 190rpx;
+  left: 97rpx;
   font-size: 35rpx;
-  width: 300rpx;
+  
+}
+.dateOption_1{
+  position: fixed;
+  color: rgb(43, 136, 93);
+  top: 190rpx;
+  margin-left: 297rpx;
+  font-size: 35rpx;
+
 }
 .imageSolid{
   position: absolute;
@@ -383,11 +399,11 @@ page{
   margin-left: 68rpx;
 }
 .tree{
-  height: 200rpx;
-  width: 200rpx;
+  height: 150rpx;
+  width: 150rpx;
   position: absolute;
-  top: 0rpx;
-  left: 160rpx;
+  top: 50rpx;
+  left: 180rpx;
   margin-bottom:110rpx; 
   align-items: center;
   justify-content: center;

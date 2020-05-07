@@ -61,13 +61,12 @@ Page({
     let content=this.data.content
     console.log(content)
     let time=this.data.nowdate
-    let _openid=this.data.myself
+ 
     const db=wx.cloud.database()
     db.collection('suggestion')
     .add({
       data: {
         //提交问题的用户
-        userid:_openid,
         content:content,
         //提交时间
         time:time
