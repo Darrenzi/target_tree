@@ -358,10 +358,12 @@ z-index: 9;
 }
 
 .singleFriendName{
-  font-size: 30rpx;
-  margin-left: 120rpx;
-  margin-top: 50rpx;
+  font-size: 27rpx;
+  margin-left: 110rpx;
+  margin-top: 35rpx;
   position: absolute;
+  height: 70rpx;
+  width: 230rpx;
 }
 .singleFriendportrait{
   height: 60rpx;

@@ -1,8 +1,9 @@
 {
   "cloud": true,
   "pages": [
-    "pages/createTarget/createTarget",
     "pages/index/index",
+    "pages/createTarget/createTarget",
+    
     "pages/FriendSystem/FriendSystem",
    
     "pages/config/config",
