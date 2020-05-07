@@ -1,12 +1,10 @@
 {
   "cloud": true,
   "pages": [
-    "pages/config/config",
     "pages/index/index",
+    "pages/config/config",
     "pages/FriendSystem/FriendSystem",
-    
     "pages/history/history",
-   
     "pages/createTarget/createTarget",
     "pages/home/home",
     "pages/mall/mall",

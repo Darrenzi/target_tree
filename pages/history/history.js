@@ -53,8 +53,9 @@ Page({
         treeList:[],
         targetList:[]
       })
-    let that=this
+    
     let index = e.currentTarget.id;
+    console.log("index",index)
     const db = wx.cloud.database();
     const _ = db.command;
     this.setData({
@@ -248,7 +249,9 @@ Page({
     const db = wx.cloud.database();
     const _ = db.command;
     this.setData({
-      loadContent:'加载中'
+      loadContent:'加载中',
+      targetList:[],
+      
     })
     if(nowLabel==''||nowLabel=='全部'){
       db.collection('target')

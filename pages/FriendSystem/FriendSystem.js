@@ -97,10 +97,21 @@ Page({
   },
   add:function(e){
     let index = e.currentTarget.id;
+    console.log("index",index)
     let receiver=this.data.getFriendName[index]._openid
+    let navListLen=this.data.navList.length
+    for(let i=0;i<navListLen;i++){
+      console.log("111")
+      if(receiver=this.data.navList[i].friendList[0]._openid){
+        this.setData({
+          informContent:"你已经添加了这个好友啦",
+          showSameName:'true'
+        })
+        return
+      }
+    }
     const db=wx.cloud.database()
     const _=db.command
-    console.log("index",index)
     db.collection('friendRequest')
     .add({
      data: {
