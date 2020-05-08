@@ -45,7 +45,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 125rpx;
+  top: 25rpx;
+  margin-top: 120rpx;
   width: 100%;
   height: 10%;
 }
@@ -56,136 +57,27 @@
   position: absolute;
 }
 .switch_bell{
-  position: relative;
-  left: 255rpx;
+  position: absolute;
+  left: 555rpx;
   top: 10rpx;
 }
 .switch_line{
   height: 3rpx;
   position: absolute;
   width: 90%;
-  top: 80rpx;
-  background-color: rgba(20, 30, 18, 0.6)
-}
-.countdown{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  height: 10%;
-  top: 180rpx;
-}
-.countdown_font{
-  font-size: 35rpx;
-  left:85rpx;
-  top: -10rpx;
-  position: absolute;
-}
-.switch_countdown{
-  position: relative;
-  left: 255rpx;
-  top: -10rpx;
-}
-.countdown_line{
-  height: 3rpx;
-  position: absolute;
-  width: 90%;
-  top: 60rpx;
-  background-color: rgba(20, 30, 18, 0.6)
-}
-.screen{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  height: 10%;
-  top: 190rpx;
-}
-.screen_font{
-  font-size: 35rpx;
-  left:85rpx;
-  top: 30rpx;
-  position: absolute;
-}
-.switch_screen{
-  position: relative;
-  left: 255rpx;
-  top:30rpx
-}
-.screen_line{
-  height: 1rpx;
-  position: absolute;
-  width: 90%;
-  top: 100rpx;
+  top: 96rpx;
   background-color: rgba(20, 30, 18, 0.6)
 }
 
-.error{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  height: 15%;
-  top: 230rpx;
- 
-}
-.error_font{
-  font-size: 35rpx;
-  left:85rpx;
-  top: 30rpx;
-  position: absolute;
-}
-.switch_error{
-  position: relative;
-  left: 255rpx;
-  top:30rpx
-}
-.error_line{
-  height: 3rpx;
-  position: absolute;
-  width: 90%;
-  top: 100rpx;
-  background-color: rgba(20, 30, 18, 0.6)
-}
-.language{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  height: 15%;
-  top: 250rpx;
-}
-.language_font{
-  font-size: 35rpx;
-  left:85rpx;
-  top: 40rpx;
-  position: absolute;
-}
-.switchLanguage{
-  position: relative;
-  left: 255rpx;
-  top:40rpx;
-  font-size: 35rpx;
-}
-.language_line{
-  height: 3rpx;
-  position: absolute;
-  width: 90%;
-  top: 110rpx;
-  background-color: rgba(20, 30, 18, 0.6)
-}
 
 .about{
   display: block;
+  position: relative;
 }
 .about_font{
   font-size: 35rpx;
   position: absolute;
-  top: 830rpx;
+  top: 180rpx;
   left: 35rpx;
   color: rgba(20, 30, 18, 0.6)
 }
@@ -193,12 +85,12 @@
   height: 3rpx;
   position: absolute;
   width: 100%;
-  top: 900rpx;
+  top: 240rpx;
   background-color: rgba(20, 30, 18, 0.6)
 }
 .all{
   height: 100rpx;
-  top: 480rpx;
+  top: 280rpx;
   width: 100%;
   position: relative;
   
@@ -227,7 +119,7 @@
   position: absolute;
   left: 80rpx;
   font-size: 35rpx;
-  height: 80rpx;
+  height: 60rpx;
   width: 800rpx;
 }
 
@@ -238,7 +130,7 @@
   left: 45rpx;
   top: 86rpx;
   background-color: rgba(20, 30, 18, 0.6);
-  z-index: 10;
+
 }
 .contactLine{
   height: 1rpx;
@@ -247,7 +139,7 @@
   left: 45rpx;
   top: 80rpx;
   background-color: rgba(20, 30, 18, 0.6);
-  z-index: 10;
+
 }
 
 .myselfline{
@@ -255,7 +147,7 @@
   position: absolute;
   width: 90%;
   left: 45rpx;
-  top: 80rpx;
+  top: 86rpx;
   background-color: rgba(20, 30, 18, 0.6)
 }
 .updateLine{
@@ -367,6 +259,67 @@ textarea {
   justify-content: center;
   background-color: rgba(41, 118, 44, 0.94);
   color: aliceblue;
+}
+.white{
+  position: fixed;
+  top: 580rpx;
+  height: 230rpx;
+  width: 170rpx;
+  border-radius: 20rpx;
+  left: 385rpx;
+  font-size: 35rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.94);
+  color: black;
+  border: 2rpx solid rgba(20, 30, 18, 0.6);
+}
+.white_1{
+  position: fixed;
+  top: 580rpx;
+  height: 230rpx;
+  width: 170rpx;
+  border-radius: 20rpx;
+  left: 385rpx;
+  font-size: 35rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(227, 232, 135, 0.94);
+  background:linear-gradient(20deg, rgba(228, 232, 153, 0.96), rgba(242, 238, 127, 0.878)); 
+  color: rgb(255, 255, 255);
+  border: 2rpx solid rgba(20, 30, 18, 0.6);
+}
+.green{
+  position: fixed;
+  top: 580rpx;
+  height: 230rpx;
+  width: 170rpx;
+  border-radius: 20rpx;
+  left: 200rpx;
+  font-size: 35rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.94);
+  color: black;
+  border: 2rpx solid rgba(20, 30, 18, 0.6);
+}
+.green_1{
+  position: fixed;
+  top: 580rpx;
+  height: 230rpx;
+  width: 170rpx;
+  border-radius: 20rpx;
+  left: 200rpx;
+  font-size: 35rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(34, 130, 85);
+  color: rgb(255, 255, 255);
+  border: 2rpx solid rgba(20, 30, 18, 0.6);
 }
 
 

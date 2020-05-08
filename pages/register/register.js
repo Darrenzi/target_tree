@@ -9,7 +9,7 @@ Page({
   },
 
   chooseTheme:function(e){
-    console.log(e);
+    console.log("e",e);
     this.setData({theme:e.detail.value});
   },
 

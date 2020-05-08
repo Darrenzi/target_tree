@@ -263,15 +263,14 @@ z-index: 9;
   z-index: 7;
 }
 .circle{
-  height: 60rpx;
-  width: 60rpx;
+  height: 70rpx;
+  width: 70rpx;
   position: fixed;
   top: 1500rpx;
-  border:5rpx solid rgba(61, 61, 61, 0.74);
-  margin-left: 50rpx;
+  margin-left: 35rpx;
   font-size: 50rpx;
   border-radius: 80rpx;
-  background-color: rgb(174, 149, 149,0);
+  border: 3rpx solid rgb(0, 0, 0);
   z-index: 7;
 }
 .modal-box{

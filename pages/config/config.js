@@ -13,7 +13,11 @@ Page({
     loadContent: "加载中...",
     //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
     informContent:"",
-    input:''
+    input:'',
+    changeTheme:true,//控制改变主题窗口
+    changeView:true,
+    changeView_1:true,
+    Towhere:-1, //为0时跳转到白色界面，为1时跳转到绿色界面
   },
   backHome: function () {
    wx.navigateBack({
@@ -21,7 +25,50 @@ Page({
     })
   },
 
+  changeview:function(){  //点击白色
+    this.setData({
+     changeView:false,
+     changeView_1:true,
+     Towhere:0
+    })
+     try{wx.setStorage({
+       data: 'white',
+       key: 'theme',
+       success: function(res) {
+        console.log(res)
+      }
+     })
+    }
+    catch (e) {
+      console.log("err",e)
+     }
+  },
+  changview_1:function(){  //点击绿色
+    this.setData({
+      changeView_1:false,
+      changeView:true,
+      Towhere:1
+     })
+      try{wx.setStorage({
+       data: 'green',
+       key: 'theme',
+       success: function(res) {
+        console.log(res)
+      }
+     })
+    }
+    catch (e) {
+      console.log("err",e)
+     }
+  },
+  TochooseTheme:function(){
+    //根据主题跳转
+    wx.redirectTo({
+      url: '../loading/loading',
+    })
 
+
+  },
   getInputTarget:function(e){
     this.setData({
       content: e.detail.value
@@ -37,6 +84,11 @@ Page({
       hidden:true,
       content:'',
       input:''
+    })
+  },
+  return_1:function(){
+    this.setData({
+      changeTheme:true
     })
   },
   submit:function(){
@@ -82,12 +134,22 @@ Page({
     })
     
   },
+  chooseTheme:function(){
+    
+    this.setData({
+      changeTheme:false,
+      changeView:true,
+      changeView_1:true
+
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.setData({
-      loadContent:''
+      loadContent:'',
+      
     })
   },
 
