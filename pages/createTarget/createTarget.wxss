@@ -872,13 +872,14 @@ textarea {
 .textarea-wrp {
   background-color: rgb(255, 255, 255);
   margin-left: 100rpx;
-  position: fixed;
+  position: absolute;
 }
 
 .border{
   width: 520rpx;
   height: 600rpx;
-  left: 20rpx;
+  left: 10rpx;
+  position: absolute;
   border: 2rpx solid rgb(0, 0, 0);
 }
 

@@ -27,6 +27,7 @@ Page({
      mydbrank:[],//用于存放当天的自己以及好友的各种东西
      sortfriend:[],//用于存放好友排名中从数据库拉下来的数据的数组
      hidden:true,
+     sendedFriend:[],//用于存放拉取的已经发送的好友的请求
      friendName:'',//用户输入的好友名字
      friendId:'',//用户输入的好友的openid
      inputValue:'',
@@ -103,13 +104,35 @@ Page({
       })
   },
   add:function(e){
+    const db=wx.cloud.database()
+    const _=db.command
     let index = e.currentTarget.id;
     console.log("index",index)
     let receiver=this.data.getFriendName[index]._openid
     let navListLen=this.data.navList.length
+    db.collection('friendRequest')
+    .get()
+    .then(res=>{
+       console.log("join",res.data)
+       this.setData({
+         sendedFriend:res.data
+       })
+       let sendLen=this.data.sendedFriend.length
+       for(let m=0;m<sendLen;m++){
+         if(receiver==this.data.sendedFriend[m].receiver&&this.data.sendedFriend[m].status==0)
+         {
+           this.setData({
+             informContent:"正在等待对方处理~",
+             showSameName:'true'
+           })
+           return
+         }
+       }
+    })
     for(let i=0;i<navListLen;i++){
       console.log("111")
-      if(receiver=this.data.navList[i].friendList[0]._openid){
+      console.log("receiver",receiver)
+      if(receiver==this.data.navList[i].friendList[0]._openid){
         this.setData({
           informContent:"你已经添加了这个好友啦",
           showSameName:'true'
@@ -117,8 +140,7 @@ Page({
         return
       }
     }
-    const db=wx.cloud.database()
-    const _=db.command
+  
     db.collection('friendRequest')
     .add({
      data: {
