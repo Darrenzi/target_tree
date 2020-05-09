@@ -21,7 +21,6 @@
   width: 80rpx;
   height: 80rpx;
   font-weight: bolder;
-  font-size: 45rpx;
   color:rgb(57, 163, 103);
   top: 100rpx;
   font-size: 25rpx;

@@ -8,24 +8,6 @@
 <view class="title_1">设置</view>
 <view class="line"></view>
 
-<view class="bell">
-  <text class="bell_font">铃声选择</text>
-  <switch class="switch_bell"></switch>
-  <view class="switch_line"></view>
-</view>
-
-<view class="bell">
-  <text class="bell_font">时间倒数通知</text>
-  <switch class="switch_bell"></switch>
-  <view class="switch_line"></view>
-</view>
-
-<view class="bell">
-  <text class="bell_font">保持荧幕开启</text>
-  <switch class="switch_bell"></switch>
-  <view class="switch_line"></view>
-</view>
-
 
 <view class="bell">
   <text class="bell_font">自动上传错误报告</text>
@@ -38,6 +20,11 @@
   <text class="switch_bell">简体中文</text>
   <view class="switch_line"></view>
 </view> 
+
+<view class="bell" bindtap="chooseTheme">
+  <text class="bell_font">选择主题</text>
+  <view class="switch_line"></view>
+</view>
 
 <view class="about">
    <text class="about_font">关于</text>
@@ -65,10 +52,6 @@
   <view class="singleConfig" bindtap="getidea" >意见反馈</view>
   <view class="configLine"></view>
 </view>
-<view class="all">
-  <text class="singleConfig" bindtap="chooseTheme">选择主题</text>
-  <view class="problemLine"></view>
-</view>
 
 <view class="modal-box" hidden="{{hidden}}">
      <view class="modal-content">
@@ -89,13 +72,13 @@
 
   <view class="modal-box" hidden="{{changeTheme}}">
      <view class="modal-content">
-     <view class="return" bindtap="return_1">返回</view>
-     <view class="submit" bindtap="TochooseTheme">确认</view>
+     <view class="return" bindtap="chooseTheme">返回</view>
+     <view class="submit" bindtap="toChooseTheme">确认</view>
      <view class="idea">请选择主题</view>
     <view class="border"></view>
       <view class="page-section">
-          <view class="{{changeView?'white':'white_1'}}" bindtap="changeview">白色</view>
-          <view class="{{changeView_1?'green':'green_1'}}" bindtap="changview_1">绿色</view>
+          <view class="{{changeView!='white'?'white':'white_1'}}" bindtap="changeview" data-theme="white">白色</view>
+          <view class="{{changeView!='green'?'green':'green_1'}}" bindtap="changeview" data-theme="green">绿色</view>
       </view>
     </view>
   </view>

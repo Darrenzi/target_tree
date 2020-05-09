@@ -15,8 +15,8 @@ Page({
     informContent:"",
     input:'',
     changeTheme:true,//控制改变主题窗口
-    changeView:true,
-    changeView_1:true,
+    //当前主题
+    changeView:"",
     Towhere:-1, //为0时跳转到白色界面，为1时跳转到绿色界面
   },
   backHome: function () {
@@ -25,49 +25,35 @@ Page({
     })
   },
 
-  changeview:function(){  //点击白色
-    this.setData({
-     changeView:false,
-     changeView_1:true,
-     Towhere:0
-    })
-     try{wx.setStorage({
-       data: 'white',
-       key: 'theme',
-       success: function(res) {
-        console.log(res)
-      }
-     })
-    }
-    catch (e) {
-      console.log("err",e)
-     }
+  changeview:function(e){  //点击白色
+    let theme = e.currentTarget.dataset.theme;
+    console.log(theme);
+    this.setData({ changeView:theme});
   },
-  changview_1:function(){  //点击绿色
-    this.setData({
-      changeView_1:false,
-      changeView:true,
-      Towhere:1
-     })
-      try{wx.setStorage({
-       data: 'green',
-       key: 'theme',
-       success: function(res) {
-        console.log(res)
-      }
-     })
-    }
-    catch (e) {
-      console.log("err",e)
-     }
-  },
-  TochooseTheme:function(){
+
+  toChooseTheme:function(){
     //根据主题跳转
-    wx.redirectTo({
-      url: '../loading/loading',
-    })
-
-
+    let url = "";
+    let theme = this.data.changeView;
+    try{
+      wx.setStorageSync("theme", theme);
+      switch (theme) {
+        case "white": {
+          url = "../home/home";
+          break;
+        }
+        case "green": {
+          url = "../index/index";
+          break;
+        }
+      }
+      wx.reLaunch({
+        url: url
+      })
+    }catch(err){
+      this.setData({informContent:"意外错误"});
+      console.log(err);
+    }
   },
   getInputTarget:function(e){
     this.setData({
@@ -84,11 +70,6 @@ Page({
       hidden:true,
       content:'',
       input:''
-    })
-  },
-  return_1:function(){
-    this.setData({
-      changeTheme:true
     })
   },
   submit:function(){
@@ -135,13 +116,17 @@ Page({
     
   },
   chooseTheme:function(){
+    if (this.data.changeTheme){
+      this.setData({
+        changeTheme: false,
+      })
+    }
+    else{
+      this.setData({
+        changeTheme: true,
+      })
+    }
     
-    this.setData({
-      changeTheme:false,
-      changeView:true,
-      changeView_1:true
-
-    })
   },
   /**
    * 生命周期函数--监听页面加载
