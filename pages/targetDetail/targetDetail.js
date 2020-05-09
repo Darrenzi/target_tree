@@ -18,6 +18,8 @@ Page({
     //用户是否已经围观的标识符
     watchFlag:"围观",
 
+    loadContent:"",
+    informContent:"",
     //是否显示投币界面
     inputCoinFlag: false,
     //投币的用户及目标信息
@@ -209,6 +211,7 @@ Page({
   watch:function(){
     //围观
     if(this.data.watchFlag == "已围观")return;
+    this.setData({loadContent:"正在围观..."});
 
     let that = this;
     wx.cloud.callFunction({
@@ -219,7 +222,7 @@ Page({
       },
       success:function(res){
         console.log(res);
-        that.setData({watchFlag:"已围观"});
+        that.setData({watchFlag:"已围观", loadContent:"", informContent:"围观成功！赶紧去留下你的建议吧！"});
       },
       fail:function(err){
         console.log(err);

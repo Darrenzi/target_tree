@@ -1,5 +1,7 @@
 <!--pages/targetDetail/targetDetail.wxml-->
 <input-coin hidden="{{!inputCoinFlag}}" inputCoinMsg="{{inputCoinMsg}}"></input-coin>
+<loading content="{{loadContent}}"></loading>
+<inform content="{{informContent}}"></inform>
 
 <view class="top">
    <view class="top_title">详情</view>

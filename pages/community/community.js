@@ -21,6 +21,7 @@ Page({
     loadFlag:false,
     //是否显示投币界面
     inputCoinFlag:false,
+    inputCoinIndex:-1,
     //投币的用户及目标信息
     inputCoinMsg:{},
     loadContent:"加载中..."
@@ -28,6 +29,14 @@ Page({
 
   backHome: function () {
     wx.navigateBack({});
+  },
+
+  changeCoin:function(e){
+    //修改目标的金额
+    let target = this.data.targets[this.data.inputCoinIndex];
+    console.log(e);
+    target.coin += e.detail.coin;
+    this.setData({ [`targets[${this.data.inputCoinIndex}]`]: target });
   },
   
   choose:function(e){
@@ -46,7 +55,7 @@ Page({
     inputCoinMsg.targetUserId = target._openid;
     inputCoinMsg.targetTitle = target.title;
     inputCoinMsg.userCoin = user.coin;
-    this.setData({ inputCoinFlag: true, inputCoinMsg: inputCoinMsg});
+    this.setData({ inputCoinFlag: true, inputCoinMsg: inputCoinMsg, inputCoinIndex:index});
   },
 
   goToUserForest:function(e){

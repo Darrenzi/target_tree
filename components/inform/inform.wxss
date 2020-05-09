@@ -25,7 +25,7 @@
   animation: in 0.5s;
 }
 .title{
-  width: 90%;
+  width: 65%;
   height: 150rpx;
   display: flex;
   justify-content: center;

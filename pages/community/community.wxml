@@ -1,6 +1,6 @@
 <!--pages/community/community.wxml-->
 <!-- 投币界面 -->
-<input-coin hidden="{{!inputCoinFlag}}" inputCoinMsg="{{inputCoinMsg}}"></input-coin>
+<input-coin hidden="{{!inputCoinFlag}}" inputCoinMsg="{{inputCoinMsg}}" bindaddCoin="changeCoin"></input-coin>
 <loading content="{{loadContent}}"></loading>
 
 <view class="top">

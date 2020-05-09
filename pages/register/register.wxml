@@ -9,7 +9,7 @@
   <view class="themeContainer">
     <radio-group class="themeChoose" bindchange="chooseTheme">
       <label>
-        <radio id="white" value="white" checked>白色</radio>
+        <radio id="white" value="white" checked>白色(推荐)</radio>
         <image src="images/white.jpg" class="themeOption"></image>
       </label>
 

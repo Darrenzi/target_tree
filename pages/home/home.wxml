@@ -70,7 +70,7 @@
   <view class="chooseTree" catchtap>
     <view class="chooseTreeTop">选择树苗</view>
     <view class="treeOptions">
-      <image class="treeOption" wx:for="{{userTrees}}" src="{{item.path[3]}}" wx:key="tree" bindtap="chooseTree" data-treeid="{{item._id}}"></image>
+      <image class="treeOption" wx:for="{{userTrees}}" src="{{item.path[3]}}" wx:key="tree" bindtap="chooseTree" data-treeid="{{item._id}}" data-treeimage="{{item.path[0]}}"></image>
     </view>
   </view>
 </view>

@@ -111,32 +111,38 @@ Component({
       .catch(err=>{
         console.log(err);
       })
+    },
+
+    init: async function () {
+      const db = wx.cloud.database();
+      const _ = db.command;
+      let that = this;
+      await db.collection('target')
+        .where({
+          status: _.eq(0)
+        })
+        .orderBy('time', 'desc')
+        .get().then(
+          res => {
+            var targets = [];
+            var treeId = [];
+            for (let i = 0; i < res.data.length; i++) {
+              if (treeId.indexOf(res.data[i].treeId) == -1) {
+                treeId.push(res.data[i].treeId);
+              }
+            }
+            console.log("treeId", treeId);
+            that.setData({ targets: res.data });
+            that.getTree(treeId);
+          },
+          err => {
+            console.log('获取目标失败');
+          }
+        )
     }
   },
   
-  created:async function(){
-    const db = wx.cloud.database();
-    const _ = db.command;
-    let that = this;
-    await db.collection('target')
-    .where({
-      status: _.eq(0)
-    })
-    .orderBy('time', 'desc')
-    .get().then(
-      res=>{
-        var targets = [];
-        var treeId = [];
-        for(let i=0;i<res.data.length;i++){
-          treeId.push(res.data[i].treeId);
-        }
-        console.log("treeId",treeId);
-        that.setData({targets:res.data});
-        that.getTree(treeId);
-      },
-      err=>{
-        console.log('获取目标失败');
-      }
-    )
+  created:function(){
+    this.init();
   }
 })

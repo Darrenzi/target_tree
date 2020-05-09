@@ -49,12 +49,14 @@ Page({
 
   chooseTree: function (e) {
     //创建新目标的时选中的树的id
+    console.log(e);
     let treeId = e.currentTarget.dataset.treeid;
-    console.log(treeId);
+    let treeImage = e.currentTarget.dataset.treeimage;
+    console.log(treeId, treeImage);
     this.setData({ loadContent: "正在路上..." })
     let that = this;
     wx.navigateTo({
-      url: '../createTarget/createTarget?treeId=' + treeId,
+      url: '../createTarget/createTarget?treeId=' + treeId + "&treeImage=" + treeImage,
       success: function () {
         that.setData({ addTargetFlag: false, loadContent: '' });
       },

@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    //选中的树苗
     current:null,
     trees:[],
     //加载表示符，用于控制加载动画,当值为 "" 隐藏
@@ -81,8 +82,15 @@ Page({
         },
         success:function(res){
           // console.log(res);
+          //购买成功
           let inform = that.data.tips.success;
           that.setData({ inform: inform, confirm: {}, loadContent: ""});
+
+          let pages = getCurrentPages();
+          let prevPage = pages[pages.length-2];
+          let userTrees = prevPage.data.userTrees;
+          userTrees.push(that.data.current);
+          prevPage.setData({userTrees:userTrees});
         },
         fail:function(err){
           let inform = that.data.tips.err;

@@ -41,7 +41,13 @@ Component({
     centain:function(){
       console.log(this.properties.inputCoinMsg)
       this.setData({loadContent:"正在投币..."});
-      console.log(this.properties.inputCoinMsg.userCoin, this.data.coin);
+      // console.log(this.properties.inputCoinMsg.userCoin, this.data.coin);
+      if (this.data.coin == ""){
+        let informContent = "请输入投币金额";
+        this.setData({ informContent: informContent, loadContent: '' });
+        return;
+      }
+
       if(this.properties.inputCoinMsg.userCoin < this.data.coin){
         let informContent = "金币不足, 剩余金币数:" + this.properties.inputCoinMsg.userCoin;
         this.setData({ informContent: informContent, loadContent:''});
@@ -58,8 +64,10 @@ Component({
         },
         success:function(res){
           console.log(res);
-          that.setData({coin:""});
-          that.setData({loadContent:"", informContent:"对方已受到您的赞赏，感谢您的支持", hidden:true});
+          var eventDetail = { coin: that.data.coin } // detail对象，提供给事件监听函数
+          var eventOption = {} // 触发事件的选
+          that.triggerEvent('addCoin', eventDetail, eventOption)
+          that.setData({ loadContent: "", informContent: "对方已受到您的赞赏，感谢您的支持", hidden: true, coin: ""});
         },
         fail:function(err){
           console.log(err);

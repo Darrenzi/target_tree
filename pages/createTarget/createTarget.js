@@ -360,14 +360,14 @@ Page({
     let userCoin=app.globalData.user.coin
     console.log("userCoin",userCoin)
     console.log("setCOin",this.data.setCoin)
-    if(userCoin<this.data.setCoin){
+    if (userCoin < this.data.setCoin && this.data.setCoin!=0){
       this.setData({
        informContent:"诶呀，你的金币不够呢",
      })
      return
    }
    console.log("test")
-    if(this.data.setCoin<=0){
+    if(this.data.setCoin<0){
       this.setData({informContent:"请输入正确的数额"});
       return
      }
@@ -550,36 +550,50 @@ Page({
     return
    }
    
+  let newTarget = {
+    supervisor: [],//监督者ID列表
+    like: [],//点赞用户列表
+    label: label,//用户创建的目标的标签
+    title: title, //目标标题
+    content: content, //目标内容
+    coin: Number(setCoin),//总的挑战金币数
+    rest: Number(rest),//用户创建目标的休息天数
+    time: new Date(),//用户创建目标的时间
+    amount: Number(amount),//总打卡时间
+    comment: 0,//用户该目标的评论数
+    status: 0,//用户当前目标的状态
+    record: 0,//用户目标打卡次数
+    status: 0,//任务状态
+    progress: 0.00,  //任务进度
+    treeId: that.data.treeId //树苗的id
+   }
+
    db.collection('target').add({
-     data:{
-      supervisor:[],//监督者ID列表
-      like:[],//点赞用户列表
-      label:label,//用户创建的目标的标签
-      title:title, //目标标题
-      content:content, //目标内容
-      coin:Number(setCoin),//总的挑战金币数
-      rest:Number(rest),//用户创建目标的休息天数
-      time:new Date(),//用户创建目标的时间
-      amount:Number(amount),//总打卡时间
-      comment:0,//用户该目标的评论数
-      status:0,//用户当前目标的状态
-      record:0,//用户目标打卡次数
-      status:0,//任务状态
-      progress:0.00,  //任务进度
-      treeId:that.data.treeId //树苗的id
-     },
+     data:newTarget,
      success:function(res){
-       console.log(res)
+      console.log(res)
       that.setData({
         informContent:"成功创建目标",
         loadContent:''
-    });
+        });
+      
+      //修改主界面数据
+      let pages = getCurrentPages();
+      let prevPage = pages[pages.length - 2];
+      newTarget.tree = that.data.treeImage;
+      newTarget._id = res._id;
+      let targetComponent = prevPage.selectComponent('#target');
+      console.log(targetComponent);
+      let targets = targetComponent.data.targets;
+      targets.unshift(newTarget);
+      targetComponent.setData({targets:targets});
+      console.log(targets);
+      wx.navigateBack({})
+     },
+     fail(err){
+       console.log(err);
      }
-   }),
-wx.navigateBack({
- 
-})
- 
+   })
 },
 
 init:function(){
@@ -605,7 +619,7 @@ init:function(){
    */
   onLoad: function (options) {
       console.log("options",options)
-      this.setData({treeId:options.treeId});
+      this.setData({treeId:options.treeId, treeImage:options.treeImage});
       this.init()
   },
 
