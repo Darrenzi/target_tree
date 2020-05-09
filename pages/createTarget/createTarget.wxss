@@ -877,8 +877,10 @@ justify-content: center;
   justify-content: center;
 }
 textarea {
-  width: 525rpx;
+  height: 550rpx;
+  width: 515rpx;
   padding: 25rpx 0;
+  
 }
 
 .textarea-wrp {

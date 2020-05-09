@@ -27,7 +27,7 @@
   height: 33.3%;
   width: 100%;
   position: relative;
-  background-color: rgba(27, 163, 72, 0.897);
+  background-color:  rgb(57, 163, 103);
   border-radius: 3rpx;
   
 }
@@ -105,7 +105,8 @@
   border-radius: 50rpx;
   border-color: antiquewhite;
   position: relative;
-  background-color: rgba(80, 233, 174, 0.789);
+  /* background-color:  rgb(57, 163, 103); */
+  background: linear-gradient(to bottom right, rgb(126, 170, 36) , rgb(47, 140, 32));
   margin-left: 30%;
   z-index: 9;
   top: 7%;
@@ -125,6 +126,7 @@
   top: 8%;
   margin-top: 21%;
   margin-bottom: 5%;
+  
 }
 .FriendLine{
   z-index: 4;
