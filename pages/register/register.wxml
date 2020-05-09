@@ -20,7 +20,7 @@
     </radio-group>
   </view>
 
-  <button class="getUserInfo"  open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录     </button>
+  <button class="getUserInfo"  open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
 </view>
 
 <loading content="{{loadingContent}}"></loading>

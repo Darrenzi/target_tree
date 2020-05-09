@@ -18,6 +18,7 @@ Page({
    showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
    showCircle_13:true,showCircle_14:true,showCircle_15:true,
    label:'',
+
    setCoin:0,
    rest:0,
    record:'',
@@ -371,9 +372,10 @@ Page({
       this.setData({informContent:"请输入正确的数额"});
       return
      }
+    
      this.setData({
       change:(!this.data.change),
-      change_1:(!this.data.change_1)
+      change_1:(!this.data.change_1),
      })
   },
 
@@ -539,8 +541,10 @@ Page({
     this.setData({loadContent:''});
     return
    }
+   let num=0.2*amount;
+   num = Math.floor(num * 1) / 1;
    if(rest<0||rest>(0.2*amount)){
-    that.setData({informContent:"休息时间只能是总时间的0.2倍噢"});
+    that.setData({informContent:"休息时间最多只能是"+num+"天噢"});
     this.setData({loadContent:''});
     return
    }
@@ -549,6 +553,9 @@ Page({
     this.setData({loadContent:''});
     return
    }
+   let app=getApp()
+   let userCoin=app.globalData.user.coin
+   let curCoin=userCoin-this.data.setCoin;
    
   let newTarget = {
     supervisor: [],//监督者ID列表
@@ -567,7 +574,18 @@ Page({
     progress: 0.00,  //任务进度
     treeId: that.data.treeId //树苗的id
    }
-
+   wx.cloud.callFunction({
+    name: 'setCoin',
+    data: {
+      curCoin:curCoin
+    },})
+    .then(res => {
+      console.log("金币减少成功")
+    })
+    .catch(err=>{
+      console.log("减少失败")
+      console.log(err);
+    })
    db.collection('target').add({
      data:newTarget,
      success:function(res){

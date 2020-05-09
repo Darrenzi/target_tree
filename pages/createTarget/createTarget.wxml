@@ -96,7 +96,7 @@
   <view class="page-section">
     <view class="textarea-wrp">
     <view class="border">
-      <textarea auto-focus="true"  bindinput="getInput" style="height: 3em"  maxlength="500" auto-height placeholder-style="top:30rpx"/>
+      <textarea auto-focus="true"  bindinput="getInput" maxlength="500"placeholder-style="top:30rpx"/>
       </view>
     </view>
   </view>

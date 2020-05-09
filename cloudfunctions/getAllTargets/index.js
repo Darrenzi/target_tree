@@ -16,10 +16,10 @@ exports.main = async (event, context) => {
     foreignField: "_openid",
     as:"userList"
   })
+  .sort({
+    time: -1
+  })
   .skip(page)
   .limit(10)
-  .sort({
-    time:-1
-  })
   .end();
 }

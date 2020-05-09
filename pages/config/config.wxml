@@ -14,32 +14,32 @@
   <view class="switch_line"></view>
 </view>
 
-<view class="countdown">
-  <text class="countdown_font">时间倒数通知</text>
-  <switch class="switch_countdown"></switch>
-  <view class="countdown_line"></view>
+<view class="bell">
+  <text class="bell_font">时间倒数通知</text>
+  <switch class="switch_bell"></switch>
+  <view class="switch_line"></view>
 </view>
 
-<view class="screen">
-  <text class="screen_font">保持荧幕开启</text>
-  <switch class="switch_screen"></switch>
-  <view class="screen_line"></view>
+<view class="bell">
+  <text class="bell_font">保持荧幕开启</text>
+  <switch class="switch_bell"></switch>
+  <view class="switch_line"></view>
 </view>
 
 
-<view class="error">
-  <text class="error_font">自动上传错误报告</text>
-  <switch class="switch_error"></switch>
-  <view class="error_line"></view>
+<view class="bell">
+  <text class="bell_font">自动上传错误报告</text>
+  <switch class="switch_bell"></switch>
+  <view class="switch_line"></view>
 </view>
 
- <view class="language">
-  <text class="language_font">变更语言</text>
-  <text class="switchLanguage">简体中文</text>
-  <view class="language_line"></view>
+ <view class="bell">
+  <text class="bell_font">变更语言</text>
+  <text class="switch_bell">简体中文</text>
+  <view class="switch_line"></view>
 </view> 
 
-<view class="h">
+<view class="about">
    <text class="about_font">关于</text>
    <view class="about_line"></view>
 </view>
@@ -49,21 +49,25 @@
   <view class="configLine"></view>
 </view>
 
-<view class="problem">
-  <text class="problem_font">常见问题</text>
+<view class="all">
+  <text class="singleConfig">常见问题</text>
+  <view class="configLine"></view>
+</view>
+<view class="all">
+  <text class="singleConfig">联系我们</text>
+  <view class="configLine"></view>
+</view>
+<view class="all">
+  <text class="singleConfig">隐私权政策</text>
+  <view class="configLine"></view>
+</view>
+<view class="all">
+  <view class="singleConfig" bindtap="getidea" >意见反馈</view>
+  <view class="configLine"></view>
+</view>
+<view class="all">
+  <text class="singleConfig" bindtap="chooseTheme">选择主题</text>
   <view class="problemLine"></view>
-</view>
-<view class="problem">
-  <text class="problem_font">联系我们</text>
-  <view class="contactLine"></view>
-</view>
-<view class="problem">
-  <text class="problem_font">隐私权政策</text>
-  <view class="myselfline"></view>
-</view>
-<view class="problem">
-  <view class="problem_font" bindtap="getidea" >意见反馈</view>
-  <view class="updateLine"></view>
 </view>
 
 <view class="modal-box" hidden="{{hidden}}">
@@ -80,11 +84,21 @@
        </view>
       </view>
     </view>
+  </view>
 
-      <view>
-    
+
+  <view class="modal-box" hidden="{{changeTheme}}">
+     <view class="modal-content">
+     <view class="return" bindtap="return_1">返回</view>
+     <view class="submit" bindtap="TochooseTheme">确认</view>
+     <view class="idea">请选择主题</view>
+    <view class="border"></view>
+      <view class="page-section">
+          <view class="{{changeView?'white':'white_1'}}" bindtap="changeview">白色</view>
+          <view class="{{changeView_1?'green':'green_1'}}" bindtap="changview_1">绿色</view>
       </view>
     </view>
+  </view>
 
 
 

@@ -851,22 +851,36 @@ justify-content: center;
   top: 100rpx;
 }
 .texttitle{
-  font-size: 55rpx;
-  height: 100rpx;
-  width: 200rpx;
+  font-size: 45rpx;
+  height: 70rpx;
+  width: 160rpx;
+  background-color: rgb(57, 163, 103);
+  color: aliceblue;
   margin-left: 75rpx;
   margin-top: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20rpx;
 }
 .textcontent{
-  font-size: 55rpx;
-  height: 100rpx;
-  width: 200rpx;
+  border-radius: 20rpx;
+  font-size: 45rpx;
+  height: 70rpx;
+  width: 160rpx;
   margin-left: 75rpx;
-  margin-top: 180rpx;
+  margin-top: 150rpx;
+  background-color: rgb(57, 163, 103);
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 textarea {
-  width: 525rpx;
+  height: 550rpx;
+  width: 515rpx;
   padding: 25rpx 0;
+  
 }
 
 .textarea-wrp {
@@ -880,6 +894,7 @@ textarea {
   height: 600rpx;
   left: 10rpx;
   position: absolute;
+  top: 30rpx;
   border: 2rpx solid rgb(0, 0, 0);
 }
 
