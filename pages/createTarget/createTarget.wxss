@@ -461,8 +461,9 @@ justify-content: center;
  }
  .starTime{
    display: flex;
-   position: absolute;
-   top: 250rpx;
+   position: relative;
+   top: 140rpx;
+   margin-top: 100rpx;
  }
  .circle{
    height: 60rpx;
@@ -475,9 +476,9 @@ justify-content: center;
   height: 120rpx;
   width: 120rpx;
   position: absolute;
-  top: -10rpx;
+ 
   left: 10rpx;
-  bottom: 10rpx;
+ 
  }
  .image_endTime{
   height: 110rpx;
@@ -515,7 +516,7 @@ justify-content: center;
 
  .restday{
    display: flex;
-   position: absolute;
+   position: relative;
  }
  .circle_2{
   height: 60rpx;
@@ -558,7 +559,7 @@ justify-content: center;
  }
  .stickOrNot{
   display: flex;
-   position: absolute;
+   position: relative;
  
   
  }
@@ -581,16 +582,17 @@ justify-content: center;
  }
  .stickSwitch{
   position: absolute;
-  top: 550rpx;
+  top: 20rpx;
   left: 560rpx;
   font-size: 50rpx;
  }
  .stickline{
-  height: 5rpx;
-  width: 1000rpx;
-  background-color: rgba(110, 112, 108, 0.96);
+  height: 2rpx;
+  width: 800rpx;
+  background-color: rgba(110, 112, 108, 0.501);
   position: absolute;
-  margin-top: 630rpx;
+  top: 610rpx;
+  left: 0rpx;
  }
  .jurisdiction{
   display: flex;
@@ -600,7 +602,7 @@ justify-content: center;
   height: 140rpx;
   width: 140rpx;
   position: absolute;
-  top: 600rpx;
+  top: 580rpx;
   left: 0rpx;
   bottom: 10rpx;
  }
@@ -608,7 +610,7 @@ justify-content: center;
   height: 160rpx;
   width: 160rpx;
   position: absolute;
-  top: 660rpx;
+  top: 620rpx;
   left: 110rpx;
   bottom: 10rpx;
   font-size: 25rpx;
@@ -617,7 +619,7 @@ justify-content: center;
   height: 160rpx;
   width: 160rpx;
   position: absolute;
-  top: 640rpx;
+  top: 20rpx;
   left: 600rpx;
   bottom: 10rpx;
   font-size: 45rpx;
@@ -631,22 +633,23 @@ justify-content: center;
   font-size: 25rpx;
  }
  .restline{
-  height: 5rpx;
-  width: 1000rpx;
-  background-color: rgba(110, 112, 108, 0.96);
+  height: 2rpx;
+  width: 800rpx;
+  background-color: rgba(110, 112, 108, 0.501);
   position: absolute;
-  margin-top: 530rpx;
+  top: 520rpx;
+  left: 0rpx;
  }
 
  .inputrest{
    position: absolute;
-   margin-top: 470rpx;
+   margin-top: 50rpx;
    margin-left: 540rpx;
    width: 200rpx;
  }
  .tian{
   position: absolute;
-  margin-top: 480rpx;
+  margin-top: 56rpx;
   margin-left: 680rpx;
   font-size: 35rpx;
  }
@@ -654,15 +657,15 @@ justify-content: center;
    width: 150rpx;
    height: 3rpx;
    position: absolute;
-   margin-top: 515rpx;
+   margin-top: 95rpx;
    margin-left: 530rpx;
    background-color: rgba(116, 121, 110, 0.96);
  }
  .kaishishijian{
   position: absolute;
   left: 60rpx;
+  top: 40rpx;
   color: black;
-  top:30rpx ;
   display: flex;
   font-size: 25rpx;
   align-items: center;
@@ -673,7 +676,7 @@ justify-content: center;
   position: absolute;
   left: 110rpx;
   color: black;
-  top:385rpx ;
+  top:382rpx ;
   width: 200rpx;
   font-size: 25rpx;
  }
@@ -681,7 +684,7 @@ justify-content: center;
   position: absolute;
   left: 450rpx;
   color: black;
-  top:320rpx ;
+  top:-10rpx ;
   width: 400rpx;
  }
  .today{
@@ -729,24 +732,25 @@ justify-content: center;
   border-radius: 10rpx;
 }
 .start_line{
-  height: 5rpx;
+  height: 2rpx;
   width: 800rpx;
-  background-color: rgba(110, 112, 108, 0.96);
+  background-color: rgba(110, 112, 108, 0.289);
   position: absolute;
-  top: 90rpx;
   left: 0rpx;
+  margin-top: 110rpx;
 
 }
 .end_line{
   height: 2rpx;
-  width:1000rpx;
-  background-color: rgba(110, 112, 108, 0.96);
+  width: 800rpx;
+  background-color: rgba(110, 112, 108, 0.501);
   position: absolute;
-  top: 440rpx;
+  top: 430rpx;
+  left: 0rpx;
 }
 .endTime{
   display: flex;
-  position: absolute;
+  position: relative;
 }
 .section{
   position: absolute;

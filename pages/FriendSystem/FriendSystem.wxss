@@ -4,7 +4,7 @@
   z-index: 8;
   font-size: 40rpx;
   left: 30rpx;
-  color: white;
+  color: rgb(57, 163, 103);
   top: 120rpx;
   width: 70rpx;
   height: 60rpx;
@@ -15,78 +15,78 @@
 .SideNavigationBar{
   position: fixed;
   z-index:7;
-  top:0;
+  bottom:0;
   left: 0;
-  width: 23%;
-  height: 100%;
-  background: rgba(61, 61, 61, 0.74);
+  width: 100%;
+  height: 10%;
+  background: rgb(61, 61, 61);
   display: block;
 }
 .single_page{
   display: inline-block;
-  height: 33.3%;
-  width: 100%;
+
+  height: 100%;
+  width: 33.3%;
   position: relative;
   background-color:  rgb(57, 163, 103);
   border-radius: 3rpx;
   
 }
-
-.Halfcircle{
-  height: 140rpx;
-  width: 140rpx;
-  border-radius: 200rpx;
-  background-color: white;
-  display: flex;
-  position: fixed;
-  top:13% ;
-  left: 130rpx;
-  justify-content: center;
-  z-index: 8
-}
-.Halfcircle_1{
-  height: 140rpx;
-  width: 140rpx;
-  border-radius: 200rpx;
-  background-color: white;
-  display: flex;
-  position: fixed;
-  top: 47.5%;
-  left: 130rpx;
-  justify-content: center;
-  z-index: 8
-}
-
 .font_class{
   font-size: 40rpx;
   font-weight: bold;
   color: white;
   display: flex;
-  writing-mode: vertical-lr;
-  margin-left: 35rpx;
+  /* writing-mode: vertical-lr; */
+  align-items: center;
   position: relative;
   top: 39%;
+  display: flex;
   justify-content: center;
-  left: 8rpx;
+  left: 0rpx;
+}
+.Halfcircle{
+  height: 35rpx;
+  width: 80rpx;
+  border-radius:0 0 90rpx 90rpx; /* 左上、右上、右下、左下 */
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  position: fixed;
+  top:90% ;
+  left: 10.2%;
+  justify-content: center;
+  z-index: 7
+}
+.Halfcircle_1{
+  height: 35rpx;
+  width: 80rpx;
+  border-radius:0 0 90rpx 90rpx; /* 左上、右上、右下、左下 */
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  position: fixed;
+  top: 90%;
+  left:45.5%;
+  justify-content: center;
+  z-index: 7
 }
 .Halfcircle_2{
-  height: 140rpx;
-  width: 140rpx;
-  border-radius: 200rpx;
-  background-color:white;
+  height: 35rpx;
+  width: 80rpx;
+  border-radius:0 0 90rpx 90rpx; /* 左上、右上、右下、左下 */
+  background-color:rgb(255, 255, 255);
   display: block;
   position: fixed;
-  bottom:10%;
-  left: 130rpx;
+  top: 90%;
+  left: 79.8%;
   justify-content: center;
-  z-index: 8
+  z-index: 7
 }
 
 .fontstyle{
   font-size: 35rpx;
-  margin-left: 145rpx;
+  margin-left: 135rpx;
   margin-right: 20rpx;
-  margin-top: 40rpx;
+  margin-top: 65rpx;
   position: absolute;
 }
 .show{
@@ -100,15 +100,12 @@
 .Friend{
   height: 300rpx;
   width: 500rpx;
-  border: 2rpx;
-  box-shadow: 0rpx 5rpx 5rpx rgba(220, 99, 155, 0.541);
+  border: 3rpx solid rgb(0, 0, 0);
   border-radius: 50rpx;
-  border-color: antiquewhite;
+  border-color: rgb(5, 5, 5);
   position: relative;
-  /* background-color:  rgb(57, 163, 103); */
-  background: linear-gradient(to bottom right, rgb(126, 170, 36) , rgb(47, 140, 32));
-  margin-left: 30%;
-  z-index: 9;
+  margin-left: 17%;
+  z-index: 5;
   top: 7%;
 
   margin-top: 21%;
@@ -121,7 +118,7 @@
   width: 500rpx;
   border: 2rpx;
   position: relative;
-  margin-left: 30%;
+  margin-left: 16%;
   z-index: 9;
   top: 8%;
   margin-top: 21%;
@@ -130,12 +127,12 @@
 }
 .FriendLine{
   z-index: 4;
-  width: 480rpx;
+  width: 520rpx;
   left: 0rpx;
   right: 10rpx;
   top: 150rpx;
   position: absolute;
-  height: 6rpx;
+  height: 2rpx;
   background-color: rgba(77, 58, 74, 0.508);
 }
 
@@ -158,29 +155,39 @@
   right: 10rpx;
   top: 180rpx;
   position: absolute;
-  height: 6rpx;
-  background-color: rgba(206, 57, 186, 0.508);
+  height: 3rpx;
+  background-color: rgba(4, 4, 4, 0.508);
 }
 
 .portrait{
- height: 120rpx;
-width: 120rpx;
+ height: 80rpx;
+width: 80rpx;
 position: absolute;
 z-index: 10;
 margin-left: 20rpx;
 border-radius: 120rpx;
-margin-top: 10rpx;
+margin-top: 50rpx;
 z-index: 9;
 }
+.portrait_1{
+  height: 80rpx;
+  width: 80rpx;
+  position: absolute;
+  z-index: 10;
+  margin-left: 40rpx;
+  border-radius: 120rpx;
+  margin-top: 60rpx;
+  z-index: 9;
+}
 .portrait_outside{
-  height: 132rpx;
-  width: 132rpx;
+  height: 92rpx;
+  width: 92rpx;
   position: absolute;
   z-index: 10;
   margin-left: 14.5rpx;
   border-radius: 120rpx;
-  margin-top: 4rpx;
-  background-color: rgb(65, 240, 150);
+  margin-top: 44rpx;
+  background-color: rgb(39, 138, 87);
   z-index: 8;
 }
 
@@ -191,17 +198,23 @@ z-index: 9;
   position: absolute;
   top:-70rpx;
   border-radius: 20rpx;
-  left: 135rpx;
+  left: 145rpx;
   font-size: 25rpx;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .coinstyle{
-  position: relative;
+  position: absolute;
   top: 25rpx;
-  left: 170rpx;
+  right: 40rpx;
   font-size: 70rpx;
+}
+.textCoin{
+  position: absolute;
+  top: 110rpx;
+  right: 40rpx;
+  font-size: 30rpx;
 }
 .coin{
   position: relative;
@@ -212,22 +225,15 @@ z-index: 9;
   font-size: 70rpx;
 }
 .coinnumber{
-  position: relative;
-  top: 170rpx;
-  left: 170rpx;
-  width: 100rpx;
-  height: 100rpx;
-  font-size: 60rpx;
-}
-.textCoin{
   position: absolute;
-  top: 110rpx;
-  left: 340rpx;
-  font-size: 30rpx;
+  top: 190rpx;
+  right: 40rpx;
+  font-size: 70rpx;
 }
+
 .ranking{
   position: absolute;
-  top: 35rpx;
+  top: 25rpx;
   left: 40rpx;
   font-size: 70rpx;
   width: 50rpx;
@@ -268,12 +274,12 @@ z-index: 9;
   height: 70rpx;
   width: 70rpx;
   position: fixed;
-  top: 1500rpx;
-  margin-left: 35rpx;
+  top: 1350rpx;
+  margin-left: 30rpx;
   font-size: 50rpx;
   border-radius: 80rpx;
   border: 3rpx solid rgb(0, 0, 0);
-  z-index: 7;
+  z-index: 22;
 }
 .modal-box{
   position:fixed;
@@ -282,13 +288,16 @@ z-index: 9;
   width:100%;
   height:100%;
   z-index: 99;
-}
+  align-items: center;
+  justify-content: center;
+
+} 
 .modal-content{
   position: fixed;
   background-color: rgb(255, 255, 255);
   height: 300rpx;
   width: 450rpx;
-  margin-left: 200rpx;
+  margin-left: 150rpx;
   margin-top: 500rpx;
   border-radius: 40rpx;
 }
@@ -298,7 +307,7 @@ z-index: 9;
   height: 50rpx;
   width: 100rpx;
   border-radius: 20rpx;
-  left: 250rpx;
+  left: 220rpx;
   font-size: 35rpx;
   display: flex;
   align-items: center;
@@ -312,7 +321,7 @@ z-index: 9;
   height: 50rpx;
   width: 100rpx;
   border-radius: 20rpx;
-  left: 475rpx;
+  left: 435rpx;
   font-size: 35rpx;
   display: flex;
   align-items: center;
@@ -326,7 +335,7 @@ z-index: 9;
   height: 50rpx;
   width: 400rpx;
   border-radius: 20rpx;
-  left: 230rpx;
+  left: 200rpx;
   font-size: 30rpx;
 }
 .friendIdline{
@@ -335,7 +344,7 @@ z-index: 9;
   height: 5rpx;
   width: 380rpx;
   border-radius: 20rpx;
-  left: 224rpx;
+  left: 190rpx;
   font-size: 35rpx;
   background-color: rgb(0, 0, 0);
 }
@@ -421,4 +430,9 @@ z-index: 9;
   top: 1005rpx;
   left: 450rpx;
   font-size: 40rpx;
+}
+.whitespace{
+  position: relative;
+  height: 180rpx;
+  width: 100%;
 }

@@ -23,7 +23,7 @@
   font-weight: bolder;
   color:rgb(57, 163, 103);
   top: 100rpx;
-  font-size: 25rpx;
+  font-size: 45rpx;
 }
 .title_1{
   position: absolute;
@@ -44,10 +44,9 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 25rpx;
-  margin-top: 120rpx;
+  top: 125rpx;
   width: 100%;
-  height: 10%;
+  height: 100rpx;
 }
 .bell_font{
   font-size: 35rpx;
@@ -55,6 +54,7 @@
   top: 17rpx;
   position: absolute;
 }
+
 .switch_bell{
   position: absolute;
   left: 555rpx;
@@ -160,7 +160,7 @@
 
 textarea {
   width: 365rpx;
-  padding: 25rpx 0;  
+  padding: -10rpx 0;  
   position: absolute;
   background-color: rgb(255, 255, 255);
   margin-left: 10rpx;
@@ -174,7 +174,7 @@ textarea {
 }
 .border_area{
   width: 380rpx;
-  height: 350rpx;
+  height: 360rpx;
   border: 3rpx solid rgb(0, 0, 0);
   position: fixed;
   left: 185rpx;
@@ -321,4 +321,46 @@ textarea {
   border: 2rpx solid rgba(20, 30, 18, 0.6);
 }
 
+.ideabox{
+  position:fixed;
+  background:rgb(255, 255, 255);
+  top:0rpx;
+  width:100%;
+  height:100%;
+}
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 130rpx;
+  width: 100%;
+  height: 100rpx;
+}
+.flash{
+  font-size: 35rpx;
+  left:85rpx;
+  top: 24rpx;
+  position: absolute;
+}
+.flash_1{
+  font-size: 25rpx;
+  right: 100rpx;
+  top: 34rpx;
+  position: absolute;
+}
+.flash_2{
+  font-size: 45rpx;
+  right: 40rpx;
+  top: 20rpx;
+  color: rgb(34, 130, 85);
+  position: absolute;
+}
+.flash_line{
+  height: 3rpx;
+  position: absolute;
+  width: 90%;
+  top: 90rpx;
+  background-color: rgba(20, 30, 18, 0.6)
+}
 
