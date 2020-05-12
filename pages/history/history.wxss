@@ -133,19 +133,19 @@ page{
   margin-left: 25rpx;
 }
 .imageClendar{
-  height: 65rpx;
-  width: 65rpx;
+  height: 55rpx;
+  width: 55rpx;
   position: absolute;
-  margin-top: 155rpx;
-  margin-left:400rpx;
+  margin-top: 157rpx;
+  margin-left:413rpx;
 }
 .allDay{
-  height: 40rpx;
-  width: 100rpx;
+  height: 36rpx;
+  width: 90rpx;
   border-radius: 20rpx;
   position: absolute;
-  margin-top: 172rpx;
-  margin-left:435rpx;
+  margin-top: 170rpx;
+  margin-left:440rpx;
   background-color: rgba(89, 96, 87, 0.967);
   align-items: center;
   display: flex;
@@ -153,12 +153,12 @@ page{
   font-size: 25rpx;
 }
 .allCoin{
-  height: 40rpx;
-  width: 100rpx;
+  height: 36rpx;
+  width: 90rpx;
   border-radius: 20rpx;
   position: absolute;
-  margin-top: 242rpx;
-  margin-left:435rpx;
+  margin-top: 245rpx;
+  margin-left:440rpx;
   background-color: rgba(89, 96, 87, 0.967);
   align-items: center;
   display: flex;
@@ -166,11 +166,11 @@ page{
   font-size: 25rpx;
 }
 .imagepig{
-  height: 65rpx;
-  width: 65rpx;
+  height: 55rpx;
+  width: 55rpx;
   position: absolute;
-  margin-top: 230rpx;
-  margin-left: 400rpx;
+  margin-top: 235rpx;
+  margin-left: 413rpx;
 }
 .allTargetContent{
   position: relative;
@@ -230,15 +230,16 @@ page{
 .curdate{
   position: fixed;
   color: rgb(43, 136, 93);
-  top: 190rpx;
-  left: 297rpx;
+  top: 200rpx;
+  left: 328rpx;
+  font-size: 30rpx;
   width: 200rpx;
 }
 .dateOption{
   position: fixed;
   color: rgb(43, 136, 93);
   top: 190rpx;
-  left: 97rpx;
+  left: 74rpx;
   font-size: 35rpx;
   
 }
@@ -346,7 +347,7 @@ page{
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background: linear-gradient(60deg, rgba(232, 240, 88, 0.96), rgb(228, 222, 46));
+  background: rgba(141,186,110,1 );
   color: rgba(61, 73, 71, 0.829);
 }
 .whitespace_1{

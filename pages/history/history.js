@@ -196,10 +196,10 @@ Page({
     let startX = this.data.targetTouchStart;
     let distance = endX - startX;
     console.log("distance",distance);
-    if(distance>100){
+    if(distance>85){
       this.lastMonth();
     }
-    if(distance<-100){
+    if(distance<-85){
       this.nextMonth();
     }
   },

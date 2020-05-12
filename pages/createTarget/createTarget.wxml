@@ -164,6 +164,7 @@
  </view>
 
 <view class="allconfig">
+
  <view class="starTime">
    <image src="images/18.png" class="image_startTime"></image>
  <view class="kaishishijian">开始时间</view>
@@ -172,9 +173,9 @@
  <view class="start_line"></view>
  </view>
 <!-- 设置结束时间 -->
- <view class="endTime">
- <view class="jieshushijian">结束时间</view>
- <image src="images/19.png" class="image_endTime"></image>
+ <view class="starTime">
+ <view class="kaishishijian">结束时间</view>
+ <image src="images/19.png" class="image_startTime"></image>
 <view class="section">
   <picker mode="date"  start="2020-05-01" end="2022-09-01" bindchange="bindDateChange">
     <view class="picker">
@@ -182,29 +183,29 @@
     </view>
   </picker>
 </view>
-<view class="end_line"></view>
+<view class="start_line"></view>
 </view> 
 <!-- 设置休息天数 -->
- <view class="restday">
-  <image src="images/20.png" class="image_rest"></image>
-  <view class="rest_font">休息天数</view>
-  <input class="inputrest" placeholder="输入天数" type="number" maxlength="3" bindinput="getRest"></input>
+ <view class="starTime">
+  <image src="images/20.png" class="image_startTime"></image>
+  <view class="kaishishijian">休息天数</view>
+  <input class="inputrest" placeholder="输入天数" type="number" maxlength="3" bindinput="getRest">天</input>
   <view class="tian" >天</view>
   <view class="inputRestLine"></view>
-  <view class="restline"></view>
+  <view class="start_line"></view>
 </view>
 
 <!-- 设置是否指定 -->
-<view class="stickOrNot">
- <image src="images/21.png" class="image_stick"></image>
-<view class="stick_font">是否置顶</view>
+<view class="starTime">
+ <image src="images/21.png" class="image_startTime"></image>
+<view class="kaishishijian">是否置顶</view>
 <switch class="stickSwitch"></switch>
-<view class="stickline"></view>
+<view class="start_line"></view>
 </view>
 <!-- 权限 -->
-<view class="jurisdiction">
- <image src="images/22.png" class="image_jurisdiction"></image>
- <view class="jurisdiction_1">权限设置</view>
+<view class="starTime">
+ <image src="images/22.png" class="image_startTime"></image>
+ <view class="kaishishijian">权限设置</view>
  <view class="jurisdictionIcon">》</view>
 </view> 
 

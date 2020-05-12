@@ -2,11 +2,11 @@
   "cloud": true,
   "pages": [ 
     "pages/loading/loading",
+    "pages/FriendSystem/FriendSystem",
     "pages/index/index",
-    "pages/register/register",
     "pages/createTarget/createTarget",
     "pages/config/config",
-    "pages/FriendSystem/FriendSystem",
+    "pages/register/register",
     "pages/home/home",
     "pages/history/history",
     "pages/mall/mall",

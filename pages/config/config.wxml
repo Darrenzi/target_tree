@@ -1,5 +1,7 @@
 <loading content="{{loadContent}}"></loading>
 <inform content="{{informContent}}"></inform>
+
+
 <view class="top">
  <view class="top_title"> 设置</view>
  <view class="back" bindtap="backHome">《</view>
@@ -40,16 +42,16 @@
   <text class="singleConfig">常见问题</text>
   <view class="configLine"></view>
 </view>
-<view class="all">
-  <text class="singleConfig">联系我们</text>
+<view class="all" bindtap="showIdea" >
+  <text class="singleConfig">意见反馈</text>
   <view class="configLine"></view>
 </view>
 <view class="all">
   <text class="singleConfig">隐私权政策</text>
   <view class="configLine"></view>
 </view>
-<view class="all">
-  <view class="singleConfig" bindtap="getidea" >意见反馈</view>
+<view class="all"  bindtap="getidea">
+  <view class="singleConfig" >联系我们</view>
   <view class="configLine"></view>
 </view>
 
@@ -62,7 +64,7 @@
       <view class="page-section">
         <view class="textarea-wrp">
          <view class="border_area">
-         <textarea auto-focus="true" placeholder="输入意见" bindinput="getInputTarget" style="height: 3em"  maxlength="100" placeholder-style="top:30rpx" auto-height value="{{input}}"/>
+         <textarea auto-focus="true" placeholder="输入意见" bindinput="getInputTarget"  maxlength="100" placeholder-style="top:30rpx" value="{{input}}"/>
        </view>
        </view>
       </view>
@@ -70,7 +72,7 @@
   </view>
 
 
-  <view class="modal-box" hidden="{{changeTheme}}">
+  <view class="modal-box" wx:if="{{!changeTheme}}">
      <view class="modal-content">
      <view class="return" bindtap="chooseTheme">返回</view>
      <view class="submit" bindtap="toChooseTheme">确认</view>
@@ -79,6 +81,39 @@
       <view class="page-section">
           <view class="{{changeView!='white'?'white':'white_1'}}" bindtap="changeview" data-theme="white">白色</view>
           <view class="{{changeView!='green'?'green':'green_1'}}" bindtap="changeview" data-theme="green">绿色</view>
+      </view>
+    </view>
+  </view>
+
+
+<view class="ideabox" wx:if="{{!showIdea}}">
+<view class="top">
+ <view class="top_title"> 设置</view>
+ <view class="back" bindtap="problem_back">《</view>
+</view>
+  <view class="title_1">请选择问题发生的场景</view>
+   <view id="{{index}}"  wx:for="{{problem}}" bindtap="choose" wx:key="targets">
+   <view class="container">
+     <text class="flash">{{item.title}}</text>
+     <text class="flash_1">{{item.specific}}</text>
+     <text class="flash_2">》</text>
+     <view class="flash_line"></view>
+   </view>
+  </view>
+</view>
+
+<view class="modal-box" wx:if="{{!inputProblem}}">
+     <view class="modal-content">
+     <view class="return" bindtap="problem_return">返回</view>
+     <view class="submit" bindtap="problem_submit">提交</view>
+     <view class="idea">请输入具体问题</view>
+    <view class="border"></view>
+      <view class="page-section">
+        <view class="textarea-wrp">
+         <view class="border_area">
+        <textarea auto-focus="true" placeholder="输入意见" bindinput="getInputProblem"  maxlength="100" placeholder-style="top:30rpx" value="{{input}}"/>
+       </view>
+       </view>
       </view>
     </view>
   </view>
