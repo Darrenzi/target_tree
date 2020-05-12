@@ -36,6 +36,9 @@ page{
   background: linear-gradient(to bottom right,rgb(50, 129, 90), rgb(12, 207, 133));
   color:white;
   transition: all 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .left_top{
   height: 220rpx;
@@ -46,6 +49,7 @@ page{
   justify-content: space-evenly;
   font-size: 40rpx;
   font-weight: bold;
+  margin-bottom:40rpx;
 }
 .user_icon{
   height: 120rpx;
@@ -74,7 +78,7 @@ page{
   font-size: 35rpx;
 }
 .left_option:active{
-  background: rgb(36, 109, 67);
+  background: rgb(93, 172, 126);
 }
 .left_option_icon{
   width: 65rpx;

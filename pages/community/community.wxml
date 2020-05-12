@@ -13,8 +13,11 @@
   <view class="target" wx:for="{{targets}}" wx:key="target" bindtap="targetDetail" id="{{index}}">
     <view class="targetTop">
       <image class="avatar" src="{{item.userList[0].avatarUrl}}" catchtap="goToUserForest" id="{{index}}"></image>
-      <view class="targetUn" catchtap="goToUserForest" id="{{index}}">{{item.userList[0].un}}</view>
-      <view class="watchButton" catchtap="showInputCoin" id="{{index}}">投币</view>
+      <view id="{{index}}" class="targetTopMain" catchtap="goToUserForest">
+        <view>{{item.userList[0].un}}</view>
+        <view class="targetRecord">已打卡{{item.record}}天</view>
+      </view>
+      <view class="insertCoinButton" catchtap="showInputCoin" id="{{index}}">投币</view>
     </view>
 
     <view class="targetTitle">{{item.title}}</view>
@@ -70,6 +73,12 @@
 </scroll-view>
 
 <view class="bottom">
-  <view class="bottomOption {{currentShow=='推荐'?'bottomOptionChoose':''}}" bindtap="choose" data-target="推荐">推荐</view>
-  <view class="bottomOption {{currentShow=='围观'?'bottomOptionChoose':''}}" bindtap="choose" data-target="围观">围观</view>
+  <view class="bottomOption {{currentShow=='推荐'?'bottomOptionChoose':''}}" bindtap="choose" data-target="推荐">
+    <image src="../../images/dangan.png" class="bottomOtionIcon"></image>
+    推荐
+  </view>
+  <view class="bottomOption {{currentShow=='围观'?'bottomOptionChoose':''}}" bindtap="choose" data-target="围观">
+    <image src="../../images/xingji.png" class="bottomOtionIcon"></image>
+    围观
+  </view>
 </view>

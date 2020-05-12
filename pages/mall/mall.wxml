@@ -17,6 +17,7 @@
 
 <view class="main">
   <view class="tip">累积金币解锁各式树苗，缤纷您的目标森林！</view>
+  <user-coin coin="{{userCoin}}"></user-coin>
   <view class="tree_container">
     <view class="tree" wx:for="{{trees}}" wx:key="tree" data-tree="{{item}}" catchtap="choose">
       <view class="tree_top">

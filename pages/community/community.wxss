@@ -37,7 +37,7 @@ page{
 .main{
   position: relative;
   top:200rpx;
-  margin-bottom:120rpx;
+  margin-bottom:150rpx;
   height: 90%;
 }
 .target{
@@ -49,7 +49,7 @@ page{
   margin-bottom:30rpx;
   position: relative;
 }
-.watchButton{
+.insertCoinButton{
   width: 100rpx;
   height: 50rpx;
   color:white;
@@ -73,10 +73,15 @@ page{
   margin-right: 20rpx;
   margin-left: 30rpx;
 }
-.targetUn{
+.targetTopMain{
   font-weight: bold;
-  color:rgb(57, 163, 103);
-  width: 40%;
+  color:rgb(71, 71, 71);
+  width: 45%;
+  font-size: 35rpx;
+}
+.targetRecord{
+  color:rgb(153, 153, 153);
+  font-size: 25rpx;
 }
 .targetTitle{
   color:rgb(71, 71, 71);
@@ -135,21 +140,27 @@ page{
 }
 
 .bottom{
-  height: 120rpx;
+  height: 150rpx;
   width: 100%;
   position: fixed;
   bottom:0;
-  background: rgb(57, 163, 103);
+  background: white;
+  box-shadow: 0 5rpx 8rpx 10rpx gainsboro;
   display: flex;
-  color:white;
+  color:rgb(82, 82, 82);
 }
 .bottomOption{
   width: 50%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+.bottomOtionIcon{
+  width: 60rpx;
+  height: 60rpx;
+}
 .bottomOptionChoose{
-  color:rgb(228, 228, 87);
+  color:rgb(55, 173, 128);
 }

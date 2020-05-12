@@ -1,0 +1,28 @@
+/* components/user-coin/user-coin.wxss */
+.userCoin{
+  position: relative;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-weight: normal;
+}
+.userCoinIcon{
+  height: 85rpx;
+  width: 85rpx;
+  z-index: 1;
+}
+.userCoinNum{
+  background: rgb(78, 78, 78);
+  height: 100%;
+  color:white;
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+  border-top-right-radius: 30rpx;
+  border-bottom-right-radius: 30rpx;
+  display: flex;
+  align-items: center;
+  position:relative;
+  left: -30rpx;
+  max-width: 40%;
+}

@@ -22,7 +22,6 @@ page{
   left: -100%;
   width: 100%;
   height: 100%;
-  /* background: rgba(61, 61, 61, 0.74); */
   transition: all 0.5s;
 }
 .left_show{
@@ -36,6 +35,9 @@ page{
   background: rgb(0, 126, 80);
   color:white;
   transition: all 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .left_top{
   height: 220rpx;
@@ -46,6 +48,7 @@ page{
   justify-content: space-evenly;
   font-size: 40rpx;
   font-weight: bold;
+  margin-bottom:40rpx;
 }
 .user_icon{
   height: 120rpx;
@@ -76,7 +79,7 @@ page{
   font-size: 35rpx;
 }
 .left_option:active{
-  background: rgb(36, 109, 67);
+  background: rgb(93, 172, 126);
 }
 .left_option_icon{
   width: 60rpx;

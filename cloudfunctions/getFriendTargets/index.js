@@ -25,6 +25,9 @@ exports.main = async (event, context) => {
       foreignField: "_id",
       as: "tree"
   })
+  .sort({
+    time:-1
+  })
   .addFields({
     firstMatched: $.gt(['$time', firstDay]),
     lastMatched:$.lt(['$time', lastDay])

@@ -127,7 +127,12 @@ Page({
       console.log(res);
       let forest = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
       for (let i = 0; i < targetData.length;i++){
-        //根据目标的treeId,判断目标的树秒
+        //根据目标的treeId,判断目标的树苗
+        if(targetData[i].status == -1){
+          //任务失败,加入枯树图片
+          forest[i] = "cloud://test-e5a3a.7465-test-e5a3a-1301749733/tools/枯树.png";
+          continue;
+        }
         for(let j=0;j<res.data.length;j++){
           if(treeId[i]==res.data[j]._id){
             //根据任务的进度压入不同的树木图片
@@ -163,7 +168,9 @@ Page({
     let that = this;
     db.collection('target').where({
       time: _.gt(dateField.firstDay).and(_.lt(dateField.lastDay))
-    }).get()
+    })
+    .orderBy("time","desc")
+    .get()
       .then(res => {
         // console.log(res.data);
         that.setData({targets:res.data});

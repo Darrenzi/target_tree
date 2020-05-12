@@ -1,5 +1,5 @@
 <!--pages/targetDetail/targetDetail.wxml-->
-<input-coin hidden="{{!inputCoinFlag}}" inputCoinMsg="{{inputCoinMsg}}"></input-coin>
+<input-coin hidden="{{!inputCoinFlag}}" inputCoinMsg="{{inputCoinMsg}}" bindaddCoin="changeCoin"></input-coin>
 <loading content="{{loadContent}}"></loading>
 <inform content="{{informContent}}"></inform>
 
@@ -11,26 +11,30 @@
 <view class="main">
   <view class="mainTop">
     <image class="avatar" src="{{target.avatarUrl}}" bindtap="goToUserForest"></image>
-    <view class="targetUn" bindtap="goToUserForest">{{target.un}}</view>
+    <view class="targetTop" bindtap="goToUserForest">
+      {{target.un}}
+      <view class="progress_container">
+        进度:
+        <progress active percent="{{target.progress}}" stroke-width="20" activeColor="rgb(57, 163, 103)"></progress>
+        <view class="percent">{{target.progress}}%</view>
+      </view>
+    </view>
     <view class="watchButton {{watchFlag == '已围观'?'watched':''}}" bindtap="watch">{{watchFlag}}</view>
   </view>
 
   <view class="targetTitle">{{target.title}}</view>
   <view class="targetContent">{{target.content}}</view>
-  <view class="progress_container">
-    进度:<progress active percent="{{target.progress}}" show-info style="width:70%;"></progress>
-  </view>
-
-  <view class="insertCoinContainer">
-    <view class="insertCoin" bindtap="showInputCoin">赞赏</view>
-  </view>
-  <view class="messagesLabel">留言区</view>
+  
+  <!-- 隐藏的输入调 -->
   <input class="commentInput" focus="{{commentInputFlag}}" hidden="{{!commentInputFlag}}" confirm-type="send" bindconfirm="sendComment" bindblur="hideCommentInput" value="{{commentInput}}"></input>
 
   <view class="messages" wx:for="{{comment}}" wx:key="messages">
     <image class="messageAvatar" src="{{item.comment_user[0].avatarUrl}}"></image>
     <view class="messageRight">
-      <view class="messageUn">{{item.comment_user[0].un}}</view>
+      <view class="messageUn">
+        {{item.comment_user[0].un}}
+        <view wx:if="{{target._openid == item.comment_user[0]._openid}}" class="messageUnTip">楼主</view>
+      </view>
       <view class="messageContent">{{item.content}}</view>
       <view class="messageDate">{{item.time}}</view>
     </view>
@@ -50,9 +54,9 @@
     说点什么···
   </view>
   <image class="bottomOption" src="../messages/images/xihuan.png" bindtap="like"></image>
-  <view>{{target.like.length}}</view>
+  <view bindtap="like">{{target.like.length}}</view>
   <image class="bottomOption" src="../messages/images/xiaoxi.png" bindtap="comment"></image>
-  <view>{{comment.length}}</view>
-  <image class="bottomOption" src="../../images/liulan.png"></image>
-  <view>{{target.supervisor.length}}</view>
+  <view bindtap="comment">{{comment.length}}</view>
+  <image class="bottomOption" src="../../images/liwu.png" bindtap="showInputCoin"></image>
+  <view bindtap="showInputCoin">{{target.coin}}</view>
 </view>

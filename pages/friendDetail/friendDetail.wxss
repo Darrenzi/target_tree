@@ -124,7 +124,7 @@ page{
 .target{
   display: flex;
   width: 95%;
-  height: 150rpx;
+  min-height: 150rpx;
   border-bottom: 3rpx solid gainsboro;
   font-size: 35rpx;
   align-items: center;
@@ -151,13 +151,15 @@ page{
   width: 80%;
 }
 .watchButton{
-  background: rgb(57, 163, 103);
-  box-shadow: 5rpx 5rpx 5rpx 5rpx rgb(12, 100, 50);
+  width: 120rpx;
+  height: 50rpx;
   color:white;
-  font-size: 30rpx;
-  padding: 10rpx;
-  width: 100rpx;
-  text-align: center;
+  background: rgb(57, 163, 103);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+  box-shadow: 5rpx 5rpx 5rpx 5rpx rgb(24, 119, 65);
   position: absolute;
   right: 10rpx;
 }
@@ -185,7 +187,7 @@ page{
   flex-direction: column;
   margin-top:10rpx;
   align-items: flex-start;
-  height: 550rpx;
+  min-height: 550rpx;
 }
 .targetShowDetailLabel{
   width: 25%;

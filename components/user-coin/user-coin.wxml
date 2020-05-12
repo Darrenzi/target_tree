@@ -1,0 +1,5 @@
+<!--components/user-coin/user-coin.wxml-->
+ <view class="userCoin">
+    <image class="userCoinIcon" src="../../images/pig.png"></image>
+    <view class="userCoinNum">{{coin}}</view>
+  </view>

@@ -13,8 +13,9 @@
         {{user.un}}
       </view>
     </view>
-    
-    <view class="left_option" bindtap="reachTo" data-target="我的森林">
+
+    <user-coin coin="{{user.coin}}"></user-coin>
+    <view class="left_option" bindtap="reachTo" data-target="我的森林" style="margin-top:50rpx;">
       <image class="left_option_icon" src="../../images/forest.png"></image>我的森林
     </view>
     <view class="left_option" bindtap="reachTo" data-target="我的好友">

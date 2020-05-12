@@ -47,8 +47,8 @@
   margin-left: 10rpx;
 }
 .InsertCoinInputIcon{
-  width: 80rpx;
-  height: 80rpx;
+  width: 60rpx;
+  height: 60rpx;
   position: relative;
   top:-25rpx;
 }

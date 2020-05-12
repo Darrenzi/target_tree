@@ -11,6 +11,7 @@
   align-items: center;
   background:rgba(241, 241, 241, 0.800);
   box-shadow: -5rpx 10rpx 10rpx 5rpx rgb(211, 211, 211);
+  font-size: 35rpx;
 }
 .top{
   position: absolute;

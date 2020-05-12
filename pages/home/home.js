@@ -164,7 +164,7 @@ Page({
       case '商城': {
         console.log('跳转到商城');
         wx.navigateTo({
-          url: '../mall/mall',
+          url: '../mall/mall?coin='+this.data.user.coin,
           complete: function () {
             that.setData({ loadContent: '' });
           }

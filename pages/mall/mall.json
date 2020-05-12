@@ -2,6 +2,7 @@
   "usingComponents": {
     "inform":"../../components/inform/inform",
     "confirm":"../../components/confirm/confirm",
-    "loading":"../../components/loading/loading"
+    "loading":"../../components/loading/loading",
+    "user-coin":"../../components/user-coin/user-coin"
   }
 }

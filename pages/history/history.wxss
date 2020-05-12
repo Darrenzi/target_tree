@@ -47,7 +47,7 @@ page{
   background: rgb(57, 163, 103);
   font-size: 40rpx;
   border-radius: 20rpx;
-
+  margin-bottom:30rpx;
 }
 
 .dayItem{
@@ -232,7 +232,6 @@ page{
   color: rgb(43, 136, 93);
   top: 190rpx;
   left: 297rpx;
-
   width: 200rpx;
 }
 .dateOption{

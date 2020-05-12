@@ -30,19 +30,25 @@ Page({
   backHome: function () {
     wx.navigateBack({});
   },
-
-  changeCoin:function(e){
-    //修改目标的金额
-    let target = this.data.targets[this.data.inputCoinIndex];
-    console.log(e);
-    target.coin += e.detail.coin;
-    this.setData({ [`targets[${this.data.inputCoinIndex}]`]: target });
-  },
   
   choose:function(e){
     //选择显示的目标，围观或者推荐
     let targetShow = e.currentTarget.dataset.target;
     this.setData({currentShow: targetShow});
+  },
+
+  changeCoin: function (e) {
+    //投币后修改目标的金额，并同步主页数据
+    let target = this.data.targets[this.data.inputCoinIndex];
+    let insertCoin = e.detail.coin;
+    target.coin += insertCoin;
+    this.setData({ [`targets[${this.data.inputCoinIndex}]`]: target });
+    let pages = getCurrentPages();
+    //获得主页
+    let prevPage = pages[pages.length - 2];
+    let user = prevPage.data.user;
+    user.coin -= insertCoin;
+    prevPage.setData({user:user});
   },
 
   showInputCoin:function(e){
@@ -87,10 +93,12 @@ Page({
     let _id = target._id;
     let supervisor = target.supervisor.toString();
     let progress = target.progress;
+    let coin = target.coin;
     wx.navigateTo({
+      // index为目标在数组中的索引，用于界面修改数据
       url: '../targetDetail/targetDetail?un='+un+"&avatarUrl="+avatarUrl+"&_openid="+_openid+
       "&title="+title+"&content="+content+"&targetId="+targetId+"&like="+like+"&_id="+_id
-        + "&supervisor=" + supervisor + "&progress=" + progress,
+        + "&supervisor=" + supervisor + "&progress=" + progress+"&coin="+coin+"&index="+index,
     })
   },
 

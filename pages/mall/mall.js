@@ -8,6 +8,8 @@ Page({
     //选中的树苗
     current:null,
     trees:[],
+    //用户金币数
+    userCoin:0,
     //加载表示符，用于控制加载动画,当值为 "" 隐藏
     loadContent:"加载中...",
     progress:["10-29", "30-59", "60-89", "90-100"],
@@ -84,13 +86,16 @@ Page({
           // console.log(res);
           //购买成功
           let inform = that.data.tips.success;
-          that.setData({ inform: inform, confirm: {}, loadContent: ""});
+          let userCoin = that.data.userCoin - that.data.current.price;
+          that.setData({ inform: inform, confirm: {}, loadContent: "", userCoin:userCoin});
 
           let pages = getCurrentPages();
           let prevPage = pages[pages.length-2];
           let userTrees = prevPage.data.userTrees;
+          let user = prevPage.data.user;
+          user.coin = userCoin;
           userTrees.push(that.data.current);
-          prevPage.setData({userTrees:userTrees});
+          prevPage.setData({userTrees:userTrees, user:user});
         },
         fail:function(err){
           let inform = that.data.tips.err;
@@ -104,6 +109,7 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    this.setData({userCoin:options.coin});
 
     wx.cloud.callFunction({
       "name":"getTree",

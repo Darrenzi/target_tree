@@ -21,7 +21,9 @@ Component({
     //输入的金币数
     coin:"",
     informContent:"",
-    loadContent:""
+    loadContent:"",
+    confirmContent:"",
+    confirmTitle:""
   },
 
   /**
@@ -39,8 +41,15 @@ Component({
     },
 
     centain:function(){
+      //输入框点击确定
+      let confirmContent = "是否确定投入 " + this.data.coin + " 金币？";
+      this.setData({confirmTitle:"赞赏确认", confirmContent:confirmContent});
+    },
+
+    confirm:function(){
+      //确定框点击确定
       console.log(this.properties.inputCoinMsg)
-      this.setData({loadContent:"正在投币..."});
+      this.setData({loadContent:"正在投币...", confirmTitle:"", confirmContent:""});
       // console.log(this.properties.inputCoinMsg.userCoin, this.data.coin);
       if (this.data.coin == ""){
         let informContent = "请输入投币金额";
@@ -64,7 +73,7 @@ Component({
         },
         success:function(res){
           console.log(res);
-          var eventDetail = { coin: that.data.coin } // detail对象，提供给事件监听函数
+          var eventDetail = { coin: Number(that.data.coin) } // detail对象，提供给事件监听函数
           var eventOption = {} // 触发事件的选
           that.triggerEvent('addCoin', eventDetail, eventOption)
           that.setData({ loadContent: "", informContent: "对方已受到您的赞赏，感谢您的支持", hidden: true, coin: ""});

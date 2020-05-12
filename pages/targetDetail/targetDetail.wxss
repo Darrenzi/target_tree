@@ -57,22 +57,43 @@ page{
   border-radius: 100%;
   margin-right: 20rpx;
 }
-.targetUn{
+.targetTop{
   font-weight: bold;
-  color:rgb(57, 163, 103);
+  color:rgb(71, 71, 71);
   width: 65%;
   font-size: 40rpx;
 }
-.watchButton{
-  background: rgb(57, 163, 103);
-  box-shadow: 5rpx 5rpx 5rpx 5rpx rgb(12, 100, 50);
-  color:white;
+.progress_container{
   font-size: 30rpx;
-  padding: 10rpx;
-  width: 100rpx;
-  text-align: center;
+  font-weight: bold;
+  color:gray;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.progress_container progress{
+  width: 70%;
+  margin-top:8rpx;
+  margin-left: 10rpx;
+}
+.percent{
   position: absolute;
-  right: -50rpx;
+  left: 48%;
+  margin-top:5rpx;
+  font-size: 28rpx;
+}
+.watchButton{
+  width: 120rpx;
+  height: 50rpx;
+  color:white;
+  background: rgb(57, 163, 103);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+  box-shadow: 5rpx 5rpx 5rpx 5rpx rgb(24, 119, 65);
+  position: absolute;
+  right: -55rpx;
 }
 .watchButton:active{
   margin-top:5rpx;
@@ -94,42 +115,9 @@ page{
   height: 600rpx;
   overflow-y: scroll;
   margin-bottom: 30rpx;
-}
-.progress_container{
-  font-size: 35rpx;
-  font-weight: bold;
-  color:rgb(71, 71, 71);
-  margin-bottom:50rpx;
+  border-bottom: 5rpx solid gainsboro;
 }
 
-.insertCoinContainer{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom:100rpx;
-  margin-top:120rpx;
-}
-.insertCoin{
-  background: rgb(204, 67, 67);
-  width: 300rpx;
-  height: 90rpx;
-  font-size: 35rpx;
-  color:white;
-  border-radius: 45rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.messagesLabel{
-  background: rgb(57, 163, 103);
-  color:white;
-  width: 100%;
-  height:80rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30rpx;
-}
 .commentInput{
   width: 100%;
   border-bottom: 2rpx solid gainsboro;
@@ -154,7 +142,19 @@ page{
   font-size: 35rpx;
   margin-bottom: 10rpx;
   width:80%;
-  color:rgb(57, 163, 103);
+  color:rgb(71, 71, 71);
+  display: flex;
+  align-items: center;
+}
+.messageUnTip{
+  background: rgb(57, 163, 103);
+  color:white;
+  margin-left: 10rpx;
+  font-size: 25rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  text-align: center;
+  border-radius: 25rpx;
 }
 .messageContent{
   max-height: 300rpx;

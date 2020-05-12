@@ -1,6 +1,7 @@
 <!--components/input-coin/input-coin.wxml-->
 <loading content="{{loadContent}}"></loading>
 <inform content="{{informContent}}"></inform>
+<confirm title="{{confirmTitle}}" content="{{confirmContent}}" bindconfirm="confirm"></confirm>
 
 <view class="InsertCoinBackground" hidden="{{hidden}}">
   <view class="InsertCoinContainer">
@@ -8,7 +9,7 @@
     <view class="InsertCoinInputContainer">
       <view>金币数:</view>
       <input class="InsertCoinInput" bindinput="getCoin" type="number" value="{{coin}}"></input>
-      <image class="InsertCoinInputIcon" src="../../images/pig.png"></image>
+      <image class="InsertCoinInputIcon" src="../../images/coin.png"></image>
     </view>
     <view class="InsertCoinButtonContainer">
       <view class="InsertCoinButton" bindtap="centain">确定</view>

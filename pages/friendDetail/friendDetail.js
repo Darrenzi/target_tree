@@ -90,6 +90,11 @@ Page({
     let forest = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
     for (let i = 0; i < targetData.length; i++) {
       //根据任务的进度压入不同的树木图片
+      if (targetData[i].status == -1) {
+        //任务失败,加入枯树图片
+        forest[i] = "cloud://test-e5a3a.7465-test-e5a3a-1301749733/tools/枯树.png";
+        continue;
+      }
       if (targetData[i].progress < 30) {
         forest[i] = targetData[i].tree[0].path[0];
       }
@@ -191,9 +196,13 @@ Page({
     let _id = target._id;
     let supervisor = target.supervisor.toString();
     let progress = target.progress;
+    let _openid = this.data.targetUser._openid;
+    let coin = target.coin;
     wx.navigateTo({
+      // index为目标在数组中的索引，用于界面修改数据
       url: '../targetDetail/targetDetail?un=' + un + "&avatarUrl=" + avatarUrl +
-        "&title=" + title + "&content=" + content + "&targetId=" + targetId + "&like=" + like + "&_id=" + _id + "&supervisor=" + supervisor + "&progress="+progress,
+        "&title=" + title + "&content=" + content + "&targetId=" + targetId + "&like=" + like + "&_id=" + _id
+        + "&supervisor=" + supervisor + "&progress=" + progress + "&coin=" + coin + "&index=" + index+"&_openid="+_openid
     })
   },
 

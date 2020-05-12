@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "inform":"../inform/inform",
-    "loading":"../loading/loading"
+    "loading":"../loading/loading",
+    "confirm":"../confirm/confirm"
   }
 }

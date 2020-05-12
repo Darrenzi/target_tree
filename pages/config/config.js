@@ -115,6 +115,7 @@ Page({
     })
     
   },
+  
   chooseTheme:function(){
     if (this.data.changeTheme){
       this.setData({
@@ -126,7 +127,6 @@ Page({
         changeTheme: true,
       })
     }
-    
   },
   /**
    * 生命周期函数--监听页面加载

@@ -13,7 +13,7 @@ page{
   position: fixed;
   top:0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
 }
 .back{
   position: absolute;
@@ -83,6 +83,7 @@ page{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top:50rpx;
 }
 .tree{
   width: 45%;

@@ -30,9 +30,31 @@ Page({
     wx.navigateBack({});
   },
 
+  changeCoin: function (e) {
+    //投币后修改目标的金额，并同步主页数据及社区界面数据
+    let target = this.data.target;
+    let insertCoin = e.detail.coin;
+    target.coin += insertCoin;
+    this.setData({ target: target });
+    let pages = getCurrentPages();
+    //获得主页
+    let homePage = pages[0];
+    let user = homePage.data.user;
+    user.coin -= insertCoin;
+    homePage.setData({ user: user });
+    //获取上一个界面
+    let prevPage = pages[pages.length-2];
+    if (prevPage.__route__ == "pages/community/community"){
+      //如果上一页为社区界面，则同步金币数
+      let index = this.data.target.index;
+      let prePageTarget = prevPage.data.targets[index];
+      prePageTarget.coin += insertCoin;
+      prevPage.setData({ [`targets[${index}]`]: prePageTarget });
+    }
+  },
+
   showInputCoin: function () {
     //显示投币界面
-    console.log('1')
     let target = this.data.target;
     let user = getApp().globalData.user;
     let inputCoinMsg = {};
@@ -83,7 +105,8 @@ Page({
         content:content,
         comment_user:[{
           avatarUrl:that.data.user.avatarUrl,
-          un:that.data.user.un
+          un:that.data.user.un,
+          _openid:that.data.user._openid
         }]
       });
       this.setData({comment:comment});
@@ -210,19 +233,34 @@ Page({
 
   watch:function(){
     //围观
-    if(this.data.watchFlag == "已围观")return;
-    this.setData({loadContent:"正在围观..."});
+    let watchFlag = this.data.watchFlag;
+    //云函数操作参数，用于围观或取消围观的控制
+    let option = "watch";
+    let loadContent = "正在修改...";
+    let informContent = "围观成功！赶紧去留下你的建议吧！";
+    if(watchFlag == "已围观"){
+      option = "cancelWatch";
+      watchFlag = "围观";
+      loadContent = "正在取消围观...";
+      informContent = "取消围观成功";
+    }
+    else{
+      watchFlag = "已围观";
+    }
+    this.setData({ loadContent: loadContent });
 
     let that = this;
     wx.cloud.callFunction({
       name:"watchTarget",
       data:{
         targetId:that.data.target._id,
-        watchUserId: that.data.user._openid
+        watchUserId: that.data.user._openid,
+        option:option
       },
       success:function(res){
         console.log(res);
-        that.setData({watchFlag:"已围观", loadContent:"", informContent:"围观成功！赶紧去留下你的建议吧！"});
+        
+        that.setData({watchFlag:watchFlag, loadContent:"", informContent:informContent});
       },
       fail:function(err){
         console.log(err);
@@ -234,6 +272,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
+    options.coin = Number(options.coin);
     options.like = options.like.split(",");
     options.supervisor = options.supervisor.split(",");
     if(options.like[0] == ""){
@@ -242,14 +281,12 @@ Page({
     if(options.supervisor[0] == "") {
       options.supervisor.pop();
     }
-    this.setData({
-      target:options
-    });
+
     let user_targets = [];
     user_targets.push(options.targetId);
     this.getComment(user_targets);
     let user = getApp().globalData.user;
-    this.setData({user:user});
+    this.setData({ user: user, target: options});
 
     if (options.supervisor.indexOf(user._openid) != -1){
       //判断用户是否已经围观该目标
