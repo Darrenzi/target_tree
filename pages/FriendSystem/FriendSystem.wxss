@@ -2,7 +2,7 @@
 .back{
   position: fixed;
   z-index: 8;
-  font-size: 40rpx;
+  font-size: 45rpx;
   left: 30rpx;
   color: rgb(57, 163, 103);
   top: 120rpx;
