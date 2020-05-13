@@ -18,6 +18,7 @@ Page({
        now_year:0,
        lastMonth:0,
        nextMonth:0,
+       progress:0,
        labelList:[
          {label:"全部",
          imagesrc:'/pages/createTarget/images/1.png'},
@@ -43,10 +44,39 @@ Page({
        treeList:[],//用于存放树的地址
 
   },
+
+
+//返回函数
   backHome: function () {
   wx.navigateBack({
   })
   },
+//获取时间历程中的目标详情
+  targetDetail:function(e){
+    let index = e.currentTarget.id;
+    console.log(index);
+    let target = this.data.targetList[index];
+    let app=getApp()
+    let _openid=app.globalData.user._openid
+    let un=app.globalData.user.un
+    let avatarUrl = app.globalData.user.avatarUrl;
+    let title = target.title;
+    let content = target.content;
+    let targetId = target._id;
+    let like = target.like.toString();
+    let _id = target._id;
+    let supervisor = target.supervisor.toString();
+    let progress = target.progress;
+    let coin = target.coin;
+    wx.navigateTo({
+      // index为目标在数组中的索引，用于界面修改数据
+      url: '../targetDetail/targetDetail?un='+un+"&avatarUrl="+avatarUrl+"&_openid="+_openid+
+      "&title="+title+"&content="+content+"&targetId="+targetId+"&like="+like+"&_id="+_id
+        + "&supervisor=" + supervisor + "&progress=" + progress+"&coin="+coin+"&index="+index,
+    })
+  },
+
+//选择某个标签
   choose:function(e){
     this.setData({
       loadContent:'加载中...',
@@ -102,12 +132,38 @@ Page({
              })
             .get()
             .then(res => {
-            console.log("res",res)
-            let treeid = "targetList[" + j +"].src"  
-            this.setData({
-               [treeid]:res.data[0].path,
-            })
-            this.data.treeList.push(res.data[0])
+              if(this.data.targetList[j].progress<=29){
+                console.log("res",res)
+                let treeid = "targetList[" + j +"].src"  
+                this.setData({
+                   [treeid]:res.data[0].path[0],
+                })
+                this.data.treeList.push(res.data[0])
+              }
+              if(this.data.targetList[j].progress>29&&this.data.targetList[j].progress<=59){
+                console.log("res",res)
+                let treeid = "targetList[" + j +"].src"  
+                this.setData({
+                   [treeid]:res.data[0].path[1],
+                })
+                this.data.treeList.push(res.data[0])
+              }
+              if(this.data.targetList[j].progress>59&&this.data.targetList[j].progress<=89){
+                console.log("res",res)
+                let treeid = "targetList[" + j +"].src"  
+                this.setData({
+                   [treeid]:res.data[0].path[2],
+                })
+                this.data.treeList.push(res.data[0])
+              }
+              if(this.data.targetList[j].progress>90&&this.data.targetList[j].progress<=100){
+                console.log("res",res)
+                let treeid = "targetList[" + j +"].src"  
+                this.setData({
+                   [treeid]:res.data[0].path[3],
+                })
+                this.data.treeList.push(res.data[0])
+              }
             this.setData({
             loadContent:'',
             treeList: this.data.treeList
@@ -163,11 +219,38 @@ Page({
             })
            .get()
            .then(res => {
-            let treeid = "targetList[" + j +"].src"  
-            this.setData({
-               [treeid]:res.data[0].path,
-            })
-           this.data.treeList.push(res.data[0])
+            if(this.data.targetList[j].progress<=29){
+              console.log("res",res)
+              let treeid = "targetList[" + j +"].src"  
+              this.setData({
+                 [treeid]:res.data[0].path[0],
+              })
+              this.data.treeList.push(res.data[0])
+            }
+            if(this.data.targetList[j].progress>29&&this.data.targetList[j].progress<=59){
+              console.log("res",res)
+              let treeid = "targetList[" + j +"].src"  
+              this.setData({
+                 [treeid]:res.data[0].path[1],
+              })
+              this.data.treeList.push(res.data[0])
+            }
+            if(this.data.targetList[j].progress>59&&this.data.targetList[j].progress<=89){
+              console.log("res",res)
+              let treeid = "targetList[" + j +"].src"  
+              this.setData({
+                 [treeid]:res.data[0].path[2],
+              })
+              this.data.treeList.push(res.data[0])
+            }
+            if(this.data.targetList[j].progress>90&&this.data.targetList[j].progress<=100){
+              console.log("res",res)
+              let treeid = "targetList[" + j +"].src"  
+              this.setData({
+                 [treeid]:res.data[0].path[3],
+              })
+              this.data.treeList.push(res.data[0])
+            }
            this.setData({
            loadContent:'',
            treeList: this.data.treeList
@@ -291,11 +374,38 @@ Page({
               })
              .get()
              .then(res => {
-              let treeid = "targetList[" + j +"].src"  
-              this.setData({
-                 [treeid]:res.data[0].path,
-              })
-             this.data.treeList.push(res.data[0])
+              if(this.data.targetList[j].progress<=29){
+                console.log("res",res)
+                let treeid = "targetList[" + j +"].src"  
+                this.setData({
+                   [treeid]:res.data[0].path[0],
+                })
+                this.data.treeList.push(res.data[0])
+              }
+              if(this.data.targetList[j].progress>29&&this.data.targetList[j].progress<=59){
+                console.log("res",res)
+                let treeid = "targetList[" + j +"].src"  
+                this.setData({
+                   [treeid]:res.data[0].path[1],
+                })
+                this.data.treeList.push(res.data[0])
+              }
+              if(this.data.targetList[j].progress>59&&this.data.targetList[j].progress<=89){
+                console.log("res",res)
+                let treeid = "targetList[" + j +"].src"  
+                this.setData({
+                   [treeid]:res.data[0].path[2],
+                })
+                this.data.treeList.push(res.data[0])
+              }
+              if(this.data.targetList[j].progress>90&&this.data.targetList[j].progress<=100){
+                console.log("res",res)
+                let treeid = "targetList[" + j +"].src"  
+                this.setData({
+                   [treeid]:res.data[0].path[3],
+                })
+                this.data.treeList.push(res.data[0])
+              }
              this.setData({
              loadContent:'',
              treeList: this.data.treeList
@@ -347,11 +457,38 @@ Page({
             })
            .get()
            .then(res => {
-            let treeid = "targetList[" + j +"].src"  
-            this.setData({
-               [treeid]:res.data[0].path,
-            })
-           this.data.treeList.push(res.data[0])
+            if(this.data.targetList[j].progress<=29){
+              console.log("res",res)
+              let treeid = "targetList[" + j +"].src"  
+              this.setData({
+                 [treeid]:res.data[0].path[0],
+              })
+              this.data.treeList.push(res.data[0])
+            }
+            if(this.data.targetList[j].progress>29&&this.data.targetList[j].progress<=59){
+              console.log("res",res)
+              let treeid = "targetList[" + j +"].src"  
+              this.setData({
+                 [treeid]:res.data[0].path[1],
+              })
+              this.data.treeList.push(res.data[0])
+            }
+            if(this.data.targetList[j].progress>59&&this.data.targetList[j].progress<=89){
+              console.log("res",res)
+              let treeid = "targetList[" + j +"].src"  
+              this.setData({
+                 [treeid]:res.data[0].path[2],
+              })
+              this.data.treeList.push(res.data[0])
+            }
+            if(this.data.targetList[j].progress>90&&this.data.targetList[j].progress<=100){
+              console.log("res",res)
+              let treeid = "targetList[" + j +"].src"  
+              this.setData({
+                 [treeid]:res.data[0].path[3],
+              })
+              this.data.treeList.push(res.data[0])
+            }
            this.setData({
            loadContent:'',
            treeList: this.data.treeList

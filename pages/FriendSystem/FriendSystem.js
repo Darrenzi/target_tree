@@ -51,6 +51,11 @@ Page({
       inputValue:''
     })
   },
+  backToCheck:function(){
+    this.setData({
+      friendName:''
+    })
+  },
   getInput:function(e){
     this.setData({
       friendName:e.detail.value
@@ -61,7 +66,8 @@ Page({
     this.setData({
       friendName:this.data.friendName,
       loadContent:'正在搜索中...',
-      hidden:true
+      hidden:true,
+      showSameName:true
     })
     if(this.data.friendName==this.data.myselfName||this.data.friendName==''){
       this.setData({

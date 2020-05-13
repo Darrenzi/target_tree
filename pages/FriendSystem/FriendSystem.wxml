@@ -5,13 +5,13 @@
 <view class="back" bindtap="backHome">《</view>
 <view class="SideNavigationBar">
   <view class="single_page" bindtap="ChangeShowStatus">
-    <text class="font_class">好友列表</text>
+    <text class=" {{change_1?'font_class':'font_class_1'}}">好友列表</text>
   </view>
   <view class="single_page" bindtap="ChangeShowStatus_2">
-    <text class="font_class">我的排名</text>
+        <text class=" {{change_2?'font_class':'font_class_1'}}">我的排名</text>
   </view>
   <view class="single_page" bindtap="ChangeShowStatus_3">
-    <text class="font_class">本月排名</text>
+    <text class=" {{change_3?'font_class':'font_class_1'}}">本月排名</text>
   </view>
 </view>
 
@@ -21,17 +21,23 @@
 
   <view class="modal-box" hidden="{{hidden}}">
      <view class="modal-content">
-       <input placeholder="输入好友ID" class="inputFriendID" type="text" maxlength="20"
-         bindinput="getInput" value="{{inputValue}}" ></input>
-       <view class="friendIdline"></view>
-       <view class="return" bindtap="return">返回</view>
+
+       <view class="friendIdline">
+           <input placeholder="输入好友ID" class="inputFriendID" type="text" maxlength="30"
+         bindinput="getInput" value="{{inputValue}}" ></input></view>
        <view class="submit" bindtap="check">查询</view>
+       <view class="return" bindtap="return">返回</view>
+     
      </view>
   </view>
 
  
   <view class="modal-box" hidden="{{showSameName}}">
    <view class="container">
+    <view class="friendIdline_1">
+           <input placeholder="输入好友ID" class="inputFriendID_1" type="text" maxlength="30"
+         bindinput="getInput" value="{{inputValue}}" ></input></view>
+       <view class="submit_1" bindtap="check">查询</view>
      <view wx:for="{{getFriendName}}" wx:for-index="idx"  wx:key="key" >
        <view class="alldetail">
           <view class="singleFriendName">{{item.un}}</view>
@@ -41,16 +47,13 @@
           </view>
      </view>
      <view bindtap="cancle">
-     <view class="cancleCircle"></view>
+     <view class="cancleCircle"  bindtap="backToCheck"></view>
      <view class="cancle">X</view></view>
     </view>
   </view>
 
 <view class="hide{{change_1?'':'show'}}" bindtap="ChangeShowStatus">
-  <view class="Halfcircle"></view>
   <view>
-  
-    
     <view wx:for="{{navList}}" wx:for-index="idx" wx:if="{{idx!='_id'}}" wx:key="key">
       <view class="FriendList" bindtap="getFriendDetail" id="{{idx}}">
          <view class="FriendLine"></view>
@@ -63,7 +66,7 @@
 </view>
 
 <view class="hide{{change_2?'':'show'}}">
-  <view class="Halfcircle_1"></view>
+
   <view>
     <block wx:for="{{sortfriend}}" wx:for-index="friendidx" wx:key="key">
       <view class="Friend">
@@ -77,12 +80,12 @@
         <text class="sort_font">夺得{{item.month}}月{{item.day}}日排行冠军</text>
       </view>
     </block>
-    <view class="whitespace"></view>
+
   </view>
 </view>
 
 <view class="hide{{change_3?'':'show'}}" bindtap="ChangeShowStatus_3">
-  <view class="Halfcircle_2"></view>
+
   <view>
     <block wx:for="{{tempSort}}" wx:for-index="userIdx" wx:key="key">
       <view class="Friend"><view class="line"></view>

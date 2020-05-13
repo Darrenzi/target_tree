@@ -15,7 +15,7 @@
 
 <view class="whitespace"></view>
 
-<block wx:for="{{targetList}}" wx:key="targetKey"  >
+<view wx:for="{{targetList}}" wx:key="targetKey"  id="{{index}}" bindtap="targetDetail" >
  <view class="allTargetContent">  <!--显示目标  -->
   <view class="date">{{item.year}}年{{item.month}}月{{item.day}}日</view>
   <view class="targetClass">
@@ -28,17 +28,13 @@
    <image src="/images/pig.png" class="imagepig"></image>
    <image src="/images/defaultSoil.png"   class="imageSolid"></image>
    <view class="labelclass">{{item.title}}</view>
-    <image src="{{item.src[0]}}" class="tree"></image>
+    <image src="{{item.src}}" class="tree"></image>
   </view>
  </view>
-</block>
-   <view class="whitespace_1"></view>
-   
 </view>
-
-
-
-
+   <view class="whitespace_1"></view> 
+</view>
+ 
 
 <view class="contianer">
   <view id="{{index}}" class="label {{current_index==index?'labelChoose':''}}" wx:for="{{labelList}}" bindtap="choose" wx:key="targets">
