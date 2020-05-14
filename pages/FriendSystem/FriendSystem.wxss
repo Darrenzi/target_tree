@@ -19,7 +19,7 @@
   left: 0;
   width: 20%;
   height: 100%;
-  background: rgb(61, 61, 61);
+  background-color:  rgb(57, 163, 103);
   display: block;
 }
 .single_page{
