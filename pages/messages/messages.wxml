@@ -72,12 +72,12 @@
   </view>
 
   <!-- 展示系统消息 -->
-  <view class="systemMessage" hidden="{{current_show!='tip'}}" wx:for="{{tip}}" wx:key="tip" bindtouchend="operateMessage" id="{{index}}">
+  <view class="systemMessage" hidden="{{current_show!='tip'}}" wx:for="{{tip}}" wx:key="tip" bindtap="operateMessage" id="{{index}}">
     <view class="overview">
       <view class="ellipsis username" style="margin-top:20rpx;">{{item.title}}</view>
       <view class="content">{{item.content}}</view>
     </view>
-      <view class="messageOperation {{(current_index==index&&current_show=='tip')?'msgOperationChoose':''}}" catchtouchend="deleteMsg" style="width:20%;">删除</view>
+    <image class="deleteSysMsg" src="../../images/shanchu.png" catchtouchend="deleteMsg" id="{{index}}"></image>
   </view>
 </view>
 

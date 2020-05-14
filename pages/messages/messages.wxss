@@ -125,6 +125,13 @@ page{
   overflow: hidden;
   transition: all 0.5s;
 }
+.deleteSysMsg{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 30rpx;
+  top:20rpx;
+}
 .systemMessageChoose{
   margin-left: -25%;
   width: 125%;

@@ -205,7 +205,7 @@ justify-content: center;
 }
 .inputtitleLine{
   height: 2rpx;
-  background-color: rgb(0, 0, 0);
+  background-color:gainsboro;
   width: 70%;
   position: absolute;
   top: 400rpx;
@@ -326,7 +326,6 @@ justify-content: center;
   padding: 15rpx,15rpx,15rpx,15rpx;
 }
 .colorCircle{
-
   height: 120rpx;
   width: 120rpx;
   left: 25rpx;
@@ -899,7 +898,7 @@ textarea {
   left: 10rpx;
   position: absolute;
   top: 30rpx;
-  border: 2rpx solid rgb(0, 0, 0);
+  border: 2rpx solid gainsboro;
 }
 
 .page-section{

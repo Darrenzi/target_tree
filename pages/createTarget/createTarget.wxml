@@ -96,7 +96,7 @@
   <view class="page-section">
     <view class="textarea-wrp">
     <view class="border">
-      <textarea auto-focus="true"  bindinput="getInput" maxlength="500"placeholder-style="top:30rpx"/>
+      <textarea auto-focus="true"  bindinput="getInput" placeholder-style="top:30rpx;" placeholder="你要用什么方法实现自己的目标? \n 是否可以将目标分成一个个小目标? \n 期望收获什么?"/>
       </view>
     </view>
   </view>

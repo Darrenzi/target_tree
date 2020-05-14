@@ -40,7 +40,7 @@ Page({
     // console.log(e);
     //数据在数组中的索引
     let index = e.currentTarget.id;
-    console.log(index);
+    // console.log(index);
     if(this.data.current_index != -1){
       this.setData({ current_index: -1 });
     }
@@ -88,9 +88,12 @@ Page({
     })
   },
 
-  deleteMsg:function(){
+  deleteMsg:function(e){
     //删除某条消息
     let index = this.data.current_index;
+    if(this.data.current_show == "tip"){
+      index = e.currentTarget.id;
+    }
     let currentData = [];
     let that = this;
     let id = "";//记录的id
@@ -100,7 +103,7 @@ Page({
         id = currentData[index]._id;
         let comments = this.data.comments;
         comments.splice(index, 1);
-        this.setData({comments: comments});
+        this.setData({ comments: comments, current_index: -1});
         break;
       }
       case 'like':{
@@ -108,7 +111,7 @@ Page({
         id = currentData[index]._id;
         let like = this.data.like;
         like.splice(index, 1);
-        this.setData({ like: like});
+        this.setData({ like: like, current_index:-1});
         break;
       }
       case 'tip': {
@@ -116,7 +119,7 @@ Page({
         id = currentData[index]._id;
         let tip = this.data.tip;
         tip.splice(index, 1);
-        this.setData({ tip: tip });
+        this.setData({ tip: tip, current_index:-1});
         break;
       }
     }
