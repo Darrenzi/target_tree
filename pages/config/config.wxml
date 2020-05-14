@@ -73,14 +73,16 @@
 
 
   <view class="modal-box" wx:if="{{!changeTheme}}">
-     <view class="modal-content">
-     <view class="return" bindtap="chooseTheme">返回</view>
-     <view class="submit" bindtap="toChooseTheme">确认</view>
+     <view class="modal-content-theme">
+     <view class="problemreturn" bindtap="chooseTheme">返回</view>
+     <view class="problemsubmit" bindtap="toChooseTheme">确认</view>
      <view class="idea">请选择主题</view>
     <view class="border"></view>
       <view class="page-section">
-          <view class="{{changeView!='white'?'white':'white_1'}}" bindtap="changeview" data-theme="white">白色</view>
-          <view class="{{changeView!='green'?'green':'green_1'}}" bindtap="changeview" data-theme="green">绿色</view>
+          <view class="{{changeView!='white'?'white':'white_1'}}" bindtap="changeview" data-theme="white">
+          <image src="../register/images/white.jpg" class="whiteimage"></image>白色</view>
+          <view class="{{changeView!='green'?'green':'green_1'}}" bindtap="changeview" data-theme="green">
+           <image src="../register/images/green.jpg" class="whiteimage"></image>绿色</view>
       </view>
     </view>
   </view>

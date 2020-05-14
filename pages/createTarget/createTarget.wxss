@@ -922,3 +922,10 @@ textarea {
   bottom: 80rpx;
   position: fixed;
 }
+.placeholderFont{
+  position: fixed;
+  top: 570rpx;
+  font-size: 30rpx;
+  left: 120rpx;
+  color: rgba(110, 112, 108, 0.508);
+}
