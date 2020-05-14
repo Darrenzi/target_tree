@@ -492,7 +492,11 @@ Page({
 
  end:function(e){
    //显示加载动画
-   this.setData({loadContent:"创建中..."});
+   this.setData({
+     loadContent:"创建中...",
+     informContent:''
+    });
+
    let setDate=this.data.setDate
    let date=this.data.date
    if(setDate==1){  //选择明天开始目标
@@ -536,13 +540,19 @@ Page({
    var amount=this.data.amount
    var title=this.data.title
    var that=this
-   if(amount<=rest){
-    that.setData({informContent:"请输入正确的结束时间"});
+   if(amount<rest){
+    that.setData({informContent:"休息时间比总时间多噢"});
+    this.setData({loadContent:''});
+    return
+   }
+   if(amount==rest){
+    this.setData({informContent:"休息时间和总时间一样多噢"});
     this.setData({loadContent:''});
     return
    }
    let num=0.2*amount;
    num = Math.floor(num * 1) / 1;
+   console.log("num",num)
    if(rest<0||rest>(0.2*amount)){
     that.setData({informContent:"休息时间最多只能是"+num+"天噢"});
     this.setData({loadContent:''});
