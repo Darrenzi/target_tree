@@ -81,6 +81,7 @@ page{
   left: 48%;
   margin-top:5rpx;
   font-size: 28rpx;
+  color:rgb(63, 63, 63);
 }
 .watchButton{
   width: 120rpx;
@@ -141,7 +142,7 @@ page{
 .messageUn{
   font-size: 35rpx;
   margin-bottom: 10rpx;
-  width:80%;
+  width:75%;
   color:rgb(71, 71, 71);
   display: flex;
   align-items: center;
@@ -155,6 +156,7 @@ page{
   padding-right: 15rpx;
   text-align: center;
   border-radius: 25rpx;
+  min-width: 60rpx;
 }
 .messageContent{
   max-height: 300rpx;
@@ -165,6 +167,50 @@ page{
   right: 10rpx;
   position: absolute;
 }
+.reply{
+  display: flex;
+  width: 100%;
+  position: relative;
+  margin-top:30rpx;
+}
+.replyAvatar{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 100%;
+}
+.replyRight{
+  width: 80%;
+  margin-left: 20rpx;
+}
+.replyUn{
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+  width:75%;
+  color:rgb(71, 71, 71);
+  display: flex;
+  align-items: center;
+}
+.replyUnTip{
+  background: rgb(57, 163, 103);
+  color:white;
+  margin-left: 10rpx;
+  font-size: 20rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  text-align: center;
+  border-radius: 25rpx;
+  min-width: 60rpx;
+}
+.replyContent{
+  max-height: 300rpx;
+  overflow-y:scroll;
+}
+.replyDate{
+  top:0;
+  right: 10rpx;
+  position: absolute;
+}
+
 
 .noComment{
   width: 100%;

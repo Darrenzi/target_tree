@@ -28,7 +28,7 @@
   <!-- 隐藏的输入调 -->
   <input class="commentInput" focus="{{commentInputFlag}}" hidden="{{!commentInputFlag}}" confirm-type="send" bindconfirm="sendComment" bindblur="hideCommentInput" value="{{commentInput}}"></input>
 
-  <view class="messages" wx:for="{{comment}}" wx:key="messages">
+  <view id="{{index}}" class="messages" wx:for="{{comment}}" wx:key="messages" bindtap="comment" data-type="reply" data-commentid="{{item._id}}">
     <image class="messageAvatar" src="{{item.comment_user[0].avatarUrl}}"></image>
     <view class="messageRight">
       <view class="messageUn">
@@ -37,6 +37,21 @@
       </view>
       <view class="messageContent">{{item.content}}</view>
       <view class="messageDate">{{item.time}}</view>
+
+      
+      <!-- 回复 -->
+      <view id="{{replyIndex}}" class="reply" wx:for="{{item.replyMsg}}" wx:for-item="replyItem" wx:for-index="replyIndex" wx:key="reply">
+        <image class="replyAvatar" src="{{replyItem.comment_user[0].avatarUrl}}"></image>
+        <view class="replyRight">
+          <view class="replyUn">
+            {{item.comment_user[0].un}}
+            <view wx:if="{{target._openid == replyItem.comment_user[0]._openid}}" class="replyUnTip">楼主</view>
+          </view>
+          <view class="replyContent">{{replyItem.content}}</view>
+          <view class="replyDate">{{replyItem.time}}</view>
+        </view>
+      </view>
+
     </view>
   </view>
 
@@ -49,8 +64,8 @@
 <!-- 占位避免底部遮挡 -->
 <view style="height:150rpx;"></view>
 <view class="bottom">
-  <view class="comment" bindtap="comment">
-    <image class="bottomOption" src="../../images/shuru.png" bindtap="like"></image>
+  <view class="comment" bindtap="comment" data-type="comment" data-commentid="{{item._id}}">
+    <image class="bottomOption" src="../../images/shuru.png"></image>
     说点什么···
   </view>
   <image class="bottomOption" src="../messages/images/xihuan.png" bindtap="like"></image>

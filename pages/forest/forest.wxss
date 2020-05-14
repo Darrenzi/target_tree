@@ -113,6 +113,7 @@ page{
   display: flex;
   width: 95%;
   min-height: 150rpx;
+  height: 150rpx;
   border-bottom: 3rpx solid gainsboro;
   font-size: 35rpx;
   align-items: center;
@@ -156,7 +157,7 @@ page{
   min-height: 550rpx;
 }
 .targetShowDetailLabel{
-  width: 120rpx;
+  width: 25%;
   height: 80rpx;
   display: flex;
   justify-content: center;

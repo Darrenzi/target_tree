@@ -125,6 +125,7 @@ page{
   display: flex;
   width: 95%;
   min-height: 150rpx;
+  height: 150rpx;
   border-bottom: 3rpx solid gainsboro;
   font-size: 35rpx;
   align-items: center;

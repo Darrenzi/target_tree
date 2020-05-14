@@ -15,7 +15,7 @@ Page({
     newFriend:[],
     //系统提醒列表
     tip:[],
-    //当前展示的内容,like:点赞， comment:评论, wacth:围观, tip:提醒
+    //当前展示的内容,like:点赞， comment:评论, newFriend:新朋友, tip:提醒
     current_show:"like",
     //当前选中的数据在其对应的数组的索引值
     current_index:-1,
@@ -26,7 +26,9 @@ Page({
     //新的朋友数
     newFriendNum:0,
     //新的系统提示
-    newTipNum:0
+    newTipNum:0,
+
+    loadContent:""
   },
 
   backHome: function () {
@@ -43,8 +45,47 @@ Page({
       this.setData({ current_index: -1 });
     }
     else{
-      this.setData({ current_index: index });
+      this.setData({ current_index: Number(index) });
     }
+  },
+
+  replyMsg:function(){
+    //回复消息
+    this.setData({loadContent:"正在路上..."});
+    let index = this.data.current_index;
+    let id = this.data.comments[index].target_id;
+
+    wx.cloud.callFunction({
+      name:"getTargetById",
+      data:{
+        targetId: id
+      }
+    })
+    .then(res=>{
+      console.log(res);
+      let target = res.result.list[0];
+      let un = target.userList[0].un;
+      let avatarUrl = target.userList[0].avatarUrl;
+      let _openid = target.userList[0]._openid;
+      let title = target.title;
+      let content = target.content;
+      let targetId = target._id;
+      let like = target.like.toString();
+      let _id = target._id;
+      let supervisor = target.supervisor.toString();
+      let progress = target.progress;
+      let coin = target.coin;
+      wx.navigateTo({
+        // index为目标在数组中的索引，用于界面修改数据
+        url: '../targetDetail/targetDetail?un=' + un + "&avatarUrl=" + avatarUrl + "&_openid=" + _openid +
+          "&title=" + title + "&content=" + content + "&targetId=" + targetId + "&like=" + like + "&_id=" + _id
+          + "&supervisor=" + supervisor + "&progress=" + progress + "&coin=" + coin + "&index=" + index,
+      })
+      this.setData({current_index:-1, loadContent:""});
+    })
+    .catch(err=>{
+      console.log(err);
+    })
   },
 
   deleteMsg:function(){
@@ -107,6 +148,7 @@ Page({
       for(let i=0;i<res.data.length;i++){
         user_targets.push(res.data[i]._id);
       }
+      console.log(user_targets);
       
       //获取评论
       wx.cloud.callFunction({

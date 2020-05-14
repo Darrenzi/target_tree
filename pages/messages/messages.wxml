@@ -1,4 +1,6 @@
 <!--pages/messages/messages.wxml-->
+<loading content="{{loadContent}}"></loading>
+
 <view class="top">
   <view class="top_container">
     <view class="top_title">消息</view>
@@ -36,7 +38,7 @@
     暂无消息
   </view>
   <!-- 展示评论 -->
-  <view id="{{index}}" class="message" wx:for="{{comments}}" hidden="{{current_show!='comment'}}" bindtouchend="operateMessage" wx:key="comment">
+  <view id="{{index}}" class="message {{(current_index==index&&current_show=='comment')?'messageChoose':''}}" wx:for="{{comments}}" hidden="{{current_show!='comment'}}" bindtouchend="operateMessage" wx:key="comment">
     <image class="avatar" src="{{item.comment_user[0].avatarUrl}}"></image>
     <view class="overview">
       <view class="date">{{item.time}}</view>
@@ -44,10 +46,11 @@
       <view class="ellipsis content">{{item.content}}</view>
     </view>
     <view class="messageOperation  {{(current_index==index&&current_show=='comment')?'msgOperationChoose':''}}" catchtouchend="deleteMsg">删除</view>
+    <view class="msgReply  {{(current_index==index&&current_show=='comment')?'msgReplyChoose':''}}" catchtouchend="replyMsg">回复</view>
   </view>
 
   <!-- 展示点赞 -->
-  <view id="{{index}}" class="message" wx:for="{{like}}" hidden="{{current_show!='like'}}" bindtouchend="operateMessage" wx:key="like">
+  <view id="{{index}}" class="message {{(current_index==index&&current_show=='like')?'messageChoose':''}}" wx:for="{{like}}" hidden="{{current_show!='like'}}" bindtouchend="operateMessage" wx:key="like">
     <image class="avatar" src="{{item.like_user[0].avatarUrl}}"></image>
     <view class="overview">
       <view class="date">{{item.time}}</view>
@@ -74,6 +77,7 @@
       <view class="ellipsis username" style="margin-top:20rpx;">{{item.title}}</view>
       <view class="content">{{item.content}}</view>
     </view>
-      <view class="messageOperation {{(current_index==index&&current_show=='tip')?'msgOperationChoose':''}}" catchtouchend="deleteMsg">删除</view>
+      <view class="messageOperation {{(current_index==index&&current_show=='tip')?'msgOperationChoose':''}}" catchtouchend="deleteMsg" style="width:20%;">删除</view>
   </view>
 </view>
+

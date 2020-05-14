@@ -13,6 +13,12 @@ Page({
     comment:[],
     //评论输入的内容
     commentInput:"",
+    //输入的类型
+    commentType:"comment",
+    //回复类型时，回复的评论id
+    commentId:"-1",
+    //选中回复的评论在评论列表中的索引
+    commentIndex:-1,
     //登陆用户的信息
     user:{},
     //用户是否已经围观的标识符
@@ -65,8 +71,12 @@ Page({
     this.setData({ inputCoinFlag: true, inputCoinMsg: inputCoinMsg });
   },
 
-  comment:function(){
-    this.setData({commentInputFlag:true});
+  comment:function(e){
+    let commentType = e.currentTarget.dataset.type;
+    let commentId = e.currentTarget.dataset.commentid;
+    let commentIndex = e.currentTarget.id;
+    console.log(commentType, commentId, commentIndex);
+    this.setData({commentInputFlag:true, commentType:commentType, commentId, commentId, commentIndex:commentIndex});
   },
 
   hideCommentInput:function(){
@@ -91,24 +101,48 @@ Page({
     if(content == "")return;
     const db = wx.cloud.database();
     let that = this;
+    let commentType = this.data.commentType;
+    let commentId = "";
+    if(commentType == "reply"){
+      commentId = this.data.commentId;
+    }
     db.collection('comment').add({
       data:{
         content:content,
         target_id:that.data.target.targetId,
-        time:new Date()
+        time:new Date(),
+        comment_id:commentId,
+        type:commentType
       }
     })
     .then(res=>{
       console.log(res);
       let comment = that.data.comment;
-      comment.unshift({
-        content:content,
-        comment_user:[{
-          avatarUrl:that.data.user.avatarUrl,
-          un:that.data.user.un,
-          _openid:that.data.user._openid
-        }]
-      });
+      if(commentType == "comment"){
+        //更新评论数据
+        comment.unshift({
+          _id: res._id,
+          content: content,
+          comment_user: [{
+            avatarUrl: that.data.user.avatarUrl,
+            un: that.data.user.un,
+            _openid: that.data.user._openid
+          }]
+        });
+      }
+      else{
+        //更新评论回复数据
+        let index = that.data.commentIndex;
+        comment[index].replyMsg.unshift({
+          _id: res._id,
+          content: content,
+          comment_user: [{
+            avatarUrl: that.data.user.avatarUrl,
+            un: that.data.user.un,
+            _openid: that.data.user._openid
+          }]
+        })
+      }
       this.setData({comment:comment});
       //更新评论数字段
       wx.cloud.callFunction({
@@ -127,6 +161,7 @@ Page({
     .catch(err=>{
       console.log(err);
     })
+
   },
 
   getComment: function(user_targets){
@@ -135,18 +170,42 @@ Page({
       name:"getComment",
       data:{
         user_targets: user_targets
-      },
-      success:function(res){
-        console.log(res);
-        let comment = res.result.list;
-        for(let i=0;i<comment.length;i++){
-          comment[i].time = comment[i].time.substr(5,5);
-        }
-        that.setData({comment:comment});
-      },
-      fail:function(err){
-        console.log(err);
       }
+    })
+    .then(res=>{
+      console.log(res);
+      let allComment = res.result.list;
+      let reply = [];
+      let comment = [];
+      //处理评论和回复
+      for (let i = 0; i < allComment.length; i++) {
+        allComment[i].time = allComment[i].time.substr(5, 5);
+        allComment[i].replyMsg = [];
+        switch(allComment[i].type){
+          case "reply":{
+            reply.push(allComment[i]);
+            break;
+          }
+          case "comment":{
+            comment.push(allComment[i]);
+            break;
+          }
+        }
+      }
+      for(let i=0;i<reply.length;i++){
+        for(let j=0;j<comment.length;j++){
+          if(reply[i].comment_id == comment[j]._id){
+            //判断该条回复是否属于该评论
+            comment[j].replyMsg.push(reply[i]);
+            break;
+          }
+        }
+      }
+      console.log(comment);
+      that.setData({ comment: comment });
+    })
+    .catch(err=>{
+      console.log(err);
     })
   },
 

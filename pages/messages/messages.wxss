@@ -7,7 +7,8 @@ page{
 .top{
   display: flex;
   position: fixed;
-  top:80rpx;
+  top:0;
+  padding-top:80rpx;
   width: 100%;
   flex-direction: column;
   align-items: center;
@@ -105,7 +106,12 @@ page{
   border-bottom:5rpx solid gainsboro;
   position: relative;
   overflow: hidden;
-  transition: left 0.8s, width 0.5s;
+  transition: all 0.5s;
+}
+.messageChoose{
+  position: relative;
+  margin-left:-50%;
+  width: 150%;
 }
 .systemMessage{
   /* 系统消息 */
@@ -117,7 +123,11 @@ page{
   border-bottom:5rpx solid gainsboro;
   position: relative;
   overflow: hidden;
-  transition: left 0.8s, width 0.5s;
+  transition: all 0.5s;
+}
+.systemMessageChoose{
+  margin-left: -25%;
+  width: 125%;
 }
 .avatar{
   height: 120rpx;
@@ -147,7 +157,7 @@ page{
 .messageOperation{
   position: absolute;
   color:white;
-  width: 25%;
+  width: 15%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -158,9 +168,25 @@ page{
   /* animation: operation_in 0.5s; */
 }
 .msgOperationChoose{
-  height: 100%;
   right: 0;
 }
+.msgReply{
+  position: absolute;
+  color:white;
+  width: 15%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(57, 163, 103);
+  right: -25%;
+  transition: all 0.5s;
+  /* animation: operation_in 0.5s; */
+}
+.msgReplyChoose{
+  right: 15%;
+}
+
 .addFriendButton{
   position: absolute;
   right: 50rpx;

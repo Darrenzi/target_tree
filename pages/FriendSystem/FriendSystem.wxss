@@ -41,7 +41,6 @@
   align-items: center;
   position: relative;
   top: 39%;
-  display: flex;
   justify-content: center;
   left: 0rpx;
 }
