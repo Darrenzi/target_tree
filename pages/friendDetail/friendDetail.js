@@ -166,7 +166,7 @@ Page({
       if (targets[i].status == 1) {
         completed += 1;
       }
-      else {
+      if (targets[i].status == 0) {
         running += 1;
       }
     }
