@@ -232,18 +232,16 @@ textarea {
   background-color:  rgba(41, 118, 44, 0.94);
 }
 .idea{
-  position: fixed;
-  top: 480rpx;
-  height: 60rpx;
-  width: 250rpx;
+  width: 40%;
+  padding:20rpx;
+  text-align: center;
+  background: rgb(57, 163, 103);
+  font-size: 40rpx;
+  position: absolute;
+  top: 70rpx;
+  left: 205rpx;
   border-radius: 20rpx;
-  left: 257.5rpx;
-  font-size: 35rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: aliceblue;
-  background-color:  rgba(41, 118, 44, 0.94);
+  margin-bottom:30rpx;
 }
 .submit{
   position: fixed;
@@ -260,12 +258,12 @@ textarea {
   color: aliceblue;
 }
 .white{
-  position: fixed;
-  top: 580rpx;
-  height: 230rpx;
-  width: 170rpx;
+  position: absolute;
+  top: 180rpx;
+  height: 50rpx;
+  width: 100rpx;
   border-radius: 20rpx;
-  left: 385rpx;
+  left: 55rpx;
   font-size: 35rpx;
   display: flex;
   align-items: center;
@@ -275,12 +273,12 @@ textarea {
   border: 2rpx solid rgba(20, 30, 18, 0.6);
 }
 .white_1{
-  position: fixed;
-  top: 580rpx;
-  height: 230rpx;
-  width: 170rpx;
+  position: absolute;
+  top: 180rpx;
+  height: 50rpx;
+  width: 100rpx;
   border-radius: 20rpx;
-  left: 385rpx;
+  left: 55rpx;
   font-size: 35rpx;
   display: flex;
   align-items: center;
@@ -291,12 +289,12 @@ textarea {
   border: 2rpx solid rgba(20, 30, 18, 0.6);
 }
 .green{
-  position: fixed;
-  top: 580rpx;
-  height: 230rpx;
-  width: 170rpx;
+  position: absolute;
+  top: 680rpx;
+  height: 50rpx;
+  width: 100rpx;
   border-radius: 20rpx;
-  left: 200rpx;
+  left: 55rpx;
   font-size: 35rpx;
   display: flex;
   align-items: center;
@@ -306,12 +304,12 @@ textarea {
   border: 2rpx solid rgba(20, 30, 18, 0.6);
 }
 .green_1{
-  position: fixed;
-  top: 580rpx;
-  height: 230rpx;
-  width: 170rpx;
+  position: absolute;
+  top: 680rpx;
+  height: 50rpx;
+  width: 100rpx;
   border-radius: 20rpx;
-  left: 200rpx;
+  left: 55rpx;
   font-size: 35rpx;
   display: flex;
   align-items: center;
@@ -461,4 +459,23 @@ textarea {
   background-color: rgba(0,0,0,0.4);
   width: 85%;
   left: 7.5%;
+}
+.modal-content-theme{
+  height: 100%;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+}
+.whiteimage{
+  position: absolute;
+  top: 60rpx;
+  width: 650rpx;
+  left: 50rpx;
+  height: 480rpx;
+}
+.greenimage{
+  position: absolute;
+  top: 550rpx;
+  width: 600rpx;
+  left: 50rpx;
+  height: 480rpx;
 }

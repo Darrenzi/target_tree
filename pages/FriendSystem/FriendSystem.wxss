@@ -28,7 +28,6 @@
   width: 100%;
   position: relative;
   background-color:  rgb(57, 163, 103);
- 
 }
 .font_class{
   font-size: 40rpx;
