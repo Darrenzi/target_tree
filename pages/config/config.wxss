@@ -65,7 +65,7 @@
   position: absolute;
   width: 90%;
   top: 96rpx;
-  background-color: rgba(20, 30, 18, 0.6)
+  background-color: gainsboro;
 }
 
 
@@ -100,7 +100,7 @@
   width: 90%;
   left: 45rpx;
   top: 80rpx;
-  background-color: rgba(20, 30, 18, 0.6)
+  background-color: gainsboro;
 }
 .singleConfig{
   position: absolute;

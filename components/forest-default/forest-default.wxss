@@ -5,6 +5,18 @@
   height: 100px;
   width: 100px;
   margin-top:-80px;
+  animation: inform_show 0.5s;
+}
+@keyframes inform_show{
+  from{
+    position: absolute;
+    height: 0;
+    margin-top: 0px;
+  }
+  to{
+    position: absolute;
+    height: 100px;
+  }
 }
 
 .forest{
@@ -25,6 +37,20 @@
   position: absolute;
   width: 60px;
   height: 60px;
+  animation: tree_show 0.8s;
+}
+@keyframes tree_show{
+  from{
+    position: absolute;
+    height: 0;
+    margin-top:30px;
+    opacity: 0;
+  }
+  to{
+    position: absolute;
+    height: 60px;
+    opacity: 1;
+  }
 }
 .row0{
   z-index:4;

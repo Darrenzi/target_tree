@@ -44,6 +44,8 @@ Page({
   },
 
   nextMonth: function () {
+    //显示加载动画
+    this.setData({ loadContent: '正在收集树苗...' });
     let month = this.data.month;
     let year = this.data.year;
     if (month < 12) {
@@ -55,6 +57,8 @@ Page({
   },
 
   lastMonth: function () {
+    //显示加载动画
+    this.setData({ loadContent: '正在收集树苗...' });
     let month = this.data.month;
     if (month > 1) {
       this.setData({ month: month - 1 });
@@ -124,7 +128,6 @@ Page({
   },
 
   getTargets: function () {
-    this.setData({loadContent:"获取树苗中..."})
     //获取用户某个月的目标
     let userId = this.data.targetUser.userId;
     // console.log(userId);

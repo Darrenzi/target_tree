@@ -15,7 +15,7 @@ Page({
     //统计的数据
     statistics:null,
     //加载动画中的内容
-    loadContent:'',
+    loadContent: '正在收集树苗...',
     //当前显示的
     currentShow:'森林',
     //当前显示详情的目标的索引
@@ -102,9 +102,6 @@ Page({
   },
 
   getTree:function(targetData){
-    //显示加载动画
-    this.setData({loadContent:'正在收集树苗...'});
-
     console.log(targetData);
     //获取用户目标的树苗的信息, treeId未定义会出现无法运行的错误
     let treeId =[];
@@ -184,6 +181,8 @@ Page({
   },
 
   nextMonth:function(){
+    //显示加载动画
+    this.setData({ loadContent: '正在收集树苗...' });
     let month = this.data.month;
     let year = this.data.year;
     if(month < 12){
@@ -195,6 +194,8 @@ Page({
   },
 
   lastMonth:function(){
+    //显示加载动画
+    this.setData({ loadContent: '正在收集树苗...' });
     let month = this.data.month;
     if (month > 1) {
       this.setData({ month: month - 1 });
