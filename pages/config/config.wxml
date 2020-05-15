@@ -55,7 +55,7 @@
   <view class="configLine"></view>
 </view>
 
-<view class="modal-box" hidden="{{hidden}}">
+<view class="modal-box" wx:if="{{hidden}}">
      <view class="modal-content">
      <view class="return" bindtap="return">返回</view>
      <view class="submit" bindtap="submit">提交</view>

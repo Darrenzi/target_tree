@@ -1,11 +1,11 @@
 /* pages/FriendSystem/FriendSystem.wxss */
 .back{
-  position: fixed;
+  position: absolute;
   z-index: 8;
   font-size: 45rpx;
   left: 30rpx;
   color: rgb(255, 255, 255);
-  top: 120rpx;
+  top: 60rpx;
   width: 70rpx;
   height: 60rpx;
   font-weight: bolder;
@@ -21,10 +21,11 @@
   height: 100%;
   background-color:  rgb(57, 163, 103);
   display: block;
+  overflow: scroll;
 }
 .single_page{
   display: inline-block;
-  height: 33.333%;
+  height: 33.33%;
   width: 100%;
   position: relative;
   background-color:  rgb(57, 163, 103);
@@ -36,7 +37,7 @@
   writing-mode: vertical-lr;
   align-items: center;
   position: relative;
-  top: 39%;
+  top: 35%;
   justify-content: center;
   left: 40rpx;
   position: absolute;
@@ -109,9 +110,9 @@
   right: 10rpx;
   top: 150rpx;
   position: absolute;
-  height: 2rpx;
+  height: 3rpx;
   margin-top:15rpx;
-  background-color: gainsboro;
+  background-color: rgb(244, 208, 208);
 }
 
 .VerticalShape{
@@ -238,8 +239,8 @@
 .circle{
   height: 70rpx;
   width: 70rpx;
-  position: fixed;
-  top: 1520rpx;
+  position: relative;
+  bottom: 50rpx;
   margin-left: 30rpx;
   font-size: 50rpx;
   border-radius: 80rpx;

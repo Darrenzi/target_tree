@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hidden:true,
+    hidden:false,
     content:'',//用户自己的评论
     myself:'',//用户OPENid
     nowdate:'',
@@ -141,12 +141,12 @@ Page({
   },
   getidea:function(){
     this.setData({
-      hidden:false
+      hidden:true
     })
   },
   return:function(){
     this.setData({
-      hidden:true,
+      hidden:false,
       content:'',
       input:''
     })
@@ -168,7 +168,6 @@ Page({
     this.setData({
       myself:userOpenid
     })
-   
     console.log(this.data.myself)
     let content=this.data.content
     console.log(content)
@@ -186,7 +185,7 @@ Page({
     .then(res=>{
       console.log("res",res)
       this.setData({
-        hidden:true,
+        hidden:false,
         informContent:'您的意见已提交',
         input:''
       })

@@ -2,8 +2,9 @@
 <loading content="{{loadContent}}"></loading>
 <inform content="{{informContent}}"></inform>
 
-<view class="back" bindtap="backHome">《</view>
+
 <view class="SideNavigationBar">
+<view class="back" bindtap="backHome">《</view>
   <view class="single_page" bindtap="ChangeShowStatus">
     <text class=" {{change_1?'font_class':'font_class_1'}}">好友列表</text>
   </view>
@@ -13,11 +14,12 @@
   <view class="single_page" bindtap="ChangeShowStatus_3">
     <text class=" {{change_3?'font_class':'font_class_1'}}">本月排名</text>
   </view>
-</view>
-
+  
  <view bindtap="findfriend">
       <image src="/images/addFriend.png" class="circle"></image>
   </view>
+</view>
+
 
   <view class="modal-box" hidden="{{hidden}}">
      <view class="modal-content">

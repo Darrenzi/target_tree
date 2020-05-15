@@ -481,7 +481,7 @@ textarea {
 }
 .inputidea{
   height: 60rpx;
-  width: 210rpx;
+  width: 260rpx;
   background-color: rgb(57, 163, 103);
   left: 120rpx;
   position: absolute;
