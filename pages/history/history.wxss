@@ -387,11 +387,11 @@ page{
   position: fixed;
   top: 720rpx;
   left: 85rpx;
-  color: black;
+  color: gray;
   align-items: center;
   justify-content: center;
   display: flex;
-  font-size: 40rpx;
+  font-size: 35rpx;
 }
 .noImage{
   height: 200rpx;

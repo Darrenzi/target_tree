@@ -58,8 +58,7 @@
       <view class="FriendList" bindtap="getFriendDetail" id="{{idx}}">
          <view class="FriendLine"></view>
         <image class="portrait" src="{{item.friendList[0].avatarUrl}}"></image>
-        <view class="portrait_outside"></view>
-        <text class="fontstyle">:{{item.friendList[0].un}}</text>
+        <text class="fontstyle">{{item.friendList[0].un}}</text>
       </view>
     </view>
   </view>

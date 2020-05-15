@@ -51,7 +51,6 @@
   align-items: center;
   position: relative;
   top: 39%;
-  display: flex;
   justify-content: center;
   left: 25rpx;
   background-color: white;
@@ -65,6 +64,7 @@
   margin-right: 20rpx;
   margin-top: 65rpx;
   position: absolute;
+  color:gray;
 }
 .show{
   display: block
@@ -110,7 +110,8 @@
   top: 150rpx;
   position: absolute;
   height: 2rpx;
-  background-color: rgba(77, 58, 74, 0.508);
+  margin-top:15rpx;
+  background-color: gainsboro;
 }
 
 .VerticalShape{
@@ -137,35 +138,22 @@
 }
 
 .portrait{
- height: 80rpx;
-width: 80rpx;
-position: absolute;
-z-index: 10;
-margin-left: 20rpx;
-border-radius: 120rpx;
-margin-top: 50rpx;
-z-index: 9;
+  height: 100rpx;
+  width: 100rpx;
+  position: absolute;
+  margin-left: 20rpx;
+  border-radius: 120rpx;
+  margin-top: 50rpx;
+  z-index: 9;
 }
 .portrait_1{
   height: 80rpx;
   width: 80rpx;
   position: absolute;
-  z-index: 10;
   margin-left: 40rpx;
   border-radius: 120rpx;
   margin-top: 60rpx;
   z-index: 9;
-}
-.portrait_outside{
-  height: 92rpx;
-  width: 92rpx;
-  position: absolute;
-  z-index: 10;
-  margin-left: 14.5rpx;
-  border-radius: 120rpx;
-  margin-top: 44rpx;
-  background-color: rgb(39, 138, 87);
-  z-index: 8;
 }
 
 .date{
