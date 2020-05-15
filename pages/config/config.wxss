@@ -482,3 +482,15 @@ textarea {
   left: 50rpx;
   height: 480rpx;
 }
+.inputidea{
+  height: 60rpx;
+  width: 210rpx;
+  background-color: rgb(57, 163, 103);
+  left: 120rpx;
+  position: absolute;
+  top: 20rpx;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
