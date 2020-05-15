@@ -48,7 +48,7 @@
     <view class="targetTop">
       <image class="avatar" src="{{item.userList[0].avatarUrl}}" catchtap="goToUserForest" id="{{index}}"></image>
       <view class="targetUn" catchtap="goToUserForest" id="{{index}}">{{item.userList[0].un}}</view>
-      <view class="watchButton" catchtap="showInputCoin" id="{{index}}">投币</view>
+      <view class="insertCoinButton" catchtap="showInputCoin" id="{{index}}">投币</view>
     </view>
 
     <view class="targetTitle">{{item.title}}</view>

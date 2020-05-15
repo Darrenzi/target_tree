@@ -35,7 +35,6 @@
   display: flex;
   writing-mode: vertical-lr;
   align-items: center;
-  position: relative;
   top: 39%;
   justify-content: center;
   left: 40rpx;
@@ -64,7 +63,7 @@
   margin-right: 20rpx;
   margin-top: 65rpx;
   position: absolute;
-  color:gray;
+  color:rgb(97, 97, 97);
 }
 .show{
   display: block
@@ -77,16 +76,15 @@
 .Friend{
   height: 300rpx;
   width: 500rpx;
-  border: 3rpx solid rgb(0, 0, 0);
+  border: 3rpx solid gray;
   border-radius: 50rpx;
-  border-color: rgb(5, 5, 5);
   position: relative;
   margin-left: 26.3%;
   z-index: 5;
   top: 7%;
-
   margin-top: 21%;
   margin-bottom: 5%;
+  color:rgb(97, 97, 97);
 }
 
 
@@ -159,7 +157,7 @@
 .date{
   height: 50rpx;
   width: 200rpx;
-  border: 3rpx solid rgb(29, 27, 29);
+  border: 3rpx solid gray;
   position: absolute;
   top:-70rpx;
   border-radius: 20rpx;
@@ -185,8 +183,8 @@
   position: relative;
   top: 190rpx;
   left: 50rpx;
-  width: 100rpx;
-  height: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
   font-size: 70rpx;
 }
 .coinnumber{
@@ -242,8 +240,8 @@
   top: 1520rpx;
   margin-left: 30rpx;
   font-size: 50rpx;
-  border-radius: 80rpx;
-  border: 3rpx solid rgb(0, 0, 0);
+  border-radius: 100%;
+  border: 3rpx solid white;
   z-index: 22;
 }
 .modal-box{
@@ -264,33 +262,35 @@
   width: 550rpx;
   margin-left: 180rpx;
   margin-top: 500rpx;
-
+  border-radius: 30rpx;
 }
 .return{
   position: fixed;
   top: 720rpx;
-  height: 50rpx;
+  height: 70rpx;
   width: 180rpx;
   left: 366rpx;
   font-size: 35rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(41, 118, 44, 0.94);
+  background-color: rgb(57, 163, 103);
   color: aliceblue;
+  border-radius: 10rpx;
 }
 .submit{
   position: fixed;
   top: 600rpx;
   height: 50rpx;
   width: 100rpx;
-  border-radius: 20rpx;
   left: 620rpx;
   font-size: 35rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(27, 163, 72);
+  color: white;
+  background: rgb(57, 163, 103);
+  border-radius: 10rpx;
 }
 .inputFriendID{
   position: fixed;
@@ -306,7 +306,7 @@
   top: 600rpx;
   height: 50rpx;
   width: 380rpx;
-  border:2rpx solid rgb(0, 0, 0);
+  border:2rpx solid gray;
   left: 220rpx;
   font-size: 35rpx;
 }
@@ -315,7 +315,7 @@
   top: 340rpx;
   height: 50rpx;
   width: 380rpx;
-  border:2rpx solid rgb(0, 0, 0);
+  border:2rpx solid gray;
   left: 220rpx;
   font-size: 35rpx;
 }
@@ -323,7 +323,7 @@
   position: fixed;
   top: 340rpx;
   height: 50rpx;
-  width: 400rpx;
+  width: 380rpx;
   border-radius: 20rpx;
   left: 230rpx;
   font-size: 30rpx;
@@ -333,13 +333,15 @@
   top: 340rpx;
   height: 50rpx;
   width: 100rpx;
-  border-radius: 20rpx;
+  border-radius: 10rpx;
   left: 600rpx;
   font-size: 35rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(27, 163, 72);
+  color: white;
+  background: rgb(57, 163, 103);
+  margin-left: 10rpx;
 }
 .allpage{
   position:fixed;
@@ -363,7 +365,7 @@
 .singleFriendName{
   font-size: 27rpx;
   margin-left: 110rpx;
-  margin-top: 35rpx;
+  margin-top: 40rpx;
   position: absolute;
   height: 70rpx;
   width: 230rpx;
@@ -396,7 +398,7 @@
   height: 5rpx;
   width: 400rpx;
   position: absolute;
-  background-color: rgba(41, 118, 44, 0.94);
+  background-color: gainsboro;
 }
 .alldetail{
   position: relative;

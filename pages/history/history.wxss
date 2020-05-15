@@ -127,7 +127,7 @@ page{
 .line{
   height: 5rpx;
   width: 500rpx;
-  background-color: rgb(96, 119, 100);
+  background-color: gainsboro;
   position: absolute;
   margin-top: 295rpx;
   margin-left: 25rpx;
@@ -186,21 +186,18 @@ page{
   border-radius: 50rpx;
   border-color: antiquewhite;
   position: relative;
-  border: 5rpx solid rgb(96, 119, 100);
+  border: 5rpx solid gainsboro;
   margin-left: 102rpx;
   z-index: 9;
   margin-bottom: 6%;
 }
 .targetLabel{
-  border: 3rpx solid rgba(38, 51, 23, 0.974);
   height: 50rpx;
   width: 100rpx;
-
   justify-content: center;
   align-items: center;
   display: flex;
   border-radius: 30rpx;
-
 }
 .imagelabel{
   height: 80rpx;
@@ -217,7 +214,7 @@ page{
   width: 280rpx;
   height: 60rpx;
   border-radius: 30rpx;
-  border:3rpx solid rgb(82, 79, 79);
+  border:3rpx solid gainsboro;
   display: flex;
   color: rgb(43, 136, 93);
   justify-content: center;
@@ -323,7 +320,7 @@ page{
 .label{   
   min-width: 160rpx;
   height: 185rpx;
-  border: 4rpx solid rgba(0, 0, 0, 0.829);
+  border: 2rpx solid gainsboro;
   border-radius: 10rpx;
   text-align: center;
   margin-left: 10rpx;
@@ -338,7 +335,6 @@ page{
 .labelChoose{
   min-width: 160rpx;
   height: 183rpx;
-  border: 4rpx solid rgba(0, 0, 0, 0.829);
   border-radius: 10rpx;
   text-align: center;
   margin-left: 12rpx;
@@ -348,7 +344,7 @@ page{
   justify-content: space-evenly;
   align-items: center;
   background: rgba(141,186,110,1 );
-  color: rgba(61, 73, 71, 0.829);
+  color: white;
 }
 .whitespace_1{
   height: 190rpx;

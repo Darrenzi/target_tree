@@ -47,6 +47,10 @@ Page({
     })
   },
 
+  toBeAdd:function(){
+    this.setData({informContent:"该模块正在完善"});
+  },
+
   choose:function(e){
     let index = e.currentTarget.id;
     console.log(index)

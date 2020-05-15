@@ -48,8 +48,8 @@
   flex-direction: column;
 }
 .themeOption{
-  width: 650rpx;
-  height: 480rpx;
+  width: 600rpx;
+  height: 500rpx;
 }
 
 .getUserInfo{

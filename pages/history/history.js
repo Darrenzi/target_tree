@@ -288,29 +288,31 @@ Page({
   },
 
   lastMonth:function(){
+    this.setData({
+      treeList: [],
+      loadContent: "加载中..."
+    });
     let month = this.data.month;
     if (month > 1) {
       this.setData({ month: month-1 });
     } else {
       this.setData({ year: this.data.year - 1, month: 12 });
     }
-    this.setData({
-      treeList:[]
-    })
     this.getTargets();
   },
 
   nextMonth:function(){
     let month = this.data.month;
     let year = this.data.year;
+    this.setData({
+      treeList: [],
+      loadContent:"加载中..."
+    });
     if(month < 12){
       this.setData({month:month+1});
     }else{
       this.setData({ year: year+1, month:1});
     }
-    this.setData({
-      treeList:[]
-    })
     this.getTargets();
   },
 
@@ -332,9 +334,7 @@ Page({
     const db = wx.cloud.database();
     const _ = db.command;
     this.setData({
-      loadContent:'加载中',
       targetList:[],
-      
     })
     if(nowLabel==''||nowLabel=='全部'){
       db.collection('target')
