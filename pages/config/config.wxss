@@ -242,6 +242,7 @@ textarea {
   left: 205rpx;
   border-radius: 20rpx;
   margin-bottom:30rpx;
+  color:white;
 }
 .submit{
   position: fixed;
@@ -373,7 +374,7 @@ textarea {
   position: fixed;
   top: 1220rpx;
   height: 80rpx;
-  width: 150rpx;
+  width: 180rpx;
   border-radius: 20rpx;
   left: 150rpx;
   font-size: 35rpx;
@@ -381,13 +382,14 @@ textarea {
   align-items: center;
   justify-content: center;
   color: aliceblue;
-  background-color:  rgba(41, 118, 44, 0.94);
+  background-color:  rgb(57, 163, 103);
+  margin-top:100rpx;
 }
 .problemsubmit{
   position: fixed;
   top: 1220rpx;
   height: 80rpx;
-  width: 150rpx;
+  width: 180rpx;
   border-radius: 20rpx;
   right: 150rpx;
   font-size: 35rpx;
@@ -395,7 +397,8 @@ textarea {
   align-items: center;
   justify-content: center;
   color: aliceblue;
-  background-color:  rgba(41, 118, 44, 0.94);
+  background-color:  rgb(57, 163, 103);
+  margin-top:100rpx;
 }
 .top_problem{
   top: 0rpx;
@@ -468,9 +471,9 @@ textarea {
 .whiteimage{
   position: absolute;
   top: 60rpx;
-  width: 650rpx;
+  width: 600rpx;
   left: 50rpx;
-  height: 480rpx;
+  height: 500rpx;
 }
 .greenimage{
   position: absolute;

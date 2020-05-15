@@ -10,12 +10,12 @@
     <radio-group class="themeChoose" bindchange="chooseTheme">
       <label>
         <radio id="white" value="white" checked>白色(推荐)</radio>
-        <image src="images/white.jpg" class="themeOption"></image>
+        <image src="images/white.png" class="themeOption"></image>
       </label>
 
       <label>
         <radio value="green" id="green">绿色</radio>
-        <image src="images/green.jpg" class="themeOption"></image>
+        <image src="images/green.png" class="themeOption"></image>
       </label>
     </radio-group>
   </view>

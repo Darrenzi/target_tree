@@ -64,9 +64,10 @@ Page({
     let _id = target._id;
     let supervisor = target.supervisor.toString();
     let progress = target.progress;
+    let coin = target.coin;
     wx.navigateTo({
       url: '../targetDetail/targetDetail?un=' + un + "&avatarUrl=" + avatarUrl +
-        "&title=" + title + "&content=" + content + "&targetId=" + targetId + "&like=" + like + "&_id=" + _id + "&supervisor=" + supervisor + "&progress=" + progress,
+        "&title=" + title + "&content=" + content + "&targetId=" + targetId + "&like=" + like + "&_id=" + _id + "&supervisor=" + supervisor + "&progress=" + progress+"&coin="+coin,
     })
   },
 
