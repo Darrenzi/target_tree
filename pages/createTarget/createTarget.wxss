@@ -24,7 +24,7 @@
   height: 90rpx;
   width: 90rpx;
   position: absolute;
-  margin-top:-60rpx;
+  margin-top:-65rpx;
   margin-left: 570rpx;
   font-size: 35rpx;
 }
@@ -279,8 +279,6 @@ justify-content: center;
 .labelIcon{
   height: 109rpx;
   width: 109rpx;
-  left: 28rpx;
-  top: 10.5rpx;
   position: absolute;
 }
 .labelIcon_1{
@@ -306,12 +304,28 @@ justify-content: center;
   position: absolute;
 }
 .iconFont{
+  height: 50rpx;
+  width: 80rpx;
+  border-radius: 10rpx;
+
   font-size: 30rpx;
   display: flex;
   position: relative;
-  top: 125rpx;
   justify-content: center;
   align-items: center;
+  top: 80rpx;
+}
+.iconfont_1{
+  height: 50rpx;
+  width: 80rpx;
+  border-radius: 10rpx;
+  background-color: rgba(94, 216, 98, 0.727);
+  font-size: 30rpx;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  top: 80rpx;
 }
 .labelClass{  
   height:170rpx;
@@ -453,7 +467,7 @@ justify-content: center;
   background: rgb(57,163,103);
   font-size: 40rpx;
   border-radius: 20rpx;
-  position: absolute;
+  position: fixed;
   top: 1400rpx;
   left: 230rpx;
   color: white;
@@ -929,4 +943,30 @@ textarea {
   font-size: 30rpx;
   left: 120rpx;
   color: rgba(110, 112, 108, 0.508);
+}
+.singlelabel{
+  height: 180rpx;
+  width: 150rpx;
+  margin-top: 20rpx;
+  margin-right: 3%;
+  position: relative;
+  background-color: white;
+  color: rgba(0, 0, 0, 0.96);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 45rpx;
+  padding: 10rpx,10rpx,10rpx,10rpx;
+}
+.contianer{
+  display: inline-block;
+  align-items: center;
+  height: 500rpx;
+  width: 100%;
+  position: fixed;
+  top: 25%;
+  left: 5%;
+  font-size: 35rpx;
+  color:rgb(17, 16, 16);
+  background:  white
 }

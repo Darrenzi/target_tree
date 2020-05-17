@@ -1,10 +1,10 @@
 <loading content="{{loadContent}}"></loading>
 <inform content="{{informContent}}"></inform>
 
-<view class="gereenToyellow">
+
 
 <!-- 设置金额 -->
-<view class="hide {{change?'':'show'}}">
+<view class="show" wx:if="{{change}}">
   <view class="title">设置挑战金额</view>
   <view class="back" bindtap="backToindex">《</view>
   <view>
@@ -39,43 +39,14 @@
 <view class="label">目标内容</view>
 <view class="chooselabel">一：请选择你的标签</view>
 <view class="hot">热门推荐</view></view>
-<view class="labels">
-  <view class="labelClass" bindtap="setTarget">
-    <image src="images/11.png" class="labelIcon"></image>
-    <view class="{{showCircle?'':'colorCircle'}}"></view>
-    <text class="iconFont">运动</text></view>
-  <view class="labelClass" bindtap="setTarget_1">
-    <image src="images/10.png" class="labelIcon_1"></image>
-        <view class="{{showCircle_1?'':'colorCircle'}}"></view>
-    <text class="iconFont">工作</text></view>
-  <view class="labelClass" bindtap="setTarget_2">
-    <image src="images/12.png" class="labelIcon_2"></image>
-        <view class="{{showCircle_2?'':'colorCircle'}}"></view>
-    <text class="iconFont">剁手</text></view>
-  <view class="labelClass" bindtap="setTarget_3">
-     <image src="images/13.png" class="labelIcon_1"></image>
-        <view class="{{showCircle_3?'':'colorCircle'}}"></view>
-     <text class="iconFont">游戏</text></view>
-  <view class="labelClass" bindtap="setTarget_4">
-     <image src="images/14.png" class="labelIcon_3"></image>
-      <view class="{{showCircle_4?'':'colorCircle'}}"></view>
-     <text class="iconFont">早睡</text></view>
-  <view class="labelClass" bindtap="setTarget_5">
-     <image src="images/15.png" class="labelIcon_1"></image>
-        <view class="{{showCircle_5?'':'colorCircle'}}"></view>
-     <text class="iconFont">拒绝高热量</text></view>
-  <view class="labelClass" bindtap="setTarget_6">
-     <image src="images/16.png" class="labelIcon_1"></image>
-    <view class="{{showCircle_6?'':'colorCircle'}}"></view>
-     <text class="iconFont">提高颜值</text></view>
-  <view class="labelClass" bindtap="setTarget_7">
-     <image src="images/17.png" class="labelIcon_1"></image>
-      <view class="{{showCircle_7?'':'colorCircle'}}"></view>
-      <text class="iconFont">自律</text></view>
-</view>
-
+<view class="contianer">
+  <view id="{{index}}" class="singlelabel " wx:for="{{labelList}}" bindtap="choose" wx:key="targets">
+  <image class="labelIcon" src="{{item.imagesrc}}"></image>
+    <view class="{{current_index==index?'iconfont_1':'iconFont'}}">{{item.label}}</view>
+  </view>
+  </view>
 <view class="custom" bindtap="Tocustom">点我选择自定义标签</view>
- <!-- <view class="return" bindtap="changeShowstatus">上一步</view> -->
+
 <view class="nextStep" bindtap="changeShowstatus_1">下一步</view>  
 </view>
 
@@ -109,51 +80,19 @@
 
 <!-- 自定义标签 -->
 <view class="hide{{custom?'':'show'}}">
-<view class="cusstom_top">
- <view class="customtoptitle">目标内容</view>
- <view class="back" bindtap="back">《</view>
-</view>
+  <view class="cusstom_top">
+   <view class="customtoptitle">目标内容</view>
+   <view class="back" bindtap="backTohot">《</view>
+  </view>
 <view class="customLine"></view>
 <view class="custom_font">自定义标签</view>
 <view class="customLine_1"></view>
-
- <view class="customContainer">
-  <view class="labelClass" bindtap="setTarget_8">
-    <image src="images/1.png" class="labelIcon_1"></image>
-   <view class="{{showCircle_8?'':'colorCircle'}}"></view>
-    <text class="iconFont">运动</text></view>
-  <view class="labelClass" bindtap="setTarget_9">
-    <image src="images/2.png" class="labelIcon"></image>
-    <view class="{{showCircle_9?'':'colorCircle'}}"></view>
-    <text class="iconFont">工作</text></view>
-  <view class="labelClass" bindtap="setTarget_10">
-    <image src="images/3.png" class="labelIcon_1"></image>
-    <view class="{{showCircle_10?'':'colorCircle'}}"></view>
-    <text class="iconFont">剁手</text></view>
-  <view class="labelClass" bindtap="setTarget_11">
-     <image src="images/4.png" class="labelIcon"></image>
-     <view class="{{showCircle_11?'':'colorCircle'}}"></view>
-     <text class="iconFont">游戏</text></view>
-  <view class="labelClass" bindtap="setTarget_12">
-     <image src="images/5.png" class="labelIcon"></image>
-      <view class="{{showCircle_12?'':'colorCircle'}}"></view>
-     <text class="iconFont">早睡</text></view>
-  <view class="labelClass" bindtap="setTarget_13">
-     <image src="images/6.png" class="labelIcon_2"></image>
-      <view class="{{showCircle_13?'':'colorCircle'}}"></view>
-     <text class="iconFont">拒绝高热量</text></view>
-  <view class="labelClass" bindtap="setTarget_14">
-     <image src="images/7.png" class="labelIcon"></image>
-     <view class="{{showCircle_14?'':'colorCircle'}}"></view>
-     <text class="iconFont">提高颜值</text></view>
-  <view class="labelClass" bindtap="setTarget_15">
-     <image src="images/8.png" class="labelIcon"></image>
-      <view class="{{showCircle_15?'':'colorCircle'}}"></view>
-      <text class="iconFont">自律</text></view>
-
-</view>
-
-
+<view class="contianer">
+  <view id="{{index}}" class="singlelabel " wx:for="{{labelList_1}}" bindtap="choose" wx:key="targets">
+  <image class="labelIcon" src="{{item.imagesrc}}"></image>
+    <view class="{{current_index==index?'iconfont_1':'iconFont'}}">{{item.label}}</view>
+  </view>
+  </view>
 </view>
 
 
@@ -217,6 +156,3 @@
 <view class="nextStep" bindtap="end">完成</view> 
 </view>
 
-
-<!-- 背景颜色标签 -->
-</view>

@@ -6,6 +6,7 @@
   align-items: center;
   width: 100%;
   font-weight: normal;
+  font-size: 35rpx;
 }
 .userCoinIcon{
   height: 85rpx;

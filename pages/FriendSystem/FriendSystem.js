@@ -110,34 +110,16 @@ Page({
       })
   },
   add:function(e){
+    let app=getApp()
+    let userOpenid=app.globalData.user._openid
     const db=wx.cloud.database()
     const _=db.command
     let index = e.currentTarget.id;
     console.log("index",index)
     let receiver=this.data.getFriendName[index]._openid
     let navListLen=this.data.navList.length
-    db.collection('friendRequest')
-    .get()
-    .then(res=>{
-       console.log("join",res.data)
-       this.setData({
-         sendedFriend:res.data
-       })
-       let sendLen=this.data.sendedFriend.length
-       for(let m=0;m<sendLen;m++){
-         if(receiver==this.data.sendedFriend[m].receiver&&this.data.sendedFriend[m].status==0)
-         {
-           this.setData({
-             informContent:"正在等待对方处理~",
-             showSameName:'true'
-           })
-           return
-         }
-       }
-    })
-    for(let i=0;i<navListLen;i++){
-      console.log("111")
-      console.log("receiver",receiver)
+    for(let i=0;i<navListLen;i++){  //检测是否已经是好友
+      //console.log("receiver",receiver)
       if(receiver==this.data.navList[i].friendList[0]._openid){
         this.setData({
           informContent:"你已经添加了这个好友啦",
@@ -146,6 +128,27 @@ Page({
         return
       }
     }
+    db.collection('friendRequest')  //检测是否已经发送过好友请求
+    .get()
+    .then(res=>{
+      // console.log("join",res.data)
+       this.setData({
+         sendedFriend:res.data
+       })
+       let sendLen=this.data.sendedFriend.length
+       for(let m=0;m<sendLen;m++){
+         if(receiver==this.data.sendedFriend[m].receiver&&this.data.sendedFriend[m].status==0&&this.data.sendedFriend[m]._openid==userOpenid)
+         {
+         
+           this.setData({
+             informContent:"正在等待对方处理~",
+             showSameName:'true'
+           })
+           return
+         }
+       }
+    })
+  
   
     db.collection('friendRequest')
     .add({
