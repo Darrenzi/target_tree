@@ -44,7 +44,7 @@
 }
 .font_class_1{
   font-size: 40rpx;
-  height: 200rpx;
+  height: 190rpx;
   width: 90rpx;
   color: rgb(57, 163, 103);
   display: flex;
@@ -84,7 +84,7 @@
   margin-left: 26.3%;
   z-index: 5;
   top: 7%;
-  margin-top: 21%;
+  margin-top: 18%;
   margin-bottom: 5%;
   color:rgb(97, 97, 97);
 }
@@ -239,11 +239,10 @@
   height: 70rpx;
   width: 70rpx;
   position: relative;
-  bottom: 50rpx;
+  bottom: 15rpx;
   margin-left: 30rpx;
   font-size: 50rpx;
   border-radius: 100%;
-  border: 3rpx solid white;
   z-index: 22;
 }
 .modal-box{

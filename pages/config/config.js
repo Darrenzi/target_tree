@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hidden:false,
+    hidden:true,
     content:'',//用户自己的评论
     myself:'',//用户OPENid
     nowdate:'',

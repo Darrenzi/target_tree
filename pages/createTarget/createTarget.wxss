@@ -132,6 +132,7 @@
 }
 .show{
   display:block ;
+  overflow: scroll;
 }
 .label{
   margin-top: 70rpx;
@@ -189,10 +190,10 @@ justify-content: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 28%;
-  top: 800rpx;
+  bottom: 19%;
   left: 215rpx;
   font-size: 35rpx;
+  overflow: scroll;
 }
 .inputtitle{
   position: absolute;
@@ -248,19 +249,19 @@ justify-content: center;
 }
 
 .chooselabel{
-  position: absolute;
-  top: 240rpx;
-  left: 248rpx;
+  position: relative;
+  margin-top: 30rpx;
+ 
   justify-content: center;
   display: flex;
   align-items: center;
   color: rgba(42, 51, 43, 0.981);
-  
+  font-size: 30rpx;
 }
 .hot{
-  position: absolute;
-  top: 300rpx;
-  left: 310rpx;
+  position: relative;
+  margin-top: 50rpx;
+  font-size: 30rpx;
   justify-content: center;
   display: flex;
   align-items: center;
@@ -313,7 +314,7 @@ justify-content: center;
   position: relative;
   justify-content: center;
   align-items: center;
-  top: 80rpx;
+  top: 90rpx;
 }
 .iconfont_1{
   height: 50rpx;
@@ -325,7 +326,7 @@ justify-content: center;
   position: relative;
   justify-content: center;
   align-items: center;
-  top: 80rpx;
+  top: 90rpx;
 }
 .labelClass{  
   height:170rpx;
@@ -788,25 +789,25 @@ justify-content: center;
 .customLine{
   height: 5rpx;
   width: 90%;
-  position: absolute;
+  position: relative;
   left: 5%;
-  top: 17.5%;
+  margin-top:30rpx;
   background-color: rgba(71, 80, 61, 0.96);
 }
 .custom_font{
   width: 90%;
-  position: absolute;
+  position: relative;
   left: 6%;
-  top: 18%;
+  margin-top: 0rpx;
   color: rgba(116, 121, 110, 0.96);
   font-size: 45rpx;
 }
 .customLine_1{
   height: 5rpx;
   width: 90%;
-  position: absolute;
+  position: relative;
   left: 5%;
-  top: 22%;
+  margin-top:0rpx;
   background-color: rgba(88, 94, 81, 0.96);
 }
 .customContainer{
@@ -937,7 +938,7 @@ textarea {
   position: fixed;
 }
 .placeholderFont{
-  position: fixed;
+  position: absolute;
   top: 570rpx;
   font-size: 30rpx;
   left: 120rpx;
@@ -962,8 +963,8 @@ textarea {
   align-items: center;
   height: 500rpx;
   width: 100%;
-  position: fixed;
-  top: 25%;
+  position: relative;
+  margin-top: 30rpx;
   left: 5%;
   font-size: 35rpx;
   color:rgb(17, 16, 16);

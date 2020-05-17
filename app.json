@@ -3,6 +3,7 @@
   "pages": [ 
     "pages/loading/loading",
     "pages/createTarget/createTarget",
+
     "pages/FriendSystem/FriendSystem",
     "pages/index/index",
     "pages/config/config",

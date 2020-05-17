@@ -48,12 +48,13 @@ Page({
          imagesrc:'/pages/createTarget/images/17.png'},],
    label:'',
    setCoin:0,
-   rest:0,
+   rest:-1,
    record:'',
    content:'',
    date:'',
    title:'',
    current_index:-1,
+   current_index_1:-1,
    changeView:false,
    changeView_1:false,
    amount:0,
@@ -281,7 +282,18 @@ Page({
     console.log("index",index)
     this.setData({
       current_index:index,
-      label:this.data.labelList[index].label
+      label:this.data.labelList[index].label,
+      current_index_1:-1
+    });
+  },
+  choose_1:function(e){
+    let index = e.currentTarget.id;
+    console.log(index)
+
+    this.setData({
+      current_index_1:index,
+      label:this.data.labelList_1[index].label,
+      current_index:-1
     });
   },
   getInputCoin:function(e){
