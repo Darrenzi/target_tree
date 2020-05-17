@@ -156,7 +156,7 @@ Page({
                 })
                 this.data.treeList.push(res.data[0])
               }
-              if(this.data.targetList[j].progress>90&&this.data.targetList[j].progress<=100){
+              if(this.data.targetList[j].progress>=90&&this.data.targetList[j].progress<=100){
                 console.log("res",res)
                 let treeid = "targetList[" + j +"].src"  
                 this.setData({
@@ -302,12 +302,12 @@ Page({
   },
 
   nextMonth:function(){
-    let month = this.data.month;
-    let year = this.data.year;
     this.setData({
       treeList: [],
-      loadContent:"加载中..."
+      loadContent: "加载中..."
     });
+    let month = this.data.month;
+    let year = this.data.year;
     if(month < 12){
       this.setData({month:month+1});
     }else{

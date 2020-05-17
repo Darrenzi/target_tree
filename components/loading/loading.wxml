@@ -1,6 +1,7 @@
 <!--components/loading/loading.wxml-->
 <view class="container" wx:if="{{content!=''}}">
   <view class="load">
+    <view class="close" bindtap="close">X</view>
     <image src="load.gif"></image>
     {{content}}
   </view>

@@ -22,6 +22,7 @@ page{
   width: 70rpx;
   height: 60rpx;
   font-weight: bolder;
+  font-size:35rpx;
 }
 .top_title{
   font-size: 50rpx;
@@ -71,6 +72,7 @@ page{
   align-items: center;
   margin-top:20rpx;
   margin-bottom: 60rpx;
+  font-size: 35rpx;
 }
 .coin{
   width: 45rpx;

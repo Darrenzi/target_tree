@@ -463,6 +463,7 @@ justify-content: center;
    position: relative;
    top: 140rpx;
    margin-top: 100rpx;
+   font-size: 35rpx;
  }
  .circle{
    height: 60rpx;
@@ -618,10 +619,10 @@ justify-content: center;
   height: 160rpx;
   width: 160rpx;
   position: absolute;
-  top: 20rpx;
-  left: 600rpx;
-  bottom: 10rpx;
-  font-size: 45rpx;
+  top: 35rpx;
+  left: 550rpx;
+  font-size: 30rpx;
+  color:gray;
  }
  .rest_font{
   position: absolute;

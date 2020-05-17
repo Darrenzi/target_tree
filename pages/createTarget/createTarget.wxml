@@ -206,12 +206,11 @@
 <view class="start_line"></view>
 </view>
 <!-- 权限 -->
-<view class="starTime">
+<picker class="starTime" range="{{rightControls}}" bindchange="rightControl">
  <image src="images/22.png" class="image_startTime"></image>
  <view class="kaishishijian">权限设置</view>
- <view class="jurisdictionIcon">》</view>
-</view> 
-
+ <view class="jurisdictionIcon">{{rightControl}}</view>
+</picker>
 </view>
 <!-- 设置完成按钮 -->
 

@@ -6,36 +6,47 @@ Page({
    * 页面的初始数据
    */
   data: {
-   numbers:[50,100,200,600,800,1000],
-   change:false,
-   change_1:true,
-   change_2:true,
-   custom:true,
-   showtitle:true,
-   showCircle:true,
-   showCircle_1:true,showCircle_2:true,showCircle_3:true,showCircle_4:true,
-   showCircle_5:true,showCircle_6:true,showCircle_7:true,showCircle_8:true,
-   showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
-   showCircle_13:true,showCircle_14:true,showCircle_15:true,
-   label:'',
+    numbers:[50,100,200,600,800,1000],
+    change:false,
+    change_1:true,
+    change_2:true,
+    custom:true,
+    showtitle:true,
+    showCircle:true,
+    showCircle_1:true,showCircle_2:true,showCircle_3:true,showCircle_4:true,
+    showCircle_5:true,showCircle_6:true,showCircle_7:true,showCircle_8:true,
+    showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
+    showCircle_13:true,showCircle_14:true,showCircle_15:true,
+    label:'',
 
-   setCoin:0,
-   rest:0,
-   record:'',
-   content:'',
-   date:'',
-   title:'',
-   changeView:false,
-   changeView_1:false,
-   amount:0,
-   setDate:0,
-   //树苗的Id
-   treeId:"",
-   //加载表示符，用于控制加载动画,当值为 "" 隐藏
-   loadContent: "加载中...",
-   //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
-   informContent:""
+    //权限控制
+    rightControls: ['全部人可见', '好友可见', '仅自己可见'],
+    rightControl:"全部人可见",
+    setCoin:0,
+    rest:0,
+    record:'',
+    content:'',
+    date:'',
+    title:'',
+    changeView:false,
+    changeView_1:false,
+    amount:0,
+    setDate:0,
+    //树苗的Id
+    treeId:"",
+    //加载表示符，用于控制加载动画,当值为 "" 隐藏
+    loadContent: "加载中...",
+    //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
+    informContent:""
   },
+
+  rightControl:function(e){
+    //权限控制
+    let index = e.detail.value;
+    let rightControl = this.data.rightControls[index];
+    this.setData({rightControl:rightControl});
+  },
+
   bindDateChange:function(e){  //获取多行滑动组件中的值
     this.setData({
       date: e.detail.value
@@ -46,6 +57,7 @@ Page({
     
     })
   },
+
   changeview:function(){  //点击今天
     this.setData({
      changeView:false,
