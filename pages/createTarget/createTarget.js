@@ -66,6 +66,7 @@ Page({
    //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
    informContent:""
   },
+
   bindDateChange:function(e){  //获取多行滑动组件中的值
     this.setData({
       date: e.detail.value
@@ -76,6 +77,7 @@ Page({
     
     })
   },
+
   changeview:function(){  //点击今天
     this.setData({
      changeView:false,

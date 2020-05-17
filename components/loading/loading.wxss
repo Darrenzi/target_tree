@@ -11,6 +11,22 @@
   background: rgba(56, 56, 56, 0.63);
   z-index:10;
 }
+.close{
+  position: absolute;
+  right: 20rpx;
+  top:20rpx;
+  width: 30rpx;
+  height: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25rpx;
+  border-radius: 100%;
+  border:2rpx solid gainsboro;
+  background: gainsboro;
+  color:white;
+  font-weight: bold;
+}
 .load{
   width:400rpx;
   height: 300rpx;
@@ -22,6 +38,7 @@
   align-items: center;
   font-size: 35rpx;
   color:gray;
+  position: relative;
 }
 image{
   width: 320rpx;

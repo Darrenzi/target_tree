@@ -148,7 +148,7 @@ Page({
       hidden:true
     })
   },
-  return:function(){
+  return1:function(){
     this.setData({
       hidden:false,
       content:'',

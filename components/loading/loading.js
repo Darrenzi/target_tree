@@ -21,6 +21,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    close:function(){
+      //关闭加载框
+      this.setData({content:""});
+    }
   }
 })

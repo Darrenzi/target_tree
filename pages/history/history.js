@@ -302,12 +302,12 @@ Page({
   },
 
   nextMonth:function(){
-    let month = this.data.month;
-    let year = this.data.year;
     this.setData({
       treeList: [],
-      loadContent:"加载中..."
+      loadContent: "加载中..."
     });
+    let month = this.data.month;
+    let year = this.data.year;
     if(month < 12){
       this.setData({month:month+1});
     }else{

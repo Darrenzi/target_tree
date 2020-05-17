@@ -7,6 +7,7 @@ cloud.init()
 exports.main = async (event, context) => {
   let page = event.page;
   const db = cloud.database();
+  const _ = db.command;
 
   return await db.collection('target')
   .aggregate()

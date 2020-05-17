@@ -14,5 +14,5 @@ exports.main = async (event, context) => {
   //   unionid: wxContext.UNIONID,
   // }
   const db = cloud.database();
-  return await db.collection('tool').get()
+  return await db.collection('tool').orderBy("time", "desc").get()
 }
