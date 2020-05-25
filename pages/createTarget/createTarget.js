@@ -6,51 +6,79 @@ Page({
    * 页面的初始数据
    */
   data: {
-    numbers:[50,100,200,600,800,1000],
-    change:true,
-    change_1:false,
-    change_2:true,
-    custom:true,
-    showtitle:true,
-    showCircle:true,
-    showCircle_1:true,showCircle_2:true,showCircle_3:true,showCircle_4:true,
-    showCircle_5:true,showCircle_6:true,showCircle_7:true,showCircle_8:true,
-    showCircle_9:true,showCircle_10:true,showCircle_11:true,showCircle_12:true,
-    showCircle_13:true,showCircle_14:true,showCircle_15:true,
-    label:'',
-
-    //权限控制
-    rightControls: ['全部人可见', '好友可见', '仅自己可见'],
-    rightControl:"全部人可见",
-    setCoin:0,
-    rest:0,
-    record:'',
-    content:'',
-    date:'',
-    title:'',
-    changeView:false,
-    changeView_1:false,
-    amount:0,
-    setDate:0,
-    //树苗的Id
-    treeId:"",
-    //加载表示符，用于控制加载动画,当值为 "" 隐藏
-    loadContent: "加载中...",
-    //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
-    informContent:""
-  },
-
-  rightControl:function(e){
-    //权限控制
-    let index = e.detail.value;
-    let rightControl = this.data.rightControls[index];
-    this.setData({rightControl:rightControl});
+   numbers:[50,100,200,600,800,1000],
+   change:true,
+   change_1:true,
+   change_2:true,
+   custom:true,
+   showtitle:true,
+   labelList:[
+      {label:"运动",
+      imagesrc:'/pages/createTarget/images/1.png'},
+      {label:"工作",
+      imagesrc:'/pages/createTarget/images/2.png'},
+      {label:"剁手",
+      imagesrc:'/pages/createTarget/images/3.png'},
+      {label:"游戏",
+      imagesrc:'/pages/createTarget/images/4.png'},
+      {label:"早睡",
+      imagesrc:'/pages/createTarget/images/5.png'},
+      {label:"减肥",
+      imagesrc:'/pages/createTarget/images/6.png'},
+      {label:"学习",
+      imagesrc:'/pages/createTarget/images/7.png'},
+      {label:"自律",
+       imagesrc:'/pages/createTarget/images/8.png'},],
+  labelList_1:[
+        {label:"运动",
+        imagesrc:'/pages/createTarget/images/10.png'},
+        {label:"工作",
+        imagesrc:'/pages/createTarget/images/11.png'},
+        {label:"剁手",
+        imagesrc:'/pages/createTarget/images/12.png'},
+        {label:"游戏",
+        imagesrc:'/pages/createTarget/images/13.png'},
+        {label:"早睡",
+        imagesrc:'/pages/createTarget/images/14.png'},
+        {label:"减肥",
+        imagesrc:'/pages/createTarget/images/15.png'},
+        {label:"学习",
+        imagesrc:'/pages/createTarget/images/16.png'},
+        {label:"自律",
+         imagesrc:'/pages/createTarget/images/17.png'},],
+   label:'',
+   setCoin:0,
+   rest:-1,
+   record:'',
+   content:'',
+   date:'',
+   title:'',
+   current_index:-1,
+   current_index_1:-1,
+   changeView:false,
+   changeView_1:false,
+   amount:0,
+   setDate:0,
+   //树苗的Id
+   treeId:"",
+   //加载表示符，用于控制加载动画,当值为 "" 隐藏
+   loadContent: "加载中...",
+   //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
+   informContent:"",
+     rightControls: ['全部人可见', '好友可见', '仅自己可见'],
+    rightControl:"全部人可见"
   },
 
   bindDateChange:function(e){  //获取多行滑动组件中的值
     this.setData({
       date: e.detail.value
     })
+  },
+   rightControl:function(e){
+        //权限控制
+        let index = e.detail.value;
+        let rightControl = this.data.rightControls[index];
+        this.setData({rightControl:rightControl});
   },
   backToindex:function(){
     wx.navigateBack({
@@ -159,8 +187,7 @@ Page({
      })
      return
    }
-   console.log("test")
-    if(this.data.setCoin<0){
+    if(this.data.setCoin<=0){
       this.setData({informContent:"请输入正确的数额"});
       return
      }
@@ -264,7 +291,18 @@ Page({
     console.log("index",index)
     this.setData({
       current_index:index,
-      label:this.data.labelList[index].label
+      label:this.data.labelList[index].label,
+      current_index_1:-1
+    });
+  },
+  choose_1:function(e){
+    let index = e.currentTarget.id;
+    console.log(index)
+
+    this.setData({
+      current_index_1:index,
+      label:this.data.labelList_1[index].label,
+      current_index:-1
     });
   },
   getInputCoin:function(e){
@@ -364,7 +402,6 @@ Page({
    let app=getApp()
    let userCoin=app.globalData.user.coin
    let curCoin=userCoin-this.data.setCoin;
-   
   let newTarget = {
     supervisor: [],//监督者ID列表
     like: [],//点赞用户列表

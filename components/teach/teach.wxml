@@ -1,0 +1,11 @@
+
+<view class="modal-box" wx:if="{{content!=''}}">
+   <view class="back" bindtap="notShowTeach">《</view>
+        <swiper indicator-dots="true"  interval="3000" duration="1000">
+        <block wx:for="{{imgUrls}}" wx:key="*this">
+            <swiper-item>
+               <image src="{{item}}" class="slide-image"/>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>

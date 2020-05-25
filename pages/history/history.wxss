@@ -10,6 +10,7 @@ page{
 .back{
   position: absolute;
   left: 20rpx;
+  top: 80rpx;
   width: 70rpx;
   height: 60rpx;
   font-weight: bolder;
@@ -29,23 +30,27 @@ page{
 }
 .top{
   width: 100%;
-  height: 12.5%;
+  height: 13.5%;
   padding-top: 30rpx;
   color:white;
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
   position: fixed;
   background-color: white;
   z-index: 6;
-  
+
 }
+
 .top_title{
   width: 40%;
   padding:20rpx;
   text-align: center;
+  left: 200rpx;
+  top: 40rpx;
   background: rgb(57, 163, 103);
   font-size: 40rpx;
+  position: relative;
   border-radius: 20rpx;
   margin-bottom:30rpx;
 }
@@ -224,29 +229,34 @@ page{
   margin-left: 250rpx;
   position: relative;
 }
+.calendar{
+  height:60rpx ;
+  margin-top: 40rpx;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .curdate{
-  position: fixed;
+  position: absolute;
   color: rgb(43, 136, 93);
-  top: 200rpx;
-  left: 328rpx;
   font-size: 30rpx;
   width: 200rpx;
+  left: 300rpx ;
 }
 .dateOption{
-  position: fixed;
+  position: absolute;
   color: rgb(43, 136, 93);
-  top: 190rpx;
-  left: 74rpx;
   font-size: 35rpx;
-  
+  left: 50rpx;
 }
 .dateOption_1{
-  position: fixed;
+  position: absolute;
   color: rgb(43, 136, 93);
-  top: 190rpx;
-  margin-left: 297rpx;
   font-size: 35rpx;
-
+ right: 50rpx;
 }
 .imageSolid{
   position: absolute;
@@ -296,7 +306,7 @@ page{
   color: black;
   position: absolute;
   margin-top: 310rpx;
-  margin-left: 120rpx;
+  margin-left: 20rpx;
   margin-right:30rpx;
   align-items: center;
   justify-content: center;

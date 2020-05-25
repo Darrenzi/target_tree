@@ -243,7 +243,7 @@ Page({
               })
               this.data.treeList.push(res.data[0])
             }
-            if(this.data.targetList[j].progress>90&&this.data.targetList[j].progress<=100){
+            if(this.data.targetList[j].progress>=90&&this.data.targetList[j].progress<=100){
               console.log("res",res)
               let treeid = "targetList[" + j +"].src"  
               this.setData({
@@ -398,7 +398,7 @@ Page({
                 })
                 this.data.treeList.push(res.data[0])
               }
-              if(this.data.targetList[j].progress>90&&this.data.targetList[j].progress<=100){
+              if(this.data.targetList[j].progress>=90&&this.data.targetList[j].progress<=100){
                 console.log("res",res)
                 let treeid = "targetList[" + j +"].src"  
                 this.setData({
@@ -481,7 +481,7 @@ Page({
               })
               this.data.treeList.push(res.data[0])
             }
-            if(this.data.targetList[j].progress>90&&this.data.targetList[j].progress<=100){
+            if(this.data.targetList[j].progress>=90&&this.data.targetList[j].progress<=100){
               console.log("res",res)
               let treeid = "targetList[" + j +"].src"  
               this.setData({

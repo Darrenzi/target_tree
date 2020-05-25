@@ -38,6 +38,7 @@
   align-items: center;
   justify-content: center;
   display: flex;
+  font-size: 35rpx;
   border: 5rpx solid rgba(116, 121, 110, 0.96);
 }
 
@@ -132,6 +133,7 @@
 }
 .show{
   display:block ;
+  overflow: scroll;
 }
 .label{
   margin-top: 70rpx;
@@ -185,14 +187,14 @@ justify-content: center;
 }
 .custom{
   position: absolute;
-  color: rgba(139, 213, 55, 0.96);
+  color: rgb(57,163,103);
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 28%;
-  top: 800rpx;
+  bottom: 18%;
   left: 215rpx;
   font-size: 35rpx;
+  overflow: scroll;
 }
 .inputtitle{
   position: absolute;
@@ -202,6 +204,7 @@ justify-content: center;
   height: 5%;
   width: 70%;
   border-radius: 20rpx;
+  font-size: 35rpx;
 }
 .inputtitleLine{
   height: 2rpx;
@@ -248,19 +251,19 @@ justify-content: center;
 }
 
 .chooselabel{
-  position: absolute;
-  top: 240rpx;
-  left: 248rpx;
+  position: relative;
+  margin-top: 30rpx;
+ 
   justify-content: center;
   display: flex;
   align-items: center;
   color: rgba(42, 51, 43, 0.981);
-  
+  font-size: 30rpx;
 }
 .hot{
-  position: absolute;
-  top: 300rpx;
-  left: 310rpx;
+  position: relative;
+  margin-top: 50rpx;
+  font-size: 30rpx;
   justify-content: center;
   display: flex;
   align-items: center;
@@ -313,19 +316,20 @@ justify-content: center;
   position: relative;
   justify-content: center;
   align-items: center;
-  top: 80rpx;
+  top: 90rpx;
 }
 .iconfont_1{
   height: 50rpx;
   width: 80rpx;
   border-radius: 10rpx;
-  background-color: rgba(94, 216, 98, 0.727);
+  background-color: rgb(57,163,103);
   font-size: 30rpx;
   display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
-  top: 80rpx;
+  top: 90rpx;
+  color:white;
 }
 .labelClass{  
   height:170rpx;
@@ -660,6 +664,7 @@ justify-content: center;
    margin-top: 50rpx;
    margin-left: 540rpx;
    width: 200rpx;
+   height: 50rpx;
  }
  .tian{
   position: absolute;
@@ -789,25 +794,25 @@ justify-content: center;
 .customLine{
   height: 5rpx;
   width: 90%;
-  position: absolute;
+  position: relative;
   left: 5%;
-  top: 17.5%;
+  margin-top:30rpx;
   background-color: rgba(71, 80, 61, 0.96);
 }
 .custom_font{
   width: 90%;
-  position: absolute;
+  position: relative;
   left: 6%;
-  top: 18%;
+  margin-top: 0rpx;
   color: rgba(116, 121, 110, 0.96);
   font-size: 45rpx;
 }
 .customLine_1{
   height: 5rpx;
   width: 90%;
-  position: absolute;
+  position: relative;
   left: 5%;
-  top: 22%;
+  margin-top:0rpx;
   background-color: rgba(88, 94, 81, 0.96);
 }
 .customContainer{
@@ -937,17 +942,20 @@ textarea {
   bottom: 80rpx;
   position: fixed;
 }
+.textareafont{
+  font-size: 35rpx;
+}
 .placeholderFont{
-  position: fixed;
+  position: absolute;
   top: 570rpx;
   font-size: 30rpx;
   left: 120rpx;
-  color: rgba(110, 112, 108, 0.508);
+  color: rgba(110, 112, 108, 0.803);
 }
 .singlelabel{
   height: 180rpx;
   width: 150rpx;
-  margin-top: 20rpx;
+  margin-top: 30rpx;
   margin-right: 3%;
   position: relative;
   background-color: white;
@@ -963,8 +971,8 @@ textarea {
   align-items: center;
   height: 500rpx;
   width: 100%;
-  position: fixed;
-  top: 25%;
+  position: relative;
+  margin-top: 30rpx;
   left: 5%;
   font-size: 35rpx;
   color:rgb(17, 16, 16);

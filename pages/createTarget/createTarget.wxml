@@ -28,7 +28,7 @@
 </text>
 
 <view class="continueView">
-<view class="continue" bindtap="toNext" bindtap="changeShowstatus">下一步</view></view>
+<view class="continue"  bindtap="changeShowstatus">下一步</view></view>
 </view>
 
 
@@ -46,8 +46,24 @@
   </view>
   </view>
 <view class="custom" bindtap="Tocustom">点我选择自定义标签</view>
+<view class="continue" bindtap="changeShowstatus_1">下一步</view>  
+</view>
 
-<view class="nextStep" bindtap="changeShowstatus_1">下一步</view>  
+<!-- 自定义标签 -->
+<view class="hide{{custom?'':'show'}}">
+  <view class="cusstom_top">
+   <view class="customtoptitle">目标内容</view>
+   <view class="back" bindtap="backTohot">《</view>
+  </view>
+<view class="customLine"></view>
+<view class="custom_font">自定义标签</view>
+<view class="customLine_1"></view>
+<view class="contianer">
+  <view id="{{index}}" class="singlelabel " wx:for="{{labelList_1}}" bindtap="choose_1" wx:key="targets">
+  <image class="labelIcon" src="{{item.imagesrc}}"></image>
+    <view class="{{current_index_1==index?'iconfont_1':'iconFont'}}">{{item.label}}</view>
+  </view>
+  </view>
 </view>
 
 
@@ -70,30 +86,15 @@
     </view>
     <view class="textarea-wrp">
     <view class="border">
-      <textarea auto-focus="true"  bindinput="getInput" placeholder-style="top:30rpx;"/>
+      <textarea class="textareafont" auto-focus="true"  bindinput="getInput" placeholder-style="top:30rpx;"/>
       </view>
     </view>
   </view>
 </view>
-<view class="nextStep" bindtap="changeShowstatus_3">下一步</view>  
+<view class="continue" bindtap="changeShowstatus_3">下一步</view>  
 </view>
 
-<!-- 自定义标签 -->
-<view class="hide{{custom?'':'show'}}">
-  <view class="cusstom_top">
-   <view class="customtoptitle">目标内容</view>
-   <view class="back" bindtap="backTohot">《</view>
-  </view>
-<view class="customLine"></view>
-<view class="custom_font">自定义标签</view>
-<view class="customLine_1"></view>
-<view class="contianer">
-  <view id="{{index}}" class="singlelabel " wx:for="{{labelList_1}}" bindtap="choose" wx:key="targets">
-  <image class="labelIcon" src="{{item.imagesrc}}"></image>
-    <view class="{{current_index==index?'iconfont_1':'iconFont'}}">{{item.label}}</view>
-  </view>
-  </view>
-</view>
+
 
 
 <!-- 第三个页面 -->
@@ -137,7 +138,7 @@
   <view class="start_line"></view>
 </view>
 
-<!-- 设置是否指定 -->
+<!-- 设置是否置顶 -->
 <view class="starTime">
  <image src="images/21.png" class="image_startTime"></image>
 <view class="kaishishijian">是否置顶</view>
@@ -153,6 +154,6 @@
 </view>
 <!-- 设置完成按钮 -->
 
-<view class="nextStep" bindtap="end">完成</view> 
+<view class="continue" bindtap="end">完成</view> 
 </view>
 

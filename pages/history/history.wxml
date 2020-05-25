@@ -6,12 +6,16 @@
 <view class="allpage"  bindtouchstart="targetTouchStart" bindtouchend="targetTouchEnd">
 
 <view class="top">
- <view class="top_title"> 时间历程</view>
- <view class="back" bindtap="backHome">《</view>
- <view class="dateOption" bindtap="lastMonth">◀</view>
- <view class="curdate">{{year}}年{{month}}月</view>
- <view class="dateOption_1" bindtap="nextMonth">▶</view>
-</view>
+  <view class="top_title"> 时间历程</view>
+  <view class="back" bindtap="backHome">《</view>
+   <view class="calendar">
+    <view class="dateOption" bindtap="lastMonth">◀</view>
+    <view class="curdate">{{year}}年{{month}}月</view>
+    <view class="dateOption_1" bindtap="nextMonth">▶</view>
+ </view>
+ </view>
+
+
 
 <view class="whitespace"></view>
 
@@ -21,7 +25,7 @@
   <view class="targetClass">
    <view class="treeclass"></view>
    <view class="line"></view>
-   <view class="fontclass">目标:</view>
+
    <view class="allDay">{{item.amount}}</view>
    <image src="/images/record.png" class="imageClendar"></image>
    <view class="allCoin">{{item.coin}}</view>
