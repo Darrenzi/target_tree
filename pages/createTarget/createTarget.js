@@ -64,13 +64,21 @@ Page({
    //加载表示符，用于控制加载动画,当值为 "" 隐藏
    loadContent: "加载中...",
    //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
-   informContent:""
+   informContent:"",
+     rightControls: ['全部人可见', '好友可见', '仅自己可见'],
+    rightControl:"全部人可见",
   },
 
   bindDateChange:function(e){  //获取多行滑动组件中的值
     this.setData({
       date: e.detail.value
     })
+  },
+   rightControl:function(e){
+        //权限控制
+        let index = e.detail.value;
+        let rightControl = this.data.rightControls[index];
+        this.setData({rightControl:rightControl});
   },
   backToindex:function(){
     wx.navigateBack({
@@ -179,8 +187,7 @@ Page({
      })
      return
    }
-   console.log("test")
-    if(this.data.setCoin<0){
+    if(this.data.setCoin<=0){
       this.setData({informContent:"请输入正确的数额"});
       return
      }
@@ -395,7 +402,6 @@ Page({
    let app=getApp()
    let userCoin=app.globalData.user.coin
    let curCoin=userCoin-this.data.setCoin;
-   
   let newTarget = {
     supervisor: [],//监督者ID列表
     like: [],//点赞用户列表

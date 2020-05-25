@@ -1,4 +1,5 @@
 /* pages/config/config.wxss */
+
 .top{
   width: 100%;
   padding-top:80rpx;
@@ -59,6 +60,7 @@
   position: absolute;
   left: 555rpx;
   top: 10rpx;
+  font-size: 35rpx;
 }
 .switch_line{
   height: 3rpx;
@@ -203,11 +205,12 @@ textarea {
   position: fixed;
 }
 .modal-box{
-  position:fixed;
-  background:rgba(0,0,0,0.4);
+  position:absolute;
+  background:rgba(255, 255, 255);
   top:0rpx;
   width:100%;
-  height:100%;
+  height: 100%;
+  overflow: scroll;
 }
 .modal-content{
   position: fixed;
@@ -295,7 +298,7 @@ textarea {
 }
 .green{
   position: absolute;
-  top: 680rpx;
+  top: 750rpx;
   height: 50rpx;
   width: 100rpx;
   border-radius: 20rpx;
@@ -310,7 +313,7 @@ textarea {
 }
 .green_1{
   position: absolute;
-  top: 680rpx;
+  top: 750rpx;
   height: 50rpx;
   width: 100rpx;
   border-radius: 20rpx;
@@ -368,15 +371,15 @@ textarea {
 }
 
 .problem-modal-content{
-  position: fixed;
+  position: absolute;
   background-color: rgb(255, 255, 255);
   height: 100%;
   width: 100%;
 
 }
 .problemreturn{
-  position: fixed;
-  top: 1220rpx;
+  position: absolute;
+  top: 1280rpx;
   height: 80rpx;
   width: 180rpx;
   border-radius: 20rpx;
@@ -390,8 +393,8 @@ textarea {
   margin-top:100rpx;
 }
 .problemsubmit{
-  position: fixed;
-  top: 1220rpx;
+  position: absolute;
+  top: 1280rpx;
   height: 80rpx;
   width: 180rpx;
   border-radius: 20rpx;
@@ -422,18 +425,16 @@ textarea {
   margin-bottom: 60rpx;
 }
 .problem-textarea-wrp{
-  top: 160rpx;
+  top: 165rpx;
   background-color: rgb(255, 255, 255);
-  margin-left: -10rpx;
-  position: fixed;
+  position: absolute;
   width: 100%;
 }
 .problem_textarea{
   width: 100%;
-  height: 400rpx;
+  height: 380rpx;
   position: absolute;
   background-color: rgb(255, 255, 255);
-
 }
 .middle_problem{
   height: 100rpx;
@@ -447,6 +448,7 @@ textarea {
   position: absolute;
   top: 30rpx;
   left: 50rpx;
+  font-size: 35rpx;
 }
 .imageContainer{
   height: 170rpx;
@@ -468,9 +470,10 @@ textarea {
   left: 7.5%;
 }
 .modal-content-theme{
-  height: 100%;
+  height: fit-content;
   width: 100%;
   background-color: rgb(255, 255, 255);
+ 
 }
 .whiteimage{
   position: absolute;
@@ -494,6 +497,10 @@ textarea {
   align-items: center;
   justify-content: center;
   color:white;
+  font-size: 35rpx;
   border-top-right-radius: 20rpx;
   border-top-left-radius: 20rpx;
+}
+.textareaFont{
+  font-size: 35rpx;
 }

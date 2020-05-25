@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "loading":"../../components/loading/loading",
-    "inform":"../../components/inform/inform"
+    "inform":"../../components/inform/inform",
+    "teach":"../../components/teach/teach"
   }
 }

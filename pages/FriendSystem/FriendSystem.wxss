@@ -97,9 +97,9 @@
   position: relative;
   margin-left: 25.9%;
   z-index: 9;
-  top: 8%;
-  margin-top: 21%;
-  margin-bottom: 5%;
+  top: 100%;
+  margin-top: 8%;
+  margin-bottom: 2%;
   
 }
 .FriendLine{

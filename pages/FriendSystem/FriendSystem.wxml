@@ -53,7 +53,7 @@
      <view class="cancle">X</view></view>
     </view>
   </view>
-
+<!-- 好友列表 -->
 <view class="hide{{change_1?'':'show'}}" bindtap="ChangeShowStatus">
   <view>
     <view wx:for="{{navList}}" wx:for-index="idx" wx:if="{{idx!='_id'}}" wx:key="key">

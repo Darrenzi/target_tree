@@ -38,6 +38,7 @@
   align-items: center;
   justify-content: center;
   display: flex;
+  font-size: 35rpx;
   border: 5rpx solid rgba(116, 121, 110, 0.96);
 }
 
@@ -190,7 +191,7 @@ justify-content: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 19%;
+  bottom: 18%;
   left: 215rpx;
   font-size: 35rpx;
   overflow: scroll;
@@ -203,6 +204,7 @@ justify-content: center;
   height: 5%;
   width: 70%;
   border-radius: 20rpx;
+  font-size: 35rpx;
 }
 .inputtitleLine{
   height: 2rpx;
@@ -661,6 +663,7 @@ justify-content: center;
    margin-top: 50rpx;
    margin-left: 540rpx;
    width: 200rpx;
+   height: 50rpx;
  }
  .tian{
   position: absolute;
@@ -938,12 +941,15 @@ textarea {
   bottom: 80rpx;
   position: fixed;
 }
+.textareafont{
+  font-size: 35rpx;
+}
 .placeholderFont{
   position: absolute;
   top: 570rpx;
   font-size: 30rpx;
   left: 120rpx;
-  color: rgba(110, 112, 108, 0.508);
+  color: rgba(110, 112, 108, 0.803);
 }
 .singlelabel{
   height: 180rpx;

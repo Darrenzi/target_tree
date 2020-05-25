@@ -5,11 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hidden:true,
+    hidden:false,
     content:'',//用户自己的评论
     myself:'',//用户OPENid
     nowdate:'',
-
     //加载表示符，用于控制加载动画,当值为 "" 隐藏
     loadContent: "加载中...",
     //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
@@ -20,6 +19,7 @@ Page({
     changeView:"",
     Towhere:-1, //为0时跳转到白色界面，为1时跳转到绿色界面
     showIdea:true,
+    showConfig:true,
     problem:[  {title:"闪退/卡顿",
     specific:"页面闪退或卡顿"},
     {title:"目标发布",
@@ -39,13 +39,14 @@ Page({
   ],
     title:'',//存放点击的错误的标题
     inputProblem:true,
-    problemContent:''
+    problemContent:'',
+    showTeachOrNot:"",  //不为空时出现教程
   },
   backHome: function () {
    wx.navigateBack({
- 
     })
   },
+  
 
   toBeAdd:function(){
     this.setData({informContent:"该模块正在完善"});
@@ -56,7 +57,9 @@ Page({
     console.log(index)
     this.setData({
         title:this.data.problem[index].title,
-        inputProblem:false
+        inputProblem:false,
+        showIdea:false,
+        showConfig:false
       })
   },
   problem_back:function(){
@@ -72,7 +75,8 @@ Page({
   problem_return:function(){
      this.setData({
        inputProblem:true,
-       input:''
+       input:'',
+       showConfig:true
      })
   },
   problem_submit:function(){
@@ -115,6 +119,7 @@ Page({
     })
   },
   toChooseTheme:function(){
+    
     //根据主题跳转
     let url = "";
     let theme = this.data.changeView;
@@ -145,14 +150,16 @@ Page({
   },
   getidea:function(){
     this.setData({
-      hidden:true
+      hidden:true,
+      showConfig:false
     })
   },
   return1:function(){
     this.setData({
       hidden:false,
       content:'',
-      input:''
+      input:'',
+      showConfig:true
     })
   },
   submit:function(){
@@ -201,14 +208,28 @@ Page({
     if (this.data.changeTheme){
       this.setData({
         changeTheme: false,
+        showConfig:false
       })
     }
     else{
       this.setData({
         changeTheme: true,
+        showConfig:true
       })
     }
   },
+  notShowTeach:function(e){
+    this.setData({
+      showConfig:e.detail
+    })
+  },
+  showTeach:function(){
+   this.setData({
+    showTeachOrNot:"aaa",
+    showConfig:false,
+   })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

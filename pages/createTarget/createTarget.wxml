@@ -28,7 +28,7 @@
 </text>
 
 <view class="continueView">
-<view class="continue" bindtap="toNext" bindtap="changeShowstatus">下一步</view></view>
+<view class="continue"  bindtap="changeShowstatus">下一步</view></view>
 </view>
 
 
@@ -86,7 +86,7 @@
     </view>
     <view class="textarea-wrp">
     <view class="border">
-      <textarea auto-focus="true"  bindinput="getInput" placeholder-style="top:30rpx;"/>
+      <textarea class="textareafont" auto-focus="true"  bindinput="getInput" placeholder-style="top:30rpx;"/>
       </view>
     </view>
   </view>
@@ -138,7 +138,7 @@
   <view class="start_line"></view>
 </view>
 
-<!-- 设置是否指定 -->
+<!-- 设置是否置顶 -->
 <view class="starTime">
  <image src="images/21.png" class="image_startTime"></image>
 <view class="kaishishijian">是否置顶</view>
