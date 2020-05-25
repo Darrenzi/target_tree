@@ -24,7 +24,10 @@
 
   <view class="targetTitle">{{target.title}}</view>
   <view class="targetContent">{{target.content}}</view>
-  
+
+  <calendar targetId="{{target._id}}"></calendar>
+  <view style="border:2rpx solid gainsboro;"></view>
+
   <!-- 隐藏的输入调 -->
   <input class="commentInput" focus="{{commentInputFlag}}" hidden="{{!commentInputFlag}}" confirm-type="send" bindconfirm="sendComment" bindblur="hideCommentInput" value="{{commentInput}}"></input>
 
@@ -44,7 +47,7 @@
         <image class="replyAvatar" src="{{replyItem.comment_user[0].avatarUrl}}"></image>
         <view class="replyRight">
           <view class="replyUn">
-            {{item.comment_user[0].un}}
+            {{replyItem.comment_user[0].un}}
             <view wx:if="{{target._openid == replyItem.comment_user[0]._openid}}" class="replyUnTip">楼主</view>
           </view>
           <view class="replyContent">{{replyItem.content}}</view>

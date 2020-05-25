@@ -1,0 +1,24 @@
+/* components/date/date.wxss */
+.container{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 30rpx;
+  padding-top:40rpx;
+  padding-bottom:40rpx;
+}
+.day{
+  width: 90rpx;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  font-size: 35rpx;
+  font-weight: bold;
+  color:gray;
+}
+.dayRecord{
+  background: rgb(57, 163, 103);
+  color:white;
+}

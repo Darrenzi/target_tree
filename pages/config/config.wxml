@@ -121,7 +121,7 @@
     <view class="middle_problem">
       <view class="middle_font">图片（选填，提供问题截图）</view>
     </view>
-    <view class="imageContainer">+</view>
+    <view class="imageContainer" bindtap="problemImageUpload">+</view>
     <view class="imageLine"></view>
   </view>
 

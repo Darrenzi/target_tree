@@ -1,6 +1,6 @@
 {
   "cloud": true,
-  "pages": [ 
+  "pages": [
     "pages/loading/loading",
     "pages/createTarget/createTarget",
     "pages/FriendSystem/FriendSystem",

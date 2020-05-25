@@ -47,6 +47,11 @@ Page({
     })
   },
 
+  problemImageUpload:function(){
+    //上传问题图片
+    this.setData({informContent:"暂时只能提交文字哦"});
+  },
+
   toBeAdd:function(){
     this.setData({informContent:"该模块正在完善"});
   },

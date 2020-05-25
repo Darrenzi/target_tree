@@ -2,6 +2,7 @@
 <!-- 投币界面 -->
 <input-coin hidden="{{!inputCoinFlag}}" inputCoinMsg="{{inputCoinMsg}}" bindaddCoin="changeCoin"></input-coin>
 <loading content="{{loadContent}}"></loading>
+<inform content="{{informContent}}"></inform>
 
 <view class="top">
    <view class="top_title">社区</view>

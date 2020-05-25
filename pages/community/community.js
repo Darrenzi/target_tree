@@ -24,7 +24,8 @@ Page({
     inputCoinIndex:-1,
     //投币的用户及目标信息
     inputCoinMsg:{},
-    loadContent:"加载中..."
+    loadContent:"加载中...",
+    informContent:""
   },
 
   backHome: function () {
@@ -55,6 +56,11 @@ Page({
     //显示投币界面
     let index = e.currentTarget.id;
     let target = this.data.targets[index];
+    if(target.status != 0){
+      //任务不是正在进行中
+      this.setData({informContent:"该目标已经完成或放弃，请勿投币"});
+      return;
+    }
     let user = getApp().globalData.user;
     let inputCoinMsg = {};
     inputCoinMsg.targetId = target._id;

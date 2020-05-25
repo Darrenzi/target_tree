@@ -103,6 +103,7 @@
       <view class="targetDetailContent">
         {{currentTarget.content}}
       </view>
+      <calendar targetId="{{currentTarget._id}}"></calendar>
     </view>
   </view>
 </view>
