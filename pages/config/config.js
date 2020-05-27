@@ -151,7 +151,7 @@ Page({
   getidea:function(){
     this.setData({
       hidden:true,
-      showConfig:false
+   
     })
   },
   return1:function(){
@@ -159,7 +159,7 @@ Page({
       hidden:false,
       content:'',
       input:'',
-      showConfig:true
+     
     })
   },
   submit:function(){

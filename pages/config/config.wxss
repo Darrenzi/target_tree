@@ -206,7 +206,7 @@ textarea {
 }
 .modal-box{
   position:absolute;
-  background:rgba(255, 255, 255);
+  background:rgba(150, 146, 146, 0.467);
   top:0rpx;
   width:100%;
   height: 100%;
