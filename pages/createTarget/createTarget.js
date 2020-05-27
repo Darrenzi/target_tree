@@ -66,7 +66,7 @@ Page({
    //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
    informContent:"",
      rightControls: ['全部人可见', '好友可见', '仅自己可见'],
-    rightControl:"全部人可见",
+    rightControl:"全部人可见"
   },
 
   bindDateChange:function(e){  //获取多行滑动组件中的值

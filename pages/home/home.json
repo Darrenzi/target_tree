@@ -4,6 +4,7 @@
     "loading":"../../components/loading/loading",
     "inform":"../../components/inform/inform",
     "custom-progress": "../../components/custom-progress/custom-progress",
-    "user-coin":"../../components/user-coin/user-coin"
+    "user-coin":"../../components/user-coin/user-coin",
+    "calendar":"../../components/calendar/calendar"
   }
 }

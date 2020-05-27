@@ -1,0 +1,6 @@
+<!--components/date/date.wxml-->
+<view class="container">
+  <view class="day {{item.record?'dayRecord':''}}" wx:for="{{dateList}}" wx:key="date">
+    {{item.date}}
+  </view>
+</view>

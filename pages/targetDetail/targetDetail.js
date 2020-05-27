@@ -62,6 +62,11 @@ Page({
   showInputCoin: function () {
     //显示投币界面
     let target = this.data.target;
+    if (target.status != 0) {
+      //任务不是正在进行中
+      this.setData({ informContent: "该目标已经完成或放弃，请勿投币" });
+      return;
+    }
     let user = getApp().globalData.user;
     let inputCoinMsg = {};
     inputCoinMsg.targetId = target._id;
@@ -144,6 +149,7 @@ Page({
         })
       }
       this.setData({comment:comment});
+      console.log(comment);
       //更新评论数字段
       wx.cloud.callFunction({
         name:"changeCommentNum",

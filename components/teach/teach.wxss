@@ -1,15 +1,11 @@
 swiper{
-
   height: 100%;
   width: 100%;
-  background-color: rgb(129, 238, 165);
 }
 .slide-image{
   position: absolute;
-  top: 5%;
-  left: 10%;
-  height: 80%;
-  width: 80%;
+  height: 100%;
+  width: 100%;
 }
 .modal-box{
     position:absolute;
