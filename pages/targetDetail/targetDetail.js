@@ -80,7 +80,7 @@ Page({
     let commentType = e.currentTarget.dataset.type;
     let commentId = e.currentTarget.dataset.commentid;
     let commentIndex = e.currentTarget.id;
-    console.log(commentType, commentId, commentIndex);
+ 
     this.setData({commentInputFlag:true, commentType:commentType, commentId, commentId, commentIndex:commentIndex});
   },
 
@@ -121,7 +121,7 @@ Page({
       }
     })
     .then(res=>{
-      console.log(res);
+
       let comment = that.data.comment;
       if(commentType == "comment"){
         //更新评论数据
@@ -149,7 +149,7 @@ Page({
         })
       }
       this.setData({comment:comment});
-      console.log(comment);
+
       //更新评论数字段
       wx.cloud.callFunction({
         name:"changeCommentNum",
@@ -157,7 +157,7 @@ Page({
           targetId:that.data.target.targetId
         },
         success:function(res){
-          console.log(res);
+    
         },
         fail:function(err){
           console.log(err);
@@ -179,7 +179,7 @@ Page({
       }
     })
     .then(res=>{
-      console.log(res);
+  
       let allComment = res.result.list;
       let reply = [];
       let comment = [];
@@ -207,7 +207,7 @@ Page({
           }
         }
       }
-      console.log(comment);
+    
       that.setData({ comment: comment });
     })
     .catch(err=>{
@@ -218,7 +218,7 @@ Page({
   like: function (e) {
     //点赞
     let index = e.currentTarget.id;
-    // console.log(index);
+   
     let target = this.data.target;
     const db = wx.cloud.database();
     const _ = db.command;
@@ -226,7 +226,7 @@ Page({
     //操作符，用于调用云函数
     let operation = "like";
     if (target.like.indexOf(userId) != -1) {
-      console.log('取消点赞');
+  
       operation = 'cancel';
     }
     switch(operation){
@@ -252,7 +252,7 @@ Page({
         operation: operation
       },
       success: function (res) {
-        console.log(res);
+      
         //删除修改数组
         switch (operation) {
           case 'like': {
@@ -264,7 +264,7 @@ Page({
               }
             })
               .then(res => {
-                console.log(res);
+               ;
               })
               .catch(err => {
                 console.log(err);
@@ -281,7 +281,7 @@ Page({
               }
             })
               .then(res => {
-                console.log(res);
+            
               })
               .catch(err => {
                 console.log(err);
@@ -323,7 +323,7 @@ Page({
         option:option
       },
       success:function(res){
-        console.log(res);
+       
         
         that.setData({watchFlag:watchFlag, loadContent:"", informContent:informContent});
       },
@@ -336,7 +336,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
+
     options.coin = Number(options.coin);
     options.like = options.like.split(",");
     options.supervisor = options.supervisor.split(",");

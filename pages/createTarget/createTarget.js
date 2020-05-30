@@ -13,36 +13,36 @@ Page({
    custom:true,
    showtitle:true,
    labelList:[
-      {label:"运动",
+      {label:"喜欢",
       imagesrc:'/pages/createTarget/images/1.png'},
-      {label:"工作",
+      {label:"听歌",
       imagesrc:'/pages/createTarget/images/2.png'},
-      {label:"剁手",
-      imagesrc:'/pages/createTarget/images/3.png'},
       {label:"游戏",
+      imagesrc:'/pages/createTarget/images/3.png'},
+      {label:"储存",
       imagesrc:'/pages/createTarget/images/4.png'},
-      {label:"早睡",
-      imagesrc:'/pages/createTarget/images/5.png'},
-      {label:"减肥",
-      imagesrc:'/pages/createTarget/images/6.png'},
       {label:"学习",
+      imagesrc:'/pages/createTarget/images/5.png'},
+      {label:"运动",
+      imagesrc:'/pages/createTarget/images/6.png'},
+      {label:"阅读",
       imagesrc:'/pages/createTarget/images/7.png'},
       {label:"自律",
        imagesrc:'/pages/createTarget/images/8.png'},],
   labelList_1:[
-        {label:"运动",
+        {label:"宅家",
         imagesrc:'/pages/createTarget/images/10.png'},
-        {label:"工作",
+        {label:"专注",
         imagesrc:'/pages/createTarget/images/11.png'},
         {label:"剁手",
         imagesrc:'/pages/createTarget/images/12.png'},
-        {label:"游戏",
+        {label:"玩耍",
         imagesrc:'/pages/createTarget/images/13.png'},
         {label:"早睡",
         imagesrc:'/pages/createTarget/images/14.png'},
         {label:"减肥",
         imagesrc:'/pages/createTarget/images/15.png'},
-        {label:"学习",
+        {label:"改变自己",
         imagesrc:'/pages/createTarget/images/16.png'},
         {label:"自律",
          imagesrc:'/pages/createTarget/images/17.png'},],
@@ -179,8 +179,8 @@ Page({
   changeShowstatus:function(){   //
     let app=getApp()
     let userCoin=app.globalData.user.coin
-    console.log("userCoin",userCoin)
-    console.log("setCOin",this.data.setCoin)
+
+
     if (userCoin < this.data.setCoin && this.data.setCoin!=0){
       this.setData({
        informContent:"诶呀，你的金币不够呢",
@@ -227,7 +227,6 @@ Page({
     })
   },
   changeShowstatus_4:function(){
-
     this.setData({
       change:false,
       change_1:false,
@@ -237,19 +236,6 @@ Page({
     })
   },
   changeShowstatus_3:function(){
-   
-    var content=this.data.content
-    if(content==""){
-     var that=this
-     that.setData({informContent:"请输入目标内容"});
-     return
-    }
-    var title=this.data.title
-    if(title==""){
-     var that=this
-     that.setData({informContent:"请输入目标标题"});
-     return
-    }
     var content=this.data.content
     if(content==""){
      var that=this
@@ -288,7 +274,7 @@ Page({
   },
   choose:function(e){
     let index = e.currentTarget.id;
-    console.log("index",index)
+  
     this.setData({
       current_index:index,
       label:this.data.labelList[index].label,
@@ -297,7 +283,7 @@ Page({
   },
   choose_1:function(e){
     let index = e.currentTarget.id;
-    console.log(index)
+
 
     this.setData({
       current_index_1:index,
@@ -339,14 +325,13 @@ Page({
     var TIME = util.formatTime(new Date());
     var startTime=TIME;
     var endTime=date;
-    console.log("结束时间：",endTime)
     var start_date = new Date(startTime.replace(/-/g, "/"));
     var end_date = new Date(endTime.replace(/-/g, "/"));
     var ms = end_date.getTime() - start_date.getTime();
      //转换成天数
     var day = parseInt(ms / (1000 * 60 * 60 * 24));
      //do something
-    console.log("day = ", day);
+ 
     this.setData({
       amount:day-1
     })
@@ -355,19 +340,17 @@ Page({
     var TIME = util.formatTime(new Date());
     var startTime=TIME;
     var endTime=date;
-    console.log("结束时间：",endTime)
     var start_date = new Date(startTime.replace(/-/g, "/"));
     var end_date = new Date(endTime.replace(/-/g, "/"));
     var ms = end_date.getTime() - start_date.getTime();
      //转换成天数
     var day = parseInt(ms / (1000 * 60 * 60 * 24));
      //do something
-    console.log("day = ", day);
     this.setData({
       amount:day
     })
    }
-   console.log("总打卡时间",this.data.amount)
+
    const db=wx.cloud.database()
    var label =this.data.label
    var setCoin=this.data.setCoin
@@ -388,7 +371,7 @@ Page({
    }
    let num=0.2*amount;
    num = Math.floor(num * 1) / 1;
-   console.log("num",num)
+
    if(rest<0||rest>(0.2*amount)){
     that.setData({informContent:"休息时间最多只能是"+num+"天噢"});
     this.setData({loadContent:''});
@@ -399,9 +382,7 @@ Page({
     this.setData({loadContent:''});
     return
    }
-   let app=getApp()
-   let userCoin=app.globalData.user.coin
-   let curCoin=userCoin-this.data.setCoin;
+
   let newTarget = {
     supervisor: [],//监督者ID列表
     like: [],//点赞用户列表
@@ -419,22 +400,9 @@ Page({
     progress: 0.00,  //任务进度
     treeId: that.data.treeId //树苗的id
    }
-   wx.cloud.callFunction({
-    name: 'setCoin',
-    data: {
-      curCoin:curCoin
-    },})
-    .then(res => {
-      console.log("金币减少成功")
-    })
-    .catch(err=>{
-      console.log("减少失败")
-      console.log(err);
-    })
    db.collection('target').add({
      data:newTarget,
      success:function(res){
-      console.log(res)
       that.setData({
         informContent:"成功创建目标",
         loadContent:''
@@ -446,44 +414,27 @@ Page({
       newTarget.tree = that.data.treeImage;
       newTarget._id = res._id;
       let targetComponent = prevPage.selectComponent('#target');
-      console.log(targetComponent);
+ 
       let targets = targetComponent.data.targets;
       targets.unshift(newTarget);
       targetComponent.setData({targets:targets});
-      console.log(targets);
+  
       wx.navigateBack({})
      },
      fail(err){
-       console.log(err);
+      console.log(err)
      }
    })
 },
 
-init:function(){
-  const db = wx.cloud.database();
-  const userTable = db.collection('user');
-  let app = getApp();
-  userTable.get().then(res => {
-    //判断是否注册
-      //已注册
-      console.log("已注册");
-      this.setData({user:res.data[0]});
-      app.globalData.user = res.data[0];
-      console.log(res.data[0])
-      this.setData({ loadContent: '' });
-  },err=>{
-    console.log("加载用户信息错误");
-    this.setData({loadContent:''});
-  })
-},
+
  
   /**89
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      console.log("options",options)
-      this.setData({treeId:options.treeId, treeImage:options.treeImage});
-      this.init()
+      this.setData({treeId:options.treeId, treeImage:options.treeImage,loadContent:''});
+
   },
 
   /**

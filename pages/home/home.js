@@ -38,7 +38,7 @@ Page({
   },
 
   addTarget: function () {
-    console.log('添加目标');
+
     if (this.data.addTargetFlag) {
       this.setData({ addTargetFlag: false });
     }
@@ -49,10 +49,10 @@ Page({
 
   chooseTree: function (e) {
     //创建新目标的时选中的树的id
-    console.log(e);
+
     let treeId = e.currentTarget.dataset.treeid;
     let treeImage = e.currentTarget.dataset.treeimage;
-    console.log(treeId, treeImage);
+
     this.setData({ loadContent: "正在路上..." })
     let that = this;
     wx.navigateTo({
@@ -61,7 +61,7 @@ Page({
         that.setData({ addTargetFlag: false, loadContent: '' });
       },
       fail: function () {
-        console.log(err);
+  
       },
       complete: function () {
         that.setData({ loadContent: '' });
@@ -85,7 +85,7 @@ Page({
     const db = wx.cloud.database();
     const _ = db.command;
     let that = this;
-    console.log(that.data.user.tools);
+
     db.collection('tool')
       .field({
         path: true
@@ -94,11 +94,11 @@ Page({
         _id: _.in(that.data.user.tools)
       }).get()
       .then(res => {
-        console.log(res);
+     
         that.setData({ userTrees: res.data, loadContent: '' });
       })
       .catch(err => {
-        console.log(err);
+        console.log(err)
         that.setData({ loadContent: ''});
       })
   },
@@ -114,12 +114,12 @@ Page({
 
   chooseTarget: function (e) {
     //选择目标
-    console.log(e);
+ 
     this.setData({ currentTarget: e.detail.target, treeShow: false });
   },
 
   imageLoadCompleted: function () {
-    console.log("图片加载完成")
+
     //树木图片加载完成后
     this.treeAnimation();
   },
@@ -128,11 +128,11 @@ Page({
     //左侧选择栏的导航函数
     this.setData({ currentTarget: e.detail.target, loadContent: "正在路上..." });
     let target = e.currentTarget.dataset.target;
-    console.log(target);
+
     let that = this;
     switch (target) {
       case '我的森林': {
-        console.log('跳转到我的森林');
+
         wx.navigateTo({
           url: '../forest/forest',
           complete: function () {
@@ -142,7 +142,7 @@ Page({
         break;
       }
       case '我的好友': {
-        console.log('跳转至我的好友');
+
         wx.navigateTo({
           url: '../FriendSystem/FriendSystem',
           complete: function () {
@@ -152,7 +152,7 @@ Page({
         break;
       }
       case '最新消息': {
-        console.log('最新消息');
+
         wx.navigateTo({
           url: '../messages/messages',
           complete: function () {
@@ -162,7 +162,7 @@ Page({
         break;
       }
       case '商城': {
-        console.log('跳转到商城');
+
         wx.navigateTo({
           url: '../mall/mall?coin='+this.data.user.coin,
           complete: function () {
@@ -222,7 +222,7 @@ Page({
     let noRecordNum = dayNum - currentTarget.record;
     if (noRecordNum > currentTarget.rest) {
       //没有打卡天数大于休息的天数，认定为失败
-      console.log("目标失败");
+
       db.collection('target').doc(currentTarget._id)
         .update({
           data: {
@@ -230,7 +230,7 @@ Page({
           }
         })
         .then(res => {
-          console.log(res);
+
           let userCoin = that.data.user.coin - currentTarget.coin;
           let user = that.data.user;
           user.coin = userCoin;
@@ -242,12 +242,12 @@ Page({
               }
             })
             .then(res => {
-              console.log(res);
+          
 
               //将目标赌金的一半平分给围观用户
               let supervisor = currentTarget.supervisor;
               let reward = currentTarget.coin / (2 * supervisor.length);
-              console.log(supervisor, reward);
+     
               wx.cloud.callFunction({
                 name: "rewardWatchUser",
                 data: {
@@ -255,10 +255,10 @@ Page({
                   reward: reward
                 },
                 success: function (res) {
-                  console.log("赌金分给围观用户成功");
+           
                 },
                 fail: function (err) {
-                  console.log(err, "赌金分给围观用户失败");
+                  console.log(err)
                 }
               })
               //调用目标组件删除完成的目标
@@ -268,13 +268,12 @@ Page({
               that.setData({ user: user, loadContent: "", informContent: "目标已失败，将扣除相应金币，并种植一棵枯树" });
             })
             .catch(err => {
-              console.log(err, "\n扣除金币失败");
+              console.log(err)
               that.setData({ loadContent: '', informContent: "意外错误" });
             })
         })
         .catch(err => {
-          console.log("更新目标状态失败");
-          console.log(err);
+          console.log(err)
           that.setData({ loadContent: '', informContent: "意外错误" });
         })
       return;
@@ -288,7 +287,7 @@ Page({
         target_id: _.eq(that.data.currentTarget._id)
       })
       .get().then(res => {
-        console.log(res);
+     
         let lastDate = null;
         if (res.data.length != 0) {
           //取打卡表中的最后一次打卡记录，用于判断是否是同一天
@@ -322,6 +321,7 @@ Page({
               that.updateTarget(progress);
             }
           }).catch(err => {
+            console.log(err)
             that.setData({ loadContent: '', informContent: "意外错误" });
           })
         }
@@ -345,8 +345,7 @@ Page({
       that.setData({ loadContent: '', informContent: "打卡成功！坚持的人最美丽！" });
     })
       .catch(err => {
-        console.log("更新任务状态失败");
-        console.log(err);
+        console.log(err)
         this.setData({ loadContent: "", informContent: "意外错误" });
       })
   },
@@ -356,7 +355,7 @@ Page({
     let userTrees = this.data.userTrees;
     let oldProgress = currentTarget.progress;
     let currentTree = null;
-    console.log(currentTarget.treeId, userTrees);
+ 
     for (let i = 0; i < userTrees.length; i++) {
       if (currentTarget.treeId == userTrees[i]._id) {
         currentTree = userTrees[i];
@@ -402,8 +401,7 @@ Page({
       currentTarget.progress = 100;
       //奖励金币=10倍的天数+赌金+赞赏
       let reward = 10 * currentTarget.amount + currentTarget.coin;
-      console.log(reward);
-      console.log(user._id);
+
       db.collection("user").doc(user._id)
         .update({
           data: {
@@ -411,7 +409,7 @@ Page({
           }
         })
         .then(res => {
-          console.log(res);
+  
           //调用目标组件删除完成的目标
           let targetComponent = that.selectComponent('#target');
           targetComponent.deleteTarget();
@@ -420,14 +418,12 @@ Page({
           that.setData({ loadContent: '', informContent: "目标完成，获得 " + reward + " 金币" });
         })
         .catch(err => {
-          console.log("奖励金币失败");
-          console.log(err);
+          console.log(err)
           this.setData({ loadContent: "", informContent: "意外错误" });
         })
     })
       .catch(err => {
-        console.log("更新任务状态失败");
-        console.log(err);
+        console.log(err)
         this.setData({ loadContent: "", informContent: "意外错误" });
       })
   },

@@ -186,13 +186,12 @@ justify-content: center;
 
 }
 .custom{
-  position: absolute;
+  position: relative;
   color: rgb(57,163,103);
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 18%;
-  left: 215rpx;
+  margin-top: 30rpx;
   font-size: 35rpx;
   overflow: scroll;
 }
@@ -308,9 +307,8 @@ justify-content: center;
 }
 .iconFont{
   height: 50rpx;
-  width: 80rpx;
+  width: 160rpx;
   border-radius: 10rpx;
-
   font-size: 30rpx;
   display: flex;
   position: relative;
@@ -320,7 +318,7 @@ justify-content: center;
 }
 .iconfont_1{
   height: 50rpx;
-  width: 80rpx;
+  width: 160rpx;
   border-radius: 10rpx;
   background-color: rgb(57,163,103);
   font-size: 30rpx;

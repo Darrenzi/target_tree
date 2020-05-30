@@ -75,7 +75,7 @@
   </view>
 
 <!-- 选择主题 -->
-  <view class="modal-box" wx:if="{{!changeTheme}}">
+  <view class="modal-box_1" wx:if="{{!changeTheme}}">
     <view class="modal-content-theme">
       <view class="problemsubmit" bindtap="toChooseTheme">确认</view>
       <view class="problemreturn" bindtap="chooseTheme">返回</view>
@@ -107,7 +107,7 @@
   </view>
 </view>
 <!-- 提交意见反馈 -->
-<view class="modal-box" wx:if="{{!inputProblem}}">
+<view class="modal-box_2" wx:if="{{!inputProblem}}">
      <view class="problem-modal-content">
      <view class="problemreturn" bindtap="problem_return">返回</view>
      <view class="problemsubmit" bindtap="problem_submit">提交</view>
@@ -116,7 +116,7 @@
       </view>
       <view class="problem-page-section">
         <view class="problem-textarea-wrp"> 
-        <textarea auto-focus="true" placeholder="请填写十个字以上的问题描述以便我们为您解决问题" bindinput="getInputProblem"  maxlength="200" placeholder-style="top:30rpx"  class="problem_textarea" value="{{input}}"/>
+        <textarea auto-focus="true" placeholder="请填写十个字以上的问题描述以便我们为您解决问题" bindinput="getInputProblem"  maxlength="200" placeholder-style="font-size:30rpx"  class="problem_textarea" value="{{input}}"/>
        </view>
       </view>
     </view>

@@ -39,7 +39,7 @@ Page({
   choose:function(e){
     //点击某个树苗
     this.setData({current:e.currentTarget.dataset.tree});
-    console.log(this.data.current);
+  
   },
 
   buy:function(){
@@ -62,7 +62,7 @@ Page({
       let coin = res.data[0].coin;
       let tools = res.data[0].tools;
       let _id = res.data[0]._id;
-      // console.log(coin, tools);
+    
       //判断是否已经拥有
       if(tools.indexOf(that.data.current._id)!=-1){
         let inform = that.data.tips.repeat;
@@ -83,7 +83,7 @@ Page({
           tools: _.push(that.data.current._id)
         },
         success:function(res){
-          // console.log(res);
+
           //购买成功
           let inform = that.data.tips.success;
           let userCoin = that.data.userCoin - that.data.current.price;
@@ -114,7 +114,7 @@ Page({
     wx.cloud.callFunction({
       "name":"getTree",
       success:function(res){
-        console.log(res);
+     
         that.setData({trees:res.result.data, loadContent:""});
       }
     })

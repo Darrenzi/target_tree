@@ -37,10 +37,10 @@ Page({
 
   operateMessage:function(e){
     //控制删除按钮的显示
-    // console.log(e);
+
     //数据在数组中的索引
     let index = e.currentTarget.id;
-    // console.log(index);
+
     if(this.data.current_index != -1){
       this.setData({ current_index: -1 });
     }
@@ -62,7 +62,7 @@ Page({
       }
     })
     .then(res=>{
-      console.log(res);
+  
       let target = res.result.list[0];
       let un = target.userList[0].un;
       let avatarUrl = target.userList[0].avatarUrl;
@@ -131,7 +131,7 @@ Page({
         id:id
       },
       success:function(res){
-        console.log(res);
+
       },
       fail:function(err){
         console.log(err);
@@ -145,13 +145,13 @@ Page({
     let that = this;
     let user = getApp().globalData.user;
     db.collection('target').field({_id:true}).get().then(res=>{
-      console.log(res);
+
       //用户所有的任务id
       let user_targets = [];
       for(let i=0;i<res.data.length;i++){
         user_targets.push(res.data[i]._id);
       }
-      console.log(user_targets);
+ 
       
       //获取评论
       wx.cloud.callFunction({
@@ -160,7 +160,7 @@ Page({
           user_targets:user_targets
         },
         success:function(res){
-          console.log(res);
+    
           let data = res.result.list;
           let newCommentNum = 0;
           for(let i=0;i<data.length;i++){
@@ -186,7 +186,7 @@ Page({
         },
         success:function(res){
           let data = res.result.list;
-          console.log(data);
+      
           //获取日期
           let newLikeNum = 0;//新的点赞信息数
           for(let i = 0; i < data.length; i++) {
@@ -211,7 +211,7 @@ Page({
           receiver:user._openid
         },
         success:function(res){
-          console.log(res);
+     
           let data = res.result.list;
           let newFriendNum = 0;
           for (let i = 0; i < data.length; i++) {
@@ -237,7 +237,7 @@ Page({
       .orderBy("time", "desc")
       .get()
       .then(res=>{
-        console.log(res);
+      
         let data = res.data;
         let newTipNum = 0;
         for (let i = 0; i < data.length; i++) {
@@ -301,7 +301,7 @@ Page({
 
     let sender = this.data.newFriend[index]._openid;
     let recordId = this.data.newFriend[index]._id;
-    console.log(sender);
+   
     const db = wx.cloud.database();
     db.collection('friend').add({
       data: {
@@ -309,7 +309,7 @@ Page({
       }
     })
     .then(res=>{
-      console.log(res);
+    
       //更新好友申请的状态
       wx.cloud.callFunction({
         name:"friendRequestStatus",
@@ -318,7 +318,7 @@ Page({
           status:1
         },
         success:function(res){
-          console.log(res);
+    
         },
         fail:function(err){
           console.log(err);
@@ -351,11 +351,11 @@ Page({
     try {
       //获取存储在本地的最后拉取消息的时间戳
       let lastDateString = wx.getStorageSync('lastDate');
-      console.log(lastDateString);
+
       if (lastDateString != "") {
         //本地有记录
         let lastDate = JSON.parse(lastDateString);
-        console.log(lastDate);
+     
         this.setData({lastDate:lastDate});
       }
       else{

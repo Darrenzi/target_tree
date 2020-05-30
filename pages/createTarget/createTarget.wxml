@@ -40,7 +40,7 @@
 <view class="chooselabel">一：请选择你的标签</view>
 <view class="hot">热门推荐</view></view>
 <view class="contianer">
-  <view id="{{index}}" class="singlelabel " wx:for="{{labelList}}" bindtap="choose" wx:key="targets">
+  <view id="{{index}}" class="singlelabel" wx:for="{{labelList}}" bindtap="choose" wx:key="targets">
   <image class="labelIcon" src="{{item.imagesrc}}"></image>
     <view class="{{current_index==index?'iconfont_1':'iconFont'}}">{{item.label}}</view>
   </view>

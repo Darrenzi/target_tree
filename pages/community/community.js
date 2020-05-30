@@ -83,7 +83,7 @@ Page({
 
   targetDetail:function(e){
     let index = e.currentTarget.id;
-    // console.log(index);
+  
     let targets = this.data.targets;
     if(this.data.currentShow == "围观"){
       targets = this.data.watchTargets;
@@ -109,8 +109,7 @@ Page({
   },
 
   getMoreTargets:function(){
-    //拉至底部时，再次拉取
-    console.log("加载更多");
+ 
     if(this.data.noMoreTarget == true)return;
     let page = this.data.page + 10;
     this.setData({page:page, loadFlag:true});
@@ -125,7 +124,7 @@ Page({
         that.setData({watchTargets:res.result.list});
       },
       fail:function(err){
-        console.log(err);
+        console.log(err)
       }
     })
   },
@@ -139,12 +138,12 @@ Page({
         page: page
       },
       success: function (res) {
-        console.log("alltargets",res);
+       
         if(res.result.list.length != 0)
         {
           let targets = that.data.targets;
           targets = targets.concat(res.result.list);
-          // console.log(targets);
+       
           that.setData({ targets: targets, loadContent:"" });
         }
         else{
@@ -155,7 +154,7 @@ Page({
         that.setData({loadFlag:false});
       },
       fail: function (err) {
-        console.log(err);
+        console.log(err)
       }
     })
   },
@@ -163,7 +162,7 @@ Page({
   like:function(e){
     //点赞
     let index = e.currentTarget.id;
-    // console.log(index);
+
     let target =  this.data.targets[index];
     const db = wx.cloud.database();
     const _ = db.command;
@@ -171,7 +170,7 @@ Page({
     //操作符，用于调用云函数
     let operation = "like";
     if(target.like.indexOf(userId) != -1){
-      console.log('取消点赞');
+   
       operation = 'cancel';
     }
     switch (operation) {
@@ -200,7 +199,7 @@ Page({
         operation: operation
       },
       success:function(res){
-        console.log(res);
+   
         //删除修改数组
         switch(operation){
           case 'like':{
@@ -212,10 +211,10 @@ Page({
               }
             })
             .then(res=>{
-              console.log(res);
+            console.log(res)
             })
             .catch(err=>{
-              console.log(err);
+              console.log(err)
             })
             break;
           }
@@ -229,17 +228,17 @@ Page({
               }
             })
             .then(res=>{
-              console.log(res);
+          
             })
             .catch(err=>{
-              console.log(err);
+              console.log(err)
             })
             break;
           }
         }
       },
       fail:function(err){
-        console.log(err);
+        console.log(err)
       }
     })
   },

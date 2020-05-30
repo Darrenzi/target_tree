@@ -25,7 +25,6 @@
   <view class="targetClass">
    <view class="treeclass"></view>
    <view class="line"></view>
-
    <view class="allDay">{{item.amount}}</view>
    <image src="/images/record.png" class="imageClendar"></image>
    <view class="allCoin">{{item.coin}}</view>

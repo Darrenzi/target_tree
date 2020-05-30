@@ -59,7 +59,7 @@ Page({
 
   choose:function(e){
     let index = e.currentTarget.id;
-    console.log(index)
+ 
     this.setData({
         title:this.data.problem[index].title,
         inputProblem:false,
@@ -106,7 +106,6 @@ Page({
       time:this.data.nowdate}
         })
         .then(res=>{
-             console.log("提交成功",res)
              this.setData({
              informContent:'已经提交',
              inputProblem:true,
@@ -115,7 +114,7 @@ Page({
   },
   changeview:function(e){  //点击白色
     let theme = e.currentTarget.dataset.theme;
-    console.log(theme);
+   
     this.setData({ changeView:theme});
   },
   showIdea:function(){
@@ -145,7 +144,7 @@ Page({
       })
     }catch(err){
       this.setData({informContent:"意外错误"});
-      console.log(err);
+      console.log(err)
     }
   },
   getInputTarget:function(e){
@@ -178,15 +177,15 @@ Page({
       })
       return
     }
-    console.log(date)
+ 
     let app=getApp()
     let userOpenid=app.globalData.user._openid
     this.setData({
       myself:userOpenid
     })
-    console.log(this.data.myself)
+
     let content=this.data.content
-    console.log(content)
+   
     let time=this.data.nowdate
     const db=wx.cloud.database()
     db.collection('suggestion')
@@ -199,7 +198,7 @@ Page({
       },
     })
     .then(res=>{
-      console.log("res",res)
+     
       this.setData({
         hidden:false,
         informContent:'您的意见已提交',
