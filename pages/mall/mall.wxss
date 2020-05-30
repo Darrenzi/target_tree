@@ -179,11 +179,13 @@ page{
 .detail_content{
   font-size: 30rpx;
   width: 90%;
-  height: 20%;
+  height: 28%;
   min-height: 100rpx;
+  max-height: 400rpx;
   margin-top:3%;
   margin-bottom: 15%;
   color:gray;
+  overflow: scroll;
 }
 .detail_images image{
   text-align: center;

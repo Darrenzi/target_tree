@@ -65,9 +65,11 @@ Page({
     let supervisor = target.supervisor.toString();
     let progress = target.progress;
     let coin = target.coin;
+    let status = target.status;
+    let _openid = user._openid;
     wx.navigateTo({
       url: '../targetDetail/targetDetail?un=' + un + "&avatarUrl=" + avatarUrl +
-        "&title=" + title + "&content=" + content + "&targetId=" + targetId + "&like=" + like + "&_id=" + _id + "&supervisor=" + supervisor + "&progress=" + progress+"&coin="+coin,
+        "&title=" + title + "&content=" + content + "&targetId=" + targetId + "&like=" + like + "&_id=" + _id + "&supervisor=" + supervisor + "&progress=" + progress+"&coin="+coin+"&status="+status+"&_openid="+_openid,
     })
   },
 

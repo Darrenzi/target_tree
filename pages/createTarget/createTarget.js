@@ -62,7 +62,7 @@ Page({
    //树苗的Id
    treeId:"",
    //加载表示符，用于控制加载动画,当值为 "" 隐藏
-   loadContent: "加载中...",
+   loadContent: "",
    //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
    informContent:"",
      rightControls: ['全部人可见', '好友可见', '仅自己可见'],
@@ -477,7 +477,7 @@ init:function(){
   })
 },
  
-  /**89
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {

@@ -219,6 +219,7 @@ page{
   border-radius: 20rpx;
   position: relative;
   overflow-y: scroll;
+  animation: in 0.5s;
 }
 .chooseTreeTop{
   width: 85%;
@@ -265,9 +266,10 @@ page{
   flex-direction: column;
   align-items: center;
   overflow-y:scroll;
+  animation: in 0.5s;
 }
 .targetDatailTop{
-  width: 100%;
+  width: 90%;
   min-height: 120rpx;
   border-top-left-radius: 20rpx;
   border-top-right-radius: 20rpx;
@@ -276,6 +278,7 @@ page{
   justify-content: center;
   align-items: center;
   font-size: 40rpx;
+  position: fixed;
 }
 .targetDetailMain{
   height: 80%;

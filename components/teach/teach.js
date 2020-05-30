@@ -15,9 +15,12 @@ Component({
    */
   data: {
     imgUrls: [
-      '/images/coin_teach.jpg',
-      '/images/target_teach.jpg',
-      '/images/content_teach.jpg',
+      "cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach1.png",
+      "cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach21.png",
+      "cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach3.png",
+      "cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach4.png",
+      "cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach5.png",
+      "cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach6.png"
     ],
   },
 

@@ -100,11 +100,12 @@ Page({
     let supervisor = target.supervisor.toString();
     let progress = target.progress;
     let coin = target.coin;
+    let status = target.status;
     wx.navigateTo({
       // index为目标在数组中的索引，用于界面修改数据
       url: '../targetDetail/targetDetail?un='+un+"&avatarUrl="+avatarUrl+"&_openid="+_openid+
       "&title="+title+"&content="+content+"&targetId="+targetId+"&like="+like+"&_id="+_id
-        + "&supervisor=" + supervisor + "&progress=" + progress+"&coin="+coin+"&index="+index,
+        + "&supervisor=" + supervisor + "&progress=" + progress+"&coin="+coin+"&index="+index+"&status="+status,
     })
   },
 

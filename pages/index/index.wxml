@@ -82,7 +82,7 @@
     </view>
     <view class="targetDetailMain">
       <view class="targetDetailRow">
-        <view class="targetDetailLabel">标签：</view>
+        <view class="targetDetailLabel" style="margin-top:120rpx;">标签：</view>
         {{currentTarget.label}}
       </view>
        <view class="targetDetailRow">

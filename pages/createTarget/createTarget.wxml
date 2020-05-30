@@ -82,7 +82,7 @@
 <view class="textcontent">内容</view>
   <view class="page-section">
   <view class="placeholderFont" wx:if="{{content==''}}">
-      <text>你要用什么方法实现自己的目标? \n 是否可以将目标分成一个个小目标? \n 期望收获什么?</text>
+      <text>一个好的计划能使目标事半功倍 \n 你要用什么方法实现自己的目标? \n 是否可以将目标分成一个个小目标? \n 期望收获什么?</text>
     </view>
     <view class="textarea-wrp">
     <view class="border">

@@ -42,6 +42,11 @@ Component({
 
     centain:function(){
       //输入框点击确定
+      if (this.data.coin == "" || isNaN(this.data.coin)){
+        let informContent = "请输入投币金额";
+        this.setData({ informContent: informContent, loadContent: '' });
+        return;
+      }
       let confirmContent = "是否确定投入 " + this.data.coin + " 金币？";
       this.setData({confirmTitle:"赞赏确认", confirmContent:confirmContent});
     },
@@ -51,7 +56,7 @@ Component({
       console.log(this.properties.inputCoinMsg)
       this.setData({loadContent:"正在投币...", confirmTitle:"", confirmContent:""});
       // console.log(this.properties.inputCoinMsg.userCoin, this.data.coin);
-      if (this.data.coin == ""){
+      if (this.data.coin == "" || isNaN(this.data.coin)){
         let informContent = "请输入投币金额";
         this.setData({ informContent: informContent, loadContent: '' });
         return;

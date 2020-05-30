@@ -48,7 +48,10 @@
   <view class="target" wx:for="{{watchTargets}}" wx:key="watchTarget" bindtap="targetDetail" id="{{index}}">
     <view class="targetTop">
       <image class="avatar" src="{{item.userList[0].avatarUrl}}" catchtap="goToUserForest" id="{{index}}"></image>
-      <view class="targetUn" catchtap="goToUserForest" id="{{index}}">{{item.userList[0].un}}</view>
+       <view id="{{index}}" class="targetTopMain" catchtap="goToUserForest">
+        <view>{{item.userList[0].un}}</view>
+        <view class="targetRecord">已打卡{{item.record}}天</view>
+      </view>
       <view class="insertCoinButton" catchtap="showInputCoin" id="{{index}}">投币</view>
     </view>
 

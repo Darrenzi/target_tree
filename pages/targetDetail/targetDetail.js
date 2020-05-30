@@ -63,6 +63,7 @@ Page({
     //显示投币界面
     let target = this.data.target;
     if (target.status != 0) {
+      console.log(target);
       //任务不是正在进行中
       this.setData({ informContent: "该目标已经完成或放弃，请勿投币" });
       return;
@@ -338,6 +339,7 @@ Page({
   onLoad: function (options) {
     console.log(options);
     options.coin = Number(options.coin);
+    options.status = Number(options.status);
     options.like = options.like.split(",");
     options.supervisor = options.supervisor.split(",");
     if(options.like[0] == ""){
