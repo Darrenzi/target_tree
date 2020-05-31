@@ -183,5 +183,6 @@ page{
 .noTarget image{
   width: 200rpx;
   height: 200rpx;
+  margin-top:200rpx;
   margin-bottom: 15rpx;
 }

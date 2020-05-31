@@ -19,25 +19,43 @@ Page({
        lastMonth:0,
        nextMonth:0,
        progress:0,
-       labelList:[
-         {label:"全部",
-         imagesrc:'/pages/createTarget/images/1.png'},
-         {label:"运动",
-         imagesrc:'/pages/createTarget/images/1.png'},
-         {label:"工作",
-         imagesrc:'/pages/createTarget/images/2.png'},
-         {label:"剁手",
-         imagesrc:'/pages/createTarget/images/3.png'},
-         {label:"游戏",
-         imagesrc:'/pages/createTarget/images/4.png'},
-         {label:"早睡",
-         imagesrc:'/pages/createTarget/images/5.png'},
-         {label:"减肥",
-         imagesrc:'/pages/createTarget/images/6.png'},
-         {label:"学习",
-         imagesrc:'/pages/createTarget/images/7.png'},
-         {label:"自律",
-          imagesrc:'/pages/createTarget/images/8.png'},],
+      
+          labelList:[
+            {label:"全部",
+            imagesrc:'/pages/createTarget/images/1.png'},
+            {label:"喜欢",
+            imagesrc:'/pages/createTarget/images/1.png'},
+            {label:"听歌",
+            imagesrc:'/pages/createTarget/images/2.png'},
+            {label:"游戏",
+            imagesrc:'/pages/createTarget/images/3.png'},
+            {label:"储存",
+            imagesrc:'/pages/createTarget/images/4.png'},
+            {label:"学习",
+            imagesrc:'/pages/createTarget/images/5.png'},
+            {label:"运动",
+            imagesrc:'/pages/createTarget/images/6.png'},
+            {label:"阅读",
+            imagesrc:'/pages/createTarget/images/7.png'},
+            {label:"自律",
+             imagesrc:'/pages/createTarget/images/8.png'},
+             {label:"宅家",
+             imagesrc:'/pages/createTarget/images/10.png'},
+             {label:"专注",
+             imagesrc:'/pages/createTarget/images/11.png'},
+             {label:"剁手",
+             imagesrc:'/pages/createTarget/images/12.png'},
+             {label:"玩耍",
+             imagesrc:'/pages/createTarget/images/13.png'},
+             {label:"早睡",
+             imagesrc:'/pages/createTarget/images/14.png'},
+             {label:"减肥",
+             imagesrc:'/pages/createTarget/images/15.png'},
+             {label:"改变自己",
+             imagesrc:'/pages/createTarget/images/16.png'},
+             {label:"自律",
+              imagesrc:'/pages/createTarget/images/17.png'},],
+                    
        nowLabel:'',//表示现在所点击的标签
        current_index:0,
        NULL_targetList:2,//0表示该数组为空，1表示该数组不为空
@@ -54,7 +72,6 @@ Page({
 //获取时间历程中的目标详情
   targetDetail:function(e){
     let index = e.currentTarget.id;
-    console.log(index);
     let target = this.data.targetList[index];
     let app=getApp()
     let _openid=app.globalData.user._openid
@@ -84,16 +101,14 @@ Page({
         treeList:[],
         targetList:[]
       })
-    
     let index = e.currentTarget.id;
-    console.log("index",index)
     const db = wx.cloud.database();
     const _ = db.command;
     this.setData({
       nowLabel:this.data.labelList[index].label
     })
     let nowLabel=this.data.labelList[index].label
-    console.log(nowLabel)
+    //全部标签
     let dateField = this.getDateField(this.data.year, this.data.month);
     if(index==0){
        db.collection('target')
@@ -120,8 +135,7 @@ Page({
               [curyear]:this.data.now_year
             })
          }
-         console.log("targetList",res.data)
-         console.log(this.data.month,"月")
+   
          if(this.data.targetList.length==0){
            this.setData({NULL_targetList:0});}
               else{this.setData({NULL_targetList:1});}
@@ -133,8 +147,15 @@ Page({
              })
             .get()
             .then(res => {
+              if(this.data.targetList[j].status==-1){
+                let treeid = "targetList[" + j +"].src"  
+                this.setData({
+                   [treeid]:'cloud://test-e5a3a.7465-test-e5a3a-1301749733/tools/枯树.png',
+                })
+                this.data.treeList.push(res.data[0])
+              }else{
               if(this.data.targetList[j].progress<=29){
-                console.log("res",res)
+     
                 let treeid = "targetList[" + j +"].src"  
                 this.setData({
                    [treeid]:res.data[0].path[0],
@@ -142,7 +163,7 @@ Page({
                 this.data.treeList.push(res.data[0])
               }
               if(this.data.targetList[j].progress>29&&this.data.targetList[j].progress<=59){
-                console.log("res",res)
+       
                 let treeid = "targetList[" + j +"].src"  
                 this.setData({
                    [treeid]:res.data[0].path[1],
@@ -150,7 +171,7 @@ Page({
                 this.data.treeList.push(res.data[0])
               }
               if(this.data.targetList[j].progress>59&&this.data.targetList[j].progress<=89){
-                console.log("res",res)
+             
                 let treeid = "targetList[" + j +"].src"  
                 this.setData({
                    [treeid]:res.data[0].path[2],
@@ -158,13 +179,14 @@ Page({
                 this.data.treeList.push(res.data[0])
               }
               if(this.data.targetList[j].progress>=90&&this.data.targetList[j].progress<=100){
-                console.log("res",res)
+          
                 let treeid = "targetList[" + j +"].src"  
                 this.setData({
                    [treeid]:res.data[0].path[3],
                 })
                 this.data.treeList.push(res.data[0])
               }
+            }
             this.setData({
             loadContent:'',
             treeList: this.data.treeList
@@ -174,7 +196,7 @@ Page({
         this.setData({loadContent:''})
       })
       .catch(err => {
-        console.log(err);
+        console.log(err)
        })
       this.setData({current_index:index});
       return;
@@ -183,7 +205,7 @@ Page({
        treeList:[],
        targetList:[],
      })
-     console.log("nowlabel",nowLabel)
+  
      db.collection('target')
      .orderBy('time', 'desc')
      .where({
@@ -208,8 +230,7 @@ Page({
               [curyear]:this.data.now_year
             })
          }
-         console.log(this.data.month,"月")
-         console.log("长度：",this.data.targetList.length)
+        
          if(this.data.targetList.length==0){this.setData({NULL_targetList:0});}
          else{this.setData({NULL_targetList:1});}
          let length=this.data.targetList.length;
@@ -220,8 +241,15 @@ Page({
             })
            .get()
            .then(res => {
+            if(this.data.targetList[j].status==-1){
+              let treeid = "targetList[" + j +"].src"  
+              this.setData({
+                 [treeid]:'cloud://test-e5a3a.7465-test-e5a3a-1301749733/tools/枯树.png',
+              })
+              this.data.treeList.push(res.data[0])
+            }else{
             if(this.data.targetList[j].progress<=29){
-              console.log("res",res)
+             
               let treeid = "targetList[" + j +"].src"  
               this.setData({
                  [treeid]:res.data[0].path[0],
@@ -229,7 +257,7 @@ Page({
               this.data.treeList.push(res.data[0])
             }
             if(this.data.targetList[j].progress>29&&this.data.targetList[j].progress<=59){
-              console.log("res",res)
+       
               let treeid = "targetList[" + j +"].src"  
               this.setData({
                  [treeid]:res.data[0].path[1],
@@ -237,7 +265,7 @@ Page({
               this.data.treeList.push(res.data[0])
             }
             if(this.data.targetList[j].progress>59&&this.data.targetList[j].progress<=89){
-              console.log("res",res)
+ 
               let treeid = "targetList[" + j +"].src"  
               this.setData({
                  [treeid]:res.data[0].path[2],
@@ -245,13 +273,14 @@ Page({
               this.data.treeList.push(res.data[0])
             }
             if(this.data.targetList[j].progress>=90&&this.data.targetList[j].progress<=100){
-              console.log("res",res)
+
               let treeid = "targetList[" + j +"].src"  
               this.setData({
                  [treeid]:res.data[0].path[3],
               })
               this.data.treeList.push(res.data[0])
             }
+          }
            this.setData({
            loadContent:'',
            treeList: this.data.treeList
@@ -263,7 +292,7 @@ Page({
        })
       })
       .catch(err => {
-        console.log(err);
+        console.log(err)
       })
 
       this.setData({loadContent:''})
@@ -271,7 +300,7 @@ Page({
     if(index == this.data.current_index)return;
   },
   targetTouchStart:function(e){
-    console.log(e)
+
     this.setData({ targetTouchStart: e.touches[0].pageX});
   },
 
@@ -279,7 +308,7 @@ Page({
     let endX = e.changedTouches[0].pageX;
     let startX = this.data.targetTouchStart;
     let distance = endX - startX;
-    console.log("distance",distance);
+
     if(distance>85){
       this.lastMonth();
     }
@@ -321,7 +350,7 @@ Page({
     //获得一个月的第一天以及最后一天
     let firstdate = new Date(year, month-1, 1, 0, 0, 0, 0);
     let lastdate = new Date(year, month, 0, 23, 59, 59, 59);
-    console.log(firstdate, lastdate);
+
     return {
       firstDay: firstdate,
       lastDay: lastdate
@@ -329,7 +358,7 @@ Page({
   },
 
   getTargets:function(e){
-    console.log(this.data.year)
+
     let nowLabel=this.data.nowLabel;
     let dateField = this.getDateField(this.data.year, this.data.month);
     const db = wx.cloud.database();
@@ -361,7 +390,7 @@ Page({
               [curyear]:this.data.now_year
             })
          }
-           console.log(this.data.month,"月")
+   
            if(this.data.targetList.length==0){
              this.setData({NULL_targetList:0}); 
              this.setData({loadContent:''})
@@ -375,8 +404,15 @@ Page({
               })
              .get()
              .then(res => {
+              if(this.data.targetList[j].status==-1){
+                let treeid = "targetList[" + j +"].src"  
+                this.setData({
+                   [treeid]:'cloud://test-e5a3a.7465-test-e5a3a-1301749733/tools/枯树.png',
+                })
+                this.data.treeList.push(res.data[0])
+              }else{
               if(this.data.targetList[j].progress<=29){
-                console.log("res",res)
+     
                 let treeid = "targetList[" + j +"].src"  
                 this.setData({
                    [treeid]:res.data[0].path[0],
@@ -384,7 +420,7 @@ Page({
                 this.data.treeList.push(res.data[0])
               }
               if(this.data.targetList[j].progress>29&&this.data.targetList[j].progress<=59){
-                console.log("res",res)
+            
                 let treeid = "targetList[" + j +"].src"  
                 this.setData({
                    [treeid]:res.data[0].path[1],
@@ -392,7 +428,7 @@ Page({
                 this.data.treeList.push(res.data[0])
               }
               if(this.data.targetList[j].progress>59&&this.data.targetList[j].progress<=89){
-                console.log("res",res)
+         
                 let treeid = "targetList[" + j +"].src"  
                 this.setData({
                    [treeid]:res.data[0].path[2],
@@ -400,13 +436,14 @@ Page({
                 this.data.treeList.push(res.data[0])
               }
               if(this.data.targetList[j].progress>=90&&this.data.targetList[j].progress<=100){
-                console.log("res",res)
+  
                 let treeid = "targetList[" + j +"].src"  
                 this.setData({
                    [treeid]:res.data[0].path[3],
                 })
                 this.data.treeList.push(res.data[0])
               }
+            }
              this.setData({
              loadContent:'',
              treeList: this.data.treeList
@@ -418,7 +455,7 @@ Page({
          })
         })
         .catch(err => {
-          console.log(err);
+          console.log(err)
         })
         return
     }
@@ -447,7 +484,7 @@ Page({
               [curyear]:this.data.now_year
             })
          }
-         console.log(this.data.month,"月")
+
          if(this.data.targetList.length==0){this.setData({NULL_targetList:0});}
          else{this.setData({NULL_targetList:1});}
          let length=this.data.targetList.length;
@@ -458,8 +495,15 @@ Page({
             })
            .get()
            .then(res => {
+            if(this.data.targetList[j].status==-1){
+              let treeid = "targetList[" + j +"].src"  
+              this.setData({
+                 [treeid]:'cloud://test-e5a3a.7465-test-e5a3a-1301749733/tools/枯树.png',
+              })
+              this.data.treeList.push(res.data[0])
+            }else{
             if(this.data.targetList[j].progress<=29){
-              console.log("res",res)
+      
               let treeid = "targetList[" + j +"].src"  
               this.setData({
                  [treeid]:res.data[0].path[0],
@@ -467,7 +511,7 @@ Page({
               this.data.treeList.push(res.data[0])
             }
             if(this.data.targetList[j].progress>29&&this.data.targetList[j].progress<=59){
-              console.log("res",res)
+
               let treeid = "targetList[" + j +"].src"  
               this.setData({
                  [treeid]:res.data[0].path[1],
@@ -475,7 +519,7 @@ Page({
               this.data.treeList.push(res.data[0])
             }
             if(this.data.targetList[j].progress>59&&this.data.targetList[j].progress<=89){
-              console.log("res",res)
+
               let treeid = "targetList[" + j +"].src"  
               this.setData({
                  [treeid]:res.data[0].path[2],
@@ -483,13 +527,14 @@ Page({
               this.data.treeList.push(res.data[0])
             }
             if(this.data.targetList[j].progress>=90&&this.data.targetList[j].progress<=100){
-              console.log("res",res)
+
               let treeid = "targetList[" + j +"].src"  
               this.setData({
                  [treeid]:res.data[0].path[3],
               })
               this.data.treeList.push(res.data[0])
             }
+          }
            this.setData({
            loadContent:'',
            treeList: this.data.treeList
@@ -498,7 +543,7 @@ Page({
        }
       })
       .catch(err => {
-        console.log(err);
+        console.log(err)
       })
       this.setData({loadContent:''})
 
@@ -510,7 +555,11 @@ Page({
    */
   onLoad: function (options) {
     let date = new Date();
-    this.setData({ year: date.getFullYear(), month: date.getMonth()+1});
+    this.setData({ 
+      year: date.getFullYear(), 
+      month: date.getMonth()+1,
+      loadContent:"正在加载中~"
+    });
     this.getTargets();
   },
 

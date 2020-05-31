@@ -18,13 +18,13 @@ Page({
     await userTable.get().then(res => {
       //判断是否注册
       if (res.data.length == 0) {
-        console.log("用户还未注册");
+
         wx.navigateTo({
           url: '../register/register',
         })
       } else {
         //已注册
-        console.log("已注册");
+   
         app.globalData.user = res.data[0];
         registerFlag = true;
       }
@@ -43,7 +43,7 @@ Page({
     try {
       //获取用户选择的主题
       var theme = wx.getStorageSync('theme')
-      console.log(theme);
+  
       if (theme == "") {
         //主题字段不存在,可能为新用户，也可能为缓存被清空
         theme = "white";

@@ -23,7 +23,6 @@
 
   <view class="modal-box" hidden="{{hidden}}">
      <view class="modal-content">
-
        <view class="friendIdline">
            <input placeholder="输入好友ID" class="inputFriendID" type="text" maxlength="30"
          bindinput="getInput" value="{{inputValue}}" ></input></view>

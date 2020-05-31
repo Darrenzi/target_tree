@@ -86,8 +86,7 @@ Page({
         this.setData({
           loadContent:''
         })
-        console.log(res)
-        console.log(res.result.data.length) 
+     
         if(res.result.data.length==0){
           this.setData({
             informContent:'没有找到这个人呢!',
@@ -105,8 +104,7 @@ Page({
         })
       })
       .catch(err=>{
-        console.log("查找失败")
-        console.log(err);
+        console.log(err)
       })
   },
   add:function(e){
@@ -115,11 +113,9 @@ Page({
     const db=wx.cloud.database()
     const _=db.command
     let index = e.currentTarget.id;
-    console.log("index",index)
     let receiver=this.data.getFriendName[index]._openid
     let navListLen=this.data.navList.length
     for(let i=0;i<navListLen;i++){  //检测是否已经是好友
-      //console.log("receiver",receiver)
       if(receiver==this.data.navList[i].friendList[0]._openid){
         this.setData({
           informContent:"你已经添加了这个好友啦",
@@ -131,7 +127,7 @@ Page({
     db.collection('friendRequest')  //检测是否已经发送过好友请求
     .get()
     .then(res=>{
-      // console.log("join",res.data)
+      
        this.setData({
          sendedFriend:res.data
        })
@@ -161,7 +157,7 @@ Page({
     }
   })
   .then(res=>{
-    console.log("res",res,"添加成功")
+
     this.setData({
       informContent:'好友请求已发送~',
       showSameName:true
@@ -208,20 +204,20 @@ Page({
       this.setData({
         tempSort:this.data.tempSort
       })
-      console.log(this.data.tempSort)
+
       let navlen=this.data.navList.length
       for(let i=0;i<navlen;i++){
         this.data.tempSort.push(this.data.navList[i].friendList[0])
       }
     //获取当前五天的所有人的记录
      let curDate =new Date();
-     console.log("curdate",curDate)
+
      db.collection('rank')
      .orderBy('time','desc')
      .limit(5)
      .get()
      .then(res=>{
-      console.log("currank",res)
+  
       this.setData({
         temp_5:res.data
       })
@@ -240,8 +236,8 @@ Page({
         now_month:this.data.temp_5[m].time.getMonth()+1
         
       })
-      console.log("today",this.data.today)
-      console.log("dbrank",this.data.dbrank);
+
+
       let templen=this.data.tempSort.length   //tempsort存放着关于用户及用户好友的信息
       let dbranklen=this.data.dbrank.length   //dbrank存放着当日所有用户的排名
       for( let j=0;j<templen;j++){
@@ -264,28 +260,26 @@ Page({
         }
       }
       let mydbrank=this.data.mydbrank
-      console.log("sort",mydbrank.sort(compare('coin')))
+    
       this.setData({
         mydbrank:mydbrank.sort(compare('coin'))
       })
       let lenmybrank=this.data.mydbrank.length
-      console.log("lenmydbrank",lenmybrank)
-      console.log(this.data.myself)
+    
       let now_rank=this.data.now_rank
-      let now_coin=this.data.now_coin
       for(let k=0;k<lenmybrank;k++){
           if(mydbrank[k]._openid==this.data.myself){
-            console.log("eq",mydbrank[k])
+         
             this.setData({
               now_rank:now_rank+1,
             })
             this.data.now_coin=mydbrank[k].coin
-            console.log("coin",now_coin)
+   
             break;
           }
         now_rank++;
       }
-      console.log("now_rank",this.data.now_rank)
+   
       let coin = "sortfriend[" + m +"].coin"   
       let avatarUrl= "sortfriend[" + m +"].avatarUrl"  
       let date="sortfriend[" + m +"].date"  
@@ -332,7 +326,7 @@ Page({
       this.setData({
         tempSort:this.data.tempSort
       })
-      console.log(this.data.tempSort)
+  
       let navlen=this.data.navList.length
       for(let i=0;i<navlen;i++){
         this.data.tempSort.push(this.data.navList[i].friendList[0])
@@ -345,7 +339,7 @@ Page({
       }
     }
     let tempSort=this.data.tempSort
-    console.log("sort",tempSort.sort(compare('coin')))
+  
     this.setData({
       tempSort:tempSort.sort(compare('coin')),
       loadContent:''
@@ -363,7 +357,7 @@ Page({
     //好友信息在列表中的索引值
     let index = e.currentTarget.id;
     let user = this.data.navList[index].friendList[0];
-    // console.log(user.un, user.avatarUrl, user._openid);
+ 
     wx.navigateTo({
       url: '../friendDetail/friendDetail?un='+user.un+"&avatarUrl="+user.avatarUrl+"&userId="+user._openid
     })
@@ -388,11 +382,11 @@ Page({
       myselfName:userUn,
       loadContent:'加载中...'
     })
-    console.log("userOpenid",userOpenid);
+
     wx.cloud.callFunction({
       name: 'friend',})
       .then(res=>{
-        console.log("friend",res)
+        
         this.setData({
           navList:res.result.list,
         })
@@ -402,21 +396,19 @@ Page({
         wx.cloud.callFunction({
           name: 'friend_1',})
           .then(res=>{
-            console.log("friend",res)
+           
             this.setData({
+              
               temp:res.result.list,
               
             })
             let L_length=this.data.temp.length;
-            console.log("L_length",L_length)
             this.setData({
               navList:this.data.navList.concat(this.data.temp)
             })
           })
-         
         var length=this.data.navList.length;
-        console.log("N_length",length)
-        console.log("navlist",this.data.navList)
+    
       })
 
     this.init()

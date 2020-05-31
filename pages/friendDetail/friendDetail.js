@@ -70,13 +70,13 @@ Page({
 
   forestTouchStart: function (e) {
     //监听森林上的滑动,用于滑动切换判断
-    // console.log(e);
+ 
     this.setData({ forestTouchStartX: e.touches[0].pageX });
   },
 
   forestTouchEnd: function (e) {
     //监听森林上的滑动,用于滑动切换判断
-    // console.log(e);
+
     let endX = e.changedTouches[0].pageX;
     let startX = this.data.forestTouchStartX;
     let distance = endX - startX;
@@ -89,7 +89,7 @@ Page({
   },
 
   getTreeImage:function(targetData){
-    // console.log(targetData);
+
     //根据任务进度判断树木的图片
     let forest = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
     for (let i = 0; i < targetData.length; i++) {
@@ -112,7 +112,7 @@ Page({
         forest[i] = targetData[i].tree[0].path[3];
       }
     }
-    // console.log(forest);
+
     this.setData({forest:forest});
   },
 
@@ -120,7 +120,7 @@ Page({
     //获得一个月的第一天以及最后一天
     let firstdate = new Date(year, month - 1, 1, 0, 0, 0, 0);
     let lastdate = new Date(year, month, 0, 23, 59, 59, 59);
-    console.log(firstdate, lastdate);
+
     return {
       firstDay: firstdate,
       lastDay: lastdate
@@ -130,7 +130,7 @@ Page({
   getTargets: function () {
     //获取用户某个月的目标
     let userId = this.data.targetUser.userId;
-    // console.log(userId);
+
     let that = this;
     let month = this.data.month;
     let year = this.data.year;
@@ -142,13 +142,13 @@ Page({
         dateField:dateField,
       },
       success:function(res){
-        console.log(res);
+  
         that.getTreeImage(res.result.list);
         that.getStatistics(res.result.list);
         that.setData({targets:res.result.list, loadContent:''});
       },
       fail:function(err){
-        console.log(err);
+ 
       }
     })
   },
@@ -176,7 +176,7 @@ Page({
   showDetail:function(e){
     //显示一个目标的详情
     let index = e.currentTarget.id;
-    // console.log(index);
+    
     let currentShowDetail = this.data.currentShowDetail;
     if(currentShowDetail != index){
       this.setData({ currentShowDetail:index});
@@ -221,7 +221,7 @@ Page({
     let that = this;
     const db = wx.cloud.database();
     const _ = db.command;
-    console.log(targetUser.userId, user._openid);
+ 
     db.collection('friend').where(_.or([
       {
         _openid: _.eq(targetUser.userId),
@@ -234,7 +234,7 @@ Page({
     ]))
     .get()
     .then(res => {
-      console.log(res);
+   
       if (res.data.length != 0) {
         //说明已互为好友
         this.setData({ judgeFriendFlag: true });
@@ -259,21 +259,21 @@ Page({
       }
     })
       .then(res => {
-        console.log(res);
+        
         that.setData({
           informContent: "已为您发出好友请求",
           loadContent: ""
         })
       })
       .catch(err => {
-        console.log(err);
+        console.log(err)
       })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
+   
     //获取当前的时间
     let date = new Date();
     this.setData({ year: date.getFullYear(), month: date.getMonth() + 1, targetUser: options});

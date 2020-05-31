@@ -146,7 +146,7 @@ page{
 }
 .allDay{
   height: 36rpx;
-  width: 90rpx;
+  width: 95rpx;
   border-radius: 20rpx;
   position: absolute;
   margin-top: 170rpx;
@@ -159,7 +159,7 @@ page{
 }
 .allCoin{
   height: 36rpx;
-  width: 90rpx;
+  width: 95rpx;
   border-radius: 20rpx;
   position: absolute;
   margin-top: 245rpx;
@@ -384,14 +384,14 @@ page{
   height: 100rpx;
   width: 250rpx;
   position: fixed;
-  top: 500rpx;
+  top: 450rpx;
   left: 217rpx;
 }
 .NULL_TEXT{
   height: 100rpx;
   width: 600rpx;
   position: fixed;
-  top: 720rpx;
+  top: 650rpx;
   left: 85rpx;
   color: gray;
   align-items: center;

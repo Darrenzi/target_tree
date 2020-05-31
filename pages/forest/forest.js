@@ -40,7 +40,7 @@ Page({
   showDetail: function (e) {
     //显示一个目标的详情
     let index = e.currentTarget.id;
-    // console.log(index);
+
     let currentShowDetail = this.data.currentShowDetail;
     if (currentShowDetail != index) {
       this.setData({ currentShowDetail: index });
@@ -77,7 +77,7 @@ Page({
     //获得一个月的第一天以及最后一天
     let firstdate = new Date(year, month-1, 1, 0, 0, 0, 0);
     let lastdate = new Date(year, month, 0, 23, 59, 59, 59);
-    console.log(firstdate, lastdate);
+
     return {
       firstDay: firstdate,
       lastDay: lastdate
@@ -105,13 +105,12 @@ Page({
   },
 
   getTree:function(targetData){
-    console.log(targetData);
+
     //获取用户目标的树苗的信息, treeId未定义会出现无法运行的错误
     let treeId =[];
     for(let i=0;i<targetData.length;i++){
       treeId.push(targetData[i].treeId);
     }
-    console.log(treeId);
 
     const db = wx.cloud.database();
     const _ = db.command;
@@ -124,7 +123,7 @@ Page({
       _id:_.in(treeId)
     }).get()
     .then(res=>{
-      console.log(res);
+
       let forest = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
       for (let i = 0; i < targetData.length;i++){
         //根据目标的treeId,判断目标的树苗
@@ -155,7 +154,7 @@ Page({
       that.setData({forest:forest, loadContent:''});
     })
     .catch(err=>{
-      console.log(err);
+      
     })
   },
 
@@ -172,14 +171,14 @@ Page({
     .orderBy("time","desc")
     .get()
       .then(res => {
-        // console.log(res.data);
+  
         that.setData({targets:res.data});
         //统计各类树的总量
         that.getStatistics(res.data);
         that.getTree(res.data);
       })
       .catch(err => {
-        console.log(err);
+        console.log(err)
       })
   },
 
@@ -210,7 +209,7 @@ Page({
 
   forestTouchStart:function(e){
     //监听森林上的滑动,用于滑动切换判断
-    // console.log(e);
+
     this.setData({ forestTouchStartX: e.touches[0].pageX});
   },
 

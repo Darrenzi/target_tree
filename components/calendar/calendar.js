@@ -64,7 +64,6 @@ Component({
     })
     .get()
     .then(res => {
-      console.log(res);
       let recordList = res.data;
       let dateList = this.data.dateList;
       for (let i = 0; i < recordList.length; i++) {

@@ -26,4 +26,5 @@
   position:relative;
   left: -30rpx;
   max-width: 40%;
+  min-width: 60rpx;
 }

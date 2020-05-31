@@ -58,11 +58,11 @@ Page({
         coin: 0
       },
       success: function (res) {
-        // console.log(res);
+     
         // 加入数据库成功，页面跳转
         db.collection('user').get().then(res => {
           app.globalData.user = res.data[0];
-          // console.log(app.globalData.user);
+   
           //清空加载动画
           that.setData({ loadingContent:''});
           //注册后跳转的界面,储存主题信息
