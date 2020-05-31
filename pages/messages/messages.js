@@ -28,7 +28,8 @@ Page({
     //新的系统提示
     newTipNum:0,
 
-    loadContent:""
+    loadContent:"",
+    user:getApp().globalData.user
   },
 
   backHome: function () {
@@ -130,9 +131,6 @@ Page({
       data:{
         tableName:that.data.current_show,
         id:id
-      },
-      success:function(res){
-
       },
       fail:function(err){
         console.log(err);
@@ -289,7 +287,7 @@ Page({
     }
   },
 
-  addFriend:function(e){
+  addFriend:async function(e){
     //同意添加好友
     let index = e.currentTarget.id;
     let status = this.data.newFriend[index].status;
@@ -302,32 +300,51 @@ Page({
 
     let sender = this.data.newFriend[index]._openid;
     let recordId = this.data.newFriend[index]._id;
+    let userId = getApp().globalData.user._openid;
    
     const db = wx.cloud.database();
-    db.collection('friend').add({
-      data: {
-        sender: sender
+    const _ = db.command;
+
+    db.collection('friend').where(_.or([
+      {
+        _openid:_.eq(userId),
+        sender:_.eq(sender)
+      },
+      {
+        _openid:_.eq(sender),
+        sender:_.eq(userId)
       }
-    })
+    ]))
+    .get()
     .then(res=>{
-    
-      //更新好友申请的状态
-      wx.cloud.callFunction({
-        name:"friendRequestStatus",
-        data:{
-          id:recordId,
-          status:1
-        },
-        success:function(res){
-    
-        },
-        fail:function(err){
+      if(res.data.length != 0 ){
+        //列表不为0，说明两人已互为好友
+        return;
+      }
+      else{
+        //暂不为好友，加入好友表
+        db.collection('friend').add({
+          data: {
+            sender: sender
+          }
+        })
+        .then(res => {
+          //更新好友申请的状态
+          wx.cloud.callFunction({
+            name: "friendRequestStatus",
+            data: {
+              id: recordId,
+              status: 1
+            },
+            fail: function (err) {
+              console.log(err);
+            }
+          })
+        })
+        .catch(err => {
           console.log(err);
-        }
-      })
-    })
-    .catch(err=>{
-      console.log(err);
+        })
+      }
     })
   },
 

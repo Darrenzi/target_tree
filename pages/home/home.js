@@ -94,7 +94,6 @@ Page({
         _id: _.in(that.data.user.tools)
       }).get()
       .then(res => {
-     
         that.setData({ userTrees: res.data, loadContent: '' });
       })
       .catch(err => {
@@ -222,7 +221,6 @@ Page({
     let noRecordNum = dayNum - currentTarget.record;
     if (noRecordNum > currentTarget.rest) {
       //没有打卡天数大于休息的天数，认定为失败
-
       db.collection('target').doc(currentTarget._id)
         .update({
           data: {
@@ -230,47 +228,23 @@ Page({
           }
         })
         .then(res => {
-
-          let userCoin = that.data.user.coin - currentTarget.coin;
-          let user = that.data.user;
-          user.coin = userCoin;
-          //扣除用户押下的金币数
-          db.collection('user').doc(that.data.user._id)
-            .update({
-              data: {
-                coin: userCoin
-              }
-            })
-            .then(res => {
-          
-
-              //将目标赌金的一半平分给围观用户
-              let supervisor = currentTarget.supervisor;
-              let reward = currentTarget.coin / (2 * supervisor.length);
-     
-              wx.cloud.callFunction({
-                name: "rewardWatchUser",
-                data: {
-                  supervisor: supervisor,
-                  reward: reward
-                },
-                success: function (res) {
-           
-                },
-                fail: function (err) {
-                  console.log(err)
-                }
-              })
-              //调用目标组件删除完成的目标
-              let targetComponent = that.selectComponent('#target');
-              targetComponent.deleteTarget();
-
-              that.setData({ user: user, loadContent: "", informContent: "目标已失败，将扣除 "+currentTarget.coin+" 金币，并种植一棵枯树" });
-            })
-            .catch(err => {
+          //将目标赌金的一半平分给围观用户
+          let supervisor = currentTarget.supervisor;
+          let reward = currentTarget.coin / (2 * supervisor.length);
+          wx.cloud.callFunction({
+            name: "rewardWatchUser",
+            data: {
+              supervisor: supervisor,
+              reward: reward
+            },
+            fail: function (err) {
               console.log(err)
-              that.setData({ loadContent: '', informContent: "意外错误" });
-            })
+            }
+          })
+          //调用目标组件删除失败的目标
+          let targetComponent = that.selectComponent('#target');
+          targetComponent.deleteTarget();
+          that.setData({loadContent: "", informContent: "目标已失败，损失 " + currentTarget.coin + " 金币，并种植一棵枯树" });
         })
         .catch(err => {
           console.log(err)
@@ -278,7 +252,6 @@ Page({
         })
       return;
     }
-
 
     //获取表中最新打卡记录，判断时间，一天只能打卡一次
     let date = (new Date()).Format("yyyy-MM-dd");
@@ -401,6 +374,7 @@ Page({
       currentTarget.progress = 100;
       //奖励金币=10倍的天数+赌金+赞赏
       let reward = 10 * currentTarget.amount + currentTarget.coin;
+      user.coin += reward;
 
       db.collection("user").doc(user._id)
         .update({
@@ -415,7 +389,7 @@ Page({
           targetComponent.deleteTarget();
 
           // 更新数据，清空加载动画，设置通知内容
-          that.setData({ loadContent: '', informContent: "目标完成，获得 " + reward + " 金币" });
+          that.setData({user:user, loadContent: '', informContent: "目标完成，获得 " + reward + " 金币" });
         })
         .catch(err => {
           console.log(err)

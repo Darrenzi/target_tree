@@ -9,7 +9,7 @@
   <view class="back" bindtap="backToindex">《</view>
   <view>
   <image src="/images/coin.png" class="coin"></image>
-  <input  wx:if="{{showinputCoin}}"  placeholder="请输入挑战金额" class="inputMoney" type="text" maxlength="4" value="{{number}}"    bindinput="getInputCoin"></input>
+  <input  wx:if="{{showinputCoin}}"  placeholder="请输入挑战金额" class="inputMoney" type="text" maxlength="4" value="{{number}}" bindinput="getInputCoin" focus="{{false}}"></input>
   <view class="yuan">元</view>
 </view>
 <view class="optionalAmount">
@@ -82,12 +82,12 @@
 <view class="textcontent">内容</view>
   <view class="page-section">
   <view class="placeholderFont" wx:if="{{content==''}}">
-      <text>一个好的计划能使目标事半功倍 \n 你要用什么方法实现自己的目标? \n 是否可以将目标分成一个个小目标? \n 期望收获什么?</text>
-    </view>
+    <text>一个好的计划能使目标事半功倍 \n 你要用什么方法实现自己的目标? \n 是否可以将目标分成一个个小目标? \n 期望收获什么?</text>
+  </view>
     <view class="textarea-wrp">
     <view class="border">
-      <textarea class="textareafont" auto-focus="true"  bindinput="getInput" placeholder-style="top:30rpx;"/>
-      </view>
+      <textarea class="textareafont" bindinput="getInput" placeholder-style="top:30rpx;"/>
+    </view>
     </view>
   </view>
 </view>

@@ -373,7 +373,7 @@ Page({
    num = Math.floor(num * 1) / 1;
 
    if(rest<0||rest>(0.2*amount)){
-    that.setData({informContent:"休息时间最多只能是"+num+"天噢"});
+    that.setData({informContent:"休息时间最多只能是 "+num+" 天噢"});
     this.setData({loadContent:''});
     return
    }
@@ -414,12 +414,16 @@ Page({
       newTarget.tree = that.data.treeImage;
       newTarget._id = res._id;
       let targetComponent = prevPage.selectComponent('#target');
+      let prevUser = prevPage.data.user;
+      prevUser.coin -= Number(setCoin);
+      prevPage.setData({user:prevUser});
+      getApp().globalData.user.coin -= Number(setCoin);
  
       let targets = targetComponent.data.targets;
       targets.unshift(newTarget);
       targetComponent.setData({targets:targets});
   
-      wx.navigateBack({})
+      wx.navigateBack({});
      },
      fail(err){
       console.log(err)

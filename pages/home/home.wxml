@@ -83,8 +83,8 @@
       目标详情
     </view>
     <view class="targetDetailMain">
-      <view class="targetDetailRow">
-        <view class="targetDetailLabel" style="margin-top:120rpx;">标签：</view>
+      <view class="targetDetailRow" style="margin-top:120rpx;">
+        <view class="targetDetailLabel">标签：</view>
         {{currentTarget.label}}
       </view>
        <view class="targetDetailRow">
