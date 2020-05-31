@@ -43,7 +43,7 @@
        <view class="alldetail">
           <view class="singleFriendName">{{item.un}}</view>
           <image class="singleFriendportrait" src="{{item.avatarUrl}}"></image>
-          <view class="addButton" bindtap="add" id="{{idx}}">添加</view>
+          <view class="addButton" bindtap="addFriend" id="{{idx}}">添加</view>
           <view class="addline"></view> 
           </view>
      </view>

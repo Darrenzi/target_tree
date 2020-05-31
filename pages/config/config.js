@@ -69,7 +69,8 @@ Page({
   },
   problem_back:function(){
    this.setData({
-     showIdea:true
+     showIdea:true,
+     showConfig:true
    })
   },
   getInputProblem:function(e){

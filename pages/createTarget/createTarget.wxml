@@ -7,11 +7,11 @@
 <view class="show" wx:if="{{change}}">
   <view class="title">设置挑战金额</view>
   <view class="back" bindtap="backToindex">《</view>
-  <view>
   <image src="/images/coin.png" class="coin"></image>
-  <input  wx:if="{{showinputCoin}}"  placeholder="请输入挑战金额" class="inputMoney" type="text" maxlength="4" value="{{number}}"    bindinput="getInputCoin"></input>
+  <input  class="inputMoney" wx:if="{{change}}" placeholder="默认为0" focus="{true}" type="number" maxlength="4"
+   value="{{number}}"  bindinput="getInputCoin"></input>
   <view class="yuan">元</view>
-</view>
+
 <view class="optionalAmount">
   <view class="buttonclass" bindtap="setdata">50</view>
   <view class="buttonclass"  bindtap="setCoinNumber">100</view>
@@ -23,10 +23,9 @@
 
 <view class="line"></view>
 <view class="littleTittle">Tips:</view>
-<text class="tips">1:金币将会在完成目标后返还到您的账户，如果失败则会分给围观的朋友们噢</text>
-<text class="tips_1">2:如果你想让自己充满动力的话，建议 选择数额较高的挑战金币哦
+<text class="tips">1:金币将会在完成目标后返还到您的账户,如果失败则会分给围观的朋友们噢</text>
+<text class="tips_1">2:如果你想让自己充满动力的话,建议选择数额较高的挑战金币哦
 </text>
-
 <view class="continueView">
 <view class="continue"  bindtap="changeShowstatus">下一步</view></view>
 </view>
@@ -75,7 +74,7 @@
 </view>
 <view class="texttitle">标题</view>
 <view class="centertitle">
- <input placeholder="输入目标标题" wx:if="{{inputTitle}}" class="inputtitle" type="text" maxlength="24"  bindinput="getInputtitle"  ></input>
+ <input placeholder="输入目标标题" wx:if="{{!showtitle}}" class="inputtitle" type="text" maxlength="24"  bindinput="getInputtitle"  ></input>
  <view class="inputtitleLine"></view>
 </view>
 <view class="centerlabel">
@@ -100,14 +99,11 @@
 <!-- 第三个页面 -->
 <view class="hide{{change_2?'':'show'}}">
 <!-- 创建目标 -->
-
  <view class="setTarget">
    <view class="setTargetFont">目标设置</view>
     <view class="back" bindtap="changeShowStatus_2">《</view>
  </view>
-
 <view class="allconfig">
-
  <view class="starTime">
    <image src="images/18.png" class="image_startTime"></image>
  <view class="kaishishijian">开始时间</view>
@@ -132,7 +128,7 @@
  <view class="starTime">
   <image src="images/20.png" class="image_startTime"></image>
   <view class="kaishishijian">休息天数</view>
-  <input class="inputrest" wx:if="{{inputDay}}" placeholder="输入天数" type="number" maxlength="3" bindinput="getRest">天</input>
+  <input class="inputrest" wx:if="{{!change_2}}" placeholder="输入天数" type="number" maxlength="3" bindinput="getRest">天</input>
   <view class="tian" >天</view>
   <view class="inputRestLine"></view>
   <view class="start_line"></view>
