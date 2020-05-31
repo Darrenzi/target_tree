@@ -211,16 +211,20 @@ Page({
       }
     //获取当前五天的所有人的记录
      let curDate =new Date();
-
      db.collection('rank')
      .orderBy('time','desc')
      .limit(5)
      .get()
      .then(res=>{
-  
       this.setData({
         temp_5:res.data
       })
+      if(this.data.temp_5.length===0){
+        this.setData({
+          loadContent:'',
+        })
+        return
+      }
       //匹配每一天天记录中的好友并将结果放到mydbrank
       let lenOftem5=this.data.temp_5.length
       for(let m=0;m<lenOftem5;m++){
@@ -234,10 +238,7 @@ Page({
         today:this.data.temp_5[m].time.toLocaleDateString(),
         now_day:this.data.temp_5[m].time.getDate(),
         now_month:this.data.temp_5[m].time.getMonth()+1
-        
       })
-
-
       let templen=this.data.tempSort.length   //tempsort存放着关于用户及用户好友的信息
       let dbranklen=this.data.dbrank.length   //dbrank存放着当日所有用户的排名
       for( let j=0;j<templen;j++){
@@ -260,7 +261,6 @@ Page({
         }
       }
       let mydbrank=this.data.mydbrank
-    
       this.setData({
         mydbrank:mydbrank.sort(compare('coin'))
       })
@@ -269,7 +269,6 @@ Page({
       let now_rank=this.data.now_rank
       for(let k=0;k<lenmybrank;k++){
           if(mydbrank[k]._openid==this.data.myself){
-         
             this.setData({
               now_rank:now_rank+1,
             })

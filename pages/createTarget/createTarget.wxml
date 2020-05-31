@@ -9,7 +9,7 @@
   <view class="back" bindtap="backToindex">《</view>
   <view>
   <image src="/images/coin.png" class="coin"></image>
-  <input placeholder="请输入挑战金额" class="inputMoney" type="text" maxlength="4" value="{{number}}"    bindinput="getInputCoin"></input>
+  <input  wx:if="{{showinputCoin}}"  placeholder="请输入挑战金额" class="inputMoney" type="text" maxlength="4" value="{{number}}"    bindinput="getInputCoin"></input>
   <view class="yuan">元</view>
 </view>
 <view class="optionalAmount">
@@ -75,7 +75,7 @@
 </view>
 <view class="texttitle">标题</view>
 <view class="centertitle">
- <input placeholder="输入目标标题" class="inputtitle" type="text" maxlength="24"  bindinput="getInputtitle"  ></input>
+ <input placeholder="输入目标标题" wx:if="{{inputTitle}}" class="inputtitle" type="text" maxlength="24"  bindinput="getInputtitle"  ></input>
  <view class="inputtitleLine"></view>
 </view>
 <view class="centerlabel">
@@ -132,7 +132,7 @@
  <view class="starTime">
   <image src="images/20.png" class="image_startTime"></image>
   <view class="kaishishijian">休息天数</view>
-  <input class="inputrest" placeholder="输入天数" type="number" maxlength="3" bindinput="getRest">天</input>
+  <input class="inputrest" wx:if="{{inputDay}}" placeholder="输入天数" type="number" maxlength="3" bindinput="getRest">天</input>
   <view class="tian" >天</view>
   <view class="inputRestLine"></view>
   <view class="start_line"></view>

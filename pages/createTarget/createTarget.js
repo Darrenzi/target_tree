@@ -9,9 +9,12 @@ Page({
    numbers:[50,100,200,600,800,1000],
    change:true,
    change_1:true,
+   showinputCoin:true,
    change_2:true,
    custom:true,
    showtitle:true,
+   inputTitle:true,
+   inputDay:true,
    labelList:[
       {label:"喜欢",
       imagesrc:'/pages/createTarget/images/1.png'},
@@ -179,19 +182,16 @@ Page({
   changeShowstatus:function(){   //
     let app=getApp()
     let userCoin=app.globalData.user.coin
-
-
     if (userCoin < this.data.setCoin && this.data.setCoin!=0){
       this.setData({
        informContent:"诶呀，你的金币不够呢",
      })
      return
    }
-    if(this.data.setCoin<=0){
+    if(this.data.setCoin<0){
       this.setData({informContent:"请输入正确的数额"});
       return
      }
-    
      this.setData({
       change:(!this.data.change),
       change_1:(!this.data.change_1),

@@ -52,6 +52,7 @@
      <view class="cancle">X</view></view>
     </view>
   </view>
+  
 <!-- 好友列表 -->
 <view class="hide{{change_1?'':'show'}}" bindtap="ChangeShowStatus">
   <view>
@@ -65,8 +66,8 @@
   </view>
 </view>
 
+<!-- 我的排名 -->
 <view class="hide{{change_2?'':'show'}}">
-
   <view>
     <block wx:for="{{sortfriend}}" wx:for-index="friendidx" wx:key="key">
       <view class="Friend">
@@ -80,12 +81,10 @@
         <text class="sort_font">夺得{{item.month}}月{{item.day}}日排行冠军</text>
       </view>
     </block>
-
   </view>
 </view>
-
+<!-- 本月排名 -->
 <view class="hide{{change_3?'':'show'}}" bindtap="ChangeShowStatus_3">
-
   <view>
     <block wx:for="{{tempSort}}" wx:for-index="userIdx" wx:key="key">
       <view class="Friend"><view class="line"></view>
