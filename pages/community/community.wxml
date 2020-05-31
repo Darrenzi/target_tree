@@ -10,7 +10,7 @@
 </view>
 
 <!-- 推荐 -->
-<scroll-view class="main" scroll-y bindscrolltolower="getMoreTargets" hidden="{{currentShow != '推荐'}}" lower-threshold="0">
+<scroll-view class="main" scroll-y bindscrolltolower="getMoreTargets" hidden="{{currentShow != '推荐'}}" lower-threshold="100rpx">
   <view class="target" wx:for="{{targets}}" wx:key="target" bindtap="targetDetail" id="{{index}}">
     <view class="targetTop">
       <image class="avatar" src="{{item.userList[0].avatarUrl}}" catchtap="goToUserForest" id="{{index}}"></image>

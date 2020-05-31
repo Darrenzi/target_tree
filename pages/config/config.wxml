@@ -68,7 +68,7 @@
     <view class="border"></view>
       <view class="page-section">
         <view class="textarea-wrp">
-           <textarea auto-focus="true" class="textareaFont" placeholder="输入意见" bindinput="getInputTarget"  maxlength="100" placeholder-style="top:30rpx" value="{{input}}"/>
+           <textarea  wx:if="{{hidden}}" auto-focus="true" class="textareaFont" placeholder="输入意见" bindinput="getInputTarget"  maxlength="100" placeholder-style="top:30rpx" value="{{input}}"/>
         </view>
       </view>
     </view>
@@ -116,7 +116,7 @@
       </view>
       <view class="problem-page-section">
         <view class="problem-textarea-wrp"> 
-        <textarea auto-focus="true" placeholder="请填写十个字以上的问题描述以便我们为您解决问题" bindinput="getInputProblem"  maxlength="200" placeholder-style="font-size:30rpx"  class="problem_textarea" value="{{input}}"/>
+        <textarea auto-focus="true" wx:if="{{!inputProblem}}" placeholder="请填写十个字以上的问题描述以便我们为您解决问题" bindinput="getInputProblem"  maxlength="200" placeholder-style="font-size:30rpx"  class="problem_textarea" value="{{input}}"/>
        </view>
       </view>
     </view>

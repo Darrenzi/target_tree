@@ -29,18 +29,17 @@
   font-size: 35rpx;
 }
 .inputMoney{
-  height: 80rpx;
-  width: 420rpx;
+  height: 5%;
+  width: 60%;
   border-radius: 20rpx;
-  position: relative;
-  margin-top: -90rpx;
-  left: 27%;
-  align-items: center;
-  justify-content: center;
-  display: flex;
+  position: absolute;
+  top: 185rpx;
+  left: 24%;
   font-size: 35rpx;
   border: 5rpx solid rgba(116, 121, 110, 0.96);
+  padding-left: 20rpx;
 }
+
 
 .buttonclass{
   height: 130rpx;

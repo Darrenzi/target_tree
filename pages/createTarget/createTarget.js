@@ -16,7 +16,7 @@ Page({
    inputTitle:true,
    inputDay:true,
    labelList:[
-      {label:"爱好",
+      {label:"兴趣",
       imagesrc:'/pages/createTarget/images/1.png'},
       {label:"听歌",
       imagesrc:'/pages/createTarget/images/2.png'},
@@ -318,7 +318,7 @@ Page({
      loadContent:"创建中...",
      informContent:''
     });
-
+    
    let setDate=this.data.setDate
    let date=this.data.date
    if(setDate==1){  //选择明天开始目标
@@ -358,6 +358,25 @@ Page({
    var content=this.data.content
    var amount=this.data.amount
    var title=this.data.title
+   let app=getApp()
+   let userCoin=app.globalData.user.coin
+   let nowCoin=userCoin-setCoin
+   if(setCoin!=0){
+   wx.cloud.callFunction({
+    // 云函数名称
+    name: 'setCoin',
+    // 传给云函数的参数
+    data: {
+     curCoin:nowCoin
+    },
+ 
+  })
+  .then(res => {
+  })
+  .catch(err=>{
+    console.log(err);
+  })
+}
    var that=this
    if(amount<rest){
     that.setData({informContent:"休息时间比总时间多噢"});
@@ -371,7 +390,6 @@ Page({
    }
    let num=0.2*amount;
    num = Math.floor(num * 1) / 1;
-
    if(rest<0||rest>(0.2*amount)){
     that.setData({informContent:"休息时间最多只能是 "+num+" 天噢"});
     this.setData({loadContent:''});
@@ -382,6 +400,8 @@ Page({
     this.setData({loadContent:''});
     return
    }
+ 
+  
 
   let newTarget = {
     supervisor: [],//监督者ID列表
@@ -404,10 +424,8 @@ Page({
      data:newTarget,
      success:function(res){
       that.setData({
-        informContent:"成功创建目标",
         loadContent:''
-        });
-      
+      });
       //修改主界面数据
       let pages = getCurrentPages();
       let prevPage = pages[pages.length - 2];
@@ -417,8 +435,7 @@ Page({
       let prevUser = prevPage.data.user;
       prevUser.coin -= Number(setCoin);
       prevPage.setData({user:prevUser});
-      getApp().globalData.user.coin -= Number(setCoin);
- 
+
       let targets = targetComponent.data.targets;
       targets.unshift(newTarget);
       targetComponent.setData({targets:targets});

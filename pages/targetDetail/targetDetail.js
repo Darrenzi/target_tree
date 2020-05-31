@@ -133,7 +133,8 @@ Page({
             avatarUrl: that.data.user.avatarUrl,
             un: that.data.user.un,
             _openid: that.data.user._openid
-          }]
+          }],
+          replyMsg:[]
         });
       }
       else{
@@ -146,7 +147,8 @@ Page({
             avatarUrl: that.data.user.avatarUrl,
             un: that.data.user.un,
             _openid: that.data.user._openid
-          }]
+          }],
+          replyMsg: []
         })
       }
       this.setData({comment:comment});

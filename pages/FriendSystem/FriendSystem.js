@@ -17,6 +17,7 @@ Page({
      today:'5月1日',
      now_month:0,
      now_day:0,
+     a:'',
      now_rank:0,//表示用户今天的排位
      now_coin:0,//表示用户今天的金币
      myself:'',//用户自己的openid
@@ -71,7 +72,7 @@ Page({
     })
     if(this.data.friendName==this.data.myselfName||this.data.friendName==''){
       this.setData({
-        informContent:'请输入正确的用户名称噢~',
+        informContent:'用户不存在',
         hidden:true,
         loadContent:''
       })
@@ -89,7 +90,7 @@ Page({
      
         if(res.result.data.length==0){
           this.setData({
-            informContent:'没有找到这个人呢!',
+            informContent:'用户不存在',
             hidden:true,
             inputValue:''
           })
@@ -107,13 +108,16 @@ Page({
         console.log(err)
       })
   },
-  add:function(e){
+  addFriend:function(e){
     let app=getApp()
     let userOpenid=app.globalData.user._openid
     const db=wx.cloud.database()
     const _=db.command
     let index = e.currentTarget.id;
     let receiver=this.data.getFriendName[index]._openid
+    this.setData({
+      a:receiver
+    })
     let navListLen=this.data.navList.length
     for(let i=0;i<navListLen;i++){  //检测是否已经是好友
       if(receiver==this.data.navList[i].friendList[0]._openid){
@@ -127,42 +131,38 @@ Page({
     db.collection('friendRequest')  //检测是否已经发送过好友请求
     .get()
     .then(res=>{
-      
        this.setData({
          sendedFriend:res.data
        })
        let sendLen=this.data.sendedFriend.length
        for(let m=0;m<sendLen;m++){
-         if(receiver==this.data.sendedFriend[m].receiver&&this.data.sendedFriend[m].status==0&&this.data.sendedFriend[m]._openid==userOpenid)
+         if(receiver===this.data.sendedFriend[m].receiver&&this.data.sendedFriend[m].status===0&&this.data.sendedFriend[m]._openid===userOpenid)
          {
-         
            this.setData({
-             informContent:"正在等待对方处理~",
+             informContent:"发过了，正在等待对方处理~",
              showSameName:'true'
            })
-           return
+         return
          }
        }
+       db.collection('friendRequest')
+       .add({
+        data: {
+         //接受好友请求的用户
+         receiver:receiver,
+         //接受请求的用户是否已经处理，-1已拒绝，0未处理，1已同意
+         status:0,
+         time: new Date()
+       }
+     })
+     .then(res=>{
+       this.setData({
+         informContent:'好友请求已发送~',
+         showSameName:true
+       })
+     })
     })
-  
-  
-    db.collection('friendRequest')
-    .add({
-     data: {
-      //接受好友请求的用户
-      receiver:receiver,
-      //接受请求的用户是否已经处理，-1已拒绝，0未处理，1已同意
-      status:0,
-      time: new Date()
-    }
-  })
-  .then(res=>{
-
-    this.setData({
-      informContent:'好友请求已发送~',
-      showSameName:true
-    })
-  })
+   
   },
 
   cancle:function(){
@@ -395,11 +395,8 @@ Page({
         wx.cloud.callFunction({
           name: 'friend_1',})
           .then(res=>{
-           
             this.setData({
-              
-              temp:res.result.list,
-              
+              temp:res.result.list,   
             })
             let L_length=this.data.temp.length;
             this.setData({

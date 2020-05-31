@@ -25,10 +25,12 @@
 }
 .single_page{
   display: inline-block;
-  height: 33.33%;
+  height: 25%;
   width: 100%;
   position: relative;
   background-color:  rgb(57, 163, 103);
+  margin-top:50rpx;
+  margin-bottom:50rpx;
 }
 .font_class{
   font-size: 40rpx;
@@ -297,7 +299,7 @@
   position: fixed;
   top: 600rpx;
   height: 50rpx;
-  width: 400rpx;
+  width: 350rpx;
   border-radius: 20rpx;
   left: 230rpx;
   font-size: 30rpx;
@@ -307,9 +309,10 @@
   top: 600rpx;
   height: 50rpx;
   width: 380rpx;
-  border:2rpx solid gray;
+  border-bottom:2rpx solid gray;
   left: 220rpx;
   font-size: 35rpx;
+  overflow: hidden
 }
 .friendIdline_1{
   position: fixed;
@@ -324,7 +327,7 @@
   position: fixed;
   top: 340rpx;
   height: 50rpx;
-  width: 380rpx;
+  width: 350rpx;
   border-radius: 20rpx;
   left: 230rpx;
   font-size: 30rpx;
@@ -377,12 +380,12 @@
   position: absolute;
   margin-left: 30rpx;
   border-radius: 50rpx;
-  margin-top: 30rpx;
+  margin-top: 50rpx;
  background-color: rgba(235, 54, 41, 0.849);
 }
 .addButton{
   left: 370rpx;
-  top: 40rpx;
+  top: 55rpx;
   height: 50rpx;
   width: 80rpx;
   display: flex;
@@ -400,6 +403,7 @@
   width: 400rpx;
   position: absolute;
   background-color: gainsboro;
+  margin-top:20rpx;
 }
 .alldetail{
   position: relative;

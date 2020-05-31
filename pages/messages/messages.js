@@ -143,15 +143,17 @@ Page({
     const _ = db.command;
     let that = this;
     let user = getApp().globalData.user;
-    db.collection('target').field({_id:true}).get().then(res=>{
 
+    //暂无分页，只能获得前20个目标的评论，待修改
+    db.collection('target').field({_id:true})
+    .orderBy("time","desc")
+    .get().then(res=>{
       //用户所有的任务id
       let user_targets = [];
       for(let i=0;i<res.data.length;i++){
         user_targets.push(res.data[i]._id);
-      }
+    }
  
-      
       //获取评论
       wx.cloud.callFunction({
         name:'getComment',
@@ -159,7 +161,6 @@ Page({
           user_targets:user_targets
         },
         success:function(res){
-    
           let data = res.result.list;
           let newCommentNum = 0;
           for(let i=0;i<data.length;i++){
@@ -315,6 +316,7 @@ Page({
         sender:_.eq(userId)
       }
     ]))
+    .orderBy("time","desc")
     .get()
     .then(res=>{
       if(res.data.length != 0 ){

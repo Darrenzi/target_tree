@@ -24,5 +24,5 @@ exports.main = async (event, context) => {
   } catch (e) {
     console.error("err",e)
   }
-  // collectio
+  
 }

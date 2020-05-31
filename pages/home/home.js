@@ -151,9 +151,11 @@ Page({
         break;
       }
       case '最新消息': {
-
         wx.navigateTo({
           url: '../messages/messages',
+          fail:function(err){
+            console.log(err);
+          },
           complete: function () {
             that.setData({ loadContent: '' });
           }
@@ -390,6 +392,7 @@ Page({
 
           // 更新数据，清空加载动画，设置通知内容
           that.setData({user:user, loadContent: '', informContent: "目标完成，获得 " + reward + " 金币" });
+          getApp().globalData.user.coin = user.coin;
         })
         .catch(err => {
           console.log(err)

@@ -376,7 +376,7 @@ Page({
       currentTarget.progress = 100;
       //奖励金币=10倍的天数+赌金+赞赏
       let reward = 10*currentTarget.amount + currentTarget.coin;
-      user.coin += reward;
+      user.coin = user.coin + reward;
    
       db.collection("user").doc(user._id)
       .update({
@@ -392,6 +392,7 @@ Page({
 
         // 更新数据，清空加载动画，设置通知内容
         that.setData({user:user, loadContent: '', informContent: "目标完成，获得 " + reward + " 金币"});
+        getApp().globalData.user.coin = user.coin;
       })
       .catch(err=>{
         console.log("奖励金币失败");
