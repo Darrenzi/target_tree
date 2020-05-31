@@ -395,11 +395,8 @@ Page({
         wx.cloud.callFunction({
           name: 'friend_1',})
           .then(res=>{
-           
             this.setData({
-              
-              temp:res.result.list,
-              
+              temp:res.result.list,   
             })
             let L_length=this.data.temp.length;
             this.setData({
