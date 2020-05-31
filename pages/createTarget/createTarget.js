@@ -361,6 +361,20 @@ Page({
    let app=getApp()
    let userCoin=app.globalData.user.coin
    let nowCoin=userCoin-setCoin
+   if(setCoin!=0){
+   wx.cloud.callFunction({
+    // 云函数名称
+    name: 'setCoin',
+    // 传给云函数的参数
+    data: {
+     curCoin:nowCoin
+    },
+ 
+  })
+  .then(res => {
+    console.log(res.result) // 3
+  })
+}
    var that=this
    if(amount<rest){
     that.setData({informContent:"休息时间比总时间多噢"});
@@ -385,18 +399,7 @@ Page({
     return
    }
  
-   wx.cloud.callFunction({
-    // 云函数名称
-    name: 'setCoin',
-    // 传给云函数的参数
-    data: {
-     curCoin:nowCoin
-    },
- 
-  })
-  .then(res => {
-    console.log(res.result) // 3
-  })
+  
 
   let newTarget = {
     supervisor: [],//监督者ID列表
