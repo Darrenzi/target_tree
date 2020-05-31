@@ -265,7 +265,7 @@ Page({
               let targetComponent = that.selectComponent('#target');
               targetComponent.deleteTarget();
 
-              that.setData({ user: user, loadContent: "", informContent: "目标已失败，将扣除相应金币，并种植一棵枯树" });
+              that.setData({ user: user, loadContent: "", informContent: "目标已失败，将扣除 "+currentTarget.coin+" 金币，并种植一棵枯树" });
             })
             .catch(err => {
               console.log(err)

@@ -8,6 +8,7 @@ page{
   align-items: center;
   position: relative;
   color:rgb(82, 82, 82);
+  overflow-x: hidden;
 }
 .top{
   width: 100%;
@@ -43,6 +44,7 @@ page{
   margin-top:210rpx;
   width: 90%;
   overflow-y: scroll;
+  overflow-x:hidden;
 }
 .mainTop{
   display: flex;
@@ -122,6 +124,9 @@ page{
 .commentInput{
   width: 100%;
   border-bottom: 2rpx solid gainsboro;
+  font-size:35rpx;
+  background: rgb(240, 240, 240);
+  height: 80rpx;
 }
 .messages{
   display: flex;

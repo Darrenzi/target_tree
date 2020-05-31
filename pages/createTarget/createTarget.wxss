@@ -318,7 +318,8 @@ justify-content: center;
 }
 .iconfont_1{
   height: 50rpx;
-  width: 160rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
   border-radius: 10rpx;
   background-color: rgb(57,163,103);
   font-size: 30rpx;

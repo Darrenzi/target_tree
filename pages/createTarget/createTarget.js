@@ -16,13 +16,13 @@ Page({
    inputTitle:true,
    inputDay:true,
    labelList:[
-      {label:"喜欢",
+      {label:"爱好",
       imagesrc:'/pages/createTarget/images/1.png'},
       {label:"听歌",
       imagesrc:'/pages/createTarget/images/2.png'},
       {label:"游戏",
       imagesrc:'/pages/createTarget/images/3.png'},
-      {label:"储存",
+      {label:"储钱",
       imagesrc:'/pages/createTarget/images/4.png'},
       {label:"学习",
       imagesrc:'/pages/createTarget/images/5.png'},
@@ -39,13 +39,13 @@ Page({
         imagesrc:'/pages/createTarget/images/11.png'},
         {label:"剁手",
         imagesrc:'/pages/createTarget/images/12.png'},
-        {label:"玩耍",
+        {label:"娱乐",
         imagesrc:'/pages/createTarget/images/13.png'},
-        {label:"早睡",
+        {label:"睡眠",
         imagesrc:'/pages/createTarget/images/14.png'},
         {label:"减肥",
         imagesrc:'/pages/createTarget/images/15.png'},
-        {label:"改变自己",
+        {label:"颜值",
         imagesrc:'/pages/createTarget/images/16.png'},
         {label:"自律",
          imagesrc:'/pages/createTarget/images/17.png'},],
@@ -65,7 +65,7 @@ Page({
    //树苗的Id
    treeId:"",
    //加载表示符，用于控制加载动画,当值为 "" 隐藏
-   loadContent: "加载中...",
+   loadContent: "",
    //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
    informContent:"",
      rightControls: ['全部人可见', '好友可见', '仅自己可见'],
@@ -429,7 +429,7 @@ Page({
 
 
  
-  /**89
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {

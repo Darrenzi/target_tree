@@ -29,7 +29,7 @@
   <view style="border:2rpx solid gainsboro;"></view>
 
   <!-- 隐藏的输入调 -->
-  <input class="commentInput" focus="{{commentInputFlag}}" hidden="{{!commentInputFlag}}" confirm-type="send" bindconfirm="sendComment" bindblur="hideCommentInput" value="{{commentInput}}"></input>
+  <input id="comment-input" class="commentInput" focus="{{commentInputFlag}}" hidden="{{!commentInputFlag}}" confirm-type="send" bindconfirm="sendComment" bindblur="hideCommentInput" value="{{commentInput}}" placeholder="说点什么..."></input>
 
   <view id="{{index}}" class="messages" wx:for="{{comment}}" wx:key="messages" bindtap="comment" data-type="reply" data-commentid="{{item._id}}">
     <image class="messageAvatar" src="{{item.comment_user[0].avatarUrl}}"></image>

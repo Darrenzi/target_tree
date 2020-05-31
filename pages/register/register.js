@@ -5,12 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    theme:"white"
+    theme:"white",
+    teachEnd:true
   },
 
   chooseTheme:function(e){
- 
     this.setData({theme:e.detail.value});
+  },
+
+  next:function(){
+    //选择主题
+    this.setData({teachEnd:false});
   },
 
   bindGetUserInfo: function (e) {

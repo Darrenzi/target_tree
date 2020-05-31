@@ -201,11 +201,12 @@ Page({
     let progress = target.progress;
     let _openid = this.data.targetUser._openid;
     let coin = target.coin;
+    let status = target.status;
     wx.navigateTo({
       // index为目标在数组中的索引，用于界面修改数据
       url: '../targetDetail/targetDetail?un=' + un + "&avatarUrl=" + avatarUrl +
         "&title=" + title + "&content=" + content + "&targetId=" + targetId + "&like=" + like + "&_id=" + _id
-        + "&supervisor=" + supervisor + "&progress=" + progress + "&coin=" + coin + "&index=" + index+"&_openid="+_openid
+        + "&supervisor=" + supervisor + "&progress=" + progress + "&coin=" + coin + "&index=" + index+"&_openid="+_openid+"&status="+status
     })
   },
 

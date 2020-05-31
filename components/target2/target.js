@@ -76,7 +76,6 @@ Component({
         _id:_.in(treeId)
       }).get()
       .then(res=>{
-        console.log(res);
         let trees = res.data;
         let targets = that.data.targets;
         //判断目标的树苗
@@ -106,7 +105,6 @@ Component({
         var eventDetail = { target: target } // detail对象，提供给事件监听函数
         var eventOption = {} // 触发事件的选
         this.triggerEvent('choose', eventDetail, eventOption)
-        console.log(that.data.targets);
       })
       .catch(err=>{
         console.log(err);
@@ -131,7 +129,6 @@ Component({
                 treeId.push(res.data[i].treeId);
               }
             }
-            console.log("treeId", treeId);
             that.setData({ targets: res.data });
             that.getTree(treeId);
           },

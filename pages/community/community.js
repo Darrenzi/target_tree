@@ -100,11 +100,12 @@ Page({
     let supervisor = target.supervisor.toString();
     let progress = target.progress;
     let coin = target.coin;
+    let status = target.status;
     wx.navigateTo({
       // index为目标在数组中的索引，用于界面修改数据
       url: '../targetDetail/targetDetail?un='+un+"&avatarUrl="+avatarUrl+"&_openid="+_openid+
       "&title="+title+"&content="+content+"&targetId="+targetId+"&like="+like+"&_id="+_id
-        + "&supervisor=" + supervisor + "&progress=" + progress+"&coin="+coin+"&index="+index,
+        + "&supervisor=" + supervisor + "&progress=" + progress+"&coin="+coin+"&index="+index+"&status="+status,
     })
   },
 
@@ -138,17 +139,15 @@ Page({
         page: page
       },
       success: function (res) {
-       
         if(res.result.list.length != 0)
         {
           let targets = that.data.targets;
           targets = targets.concat(res.result.list);
-       
           that.setData({ targets: targets, loadContent:"" });
         }
         else{
           //没有更多内容
-          that.setData({noMoreTarget:true});
+          that.setData({ noMoreTarget: true, loadContent: ""});
         }
         //隐藏加载文字
         that.setData({loadFlag:false});

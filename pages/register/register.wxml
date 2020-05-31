@@ -1,12 +1,33 @@
 <!--pages/register/register.wxml-->
 <view class="container">
-  <view class="top">
+  <swiper indicator-dots indicator-active-color="white" wx:if="{{teachEnd}}">
+    <swiper-item>
+      <image class="images" src="cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach1.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image class="images" src="cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach21.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image class="images" src="cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach3.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image class="images" src="cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach4.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image class="images" src="cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach5.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image class="images" src="cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach6.png"></image>
+      <button class="next" bindtap="next">下一步</button>
+    </swiper-item>
+  </swiper>
+  <view class="top" wx:if="{{!teachEnd}}">
     <view class="top_title">主题选择</view>
   </view>
 
-  <view class="title">选择后可在设置中更改哦~</view>
+  <view class="title"  wx:if="{{!teachEnd}}">选择后可在设置中更改哦~</view>
 
-  <view class="themeContainer">
+  <view class="themeContainer"  wx:if="{{!teachEnd}}">
     <radio-group class="themeChoose" bindchange="chooseTheme">
       <label>
         <radio id="white" value="white" checked>白色(推荐)</radio>
@@ -20,7 +41,7 @@
     </radio-group>
   </view>
 
-  <button class="getUserInfo"  open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  <button class="getUserInfo"  open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"  wx:if="{{!teachEnd}}">开始种树</button>
 </view>
 
 <loading content="{{loadingContent}}"></loading>

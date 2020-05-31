@@ -64,11 +64,10 @@ Component({
     })
     .get()
     .then(res => {
-      console.log(res);
       let recordList = res.data;
       let dateList = this.data.dateList;
       for (let i = 0; i < recordList.length; i++) {
-        let day = recordList[i].time.getDate();
+        let day = recordList[i].time.getDate() - 1;
         dateList[day].record = true;
       }
       this.setData({dateList: dateList});
