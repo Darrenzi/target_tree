@@ -85,7 +85,7 @@
     </view>
     <view class="textarea-wrp">
     <view class="border">
-      <textarea class="textareafont" auto-focus="true"  bindinput="getInput" placeholder-style="top:30rpx;"/>
+      <textarea class="textareafont"   bindinput="getInput" placeholder-style="top:30rpx;"/>
       </view>
     </view>
   </view>
