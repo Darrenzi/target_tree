@@ -8,7 +8,7 @@
   <view class="title">设置挑战金额</view>
   <view class="back" bindtap="backToindex">《</view>
   <image src="/images/coin.png" class="coin"></image>
-  <input  class="inputMoney" wx:if="{{change}}" placeholder="默认为0" focus="{true}" type="number" maxlength="4"
+  <input  class="inputMoney" wx:if="{{change}}" placeholder="默认为0" type="number" maxlength="4"
    value="{{number}}"  bindinput="getInputCoin"></input>
   <view class="yuan">元</view>
 
