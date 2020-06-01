@@ -659,7 +659,7 @@ justify-content: center;
  .inputrest{
    position: absolute;
    margin-top: 50rpx;
-   margin-left: 540rpx;
+   margin-left: 535rpx;
    width: 200rpx;
    height: 50rpx;
  }
