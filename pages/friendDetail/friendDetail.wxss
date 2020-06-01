@@ -1,7 +1,7 @@
 /* pages/friendDetail/friendDetail.wxss */
 page{
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   color:rgb(57, 163, 103);
   display: flex;
   flex-direction: column;
@@ -21,7 +21,7 @@ page{
 .top{
   display: flex;
   align-items: center;
-  height: 260rpx;
+  min-height: 260rpx;
   width: 100%;
   margin-top:100rpx;
 }
@@ -81,6 +81,10 @@ page{
   width: 50%;
   text-align: center;
 }
+.dateOption{
+  width: 40rpx;
+  height: 40rpx;
+}
 
 .forest{
   margin-top:25%;
@@ -120,8 +124,8 @@ page{
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  top:-300rpx;
+  position: absolute;
+  margin-top: 540rpx;
 }
 .target{
   display: flex;
@@ -219,5 +223,5 @@ page{
   width: 200rpx;
   height: 200rpx;
   margin-bottom: 15rpx;
-  margin-top:200rpx;
+  margin-top:120rpx;
 }

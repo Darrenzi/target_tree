@@ -45,6 +45,10 @@
 
 <!-- 围观 -->
 <scroll-view class="main" scroll-y hidden="{{currentShow != '围观'}}">
+  <view class="noTarget" wx:if="{{watchTargets.length == 0}}">
+    <image src="../messages/images/tree2.png"></image>
+    <view>暂无围观</view>
+  </view>
   <view class="target" wx:for="{{watchTargets}}" wx:key="watchTarget" bindtap="targetDetail" id="{{index}}">
     <view class="targetTop">
       <image class="avatar" src="{{item.userList[0].avatarUrl}}" catchtap="goToUserForest" id="{{index}}"></image>

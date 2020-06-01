@@ -23,6 +23,7 @@
   justify-content: center;
   align-items: center;
   animation: in 0.5s;
+  position: relative;
 }
 .title{
   width: 65%;
@@ -31,10 +32,9 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-top:-100rpx;
 }
 .button{
-  position: relative;
-  margin-top:30rpx;
   background: rgb(144, 219, 31);
   box-shadow: 5rpx 5rpx 5rpx 5rpx green;
   width: 280rpx;
@@ -44,9 +44,11 @@
   justify-content: center;
   align-items: center;
   color:white;
-  border-radius: 10rpx;  
+  border-radius: 10rpx;
+  position: absolute;
+  bottom:25rpx;
 }
 .button:active{
-  top:5rpx;
+  margin-top:5rpx;
   box-shadow: none;
 }

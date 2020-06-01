@@ -221,7 +221,6 @@ Page({
     let that = this;
     const db = wx.cloud.database();
     const _ = db.command;
- 
     db.collection('friend').where(_.or([
       {
         _openid: _.eq(targetUser.userId),
@@ -234,7 +233,6 @@ Page({
     ]))
     .get()
     .then(res => {
-   
       if (res.data.length != 0) {
         //说明已互为好友
         this.setData({ judgeFriendFlag: true });

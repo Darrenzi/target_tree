@@ -9,9 +9,9 @@
   <view class="top_title"> 时间历程</view>
   <view class="back" bindtap="backHome">《</view>
    <view class="calendar">
-    <view class="dateOption" bindtap="lastMonth">◀</view>
+    <image class="dateOption" bindtap="lastMonth" src="../../images/left.png"></image>
     <view class="curdate">{{year}}年{{month}}月</view>
-    <view class="dateOption_1" bindtap="nextMonth">▶</view>
+    <image class="dateOption_1" bindtap="nextMonth" src="../../images/right.png"></image>
  </view>
  </view>
 
@@ -50,12 +50,11 @@
   <view class="label" wx:if="{{labelList.length<2}}">空</view>
   <view class="label" wx:if="{{labelList.length<1}}">空</view>
   <view class="label" wx:if="{{labelList.length<4}}">空</view>
- 
- <view class="Null_targetList" wx:if="{{NULL_targetList==0}}">
+</view>
+<view class="Null_targetList" wx:if="{{NULL_targetList==0}}">
     <image class="noImage" src="../messages/images/tree2.png" ></image>
     <text class="NULL_TEXT">暂无目标</text>
-  </view> 
-</view>
+</view> 
 
 
 

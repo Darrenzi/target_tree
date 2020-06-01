@@ -15,9 +15,9 @@
 </view>
 
 <view class="date" hidden="{{currentShow !='森林'}}">
-  <view class="dateOption" bindtap="lastMonth">◀</view>
+  <image class="dateOption" bindtap="lastMonth" src="../../images/left.png"></image>
   <view class="dateCotent">{{year}}年{{month}}月</view>
-  <view class="dateOption" bindtap="nextMonth">▶</view>
+  <image class="dateOption" bindtap="nextMonth" src="../../images/right.png"></image>
 </view>
  <forest-default class="forest" forest="{{forest}}" style="zoom:{{zoom}};" bindtouchstart="forestTouchStart" bindtouchend="forestTouchEnd" hidden="{{currentShow !='森林'}}"></forest-default>
 <view class="statistics_container" hidden="{{currentShow!='森林'}}">

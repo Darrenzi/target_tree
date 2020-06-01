@@ -65,7 +65,7 @@
   font-size: 35rpx;
   margin-left: 135rpx;
   margin-right: 20rpx;
-  margin-top: 65rpx;
+  margin-top: 75rpx;
   position: absolute;
   color:rgb(97, 97, 97);
 }
@@ -112,7 +112,7 @@
   top: 150rpx;
   position: absolute;
   height: 3rpx;
-  margin-top:15rpx;
+  margin-top:30rpx;
   background-color: gainsboro;
 }
 
@@ -369,7 +369,7 @@
 .singleFriendName{
   font-size: 27rpx;
   margin-left: 110rpx;
-  margin-top: 40rpx;
+  margin-top: 60rpx;
   position: absolute;
   height: 70rpx;
   width: 230rpx;
@@ -403,7 +403,7 @@
   width: 400rpx;
   position: absolute;
   background-color: gainsboro;
-  margin-top:20rpx;
+  margin-top:30rpx;
 }
 .alldetail{
   position: relative;

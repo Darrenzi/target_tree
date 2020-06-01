@@ -1,4 +1,9 @@
 /* pages/register/register.wxss */
+page{
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
 .container{
   position: fixed;
   top:0;
@@ -9,7 +14,7 @@
   flex-direction: column;
   align-items: center;
   z-index:10;
-  overflow-y:scroll;
+  overflow: scroll;
 }
 
 swiper{
@@ -28,11 +33,9 @@ swiper-item{
   height: 100%;
 }
 .next{
-  width: 200rxp;
-  height: 100rpx;
   background: rgb(211, 202, 117);
   border-radius: 20rpx;
-  box-shadow: 10rpx 10rpx 10rpx 10rpx rgb(170, 163, 94);
+  box-shadow: 8rpx 8rpx 8rpx 8rpx rgb(170, 163, 94);
   color:white;
   font-size: 35rpx;
   display: flex;
@@ -76,6 +79,7 @@ swiper-item{
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom:100rpx;
 }
 .themeChoose{
   width: 90%;
@@ -89,20 +93,19 @@ swiper-item{
 }
 
 .getUserInfo{
-  position: relative;
-  top:80rpx;
   background: rgb(57, 163, 103);
   box-shadow: 5rpx 5rpx 5rpx 5rpx green;
-  width: 230rpx;
-  height: 85rpx;
   display: flex;
   font-size: 35rpx;
   justify-content: center;
   align-items: center;
   color:white;
-  border-radius: 10rpx;  
+  border-radius: 10rpx;
+  position: absolute;
+  top:1450rpx;
+  margin-bottom:100rpx;
 }
 .getUserInfo:active{
-  top:85rpx;
+  margin-top:5rpx;
   box-shadow: none;
 }

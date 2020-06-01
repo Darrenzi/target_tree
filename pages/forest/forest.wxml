@@ -7,9 +7,9 @@
 </view>
 
 <view class="date">
-  <view class="dateOption" bindtap="lastMonth">◀</view>
+  <image class="dateOption" bindtap="lastMonth" src="../../images/left.png"></image>
   <view class="dateCotent">{{year}}年{{month}}月</view>
-  <view class="dateOption" bindtap="nextMonth">▶</view>
+  <image class="dateOption" bindtap="nextMonth" src="../../images/right.png"></image>
 </view>
 
 <view class="options">

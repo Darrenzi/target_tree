@@ -51,7 +51,7 @@
   width: 60rpx;
   height: 60rpx;
   position: relative;
-  top:-25rpx;
+  top:-15rpx;
 }
 .InsertCoinButtonContainer{
   display: flex;
