@@ -22,7 +22,7 @@ Page({
       
           labelList:[
             {label:"全部",
-            imagesrc:'/pages/createTarget/images/1.png'},
+            imagesrc:'/pages/createTarget/images/10.png'},
             {label:"兴趣",
             imagesrc:'/pages/createTarget/images/1.png'},
             {label:"听歌",

@@ -51,7 +51,7 @@ Page({
          imagesrc:'/pages/createTarget/images/17.png'},],
    label:'',
    setCoin:0,
-   rest:-1,
+   rest:0,
    record:'',
    content:'',
    date:'',
