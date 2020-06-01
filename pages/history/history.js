@@ -23,7 +23,7 @@ Page({
           labelList:[
             {label:"全部",
             imagesrc:'/pages/createTarget/images/1.png'},
-            {label:"喜欢",
+            {label:"兴趣",
             imagesrc:'/pages/createTarget/images/1.png'},
             {label:"听歌",
             imagesrc:'/pages/createTarget/images/2.png'},
@@ -51,7 +51,7 @@ Page({
              imagesrc:'/pages/createTarget/images/14.png'},
              {label:"减肥",
              imagesrc:'/pages/createTarget/images/15.png'},
-             {label:"改变自己",
+             {label:"颜值",
              imagesrc:'/pages/createTarget/images/16.png'},
              {label:"自律",
               imagesrc:'/pages/createTarget/images/17.png'},],

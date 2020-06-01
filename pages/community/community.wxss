@@ -136,7 +136,8 @@ page{
   /* 加载文字的框架 */
   text-align: center;
   width: 100%;
-  margin-bottom:40rpx;
+  margin-top:40rpx;
+  margin-bottom:100rpx;
 }
 
 .bottom{

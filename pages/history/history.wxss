@@ -353,7 +353,7 @@ page{
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background: rgba(141,186,110,1 );
+  background: rgb(155, 204, 123);
   color: white;
 }
 .whitespace_1{

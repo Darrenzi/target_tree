@@ -16,7 +16,7 @@ Page({
    inputTitle:true,
    inputDay:true,
    labelList:[
-      {label:"爱好",
+      {label:"兴趣",
       imagesrc:'/pages/createTarget/images/1.png'},
       {label:"听歌",
       imagesrc:'/pages/createTarget/images/2.png'},
@@ -372,7 +372,9 @@ Page({
  
   })
   .then(res => {
-    console.log(res.result) // 3
+  })
+  .catch(err=>{
+    console.log(err);
   })
 }
    var that=this
@@ -389,7 +391,7 @@ Page({
    let num=0.2*amount;
    num = Math.floor(num * 1) / 1;
    if(rest<0||rest>(0.2*amount)){
-    that.setData({informContent:"休息时间最多只能是"+num+"天噢"});
+    that.setData({informContent:"休息时间最多只能是 "+num+" 天噢"});
     this.setData({loadContent:''});
     return
    }
@@ -422,21 +424,23 @@ Page({
      data:newTarget,
      success:function(res){
       that.setData({
-        informContent:"成功创建目标",
         loadContent:''
-        });
+      });
       //修改主界面数据
       let pages = getCurrentPages();
       let prevPage = pages[pages.length - 2];
       newTarget.tree = that.data.treeImage;
       newTarget._id = res._id;
       let targetComponent = prevPage.selectComponent('#target');
- 
+      let prevUser = prevPage.data.user;
+      prevUser.coin -= Number(setCoin);
+      prevPage.setData({user:prevUser});
+
       let targets = targetComponent.data.targets;
       targets.unshift(newTarget);
       targetComponent.setData({targets:targets});
   
-      wx.navigateBack({})
+      wx.navigateBack({});
      },
      fail(err){
       console.log(err)

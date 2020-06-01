@@ -72,7 +72,7 @@ Page({
     })
     if(this.data.friendName==this.data.myselfName||this.data.friendName==''){
       this.setData({
-        informContent:'请输入正确的用户名称噢~',
+        informContent:'用户不存在',
         hidden:true,
         loadContent:''
       })
@@ -90,7 +90,7 @@ Page({
      
         if(res.result.data.length==0){
           this.setData({
-            informContent:'没有找到这个人呢!',
+            informContent:'用户不存在',
             hidden:true,
             inputValue:''
           })

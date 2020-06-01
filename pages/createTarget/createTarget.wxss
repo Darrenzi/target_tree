@@ -37,6 +37,7 @@
   left: 24%;
   font-size: 35rpx;
   border: 5rpx solid rgba(116, 121, 110, 0.96);
+  padding-left: 20rpx;
 }
 
 

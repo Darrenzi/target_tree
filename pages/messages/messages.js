@@ -28,7 +28,8 @@ Page({
     //新的系统提示
     newTipNum:0,
 
-    loadContent:""
+    loadContent:"",
+    user:getApp().globalData.user
   },
 
   backHome: function () {
@@ -131,9 +132,6 @@ Page({
         tableName:that.data.current_show,
         id:id
       },
-      success:function(res){
-
-      },
       fail:function(err){
         console.log(err);
       }
@@ -145,15 +143,17 @@ Page({
     const _ = db.command;
     let that = this;
     let user = getApp().globalData.user;
-    db.collection('target').field({_id:true}).get().then(res=>{
 
+    //暂无分页，只能获得前20个目标的评论，待修改
+    db.collection('target').field({_id:true})
+    .orderBy("time","desc")
+    .get().then(res=>{
       //用户所有的任务id
       let user_targets = [];
       for(let i=0;i<res.data.length;i++){
         user_targets.push(res.data[i]._id);
-      }
+    }
  
-      
       //获取评论
       wx.cloud.callFunction({
         name:'getComment',
@@ -161,7 +161,6 @@ Page({
           user_targets:user_targets
         },
         success:function(res){
-    
           let data = res.result.list;
           let newCommentNum = 0;
           for(let i=0;i<data.length;i++){
@@ -289,7 +288,7 @@ Page({
     }
   },
 
-  addFriend:function(e){
+  addFriend:async function(e){
     //同意添加好友
     let index = e.currentTarget.id;
     let status = this.data.newFriend[index].status;
@@ -302,32 +301,52 @@ Page({
 
     let sender = this.data.newFriend[index]._openid;
     let recordId = this.data.newFriend[index]._id;
+    let userId = getApp().globalData.user._openid;
    
     const db = wx.cloud.database();
-    db.collection('friend').add({
-      data: {
-        sender: sender
+    const _ = db.command;
+
+    db.collection('friend').where(_.or([
+      {
+        _openid:_.eq(userId),
+        sender:_.eq(sender)
+      },
+      {
+        _openid:_.eq(sender),
+        sender:_.eq(userId)
       }
-    })
+    ]))
+    .orderBy("time","desc")
+    .get()
     .then(res=>{
-    
-      //更新好友申请的状态
-      wx.cloud.callFunction({
-        name:"friendRequestStatus",
-        data:{
-          id:recordId,
-          status:1
-        },
-        success:function(res){
-    
-        },
-        fail:function(err){
+      if(res.data.length != 0 ){
+        //列表不为0，说明两人已互为好友
+        return;
+      }
+      else{
+        //暂不为好友，加入好友表
+        db.collection('friend').add({
+          data: {
+            sender: sender
+          }
+        })
+        .then(res => {
+          //更新好友申请的状态
+          wx.cloud.callFunction({
+            name: "friendRequestStatus",
+            data: {
+              id: recordId,
+              status: 1
+            },
+            fail: function (err) {
+              console.log(err);
+            }
+          })
+        })
+        .catch(err => {
           console.log(err);
-        }
-      })
-    })
-    .catch(err=>{
-      console.log(err);
+        })
+      }
     })
   },
 
