@@ -10,7 +10,7 @@ page{
 .back{
   position: absolute;
   left: 20rpx;
-  top: 80rpx;
+  top: 90rpx;
   width: 70rpx;
   height: 60rpx;
   font-weight: bolder;

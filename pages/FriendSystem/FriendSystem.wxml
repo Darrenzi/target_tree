@@ -83,8 +83,9 @@
     </block>
   </view>
 </view>
+
 <!-- 本月排名 -->
-<view class="hide{{change_3?'':'show'}}" bindtap="ChangeShowStatus_3">
+<view class="hide{{change_3?'':'show'}}" >
   <view>
     <block wx:for="{{tempSort}}" wx:for-index="userIdx" wx:key="key">
       <view class="Friend"><view class="line"></view>

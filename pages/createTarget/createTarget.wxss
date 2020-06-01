@@ -205,7 +205,7 @@ justify-content: center;
   font-size: 35rpx;
 }
 .inputtitleLine{
-  height: 2rpx;
+  height: 3rpx;
   background-color:gainsboro;
   width: 70%;
   position: absolute;
@@ -683,7 +683,7 @@ justify-content: center;
   top: 40rpx;
   color: black;
   display: flex;
-  font-size: 25rpx;
+  font-size: 30rpx;
   align-items: center;
   justify-content: center;
   width: 200rpx;
@@ -747,7 +747,7 @@ justify-content: center;
   border-radius: 10rpx;
 }
 .start_line{
-  height: 2rpx;
+  height: 3rpx;
   width: 800rpx;
   background-color: rgba(110, 112, 108, 0.289);
   position: absolute;
