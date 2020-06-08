@@ -9,6 +9,8 @@ Page({
     commentInputFlag:false,
     //目标的信息,包含目标用户信息
     target:{},
+    //评论数
+    commentNum:0,
     //评论数组
     comment:[],
     //评论输入的内容
@@ -211,7 +213,7 @@ Page({
         }
       }
     
-      that.setData({ comment: comment });
+      that.setData({ comment: comment, commentNum:allComment.length });
     })
     .catch(err=>{
       console.log(err);

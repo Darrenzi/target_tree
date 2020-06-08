@@ -42,7 +42,7 @@
   <view id="{{index}}" class="target {{currentShowDetail == index?'targetShowDetail':''}}" wx:for="{{targets}}" wx:key="target" bindtap="showDetail">
     <view class="targetLabel {{currentShowDetail == index?'targetShowDetailLabel':''}}">{{item.label}}</view>
     <view class="targetTitle {{currentShowDetail == index?'targetShowDetailTitle':''}} {{himself?'noWatchTargetTitle':''}}">{{item.title}}</view>
-    <view id="{{index}}" class="watchButton" catchtap="targetDetail" wx:if="{{!himself}}">围观</view>
+    <!-- <view id="{{index}}" class="watchButton" catchtap="targetDetail" wx:if="{{!himself}}">围观</view> -->
     <view class="targetContent" hidden="{{!(currentShowDetail == index)}}">{{item.content}}</view>
     <view class="watchMore" hidden="{{!(currentShowDetail == index)}}" id="{{index}}" bindtap="targetDetail">更多</view>
   </view>

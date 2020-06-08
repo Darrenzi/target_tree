@@ -330,6 +330,7 @@ Page({
     let userTrees = this.data.userTrees;
     let oldProgress = currentTarget.progress;
     let currentTree = null;
+    let treeChangeFlag = false;
     
     for(let i =0;i<userTrees.length;i++){
       if(currentTarget.treeId == userTrees[i]._id){
@@ -340,14 +341,17 @@ Page({
     if (oldProgress<30 && newProgress>=30){
       //打卡后进度进入第二阶段
       currentTarget.tree = currentTree.path[1];
+      treeChangeFlag = true;
     }
     else if (oldProgress < 60 &&newProgress >= 60){
       //打卡后进度进入第三阶段
       currentTarget.tree = currentTree.path[2];
+      treeChangeFlag = true;
     }
     else if (oldProgress < 90 && newProgress >= 90){
       //打卡后进度进入第四阶段
       currentTarget.tree = currentTree.path[3];
+      treeChangeFlag = true;
     }
     //更新当前页面的数据
     currentTarget.record += 1;
@@ -355,6 +359,9 @@ Page({
     this.setData({currentTarget:currentTarget});
     //更新组件中的数据
     this.selectComponent('#target').update(currentTarget);
+    if (treeChangeFlag) {
+      targetComponent.choose({ currentTarget: { id: 0 } });
+    }
   },
 
   completeTarget:function(){

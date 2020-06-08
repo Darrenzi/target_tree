@@ -102,8 +102,8 @@
       <view class="targetDetailRow">
         <view class="targetDetailLabel">具体内容：</view>
       </view>
-      <view class="targetDetailContent">
-        {{currentTarget.content}}
+       <view class="targetDetailContent">
+        <text>{{currentTarget.content}}</text>
       </view>
       <calendar targetId="{{currentTarget._id}}"></calendar>
     </view>

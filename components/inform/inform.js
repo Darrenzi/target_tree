@@ -23,6 +23,9 @@ Component({
   methods: {
     close:function(){
       this.setData({content:''});
+      var eventDetail = {} // detail对象，提供给事件监听函数
+      var eventOption = {} // 触发事件的选
+      this.triggerEvent('close', eventDetail, eventOption)
     }
   }
 })

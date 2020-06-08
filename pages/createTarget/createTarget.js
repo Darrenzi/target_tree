@@ -68,8 +68,12 @@ Page({
    loadContent: "",
    //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
    informContent:"",
-     rightControls: ['全部人可见', '好友可见', '仅自己可见'],
-    rightControl:"全部人可见"
+   rightControls: ['全部人可见', '好友可见', '仅自己可见'],
+   rightControl:"全部人可见"
+  },
+
+  closeInform:function(){
+    this.setData({informContent:""});
   },
 
   bindDateChange:function(e){  //获取多行滑动组件中的值
@@ -361,6 +365,7 @@ Page({
    let app=getApp()
    let userCoin=app.globalData.user.coin
    let nowCoin=userCoin-setCoin
+   let rightControl = this.data.rightControl;
    if(setCoin!=0){
    wx.cloud.callFunction({
     // 云函数名称
@@ -418,7 +423,8 @@ Page({
     record: 0,//用户目标打卡次数
     status: 0,//任务状态
     progress: 0.00,  //任务进度
-    treeId: that.data.treeId //树苗的id
+    treeId: that.data.treeId, //树苗的id
+    rightControl:rightControl
    }
    db.collection('target').add({
      data:newTarget,

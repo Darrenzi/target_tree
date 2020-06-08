@@ -23,7 +23,10 @@
   </view>
 
   <view class="targetTitle">{{target.title}}</view>
-  <view class="targetContent">{{target.content}}</view>
+  <view class="targetContent">
+    <text>{{target.content}}</text>
+  </view>
+  <view class="spiltLine"></view>
 
   <calendar targetId="{{target._id}}"></calendar>
   <view style="border:2rpx solid gainsboro;"></view>
@@ -74,7 +77,7 @@
   <image class="bottomOption" src="../messages/images/xihuan.png" bindtap="like"></image>
   <view bindtap="like">{{target.like.length}}</view>
   <image class="bottomOption" src="../messages/images/xiaoxi.png" bindtap="comment"></image>
-  <view bindtap="comment">{{comment.length}}</view>
+  <view bindtap="comment">{{commentNum}}</view>
   <image class="bottomOption" src="../../images/liwu.png" bindtap="showInputCoin"></image>
   <view bindtap="showInputCoin">{{target.coin}}</view>
 </view>

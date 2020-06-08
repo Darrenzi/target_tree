@@ -18,6 +18,7 @@ exports.main = async (event, context) => {
   let lastDay = $.dateFromString({
     dateString: lastDayDate.toJSON()
   });
+  //待修改，此处应先做好友判断
   return await db.collection('target').aggregate()
   .lookup({
       from: "tool",
@@ -35,7 +36,8 @@ exports.main = async (event, context) => {
   .match({
     firstMatched: !0,
     lastMatched:!0,
-    _openid: _.eq(userId)
+    _openid: _.eq(userId),
+    rightControl: _.neq("仅自己可见")
   })
   .end();
 }

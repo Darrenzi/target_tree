@@ -305,10 +305,10 @@ page{
   font-size: 30rpx;
 }
 .labelclass{
-  color: black;
+  color: rgb(104, 104, 104);
   position: absolute;
   margin-top: 310rpx;
-  margin-left: 20rpx;
+  margin-left: 40rpx;
   margin-right:30rpx;
   align-items: center;
   justify-content: center;

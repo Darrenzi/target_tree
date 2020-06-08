@@ -275,7 +275,7 @@ page{
 }
 .targetDetail{
   width: 90%;
-  max-height: 85%;
+  max-height: 75%;
   background: white;
   border-radius: 20rpx;
   display: flex;
