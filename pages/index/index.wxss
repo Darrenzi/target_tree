@@ -4,7 +4,7 @@ page{
   height: 100%;
   overflow-y: scroll;
   color:white;
-  background: rgb(123, 184, 164);
+  background: rgba(123, 184, 164);
 }
 .coverBackground{
   /* 左侧选择栏出现时的背景 */
@@ -259,7 +259,7 @@ page{
 }
 .targetDetail{
   width: 90%;
-  max-height: 85%;
+  max-height: 75%;
   background: white;
   border-radius: 20rpx;
   display: flex;

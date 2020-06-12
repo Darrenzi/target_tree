@@ -11,6 +11,9 @@ exports.main = async (event, context) => {
 
   return await db.collection('target')
   .aggregate()
+  .match({
+    rightControl:_.eq("全部人可见")
+  })
   .lookup({
     from:"user",
     localField:"_openid",

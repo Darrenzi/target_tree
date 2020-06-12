@@ -56,6 +56,10 @@
 <!-- 好友列表 -->
 <view class="hide{{change_1?'':'show'}}" bindtap="ChangeShowStatus">
   <view>
+    <view wx:if="{{navList.length == 0}}" class="noContent">
+      <image src="../../images/bear.png"></image>
+      <view>暂无</view>
+    </view>
     <view wx:for="{{navList}}" wx:for-index="idx" wx:if="{{idx!='_id'}}" wx:key="key">
       <view class="FriendList" bindtap="getFriendDetail" id="{{idx}}">
          <view class="FriendLine"></view>
@@ -69,6 +73,10 @@
 <!-- 我的排名 -->
 <view class="hide{{change_2?'':'show'}}">
   <view>
+    <view wx:if="{{sortfriend.length == 0}}" class="noContent">
+      <image src="../../images/bear.png"></image>
+      <view>暂无</view>
+    </view>
     <block wx:for="{{sortfriend}}" wx:for-index="friendidx" wx:key="key">
       <view class="Friend">
         <view class="line"></view>

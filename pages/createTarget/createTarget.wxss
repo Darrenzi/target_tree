@@ -898,11 +898,10 @@ justify-content: center;
   justify-content: center;
 }
 textarea {
-  height: 550rpx;
-  width: 515rpx;
-  padding: 25rpx 0;
+  height: 700rpx;
+  width: 520rpx;
   color: rgb(97, 97, 97);
-
+  z-index:0;
 }
 
 .textarea-wrp {
@@ -913,11 +912,13 @@ textarea {
 
 .border{
   width: 520rpx;
-  height: 600rpx;
+  height: 700rpx;
   left: 10rpx;
   position: absolute;
   top: 30rpx;
   border: 2rpx solid gainsboro;
+  overflow-y:hidden;
+  padding:10rpx;
 }
 
 .page-section{
