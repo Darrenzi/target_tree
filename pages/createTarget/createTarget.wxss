@@ -902,6 +902,7 @@ textarea {
   width: 515rpx;
   padding: 25rpx 0;
   color: rgb(97, 97, 97);
+
 }
 
 .textarea-wrp {
