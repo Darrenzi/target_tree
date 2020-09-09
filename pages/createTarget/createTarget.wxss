@@ -686,7 +686,7 @@ justify-content: center;
   font-size: 30rpx;
   align-items: center;
   justify-content: center;
-  width: 200rpx;
+  width: 300rpx;
  }
  .jieshushijian{
   position: absolute;
@@ -710,9 +710,11 @@ justify-content: center;
    justify-content: center;
    display: flex;
    position: absolute;
+   top: 20rpx;
    left: 600rpx;
    border-radius: 10rpx;
  }
+ 
  .today_1{
   height: 70rpx;
    width: 120rpx;
@@ -722,6 +724,7 @@ justify-content: center;
    display: flex;
    position: absolute;
    left: 600rpx;
+   top: 20rpx;
    border-radius: 10rpx;
  }
  .tomorrow{
@@ -733,6 +736,7 @@ justify-content: center;
   display: flex;
   position: absolute;
   left: 450rpx;
+  top: 20rpx;
   border-radius: 10rpx;
 }
 .tomorrow_1{
@@ -744,6 +748,7 @@ justify-content: center;
   display: flex;
   position: absolute;
   left: 450rpx;
+  top: 20rpx;
   border-radius: 10rpx;
 }
 .start_line{
@@ -978,3 +983,53 @@ textarea {
   color:rgb(17, 16, 16);
   background:  white
 }
+
+.time{
+  height: 70rpx;
+  width: 120rpx;
+  background-color: rgba(234, 241, 226, 0.96);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  left: 600rpx;
+  top: 30rpx;
+  border-radius: 10rpx;
+ }
+ .time_1{
+  height: 70rpx;
+  width: 120rpx;
+  background-color: rgba(225, 232, 140, 0.96);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  left: 600rpx;
+  top: 30rpx;
+  border-radius: 10rpx;
+ }
+ 
+ .count{
+  height: 70rpx;
+  width: 120rpx;
+  background-color: rgba(225, 232, 140, 0.96);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  left: 450rpx;
+  top: 30rpx;
+  border-radius: 10rpx;
+ }
+ .count_1{
+  height: 70rpx;
+  width: 120rpx;
+  background-color: rgba(234, 241, 226, 0.96);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  left: 450rpx;
+  top: 30rpx;
+  border-radius: 10rpx;
+ }

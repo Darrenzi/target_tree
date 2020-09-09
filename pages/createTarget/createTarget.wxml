@@ -120,6 +120,7 @@
 </view>
 <view class="start_line"></view>
 </view> 
+
 <!-- 设置休息天数 -->
  <view class="starTime">
   <image src="images/20.png" class="image_startTime"></image>
@@ -137,13 +138,38 @@
 <switch class="stickSwitch"></switch>
 <view class="start_line"></view>
 </view>
+
 <!-- 权限 -->
 <picker class="starTime" range="{{rightControls}}" bindchange="rightControl">
  <image src="images/22.png" class="image_startTime"></image>
  <view class="kaishishijian">权限设置</view>
  <view class="jurisdictionIcon">{{rightControl}}</view>
+ <view class="start_line"></view>
 </picker>
+
+<!-- 设置次数打卡或者是倒计时打卡 -->
+<view class="starTime">
+ <image src="images/21.png" class="image_startTime"></image>
+<view class="kaishishijian">打卡方式</view>
+ <view class="{{chooseCountOrTime?'time':'time_1'}}" bindtap="chooseCountOrTime">定时</view>
+ <view class="{{chooseCountOrTime_1?'count':'count_1'}}" bindtap="chooseCountOrTime_1">次数</view>
+  <view class="start_line"></view>
 </view>
+
+<!-- 定时持续时间 -->
+ <view class="starTime" wx:if="{{!chooseCountOrTime}}">
+  <image src="images/20.png" class="image_startTime"></image>
+  <view class="kaishishijian">持续时间</view>
+  <input class="inputrest" wx:if="{{!change_2}}" placeholder="输入时间" type="number" maxlength="3" bindinput="getduration">天</input>
+  <view class="tian" >分钟</view>
+  <view class="inputRestLine"></view>
+  <view class="start_line"></view>
+</view>
+
+</view>
+
+
+
 <!-- 设置完成按钮 -->
 
 <view class="continue" bindtap="end">完成</view> 
