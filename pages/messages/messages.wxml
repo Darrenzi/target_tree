@@ -74,7 +74,7 @@
   <!-- 展示系统消息 -->
   <view class="systemMessage" hidden="{{current_show!='tip'}}" wx:for="{{tip}}" wx:key="tip" bindtap="operateMessage" id="{{index}}">
     <view class="overview">
-      <view class="ellipsis username" style="margin-top:20rpx;">{{item.title}}</view>
+      <view class="username" style="margin-top:20rpx;width:80%;">{{item.title}}</view>
       <view class="content">{{item.content}}</view>
     </view>
     <image class="deleteSysMsg" src="../../images/shanchu.png" catchtouchend="deleteMsg" id="{{index}}"></image>

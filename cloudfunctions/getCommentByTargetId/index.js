@@ -2,17 +2,14 @@
 const cloud = require('wx-server-sdk')
 
 cloud.init()
-//获得所有发送给自己的评论
+
 // 云函数入口函数
 exports.main = async (event, context) => {
   const db = cloud.database();
   const _ = db.command;
-  const wxContext = cloud.getWXContext();
-  let openid = wxContext.OPENID;
-  let res = await db.collection('comment').aggregate()
+  return await db.collection('comment').aggregate()
     .match({
-      target_id:_.in(event.user_targets),
-      _openid:_.neq(openid)
+      target_id: _.eq(event.targetId)
     })
     .sort({
       time: -1
@@ -24,5 +21,4 @@ exports.main = async (event, context) => {
       as: 'comment_user'
     })
     .end();
-    return res;
 }

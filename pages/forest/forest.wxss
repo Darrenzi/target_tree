@@ -141,7 +141,7 @@ page{
 .watchMore{
   position: absolute;
   right: 30rpx;
-  bottom:20rpx;
+  bottom:10rpx;
 }
 .targetContent{
   height: 300rpx;
@@ -157,7 +157,7 @@ page{
   flex-direction: column;
   margin-top:10rpx;
   align-items: flex-start;
-  min-height: 550rpx;
+  min-height: 570rpx;
 }
 .targetShowDetailLabel{
   width: 25%;

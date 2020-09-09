@@ -175,16 +175,16 @@ Page({
 
   },
 
-  getComment: function(user_targets){
+  getComment: function (targetId){
     let that = this;
     wx.cloud.callFunction({
-      name:"getComment",
+      name:"getCommentByTargetId",
       data:{
-        user_targets: user_targets
+        targetId: targetId
       }
     })
     .then(res=>{
-  
+
       let allComment = res.result.list;
       let reply = [];
       let comment = [];
@@ -353,9 +353,7 @@ Page({
       options.supervisor.pop();
     }
 
-    let user_targets = [];
-    user_targets.push(options.targetId);
-    this.getComment(user_targets);
+    this.getComment(options.targetId);
     let user = getApp().globalData.user;
     this.setData({ user: user, target: options});
 

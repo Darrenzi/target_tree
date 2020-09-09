@@ -26,6 +26,7 @@
     </view>
     <view class="left_option" bindtap="reachTo" data-target="最新消息">
       <image class="left_option_icon" src="../../images/messages.png"></image>最新消息
+      <view class="newMsgNum" wx:if="{{allNewMsgNum!=0}}">{{allNewMsgNum}}</view>
     </view>
     <view class="left_option" bindtap="reachTo" data-target="社区">
       <image class="left_option_icon" src="../../images/community.png"></image>社区

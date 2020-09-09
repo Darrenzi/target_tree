@@ -27,6 +27,7 @@ swiper-item{
   height: 100%;
   display: flex;
   justify-content: center;
+  /* color:rgb(146, 43, 43); */
 }
 .images{
   width: 100%;

@@ -6,7 +6,7 @@ Component({
   properties: {
     content:{
       type:String,
-      value:"你好"
+      value:""
     }
   },
 

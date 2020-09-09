@@ -29,7 +29,7 @@ Component({
       // if(index == this.data.current_index)return;
       this.setData({current_index:index});
       let target = this.data.targets[index]
-      var eventDetail = { target: target} // detail对象，提供给事件监听函数
+      var eventDetail = { target: target, index:index} // detail对象，提供给事件监听函数
       var eventOption = {} // 触发事件的选
       this.triggerEvent('choose', eventDetail, eventOption)
     },
@@ -43,8 +43,16 @@ Component({
 
     update:function(currentTarget){
       //用于父组件调用，更新数据
-      let index = this.data.current_index;
+      var index = -1;
+      for(let i=0;i<this.data.targets.length;i++){
+          if(currentTarget._id == this.data.targets[i]._id){
+            currentTarget.tree = this.data.targets[i].tree;
+            index= i;
+            break;
+          }
+      }
       this.setData({ [`targets[${index}]`]: currentTarget});
+      // console.log(currentTarget);
     },
 
     deleteTarget:function(){

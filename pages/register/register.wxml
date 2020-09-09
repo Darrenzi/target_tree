@@ -36,7 +36,7 @@
       </label>
 
       <label>
-        <radio value="green" id="green">绿色</radio>
+        <radio value="green" id="green">绿色(功能更新较慢)</radio>
         <image src="images/green.png" class="themeOption"></image>
       </label>
     </radio-group>

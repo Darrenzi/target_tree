@@ -87,6 +87,20 @@ page{
   margin-right: 20rpx;
   margin-left: 100rpx;
 }
+.newMsgNum{
+  background: rgb(173, 80, 80);
+  min-height: 50rpx;
+  min-width: 50rpx;
+  color: white;
+  font-size: 30rpx;
+  border-radius: 100%;
+  margin-left: 30rpx;
+  margin-top:5rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+}
 
 /* 左上角按钮 */
 .options{
@@ -120,6 +134,7 @@ page{
   align-items: center;
   top:50rpx;
 }
+
 .containerOfProgress{
   display: flex;
   justify-content: center;

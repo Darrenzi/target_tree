@@ -14,7 +14,8 @@
     "pages/forest/forest",
     "pages/community/community",
     "pages/targetDetail/targetDetail",
-    "pages/messages/messages"
+    "pages/messages/messages",
+    "pages/clock/clock"
   ],
   "window": {
     "backgroundTextStyle": "light",

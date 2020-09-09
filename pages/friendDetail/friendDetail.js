@@ -142,13 +142,12 @@ Page({
         dateField:dateField,
       },
       success:function(res){
-  
         that.getTreeImage(res.result.list);
         that.getStatistics(res.result.list);
         that.setData({targets:res.result.list, loadContent:''});
       },
       fail:function(err){
- 
+        console.log(err);
       }
     })
   },

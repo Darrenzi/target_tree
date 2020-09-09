@@ -1,0 +1,10 @@
+<!--pages/clock/clock.wxml-->
+<!-- <inform content="{{informContent}}" bindclose="recordSuccess"></inform> -->
+<div class="main" bindtouchstart="warning">
+  <view class="title">{{title}}</view>
+  <image class="middleImg" src="../loading/loading.gif"></image>
+  <view class="clock">
+    {{min>10?min:"0"+min}}:{{second>=10?second:"0"+second}}
+  </view>
+  <view class="button" catchtouchstart="giveUp">放弃</view>
+</div>

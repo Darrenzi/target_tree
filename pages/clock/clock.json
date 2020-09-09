@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "inform": "../../components/inform/inform"
+  }
+}
