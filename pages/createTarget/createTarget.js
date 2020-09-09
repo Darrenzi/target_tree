@@ -60,6 +60,10 @@ Page({
    current_index_1:-1,
    changeView:false,
    changeView_1:false,
+   chooseCountOrTime:true,
+   chooseCountOrTime_1:true,
+   type:"count",
+   duration:0,
    amount:0,
    setDate:0,
    //树苗的Id
@@ -107,6 +111,24 @@ Page({
       setDate:1
      })
   },
+
+  chooseCountOrTime:function(){
+    this.setData({
+      chooseCountOrTime:false,
+      chooseCountOrTime_1:false,
+      type:'time'
+     })
+
+  },
+  chooseCountOrTime_1:function(){
+
+    this.setData({
+      chooseCountOrTime:true,
+      chooseCountOrTime_1:true,
+      type:'count'
+     })
+  },
+
   //按键输入至input框中
   setdata:function(e){
     this.setData({
@@ -171,8 +193,14 @@ Page({
   getRest:function(e){
   this.setData({
   rest:e.detail.value
-})
-  },
+  })
+},
+getduration:function(e){
+  this.setData({
+    duration:e.detail.value
+  })
+  
+},
 
   back:function(){
     wx.navigateBack({});
@@ -366,6 +394,7 @@ Page({
    let userCoin=app.globalData.user.coin
    let nowCoin=userCoin-setCoin
    let rightControl = this.data.rightControl;
+   let duration=this.data.duration;
    if(setCoin!=0){
    wx.cloud.callFunction({
     // 云函数名称
@@ -418,12 +447,14 @@ Page({
     rest: Number(rest),//用户创建目标的休息天数
     time: new Date(),//用户创建目标的时间
     amount: Number(amount),//总打卡时间
+    duration:Number(60*duration),//持续时间
     comment: 0,//用户该目标的评论数
     status: 0,//用户当前目标的状态
     record: 0,//用户目标打卡次数
     status: 0,//任务状态
     progress: 0.00,  //任务进度
     treeId: that.data.treeId, //树苗的id
+    type:this.data.type,//目标的种类
     rightControl:rightControl
    }
    db.collection('target').add({
