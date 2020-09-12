@@ -12,7 +12,8 @@ Page({
     currentShow:"推荐",
     //目标分页
     page:0,
-
+    //打卡详情
+    TargetsRecord:[],
     //围观的目标
     watchTargets:[],
     //没有更多目标的标识符，防止无效的网络拉取
@@ -24,6 +25,10 @@ Page({
     inputCoinIndex:-1,
     //投币的用户及目标信息
     inputCoinMsg:{},
+    //是否显示用户单个目标的打卡信息
+    showRecord:true,
+    //打卡次数为0
+    countIsZero:true,
     loadContent:"加载中...",
     informContent:""
   },
@@ -68,6 +73,63 @@ Page({
     inputCoinMsg.targetTitle = target.title;
     inputCoinMsg.userCoin = user.coin;
     this.setData({ inputCoinFlag: true, inputCoinMsg: inputCoinMsg, inputCoinIndex:index});
+  },
+  closeRecord:function(){
+   
+    this.setData({
+       showRecord:true,
+       countIsZero:true,
+       TargetsRecord:[]
+    })
+
+  },
+
+  showRecord:function(e){
+    this.setData({
+      showRecord:false,
+      
+    })
+    let index = e.currentTarget.id;
+    console.log("target:"+index)
+    let target = this.data.targets[index];
+    console.log(target)
+    let targetId=target._id;
+    console.log(targetId)
+    const db=wx.cloud.database();
+  
+    db.collection('record').where({
+       target_id:targetId
+    })
+    .get()
+    .then(res=>{
+      console.log(res.data)
+       this.setData({
+        TargetsRecord:res.data
+       })
+       let recordLength=this.data.TargetsRecord.length;
+       if(recordLength==0){
+         this.setData({
+           countIsZero:false
+         })
+         return
+       }
+       for(let i=0;i<recordLength;i++){
+         let year=this.data.TargetsRecord[i].time.getFullYear();
+         let month=this.data.TargetsRecord[i].time.getMonth();
+         let day=this.data.TargetsRecord[i].time.getDate();
+        let recordYear="TargetsRecord["+i+"].year"  //为数组添加键值对
+        let recordMonth="TargetsRecord["+i+"].month"
+        let recordday="TargetsRecord["+i+"].date"
+        this.setData({
+           [recordYear]:year,
+           [recordMonth]:month,
+           [recordday]:day,
+        })
+       
+       }
+    })
+  
+  
   },
 
   goToUserForest:function(e){

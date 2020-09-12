@@ -9,8 +9,26 @@
   <view class="back" bindtap="backHome">《</view>
 </view>
 
+
+ <!-- 用于显示打卡评论 -->
+      <view class="recordBackground" hidden="{{showRecord}}">
+        <view class="recordBorder">
+          <view wx:for="{{TargetsRecord}}">
+           <view class="reccordTime">打卡时间：{{item.year}}年{{item.month}}月{{item.date}}日</view>
+           <view class="recordContent">感想：{{item.content}}</view>
+           <view class="recordLine"></view>
+          </view>
+        </view>
+      <view class="closeircle">
+         <view class="close" bindtap="closeRecord" >x</view>
+      </view>
+      <view class="countIsZero" hidden="{{countIsZero}}">该目标还没有打过卡呢！</view>
+      </view>
+
 <!-- 推荐 -->
 <scroll-view class="main" scroll-y bindscrolltolower="getMoreTargets" hidden="{{currentShow != '推荐'}}" lower-threshold="100rpx">
+
+
   <view class="target" wx:for="{{targets}}" wx:key="target" bindtap="targetDetail" id="{{index}}">
     <view class="targetTop">
       <image class="avatar" src="{{item.userList[0].avatarUrl}}" catchtap="goToUserForest" id="{{index}}"></image>
@@ -19,6 +37,7 @@
         <view class="targetRecord">已打卡{{item.record}}天</view>
       </view>
       <view class="insertCoinButton" catchtap="showInputCoin" id="{{index}}">投币</view>
+      <view class="insertCoinButton_1" catchtap="showRecord" id="{{index}}">打卡记录</view>
     </view>
 
     <view class="targetTitle">{{item.title}}</view>

@@ -160,9 +160,9 @@
  <view class="starTime" wx:if="{{!chooseCountOrTime}}">
   <image src="images/20.png" class="image_startTime"></image>
   <view class="kaishishijian">持续时间</view>
-  <input class="inputrest" wx:if="{{!change_2}}" placeholder="输入时间" type="number" maxlength="3" bindinput="getduration">天</input>
-  <view class="tian" >分钟</view>
-  <view class="inputRestLine"></view>
+  <input class="inputminute" wx:if="{{!change_2}}" placeholder="输入时间" type="number" maxlength="3" bindinput="getduration">天</input>
+  <view class="minute" >分钟</view>
+  <view class="inputMintLine"></view>
   <view class="start_line"></view>
 </view>
 

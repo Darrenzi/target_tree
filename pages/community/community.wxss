@@ -50,7 +50,7 @@ page{
   position: relative;
 }
 .insertCoinButton{
-  width: 100rpx;
+  width: 150rpx;
   height: 50rpx;
   color:white;
   background: rgb(57, 163, 103);
@@ -62,9 +62,88 @@ page{
   position: absolute;
   right:40rpx;
 }
+.insertCoinButton_1{
+  width: 150rpx;
+  height: 50rpx;
+  color:white;
+  background: rgb(57, 163, 103);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+  box-shadow: 5rpx 5rpx 5rpx 5rpx rgb(24, 119, 65);
+  position: absolute;
+  top: 120rpx;
+  right:40rpx;
+}
 .watchButton:active{
   margin-top:5rpx;
   box-shadow: none;
+}
+.recordBackground{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(75, 80, 80, 0.44);
+  z-index: 10;
+}
+.recordBorder{
+  position: absolute;
+  height: 70%;
+  width: 80%;
+  top: 15%;
+  left: 10%;
+  background: rgb(121, 232, 193);
+  border-radius: 5%;
+}
+.reccordTime{
+  position: relative;
+font-weight: bold;
+margin-top:8%;
+left: 10%;
+}
+.recordContent{
+  position: relative;
+  font-weight: bold;
+  margin-top:5%;
+  left: 10%;
+  right: 5%;
+}
+.recordLine{
+  position: relative;
+  height: 3rpx;
+  width: 90%;
+  left: 5%;
+  margin-top: 3%;
+  background: black;
+}
+
+.closeircle{
+  position: fixed;
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 60rpx;
+  bottom: 18%;
+  left: 46%;
+  border: 3rpx solid rgb(0, 0, 0);
+}
+.close{
+  position: fixed;
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 60rpx;
+  font-weight: bold;
+  bottom: 18%;
+  left: 48.5%;
+  font-size: 40rpx;
+}
+.countIsZero{
+  font-weight: bold;
+  position: fixed;
+  font-size: 25px;
+  top: 40%;
+  left: 19%;
+ color: black;
 }
 .avatar{
   height: 100rpx;
