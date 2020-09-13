@@ -1,0 +1,18 @@
+<!--pages/record/record.wxml-->
+<view class="main">
+  <view class="top">
+    <image class="icon" src="../../images/bear.png"></image>
+    <view class="tip">
+      <text>打卡成功啦\n赶紧记录一下今天的收获吧~</text>
+    </view>
+  </view>
+
+  <view class="inputContainer">
+    <view class="limit">{{num}}/1000</view>
+    <textarea class="recordInput" maxlength="1000" placeholder="这个人很懒，什么都不想记录~" bindinput="inputRecord"></textarea>
+  </view>
+
+  <view class="confirmButton" bindtap="confirm">确认</view>
+</view>
+
+<loading content="{{loadContent}}"></loading>

@@ -2,6 +2,7 @@
   "cloud": true,
   "pages": [
     "pages/loading/loading",
+    "pages/record/record",
     "pages/register/register",
     "pages/createTarget/createTarget",
     "pages/FriendSystem/FriendSystem",
@@ -15,7 +16,8 @@
     "pages/community/community",
     "pages/targetDetail/targetDetail",
     "pages/messages/messages",
-    "pages/clock/clock"
+    "pages/clock/clock",
+    "pages/studyRoom/studyRoom"
   ],
   "window": {
     "backgroundTextStyle": "light",

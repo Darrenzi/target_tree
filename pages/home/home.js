@@ -37,7 +37,9 @@ Page({
     treeOpacity: 0,
 
     //从何处跳转到该界面
-    originPage:""
+    originPage:"",
+    //跳转过来的界面处理的目标的id
+    originPageTargetId:""
   },
 
   //初始化用户信息
@@ -205,9 +207,18 @@ Page({
 
   chooseTarget: function(e) {
     //选择目标
-    console.log(e.detail);
+    // console.log(e.detail);
+    let currentTarget = e.detail.target;
+    try{
+      if (typeof (currentTarget.type) != undefined && currentTarget.type == "time") {
+        currentTarget.minDuration = (currentTarget.duration / 60).toFixed(1);
+      }
+    }
+    catch{
+      console.log("err:初始化时,currentTarget 为undefined");
+    }
     this.setData({
-      currentTarget: e.detail.target,
+      currentTarget: currentTarget,
       currentTargetIndex:e.detail.index,
       treeShow: false
     });
@@ -320,6 +331,17 @@ Page({
           })
           break;
         }
+      case '自习室':{
+        wx.navigateTo({
+          url: '../studyRoom/studyRoom',
+          complete: function () {
+            that.setData({
+              loadContent: ''
+            });
+          }
+        })
+        break;
+      }
       default:
         {
           that.setData({
@@ -401,6 +423,7 @@ Page({
         if (res.data.length != 0) {
           //取打卡表中的最后一次打卡记录，用于判断是否是同一天
           lastDate = (res.data[0].time).Format("yyyy-MM-dd");
+          console.log(lastDate);
         } else {
           //打卡表没有记录
           lastDate = "";
@@ -413,9 +436,9 @@ Page({
             loadContent: ""
           });
         } else {
-
           //判断是否为计时目标
           if (currentTarget.type == "time") {
+            console.log(that.data.currentTargetIndex);
             wx.navigateTo({
               url: '../clock/clock?targetId=' + currentTarget._id + "&duration=" + currentTarget.duration+"&index="+this.data.currentTargetIndex,
             })
@@ -435,61 +458,45 @@ Page({
     console.log("打卡:"+id);
     var db = wx.cloud.database();
     if (id != undefined) {
-      //表明该目标为计时目标，需重新拉取目标
-      db.collection('target').doc(id).get().then(res => {
-        console.log(res);
-        var currentTarget = res.data;
-        let targets = this.selectComponent('#target').data.targets;
-        for(let i=0;i<targets.length;i++){
-          if(currentTarget._id = targets[i]._id){
-            currentTarget.tree = targets[i].tree;
-            break;
-          }
+      //表明该目标为计时目标
+      //跳转到记录界面
+      wx.navigateTo({
+        url: '../record/record?targetId=' + id + "&index=" + this.data.currentTargetIndex,
+        fail: function () {
+          this.setData({ informContent: "跳转到记录界面失败" });
         }
-        this.judgePhase(currentTarget);
       })
-      .catch(err=>{
-        console.log(err);
-      });
       return;
     }
 
-    this.judgePhase(this.data.currentTarget);
+    // this.judgePhase(this.data.currentTarget);
+    //跳转到记录界面
+    wx.navigateTo({
+      url: '../record/record?targetId=' + this.data.currentTarget._id + "&index=" + this.data.currentTargetIndex,
+      fail:function(){
+        this.setData({informContent:"跳转到记录界面失败"});
+      }
+    })
   },
 
   judgePhase: function(currentTarget) {
-    //根据进度打卡
-    var db = wx.cloud.database();
-    var that = this;
-    //完成后添加打卡记录
-    db.collection('record').add({
-      //添加打卡记录
-      data: {
-        target_id: currentTarget._id,
-        time: new Date()
-      }
-    }).then(res => {
-      //更新目标表中的打卡记录及任务进度
-      let progress = ((currentTarget.record + 1) /currentTarget.amount * 100).toFixed(2);
-      if (progress >= 100) {
-        //打卡后任务完成
-        that.completeTarget(currentTarget);
-      } else {
-        //打卡后任务未完成
-        that.updateTarget(currentTarget, progress);
-      }
-    }).catch(err => {
-      console.log(err)
-      that.setData({
-        loadContent: '',
-        informContent: "意外错误"
-      });
-    })
+     //根据进度打卡
+    console.log("judgePhase处理的目标", currentTarget);
+    //更新目标表中的打卡记录及任务进度
+    let progress = ((currentTarget.record + 1) / currentTarget.amount * 100).toFixed(2);
+    console.log(progress);
+    if (progress >= 100) {
+      //打卡后任务完成
+      this.completeTarget(currentTarget);
+    } else {
+      //打卡后任务未完成
+      this.updateTarget(currentTarget, progress);
+    }
   },
 
   updateTarget: function(currentTarget, newProgress) {
     //打卡后任务未完成
-    console.log(currentTarget);
+    console.log("目标未完成",currentTarget);
     let that = this;
     const db = wx.cloud.database();
     const _ = db.command;
@@ -563,6 +570,7 @@ Page({
 
   completeTarget: function(currentTarget) {
     //打卡后任务完成
+    console.log(currentTarget);
     let user = this.data.user;
     let that = this;
     const db = wx.cloud.database();
@@ -648,11 +656,6 @@ Page({
    */
   onLoad: function(options) {
     this.initUser();
-    // if (options.origin == "timer") {
-    //   //从计时器页面跳转来,表明计时完成
-    //   let id = options._id;
-    //   this.addRecord(id);
-    // }
   },
 
   /**
@@ -665,18 +668,26 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-    if(this.data.originPage=="clock"){
-      //从计时界面跳转过来，需要打卡记录
-      this.addRecord(this.currentTargetIndex);
-      this.setData({originPage:""});
-    }
-    // 触发组件的choose方法选中第一个目标
-    this.selectComponent('#target').choose({
+  onShow: async function() {
+    // 触发组件的choose方法选中目标,阻塞执行,保证当前currentTarget为其他界面处理的对象
+    await this.selectComponent('#target').choose({
       currentTarget: {
         id: this.data.currentTargetIndex
       }
     });
+
+    if(this.data.originPage=="clock"){
+      //从计时界面跳转过来，需要打卡记录
+      this.addRecord(this.data.originPageTargetId);
+      this.setData({originPage:""});
+    }
+
+    if(this.data.originPage=="record"){
+      //从打卡记录页面过来，需要更新当前目标的状态
+      console.log("judgePhase处理的目标",this.data.currentTarget);
+      this.judgePhase(this.data.currentTarget);
+      this.setData({originPage:""})
+    }
   },
 
   /**

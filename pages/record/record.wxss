@@ -1,0 +1,64 @@
+/* pages/record/record.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+.main{
+  width:100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgb(135, 185, 135);
+  color:white;
+}
+.icon{
+  width: 150rpx;
+  height: 150rpx;
+}
+.tip{
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.top{
+  display: flex;
+  align-items: center;
+}
+.inputContainer{
+  height: 60%;
+  width: 80%;
+  border-radius: 20rpx;
+  padding:20rpx;
+  background: white;
+  margin-top:20rpx;
+  position: relative;
+  color:black;
+  overflow: hidden;
+}
+.recordInput{
+  font-size: 35rpx;
+  overflow: scroll;
+  border-radius: 20rpx;
+  height: 95%;
+}
+.limit{
+  position: absolute;
+  right: 20rpx;
+  bottom:20rpx;
+}
+.confirmButton{
+  background: rgb(188, 201, 115);
+  width: 200rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35rpx;
+  border-radius: 10rpx;
+  margin-top: 50rpx;
+}
+.confirmButton:active{
+  position: relative;
+  top:5rpx;
+}

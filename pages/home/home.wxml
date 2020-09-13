@@ -28,6 +28,9 @@
       <image class="left_option_icon" src="../../images/messages.png"></image>最新消息
       <view class="newMsgNum" wx:if="{{allNewMsgNum!=0}}">{{allNewMsgNum}}</view>
     </view>
+    <view class="left_option" bindtap="reachTo" data-target="自习室">
+      <image class="left_option_icon" src="../../images/mall.png"></image>自习室
+    </view>
     <view class="left_option" bindtap="reachTo" data-target="社区">
       <image class="left_option_icon" src="../../images/community.png"></image>社区
     </view>
@@ -58,7 +61,7 @@
     <!-- 动画显示的树木 -->
     <image class="tree" src="{{currentTarget.tree}}" style="height:{{treeHeight}}; opacity:{{treeOpacity}};" animation="{{treeAnimation}}" wx:if="{{!treeShow}}" bindload="imageLoadCompleted"></image>
     <!-- 动画结束后显示的固定树木 -->
-    <image class="tree" src="{{currentTarget.tree}}" hidden="{{!treeShow}}" ></image>
+    <image class="tree" src="{{currentTarget.tree}}" hidden="{{!treeShow}}"></image>
     <image class="solid" src="../../images/defaultSoil.png"></image>
   </view>
   <view class="target_title">{{currentTarget.title}}</view>
@@ -88,7 +91,7 @@
         <view class="targetDetailLabel">标签：</view>
         {{currentTarget.label}}
       </view>
-       <view class="targetDetailRow">
+      <view class="targetDetailRow">
         <view class="targetDetailLabel">标题：</view>
         <view style="width:82%;">{{currentTarget.title}}</view>
       </view>
@@ -96,14 +99,18 @@
         <view class="targetDetailLabel">总天数：</view>
         {{currentTarget.amount}}
       </view>
+      <view class="targetDetailRow" wx:if="{{currentTarget.type=='time'}}">
+        <view class="targetDetailLabel">每日持续时间：</view>
+        {{currentTarget.minDuration}} 分钟
+      </view>
       <view class="targetDetailRow">
         <view class="targetDetailLabel">进度：</view>
-         <progress class="targetDetailProgress" active percent="{{currentTarget.progress}}" activeColor="rgb(212, 212, 79)" stroke-width="30rpx" border-radius="20rpx" backgroundColor="gray"></progress>
+        <progress class="targetDetailProgress" active percent="{{currentTarget.progress}}" activeColor="rgb(212, 212, 79)" stroke-width="30rpx" border-radius="20rpx" backgroundColor="gray"></progress>
       </view>
       <view class="targetDetailRow">
         <view class="targetDetailLabel">具体内容：</view>
       </view>
-       <view class="targetDetailContent">
+      <view class="targetDetailContent">
         <text>{{currentTarget.content}}</text>
       </view>
       <calendar targetId="{{currentTarget._id}}"></calendar>

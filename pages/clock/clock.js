@@ -74,7 +74,7 @@ Page({
     //打卡成功后点击确定
     let pages = getCurrentPages();
     let homePage = pages[pages.length-2];
-    homePage.setData({currentTargetIndex:this.data.targetIndex, originPage:"clock"});
+    homePage.setData({ currentTargetIndex: this.data.targetIndex, originPage: "clock", originPageTargetId: this.data.targetId});
     wx.navigateBack({});
     // wx.redirectTo({
     //   url: '../home/home?origin='+"timer&_id="+this.data.targetId,

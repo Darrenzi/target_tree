@@ -1,0 +1,6 @@
+<!--pages/studyRoom/studyRoom.wxml-->
+<loading content="{{loadContent}}"></loading>
+<view bindtap="back" class="back">back</view>
+<view wx:for="{{emptyRoom}}" wx-key="index">
+  {{item.cdmc}}
+</view>
