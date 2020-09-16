@@ -353,6 +353,7 @@ Page({
 
   record: function() {
     //打卡
+    console.log(this.data.currentTarget);
     if (this.data.currentTarget == undefined) return;
     this.setData({
       loadContent: '正在加载...'

@@ -85,6 +85,10 @@
     <image src="../../images/dangan.png" class="bottomOtionIcon"></image>
     推荐
   </view>
+  <!-- <view class="bottomOption {{currentShow=='记录'?'bottomOptionChoose':''}}" bindtap="choose" data-target="记录">
+    <image src="../../images/shuru.png" class="bottomOtionIcon"></image>
+    记录
+  </view> -->
   <view class="bottomOption {{currentShow=='围观'?'bottomOptionChoose':''}}" bindtap="choose" data-target="围观">
     <image src="../../images/xingji.png" class="bottomOtionIcon"></image>
     围观

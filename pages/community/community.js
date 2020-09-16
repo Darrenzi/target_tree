@@ -12,7 +12,8 @@ Page({
     currentShow:"推荐",
     //目标分页
     page:0,
-
+    //打卡详情
+    TargetsRecord:[],
     //围观的目标
     watchTargets:[],
     //没有更多目标的标识符，防止无效的网络拉取
@@ -68,6 +69,16 @@ Page({
     inputCoinMsg.targetTitle = target.title;
     inputCoinMsg.userCoin = user.coin;
     this.setData({ inputCoinFlag: true, inputCoinMsg: inputCoinMsg, inputCoinIndex:index});
+  },
+  
+  closeRecord:function(){
+   
+    this.setData({
+       showRecord:true,
+       countIsZero:true,
+       TargetsRecord:[]
+    })
+
   },
 
   goToUserForest:function(e){

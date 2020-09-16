@@ -3,6 +3,7 @@
   "pages": [
     "pages/loading/loading",
     "pages/record/record",
+    "pages/community/community",
     "pages/register/register",
     "pages/createTarget/createTarget",
     "pages/FriendSystem/FriendSystem",
@@ -13,7 +14,6 @@
     "pages/mall/mall",
     "pages/friendDetail/friendDetail",
     "pages/forest/forest",
-    "pages/community/community",
     "pages/targetDetail/targetDetail",
     "pages/messages/messages",
     "pages/clock/clock",

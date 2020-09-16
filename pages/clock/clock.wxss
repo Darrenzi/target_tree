@@ -13,6 +13,7 @@ page {
   align-items: center;
   justify-content: center;
   background: rgb(248, 248, 248);
+  position: relative;
 }
 
 .title {
@@ -43,4 +44,10 @@ page {
   color: white;
   border-radius: 20rpx;
   margin-top: 120rpx;
+}
+
+.tips{
+  position: absolute;
+  top:100rpx;
+  left: 50rpx;
 }

@@ -50,7 +50,7 @@
 
 <view class="main">
   <view class="containerOfProgress">
-    <image src="images/book.png" class="progress_icon"></image>
+    <image src="cloud://test-e5a3a.7465-test-e5a3a-1301749733/index_imgs/book.png" class="progress_icon"></image>
     <progress class="mainProgress" active percent="{{currentTarget.progress}}" activeColor="rgb(212, 212, 79)" stroke-width="35rpx" border-radius="20rpx" backgroundColor="white" active-mode="forwards"/>
   </view>
 
@@ -59,7 +59,7 @@
     <image class="tree" src="{{currentTarget.tree}}" style="height:{{treeHeight}}; opacity:{{treeOpacity}}" animation="{{treeAnimation}}" wx:if="{{!treeShow}}" bindload="imageLoadCompleted"></image>
     <!-- 动画结束后显示的固定树木 -->
     <image class="tree" src="{{currentTarget.tree}}" hidden="{{!treeShow}}"></image>
-    <image class="solid" src="images/solid.png"></image>
+    <image class="solid" src="cloud://test-e5a3a.7465-test-e5a3a-1301749733/index_imgs/solid.png"></image>
   </view>
   <view class="target_title">{{currentTarget.title}}</view>
   <view class="button" bindtap="record">打卡</view>

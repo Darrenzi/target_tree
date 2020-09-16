@@ -19,14 +19,52 @@ Page({
     warningFlag:false,
     //计时结束标志
     complete:false,
+    //提醒的语句
+    tips:[
+      "任何事物，专注它，就是在创造它!",
+      "专注你的梦想，做自己的英雄。",
+      "成功三步骤：提前准备，保持专注，面带微笑完成任务。",
+      "成功始于专注，专注在于当下。"
+    ],
+    //语音实例
+    voice:null,
+    //是否开启语音提醒
+    voiceStatus:true,
 
-    informContent:''
+    confirmContent:'',
+    confirmTitle:''
+  },
+
+  changeVoice:function(e){
+    let status = e.detail.value;
+    if(status){
+      this.createVoice();
+    }
+    else{
+      this.data.voice.destroy();
+    }
+    this.setData({voiceStatus: status});
+  },
+
+  createVoice:function(){
+    //创建音频
+    var voice = wx.createInnerAudioContext();
+    voice.src = "cloud://test-e5a3a.7465-test-e5a3a-1301749733/voice/提醒语音.mp3";
+    this.setData({ voice: voice});
+  },
+
+  confirmGiveUp:function(){
+    //确认放弃
+    //清除计时器
+    clearInterval(this.data.interval);
+    //清除提醒音频
+    this.data.voice.destroy();
+    wx.navigateBack({});
   },
 
   giveUp:function(){
-    //清楚计时器
-    clearInterval(this.data.interval);
-    wx.navigateBack({});
+    //显示放弃提醒窗口
+    this.setData({confirmTitle:"放弃打卡确认", confirmContent:"真的不再坚持一会吗？"});
   },
 
   warning:function(){
@@ -35,7 +73,8 @@ Page({
     this.setData({title:"专注！专注！", warningFlag:true});
     wx.vibrateShort({
       success:()=>{
-        console.log("震动");
+        // console.log("震动");
+        if (this.data.voiceStatus) this.data.voice.play();
       },
       fail:()=>{
         console.log("该机型不支持震动");
@@ -44,11 +83,12 @@ Page({
     //3s后修改会其他语句
     var that = this;
     setTimeout(()=>{
-      that.setData({title:"坚持就是胜利", warningFlag:false});
-    },4000)
+      var rand = (Math.random() % 4).toFixed(0);
+      that.setData({title:that.data.tips[rand], warningFlag:false});
+    },3000)
   },
 
-  timer:function(interval){
+  timer:function(){
     //计时器
     var second = this.data.second;
     var min = this.data.min;
@@ -59,6 +99,7 @@ Page({
       this.setData({complete:true});
       //打卡成功
       this.recordSuccess();
+      this.data.voice.destroy();
     }
 
     if(second == 0 && min>0){
@@ -87,6 +128,7 @@ Page({
     console.log(options);
     //测试
     // options.duration = 5;
+    this.createVoice();
     var min = 0;
     var second =0;
     if(options.duration<=60){
@@ -102,6 +144,7 @@ Page({
    */
   onReady: function () {
     var that = this;
+    //启动计时器
     var interval = setInterval(that.timer, 1000);
     this.setData({interval:interval});
   },
@@ -110,7 +153,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**

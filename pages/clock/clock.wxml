@@ -1,6 +1,9 @@
 <!--pages/clock/clock.wxml-->
-<!-- <inform content="{{informContent}}" bindclose="recordSuccess"></inform> -->
+<confirm content="{{confirmContent}}" title="{{confirmTitle}}" bindclose="recordSuccess" bindconfirm="confirmGiveUp"></confirm>
 <div class="main" bindtouchstart="warning">
+  <label class="tips">
+    <switch style="margin-right:10rpx;" checked="true" catchchange="changeVoice"></switch>声音提醒
+  </label>
   <view class="title">{{title}}</view>
   <image class="middleImg" src="../loading/loading.gif"></image>
   <view class="clock">

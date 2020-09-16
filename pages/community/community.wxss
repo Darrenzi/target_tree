@@ -50,7 +50,7 @@ page{
   position: relative;
 }
 .insertCoinButton{
-  width: 100rpx;
+  width: 150rpx;
   height: 50rpx;
   color:white;
   background: rgb(57, 163, 103);
@@ -60,6 +60,20 @@ page{
   border-radius: 10rpx;
   box-shadow: 5rpx 5rpx 5rpx 5rpx rgb(24, 119, 65);
   position: absolute;
+  right:40rpx;
+}
+.insertCoinButton_1{
+  width: 150rpx;
+  height: 50rpx;
+  color:white;
+  background: rgb(57, 163, 103);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+  box-shadow: 5rpx 5rpx 5rpx 5rpx rgb(24, 119, 65);
+  position: absolute;
+  top: 120rpx;
   right:40rpx;
 }
 .watchButton:active{

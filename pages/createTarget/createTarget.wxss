@@ -663,11 +663,25 @@ justify-content: center;
    width: 200rpx;
    height: 50rpx;
  }
+ .inputminute{
+  position: absolute;
+  margin-top: 50rpx;
+  margin-left: 505rpx;
+  width: 200rpx;
+  height: 50rpx;
+ }
  .tian{
   position: absolute;
   margin-top: 56rpx;
   margin-left: 680rpx;
   font-size: 35rpx;
+ }
+ .minute{
+  position: absolute;
+  margin-top: 56rpx;
+  margin-left: 650rpx;
+  font-size: 35rpx;
+
  }
  .inputRestLine{
    width: 150rpx;
@@ -676,6 +690,14 @@ justify-content: center;
    margin-top: 95rpx;
    margin-left: 530rpx;
    background-color: rgba(116, 121, 110, 0.96);
+ }
+ .inputMintLine{
+  width: 150rpx;
+  height: 3rpx;
+  position: absolute;
+  margin-top: 95rpx;
+  margin-left: 500rpx;
+  background-color: rgba(116, 121, 110, 0.96);
  }
  .kaishishijian{
   position: absolute;
