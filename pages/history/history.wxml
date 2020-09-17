@@ -3,7 +3,11 @@
 <loading content="{{loadContent}}"></loading>
 <inform content="{{informContent}}"></inform>
 
-<view class="allpage"  bindtouchstart="targetTouchStart" bindtouchend="targetTouchEnd">
+<!-- 打卡历程 -->
+
+
+
+<view class="allpage"  bindtouchstart="targetTouchStart" bindtouchend="targetTouchEnd" wx:if="{{!showTargetRecord}}">
 
 <view class="top">
   <view class="top_title"> 时间历程</view>
@@ -12,27 +16,27 @@
     <image class="dateOption" bindtap="lastMonth" src="../../images/left.png"></image>
     <view class="curdate">{{year}}年{{month}}月</view>
     <image class="dateOption_1" bindtap="nextMonth" src="../../images/right.png"></image>
- </view>
- </view>
-
-
+  </view>
+</view>
 
 <view class="whitespace"></view>
 
-<view wx:for="{{targetList}}" wx:key="targetKey"  id="{{index}}" bindtap="targetDetail" >
- <view class="allTargetContent">  <!--显示目标  -->
+
+
+<view wx:for="{{targetList}}" wx:key="targetKey"  id="{{index}}" bindtap="targetRecord" >
+<view class="allTargetContent">  <!--显示目标  -->
   <view class="date">{{item.year}}年{{item.month}}月{{item.day}}日</view>
-  <view class="targetClass">
-   <view class="treeclass"></view>
-   <view class="line"></view>
-   <view class="allDay">{{item.amount}}</view>
-   <image src="/images/record.png" class="imageClendar"></image>
-   <view class="allCoin">{{item.coin}}</view>
-   <image src="/images/pig.png" class="imagepig"></image>
-   <image src="/images/defaultSoil.png"   class="imageSolid"></image>
-   <view class="labelclass">{{item.title}}</view>
-    <image src="{{item.src}}" class="tree"></image>
-  </view>
+   <view class="targetClass">
+     <view class="treeclass"></view> 
+     <view class="line"></view>
+     <view class="allDay">{{item.amount}}</view>
+     <image src="/images/record.png" class="imageClendar"></image>
+     <view class="allCoin">{{item.coin}}</view>
+     <image src="/images/pig.png" class="imagepig"></image>
+     <image src="/images/defaultSoil.png"   class="imageSolid"></image>
+     <view class="labelclass">{{item.title}}</view>
+     <image src="{{item.src}}" class="tree"></image>
+   </view>
  </view>
 </view>
    <view class="whitespace_1"></view> 
@@ -44,17 +48,48 @@
   <image class="imagelabel" src="{{item.imagesrc}}"></image>
     <view class="targetLabel">{{item.label}}</view>
   </view>
-
-
   <view class="label" wx:if="{{labelList.length<3}}">空</view>
   <view class="label" wx:if="{{labelList.length<2}}">空</view>
   <view class="label" wx:if="{{labelList.length<1}}">空</view>
   <view class="label" wx:if="{{labelList.length<4}}">空</view>
 </view>
+
 <view class="Null_targetList" wx:if="{{NULL_targetList==0}}">
     <image class="noImage" src="../messages/images/tree2.png" ></image>
     <text class="NULL_TEXT">暂无目标</text>
 </view> 
+
+
+
+<view class="TargetRecord" wx:if="{{showTargetRecord}}">
+<!-- 当打卡次数为空 -->
+ <view class="isZero" wx:if="{{countIsZero}}">
+  <view>该目标还没有进行过打卡呢~</view>
+  <image src="/images/bear.png" class=""></image>
+ </view>
+<!-- 顶部 -->
+<view class="top">
+  <view class="top_title"> 打卡记录</view>
+  <view class="back" bindtap="recordBackHome">《</view>
+</view>
+<!-- 一个目标的打卡记录 -->
+  <view wx:for="{{TargetsRecord}}" id="{{index}}">
+    <view class="allTargetContent_1">  <!--显示目标  -->
+    <view class="verticalLine">
+      <image src="/images/completed.png" class="completed"></image>
+    </view>
+   <view class="date_1">{{item.year}}年{{item.month}}月{{item.date}}日</view>
+   <view class="singleTargetRecord">
+     <image src="{{item.treeid}}" class="recordImage"></image>
+     <image src="/images/defaultSoil.png"   class="imageSolid_1"></image>
+     <view class="recordLine"></view>
+     <view class="recordContent">{{item.content}}</view>
+   </view>
+ </view>
+</view>
+</view>
+
+
 
 
 

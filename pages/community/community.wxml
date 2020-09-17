@@ -5,92 +5,92 @@
 <inform content="{{informContent}}"></inform>
 
 <view class="top">
-   <view class="top_title">社区</view>
-  <view class="back" bindtap="backHome">《</view>
+	<view class="top_title">社区</view>
+	<view class="back" bindtap="backHome">《</view>
 </view>
 
 <!-- 推荐 -->
 <scroll-view class="main" scroll-y bindscrolltolower="getMoreTargets" hidden="{{currentShow != '推荐'}}" lower-threshold="100rpx">
-  <view class="target" wx:for="{{targets}}" wx:key="target" bindtap="targetDetail" id="{{index}}">
-    <view class="targetTop">
-      <image class="avatar" src="{{item.userList[0].avatarUrl}}" catchtap="goToUserForest" id="{{index}}"></image>
-      <view id="{{index}}" class="targetTopMain" catchtap="goToUserForest">
-        <view>{{item.userList[0].un}}</view>
-        <view class="targetRecord">已打卡{{item.record}}天</view>
-      </view>
-      <view class="insertCoinButton" catchtap="showInputCoin" id="{{index}}">投币</view>
-    </view>
+	<view class="target" wx:for="{{targets}}" wx:key="target" bindtap="targetDetail" id="{{index}}">
+		<view class="targetTop">
+			<image class="avatar" src="{{item.userList[0].avatarUrl}}" catchtap="goToUserForest" id="{{index}}"></image>
+			<view id="{{index}}" class="targetTopMain" catchtap="goToUserForest">
+				<view>{{item.userList[0].un}}</view>
+				<view class="targetRecord">已打卡{{item.record}}天</view>
+			</view>
+			<view class="insertCoinButton" catchtap="showInputCoin" id="{{index}}">投币</view>
+	</view>
 
-    <view class="targetTitle">{{item.title}}</view>
-    <view class="targetContent">{{item.content}}</view>
-    <view class="targetMoney">挑战金币：<text>{{item.coin}}</text></view>
+	<view class="targetTitle">{{item.title}}</view>
+	<view class="targetContent">{{item.content}}</view>
+	<view class="targetMoney">挑战金币：<text>{{item.coin}}</text></view>
 
-    <view class="targetBottom">
-      <view class="targetBotoomOption">
-        <image id="{{index}}" class="targetBotoomIcon" src="../messages/images/xihuan.png" catchtap="like"></image>
-          {{item.like.length}}
-      </view>
-      <view class="targetBotoomOption">
-        <image id="{{index}}" class="targetBotoomIcon" src="../messages/images/xiaoxi.png"></image>
-        {{item.comment}}
-      </view>
-      <view class="targetBotoomOption">
-        <image id="{{index}}" class="targetBotoomIcon" src="../../images/liulan.png"></image>
-        {{item.supervisor.length}}
-      </view>
-    </view>
-  </view>
-  <view class="loading" hidden="{{!loadFlag}}">加载中...</view>
+	<view class="targetBottom">
+		<view class="targetBotoomOption">
+			<image id="{{index}}" class="targetBotoomIcon" src="../messages/images/xihuan.png" catchtap="like"></image>
+			{{item.like.length}}
+		</view>
+		<view class="targetBotoomOption">
+			<image id="{{index}}" class="targetBotoomIcon" src="../messages/images/xiaoxi.png"></image>
+			{{item.comment}}
+		</view>
+		<view class="targetBotoomOption">
+			<image id="{{index}}" class="targetBotoomIcon" src="../../images/liulan.png"></image>
+			{{item.supervisor.length}}
+		</view>
+	</view>
+	</view>
+	<view class="loading" hidden="{{!loadFlag}}">加载中...</view>
 </scroll-view>
 
 <!-- 围观 -->
 <scroll-view class="main" scroll-y hidden="{{currentShow != '围观'}}">
-  <view class="noTarget" wx:if="{{watchTargets.length == 0}}">
-    <image src="../../images/bear.png"></image>
-    <view>暂无围观</view>
-  </view>
-  <view class="target" wx:for="{{watchTargets}}" wx:key="watchTarget" bindtap="targetDetail" id="{{index}}">
-    <view class="targetTop">
-      <image class="avatar" src="{{item.userList[0].avatarUrl}}" catchtap="goToUserForest" id="{{index}}"></image>
-       <view id="{{index}}" class="targetTopMain" catchtap="goToUserForest">
-        <view>{{item.userList[0].un}}</view>
-        <view class="targetRecord">已打卡{{item.record}}天</view>
-      </view>
-      <view class="insertCoinButton" catchtap="showInputCoin" id="{{index}}">投币</view>
-    </view>
+	<view class="noTarget" wx:if="{{watchTargets.length == 0}}">
+		<image src="../../images/bear.png"></image>
+		<view>暂无围观</view>
+	</view>
+	<view class="target" wx:for="{{watchTargets}}" wx:key="watchTarget" bindtap="targetDetail" id="{{index}}">
+		<view class="targetTop">
+			<image class="avatar" src="{{item.userList[0].avatarUrl}}" catchtap="goToUserForest" id="{{index}}"></image>
+			<view id="{{index}}" class="targetTopMain" catchtap="goToUserForest">
+				<view>{{item.userList[0].un}}</view>
+				<view class="targetRecord">已打卡{{item.record}}天</view>
+			</view>
+			<view class="insertCoinButton" catchtap="showInputCoin" id="{{index}}">投币</view>
+		</view>
 
-    <view class="targetTitle">{{item.title}}</view>
-    <view class="targetContent">{{item.content}}</view>
-    <view class="targetMoney">挑战金币：<text>{{item.coin}}</text></view>
+		<view class="targetTitle">{{item.title}}</view>
+		<view class="targetContent">{{item.content}}</view>
+		<view class="targetMoney">挑战金币：<text>{{item.coin}}</text></view>
 
-    <view class="targetBottom">
-      <view class="targetBotoomOption">
-        <image id="{{index}}" class="targetBotoomIcon" src="../messages/images/xihuan.png" catchtap="like"></image>
-          {{item.like.length}}
-      </view>
-      <view class="targetBotoomOption">
-        <image id="{{index}}" class="targetBotoomIcon" src="../messages/images/xiaoxi.png"></image>
-        {{item.comment}}
-      </view>
-      <view class="targetBotoomOption">
-        <image id="{{index}}" class="targetBotoomIcon" src="../../images/liulan.png"></image>
-        {{item.supervisor.length}}
-      </view>
-    </view>
-  </view>
+		<view class="targetBottom">
+			<view class="targetBotoomOption">
+				<image id="{{index}}" class="targetBotoomIcon" src="../messages/images/xihuan.png" catchtap="like"></image>
+				{{item.like.length}}
+			</view>
+			<view class="targetBotoomOption">
+				<image id="{{index}}" class="targetBotoomIcon" src="../messages/images/xiaoxi.png"></image>
+				{{item.comment}}
+			</view>
+			<view class="targetBotoomOption">
+				<image id="{{index}}" class="targetBotoomIcon" src="../../images/liulan.png"></image>
+				{{item.supervisor.length}}
+			</view>
+		</view>
+	</view>
 </scroll-view>
 
 <view class="bottom">
-  <view class="bottomOption {{currentShow=='推荐'?'bottomOptionChoose':''}}" bindtap="choose" data-target="推荐">
-    <image src="../../images/dangan.png" class="bottomOtionIcon"></image>
-    推荐
-  </view>
-  <!-- <view class="bottomOption {{currentShow=='记录'?'bottomOptionChoose':''}}" bindtap="choose" data-target="记录">
+	<view class="bottomOption {{currentShow=='推荐'?'bottomOptionChoose':''}}" bindtap="choose" data-target="推荐">
+		<image src="../../images/dangan.png" class="bottomOtionIcon"></image>
+		推荐
+	</view>
+	<!-- <view class="bottomOption {{currentShow=='记录'?'bottomOptionChoose':''}}" bindtap="choose" data-target="记录">
     <image src="../../images/shuru.png" class="bottomOtionIcon"></image>
     记录
   </view> -->
-  <view class="bottomOption {{currentShow=='围观'?'bottomOptionChoose':''}}" bindtap="choose" data-target="围观">
-    <image src="../../images/xingji.png" class="bottomOtionIcon"></image>
-    围观
-  </view>
+	<view class="bottomOption {{currentShow=='围观'?'bottomOptionChoose':''}}" bindtap="choose" data-target="围观">
+		<image src="../../images/xingji.png" class="bottomOtionIcon"></image>
+		围观
+	</view>
 </view>

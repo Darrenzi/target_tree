@@ -6,115 +6,65 @@ Page({
    * 页面的初始数据
    */
   data: {
-    numbers: [50, 100, 200, 600, 800, 1000],
-    change: true,
-    change_1: true,
-    showinputCoin: true,
-    change_2: true,
-    custom: true,
-    showtitle: true,
-    inputTitle: true,
-    inputDay: true,
-    labelList: [{
-        label: "兴趣",
-        imagesrc: '/pages/createTarget/images/1.png'
-      },
-      {
-        label: "听歌",
-        imagesrc: '/pages/createTarget/images/2.png'
-      },
-      {
-        label: "游戏",
-        imagesrc: '/pages/createTarget/images/3.png'
-      },
-      {
-        label: "储钱",
-        imagesrc: '/pages/createTarget/images/4.png'
-      },
-      {
-        label: "学习",
-        imagesrc: '/pages/createTarget/images/5.png'
-      },
-      {
-        label: "运动",
-        imagesrc: '/pages/createTarget/images/6.png'
-      },
-      {
-        label: "阅读",
-        imagesrc: '/pages/createTarget/images/7.png'
-      },
-      {
-        label: "自律",
-        imagesrc: '/pages/createTarget/images/8.png'
-      },
-    ],
-    labelList_1: [{
-        label: "宅家",
-        imagesrc: '/pages/createTarget/images/10.png'
-      },
-      {
-        label: "专注",
-        imagesrc: '/pages/createTarget/images/11.png'
-      },
-      {
-        label: "剁手",
-        imagesrc: '/pages/createTarget/images/12.png'
-      },
-      {
-        label: "娱乐",
-        imagesrc: '/pages/createTarget/images/13.png'
-      },
-      {
-        label: "睡眠",
-        imagesrc: '/pages/createTarget/images/14.png'
-      },
-      {
-        label: "减肥",
-        imagesrc: '/pages/createTarget/images/15.png'
-      },
-      {
-        label: "颜值",
-        imagesrc: '/pages/createTarget/images/16.png'
-      },
-      {
-        label: "自律",
-        imagesrc: '/pages/createTarget/images/8.png'
-      },
-    ],
-    label: '',
-    setCoin: 0,
-    rest: 0,
-    record: '',
-    content: '',
-    date: '',
-    title: '',
-    current_index: -1,
-    current_index_1: -1,
-    changeView: false,
-    changeView_1: false,
-    chooseCountOrTime: true,
-    chooseCountOrTime_1: true,
-    type: "count",
-    duration: 0,
-    amount: 0,
-    setDate: 0,
-    //树苗的Id
-    treeId: "",
-    //加载表示符，用于控制加载动画,当值为 "" 隐藏
-    loadContent: "",
-    //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
-    informContent: "",
-    rightControls:  ['全部人可见',  '好友可见',  '仅自己可见'],
-       rightControl: "全部人可见"
+   numbers:[50,100,200,600,800,1000],
+   change:true,
+   change_1:true,
+   showinputCoin:true,
+   change_2:true,
+   custom:false,
+   showtitle:true,
+   inputTitle:true,
+   inputDay:true,
+   labelList:[
+      {label:"兴趣",
+      imagesrc:'/pages/createTarget/images/1.png'},
+      {label:"减肥",
+      imagesrc:'/pages/createTarget/images/15.png'},
+      {label:"睡眠",
+      imagesrc:'/pages/createTarget/images/14.png'},
+      {label:"储钱",
+      imagesrc:'/pages/createTarget/images/4.png'},
+      {label:"学习",
+      imagesrc:'/pages/createTarget/images/5.png'},
+      {label:"运动",
+      imagesrc:'/pages/createTarget/images/6.png'},
+      {label:"颜值",
+      imagesrc:'/pages/createTarget/images/16.png'},
+      {label:"其他",
+       imagesrc:'/pages/createTarget/images/11.png'},],
+
+   label:'',
+   setCoin:0,
+   rest:0,
+   record:'',
+   content:'',
+   date:'',
+   title:'',
+   current_index:-1,
+   current_index_1:-1,
+   changeView:false,
+   changeView_1:false,
+   chooseCountOrTime:true,
+   chooseCountOrTime_1:true,
+   type:"count",
+   duration:0,
+   amount:0,
+   setDate:0,
+   //树苗的Id
+   treeId:"",
+   //加载表示符，用于控制加载动画,当值为 "" 隐藏
+   loadContent: "",
+   //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
+   informContent:"",
+   rightControls: ['全部人可见', '好友可见', '仅自己可见'],
+   rightControl:"全部人可见"
   },
 
-  closeInform: function() {
-    this.setData({
-      informContent: ""
-    });
+  closeInform:function(){
+    this.setData({informContent:""});
   },
 
-  bindDateChange: function(e) { //获取多行滑动组件中的值
+  bindDateChange:function(e){  //获取多行滑动组件中的值
     this.setData({
       date: e.detail.value
     })
@@ -291,11 +241,12 @@ Page({
   },
   changeShowStatus_2: function() {
     this.setData({
-      change: false,
-      change_1: true,
-      showtitle: false,
-      change_2: true,
-      custom: true
+      change:false,
+      change_1:true,
+      showtitle:false,
+      change_2:true,
+      custom:true,
+      content:"",
     })
   },
   changeShowstatus_4: function() {
@@ -307,22 +258,19 @@ Page({
       showtitle: true
     })
   },
-  changeShowstatus_3: function() {
-    var content = this.data.content
-    if (content == "") {
-      var that = this
-      that.setData({
-        informContent: "请输入目标内容"
-      });
-      return
+  changeShowstatus_3:function(){
+    var content=this.data.content
+    
+    var title=this.data.title
+    if(title==""){
+     var that=this
+     that.setData({informContent:"请输入目标标题"});
+     return
     }
-    var title = this.data.title
-    if (title == "") {
-      var that = this
-      that.setData({
-        informContent: "请输入目标标题"
-      });
-      return
+    if(content==""){
+      this.setData({
+        content:"这个人很懒什么都没有留下~"
+      })
     }
     this.setData({
       change: false,

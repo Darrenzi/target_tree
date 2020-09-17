@@ -15,6 +15,7 @@
   <view class="buttonclass"  bindtap="setdata_5">500</view>
 </view>
 
+<!-- 输入金币 -->
 <view class="line"></view>
 <view class="littleTittle">Tips:</view>
 <text class="tips">1:金币将会在完成目标后返还到您的账户,如果失败则会分给围观的朋友们噢</text>
@@ -38,26 +39,10 @@
     <view class="{{current_index==index?'iconfont_1':'iconFont'}}">{{item.label}}</view>
   </view>
   </view>
-<view class="custom" bindtap="Tocustom">点我选择自定义标签</view>
 <view class="continue" bindtap="changeShowstatus_1">下一步</view>  
 </view>
 
-<!-- 自定义标签 -->
-<view class="hide{{custom?'':'show'}}">
-  <view class="cusstom_top">
-   <view class="customtoptitle">目标内容</view>
-   <view class="back" bindtap="backTohot">《</view>
-  </view>
-<view class="customLine"></view>
-<view class="custom_font">自定义标签</view>
-<view class="customLine_1"></view>
-<view class="contianer">
-  <view id="{{index}}" class="singlelabel " wx:for="{{labelList_1}}" bindtap="choose_1" wx:key="targets">
-  <image class="labelIcon" src="{{item.imagesrc}}"></image>
-    <view class="{{current_index_1==index?'iconfont_1':'iconFont'}}">{{item.label}}</view>
-  </view>
-  </view>
-</view>
+
 
 
 <!-- 设置目标标题与内容 -->
@@ -75,7 +60,7 @@
 <view class="textcontent">内容</view>
   <view class="page-section">
   <view class="placeholderFont" wx:if="{{content==''}}">
-   <text>一个好的计划能使目标事半功倍 \n 你要用什么方法实现自己的目标? \n 是否可以将目标分成一个个小目标? \n 期望收获什么?
+   <text>一个好的计划能使目标事半功倍 \n 你要用什么方法实现自己的目标? \n 是否可以将目标分成一个个小目标? \n 期望收获什么?\n（可以为空）
    </text>
     </view>
     <view class="textarea-wrp">

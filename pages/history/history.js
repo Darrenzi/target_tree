@@ -5,96 +5,47 @@ Page({
    * 页面的初始数据
    */
   data: {
-    //加载表示符，用于控制加载动画,当值为 "" 隐藏
-    loadContent: "加载中...",
-    //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
-    informContent: "",
-    targetList: Array, //用于存放获得的目标
-    targetTouchStart: 0,
-    month: 0,
-    year: 0,
-    now_day: 0,
-    now_month: 0,
-    now_year: 0,
-    lastMonth: 0,
-    nextMonth: 0,
-    progress: 0,
-
-    labelList: [{
-        label: "全部",
-        imagesrc: '/pages/createTarget/images/10.png'
-      },
-      {
-        label: "兴趣",
-        imagesrc: '/pages/createTarget/images/1.png'
-      },
-      {
-        label: "听歌",
-        imagesrc: '/pages/createTarget/images/2.png'
-      },
-      {
-        label: "游戏",
-        imagesrc: '/pages/createTarget/images/3.png'
-      },
-      {
-        label: "储存",
-        imagesrc: '/pages/createTarget/images/4.png'
-      },
-      {
-        label: "学习",
-        imagesrc: '/pages/createTarget/images/5.png'
-      },
-      {
-        label: "运动",
-        imagesrc: '/pages/createTarget/images/6.png'
-      },
-      {
-        label: "阅读",
-        imagesrc: '/pages/createTarget/images/7.png'
-      },
-      {
-        label: "自律",
-        imagesrc: '/pages/createTarget/images/8.png'
-      },
-      {
-        label: "宅家",
-        imagesrc: '/pages/createTarget/images/10.png'
-      },
-      {
-        label: "专注",
-        imagesrc: '/pages/createTarget/images/11.png'
-      },
-      {
-        label: "剁手",
-        imagesrc: '/pages/createTarget/images/12.png'
-      },
-      {
-        label: "玩耍",
-        imagesrc: '/pages/createTarget/images/13.png'
-      },
-      {
-        label: "早睡",
-        imagesrc: '/pages/createTarget/images/14.png'
-      },
-      {
-        label: "减肥",
-        imagesrc: '/pages/createTarget/images/15.png'
-      },
-      {
-        label: "颜值",
-        imagesrc: '/pages/createTarget/images/16.png'
-      },
-      {
-        label: "自律",
-        imagesrc: '/pages/createTarget/images/7.png'
-      },
-    ],
-
-    nowLabel: '', //表示现在所点击的标签
-    current_index: 0,
-    NULL_targetList: 2, //0表示该数组为空，1表示该数组不为空
-    treeList: [], //用于存放树的地址
-
+       //加载表示符，用于控制加载动画,当值为 "" 隐藏
+       loadContent: "加载中...",
+       //通知窗口表示符，用于控制加载动画,当值为 "" 隐藏
+       informContent:"",
+       targetList:Array , //用于存放获得的目标
+       targetTouchStart:0,
+       month:0,
+       year:0,
+       now_day:0,
+       now_month:0,
+       now_year:0,
+       lastMonth:0,
+       nextMonth:0,
+       progress:0,
+      labelList:[
+      {label:"全部",
+      imagesrc:'/pages/createTarget/images/10.png'},
+      {label:"兴趣",
+      imagesrc:'/pages/createTarget/images/1.png'},
+      {label:"减肥",
+      imagesrc:'/pages/createTarget/images/15.png'},
+      {label:"睡眠",
+      imagesrc:'/pages/createTarget/images/14.png'},
+      {label:"储钱",
+      imagesrc:'/pages/createTarget/images/4.png'},
+      {label:"学习",
+      imagesrc:'/pages/createTarget/images/5.png'},
+      {label:"运动",
+      imagesrc:'/pages/createTarget/images/6.png'},
+      {label:"颜值",
+      imagesrc:'/pages/createTarget/images/16.png'},
+      {label:"其他",
+       imagesrc:'/pages/createTarget/images/11.png'}, ],
+       showTargetRecord:false,    
+       TargetsRecord:[],        
+       nowLabel:'',//表示现在所点击的标签
+       current_index:0,
+       countIsZero:false,//是否打卡次数为空
+       NULL_targetList:2,//0表示该数组为空，1表示该数组不为空
+       treeList:[],//用于存放树的地址
+       
   },
 
 
@@ -102,29 +53,53 @@ Page({
   backHome: function() {
     wx.navigateBack({})
   },
-  //获取时间历程中的目标详情
-  targetDetail: function(e) {
+
+
+  targetRecord:function(e){
+         this.setData({
+          showTargetRecord:true
+         })
     let index = e.currentTarget.id;
+    console.log("target:"+index)
     let target = this.data.targetList[index];
-    let app = getApp()
-    let _openid = app.globalData.user._openid
-    let un = app.globalData.user.un
-    let avatarUrl = app.globalData.user.avatarUrl;
-    let title = target.title;
-    let content = target.content;
-    let targetId = target._id;
-    let like = target.like.toString();
-    let _id = target._id;
-    let supervisor = target.supervisor.toString();
-    let progress = target.progress;
-    let coin = target.coin;
-    let status = target.status;
-    wx.navigateTo({
-      // index为目标在数组中的索引，用于界面修改数据
-      url: '../targetDetail/targetDetail?un=' + un + "&avatarUrl=" + avatarUrl + "&_openid=" + _openid +
-        "&title=" + title + "&content=" + content + "&targetId=" + targetId + "&like=" + like + "&_id=" + _id +
-        "&supervisor=" + supervisor + "&progress=" + progress + "&coin=" + coin + "&index=" + index + "&status=" + status,
+    console.log("curentTargert:"+target)
+    let targetId=target._id;
+    console.log("targetId:"+targetId)
+    const db=wx.cloud.database();
+  
+    db.collection('record').where({
+       target_id:targetId
     })
+    .get()
+    .then(res=>{
+      console.log(res.data)
+       this.setData({
+        TargetsRecord:res.data
+       })
+       let recordLength=this.data.TargetsRecord.length;
+       if(recordLength==0){
+         this.setData({
+           countIsZero:true
+         })
+         return
+       }
+       for(let i=0;i<recordLength;i++){
+         let year=this.data.TargetsRecord[i].time.getFullYear();
+         let month=this.data.TargetsRecord[i].time.getMonth()+1;
+         let day=this.data.TargetsRecord[i].time.getDate();
+        let recordYear="TargetsRecord["+i+"].year"  //为数组添加键值对
+        let recordMonth="TargetsRecord["+i+"].month"
+        let recordday="TargetsRecord["+i+"].date"
+        this.setData({
+           [recordYear]:year,
+           [recordMonth]:month,
+           [recordday]:day,
+        })
+       
+       }
+    })
+  
+  
   },
 
   //选择某个标签
@@ -638,6 +613,15 @@ Page({
       loadContent: ''
     })
 
+  },
+
+
+  recordBackHome:function(){
+    this.setData({
+      showTargetRecord:false,
+      TargetsRecord:[],
+      countIsZero:false
+    })
   },
 
 

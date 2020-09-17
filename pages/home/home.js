@@ -30,7 +30,8 @@ Page({
 
     //显示目标详细信息的标识符
     showTargetFlag: false,
-
+    //打卡时的树木id
+    treeid:"",
     //用于树木显示动画的控制
     treeShow: false,
     treeHeight: 0,
@@ -362,6 +363,46 @@ Page({
     const _ = db.command;
     let that = this;
     let currentTarget = this.data.currentTarget;
+   
+  ////获取打卡时的树木状态
+    let userTrees = this.data.userTrees;
+    let oldProgress = currentTarget.progress;
+    let currentTree = null;
+    for (let i = 0; i < userTrees.length; i++) {   //找到用户树木图片
+      if (currentTarget.treeId == userTrees[i]._id) {
+        currentTree = userTrees[i];
+        break;
+      }
+    }
+    if(oldProgress<30){
+      let that=this;
+      that.setData({
+        treeid:currentTree.path[0]
+      })
+       
+    }
+    if (oldProgress >= 30 && oldProgress <60) {
+      //打卡后进度进入第二阶段
+      let that=this;
+      that.setData({
+        treeid:currentTree.path[0]
+      })
+    }
+    else if (oldProgress >= 60 && oldProgress < 90) {
+      //打卡后进度进入第三阶段
+      let that=this;
+      that.setData({
+        treeid:currentTree.path[2]
+      })
+    }
+    else if (oldProgress >=90) {
+      //打卡后进度进入第四阶段
+     
+      let that=this;
+      that.setData({
+        treeid:currentTree.path[3]
+      })
+    }
 
     //判断目标是否已经失败
     let currentTimeStamp = Number(new Date());
@@ -429,6 +470,7 @@ Page({
           //打卡表没有记录
           lastDate = "";
         }
+   
 
         if (lastDate == date) {
           //判断时间，一天只能打卡一次
@@ -466,6 +508,7 @@ Page({
         fail: function () {
           this.setData({ informContent: "跳转到记录界面失败" });
         }
+       
       })
       return;
     }
@@ -529,11 +572,14 @@ Page({
     let oldProgress = currentTarget.progress;
     let currentTree = null;
     let treeChangeFlag = false;
-    for (let i = 0; i < userTrees.length; i++) {
+    for (let i = 0; i < userTrees.length; i++) {   //找到用户树木图片
       if (currentTarget.treeId == userTrees[i]._id) {
         currentTree = userTrees[i];
         break;
       }
+    }
+    if(oldProgress<30){
+      let treeId=currentTree.path[0];
     }
     if (oldProgress < 30 && newProgress >= 30) {
       //打卡后进度进入第二阶段
@@ -547,6 +593,7 @@ Page({
       //打卡后进度进入第四阶段
       currentTarget.tree = currentTree.path[3];
       treeChangeFlag = true;
+      let treeId=currentTree.path[3];
     }
     //更新当前页面的数据
     currentTarget.record += 1;
