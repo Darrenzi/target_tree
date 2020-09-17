@@ -1,30 +1,17 @@
 <!--pages/register/register.wxml-->
 <view class="container">
   <swiper indicator-dots indicator-active-color="white" wx:if="{{teachEnd}}">
-  <swiper-item>
-      <!-- <image class="images"  src="cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach6.png"></image> -->
-      <view class="backgroundColor"></view>
-    
-      <view class="allImage">
-        <view class="shumiao_1">让你的目标不再遥不可及</view>
-      <image src="/pages/createTarget/images/2.png" class="images_3"></image>
-       <image src="/pages/createTarget/images/3.png" class="images_4"></image>
-        <image src="/pages/createTarget/images/4.png" class="images_5"></image>
-         <image src="/pages/createTarget/images/5.png" class="images_6"></image>
-          <image src="/pages/createTarget/images/6.png" class="images_7"></image></view>
-      <button class="next" bindtap="next" style="width:35%;height:80rpx;">下一步</button>
-    </swiper-item>
     <swiper-item>
-      <!-- <image class="images" src="cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach1.png"></image> -->
-       <image class="images_land" src="/images/land.png"></image> 
+      <image class="images" src="cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach1.png"></image>
+      <!-- <image class="images_land" src="/images/land.png"></image> 
         <image class="images_sky" src="/images/sky.png"></image> 
-        <view class="shumiao">种下树苗</view>
+        <view class="shumiao">种下树苗</view> -->
     </swiper-item>
     <swiper-item>
-      <!-- <image class="images"   src="cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach21.png"></image> -->
-       <image class="images_land_2" src="/images/land_2.png"></image> 
+      <image class="images" src="cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach21.png"></image>
+      <!-- <image class="images_land_2" src="/images/land_2.png"></image> 
         <image class="images_sky_2" src="/images/sky_2.png"></image> 
-        <view class="shumiao">坚持下去</view>
+        <view class="shumiao">坚持下去</view> -->
     </swiper-item>
     <swiper-item>
       <image class="images" src="cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach3.png"></image>
@@ -35,16 +22,29 @@
     <swiper-item>
       <image class="images" src="cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach5.png"></image>
     </swiper-item>
+    <swiper-item>
+      <image class="images" src="cloud://test-e5a3a.7465-test-e5a3a-1301749733/tutorial/teach6.png"></image>
+      <!-- <view class="backgroundColor"></view>
     
+      <view class="allImage">
+        <view class="shumiao_1">让你的目标不再遥不可及</view>
+      <image src="/pages/createTarget/images/2.png" class="images_3"></image>
+       <image src="/pages/createTarget/images/3.png" class="images_4"></image>
+        <image src="/pages/createTarget/images/4.png" class="images_5"></image>
+         <image src="/pages/createTarget/images/5.png" class="images_6"></image>
+          <image src="/pages/createTarget/images/6.png" class="images_7"></image></view> -->
+      <button class="next" bindtap="next" style="width:35%;height:80rpx;">下一步</button>
+    </swiper-item>
+
   </swiper>
-  
+
   <view class="top" wx:if="{{!teachEnd}}">
     <view class="top_title">主题选择</view>
   </view>
 
-  <view class="title"  wx:if="{{!teachEnd}}">选择后可在设置中更改哦~</view>
+  <view class="title" wx:if="{{!teachEnd}}">选择后可在设置中更改哦~</view>
 
-  <view class="themeContainer"  wx:if="{{!teachEnd}}">
+  <view class="themeContainer" wx:if="{{!teachEnd}}">
     <radio-group class="themeChoose" bindchange="chooseTheme">
       <label>
         <radio id="white" value="white" checked>白色(推荐)</radio>
@@ -58,7 +58,7 @@
     </radio-group>
   </view>
 
-  <button class="getUserInfo"  open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"  wx:if="{{!teachEnd}}" style="min-width:35%;min-height:85rpx;">开始种树</button>
+  <button class="getUserInfo" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" wx:if="{{!teachEnd}}" style="min-width:35%;min-height:85rpx;">开始种树</button>
 </view>
 
 <loading content="{{loadingContent}}"></loading>

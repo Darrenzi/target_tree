@@ -685,7 +685,6 @@ Page({
 
     if(this.data.originPage=="record"){
       //从打卡记录页面过来，需要更新当前目标的状态
-      console.log("judgePhase处理的目标",this.data.currentTarget);
       this.judgePhase(this.data.currentTarget);
       this.setData({originPage:""})
     }
