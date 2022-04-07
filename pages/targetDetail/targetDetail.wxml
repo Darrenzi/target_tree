@@ -19,7 +19,7 @@
         <view class="percent">{{target.progress}}%</view>
       </view>
     </view>
-    <view wx:if="{{user._openid != target._openid}}" class="watchButton {{watchFlag == '已围观'?'watched':''}}" bindtap="watch">{{watchFlag}}</view>
+    <view wx:if="{{user._openid != target._openid}}" class="watchButton {{watchFlag == '已围观'?'watched':''}}" bindtap="watch">{{watchFlag=='围观'?'监督':'已监督'}}</view>
   </view>
 
   <view class="targetTitle">{{target.title}}</view>

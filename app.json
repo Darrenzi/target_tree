@@ -1,31 +1,32 @@
 {
-  "cloud": true,
-  "pages": [
-    "pages/loading/loading",
-    "pages/record/record",
-    "pages/history/history",
-    "pages/home/home",
-    "pages/community/community",
-    "pages/register/register",
-    "pages/createTarget/createTarget",
-    "pages/FriendSystem/FriendSystem",
-    "pages/index/index",
-    "pages/config/config",
-    "pages/mall/mall",
-    "pages/friendDetail/friendDetail",
-    "pages/forest/forest",
-    "pages/targetDetail/targetDetail",
-    "pages/messages/messages",
-    "pages/clock/clock",
-    "pages/studyRoom/studyRoom"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "custom",
-    "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "cloud": true,
+    "pages": [
+        "pages/loading/loading",
+        "pages/analysis/analysis",
+        "pages/record/record",
+        "pages/history/history",
+        "pages/home/home",
+        "pages/community/community",
+        "pages/register/register",
+        "pages/createTarget/createTarget",
+        "pages/FriendSystem/FriendSystem",
+        "pages/index/index",
+        "pages/config/config",
+        "pages/mall/mall",
+        "pages/friendDetail/friendDetail",
+        "pages/forest/forest",
+        "pages/targetDetail/targetDetail",
+        "pages/messages/messages",
+        "pages/clock/clock",
+        "pages/studyRoom/studyRoom"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "custom",
+        "navigationBarTextStyle": "black",
+        "navigationStyle": "custom"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
 }

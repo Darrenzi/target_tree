@@ -1,0 +1,33 @@
+<!--pages/analysis/analysis.wxml-->
+<loading content="{{loadContent}}"></loading>
+<view class="main">
+    <view class="top">
+        目标分析
+        <view class="back" bindtap="backHome">《</view>
+    </view>
+    <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
+    <view class="msg-container">
+        <view class="title">统计</view>
+        <view>目标总数：{{statistics.completed+statistics.abandoned+statistics.running}}</view>
+        <view>已完成目标数：{{statistics.completed}}</view>
+        <view>已失败目标数：{{statistics.abandoned}}</view>
+        <view>进行中目标数：{{statistics.running}}</view>
+    </view>
+    <view class="msg-container">
+        <view class="title">分析结果</view>
+        <view class="evaluation" wx:if="{{evaluations.more.show}}">● {{evaluations.more.evaluation}}</view>
+        <view class="suggestion" wx:if="{{evaluations.more.show}}">{{evaluations.more.suggestion}}</view>
+
+        <view class="evaluation" wx:if="{{evaluations.fail.show}}">● {{evaluations.fail.evaluation}}</view>
+        <view class="suggestion" wx:if="{{evaluations.fail.show}}">{{evaluations.fail.suggestion}}</view>
+        
+        <view class="evaluation" wx:if="{{evaluations.less.show}}">● {{evaluations.less.evaluation}}</view>
+        <view class="suggestion" wx:if="{{evaluations.less.show}}">{{evaluations.less.suggestion}}</view>
+
+        <view class="evaluation" wx:if="{{evaluations.success.show}}">● {{evaluations.success.evaluation}}</view>
+        <view class="suggestion" wx:if="{{evaluations.success.show}}">{{evaluations.success.suggestion}}</view>
+
+        <view class="evaluation" wx:if="{{evaluations.average.show}}">● {{evaluations.average.evaluation}}</view>
+        <view class="suggestion" wx:if="{{evaluations.average.show}}">{{evaluations.average.suggestion}}</view>
+    </view>
+</view>

@@ -13,7 +13,7 @@ Page({
     //当前选中的目标
     currentTarget: null,
     //当前选中目标的索引值
-    currentTargetIndex:0,
+    currentTargetIndex: 0,
     //储存跳转到计时界面前的目标
     currentTimeTarget: null,
     //是否打开左侧的选择栏
@@ -31,25 +31,25 @@ Page({
     //显示目标详细信息的标识符
     showTargetFlag: false,
     //打卡时的树木id
-    treeid:"",
+    treeid: "",
     //用于树木显示动画的控制
     treeShow: false,
     treeHeight: 0,
     treeOpacity: 0,
 
     //从何处跳转到该界面
-    originPage:"",
+    originPage: "",
     //跳转过来的界面处理的目标的id
-    originPageTargetId:""
+    originPageTargetId: ""
   },
 
   //初始化用户信息
-  initUser: function() {
+  initUser: function () {
     console.log("init");
     let user = getApp().globalData.user;
     this.setData({
       user: user,
-      initUserFlag:true
+      initUserFlag: true
     });
 
     try {
@@ -110,7 +110,7 @@ Page({
     this.getUserTree();
   },
 
-  addTarget: function() {
+  addTarget: function () {
 
     if (this.data.addTargetFlag) {
       this.setData({
@@ -123,7 +123,7 @@ Page({
     }
   },
 
-  chooseTree: function(e) {
+  chooseTree: function (e) {
     //创建新目标的时选中的树的id
 
     let treeId = e.currentTarget.dataset.treeid;
@@ -135,16 +135,16 @@ Page({
     let that = this;
     wx.navigateTo({
       url: '../createTarget/createTarget?treeId=' + treeId + "&treeImage=" + treeImage,
-      success: function() {
+      success: function () {
         that.setData({
           addTargetFlag: false,
           loadContent: ''
         });
       },
-      fail: function() {
+      fail: function () {
 
       },
-      complete: function() {
+      complete: function () {
         that.setData({
           loadContent: ''
         });
@@ -152,7 +152,7 @@ Page({
     })
   },
 
-  showTargetDetail: function() {
+  showTargetDetail: function () {
     if (this.data.currentTarget == undefined) return;
     //点击树木显示目标详情
     if (this.data.showTargetFlag) {
@@ -166,7 +166,7 @@ Page({
     }
   },
 
-  getUserTree: function() {
+  getUserTree: function () {
     //获取用户所拥有的树苗
     const db = wx.cloud.database();
     const _ = db.command;
@@ -193,7 +193,7 @@ Page({
       })
   },
 
-  controlLeftOptions: function() {
+  controlLeftOptions: function () {
     //控制左侧选择栏的开关
     if (this.data.leftOptionsFlag) {
       this.setData({
@@ -206,32 +206,31 @@ Page({
     }
   },
 
-  chooseTarget: function(e) {
+  chooseTarget: function (e) {
     //选择目标
     // console.log(e.detail);
     let currentTarget = e.detail.target;
-    try{
+    try {
       if (typeof (currentTarget.type) != undefined && currentTarget.type == "time") {
         currentTarget.minDuration = (currentTarget.duration / 60).toFixed(1);
       }
-    }
-    catch{
+    } catch {
       console.log("err:初始化时,currentTarget 为undefined");
     }
     this.setData({
       currentTarget: currentTarget,
-      currentTargetIndex:e.detail.index,
+      currentTargetIndex: e.detail.index,
       treeShow: false
     });
   },
 
-  imageLoadCompleted: function() {
+  imageLoadCompleted: function () {
 
     //树木图片加载完成后
     this.treeAnimation();
   },
 
-  reachTo: function(e) {
+  reachTo: function (e) {
     //左侧选择栏的导航函数
     this.setData({
       currentTarget: e.detail.target,
@@ -240,99 +239,105 @@ Page({
     let target = e.currentTarget.dataset.target;
 
     let that = this;
+
     switch (target) {
-      case '我的森林':
-        {
+      case '我的森林': {
 
-          wx.navigateTo({
-            url: '../forest/forest',
-            complete: function() {
-              that.setData({
-                loadContent: ''
-              });
-            }
-          })
-          break;
-        }
-      case '我的好友':
-        {
+        wx.navigateTo({
+          url: '../forest/forest',
+          complete: function () {
+            that.setData({
+              loadContent: ''
+            });
+          }
+        })
+        break;
+      }
+      case '我的好友': {
 
-          wx.navigateTo({
-            url: '../FriendSystem/FriendSystem',
-            complete: function() {
-              that.setData({
-                loadContent: ''
-              })
-            }
-          })
-          break;
-        }
-      case '最新消息':
-        {
-          wx.navigateTo({
-            url: '../messages/messages',
-            fail: function(err) {
-              console.log(err);
-            },
-            complete: function() {
-              that.setData({
-                loadContent: '',
-                allNewMsgNum: 0
-              });
-            }
-          })
-          break;
-        }
-      case '商城':
-        {
+        wx.navigateTo({
+          url: '../FriendSystem/FriendSystem',
+          complete: function () {
+            that.setData({
+              loadContent: ''
+            })
+          }
+        })
+        break;
+      }
+      case '目标分析': {
 
-          wx.navigateTo({
-            url: '../mall/mall?coin=' + this.data.user.coin,
-            complete: function() {
-              that.setData({
-                loadContent: ''
-              });
-            }
-          })
-          break;
-        }
-      case '时间历程':
-        {
-          wx.navigateTo({
-            url: '../history/history',
-            complete: function() {
-              that.setData({
-                loadContent: ''
-              });
-            }
-          })
-          break;
-        }
-      case '社区':
-        {
-          wx.navigateTo({
-            url: '../community/community',
-            complete: function() {
-              that.setData({
-                loadContent: ''
-              });
-            }
-          })
-          break;
-        }
-      case '设置':
-        {
-          wx.navigateTo({
-            url: '../config/config',
-            complete: function() {
-              that.setData({
-                loadContent: ''
-              });
-            }
-          })
-          break;
-        }
-      case '自习室':{
+        wx.navigateTo({
+          url: '../analysis/analysis',
+          complete: function () {
+            that.setData({
+              loadContent: ''
+            });
+          }
+        })
+        break;
+      }
+      case '最新消息': {
+        wx.navigateTo({
+          url: '../messages/messages',
+          fail: function (err) {
+            console.log(err);
+          },
+          complete: function () {
+            that.setData({
+              loadContent: '',
+              allNewMsgNum: 0
+            });
+          }
+        })
+        break;
+      }
+      case '商城': {
+
+        wx.navigateTo({
+          url: '../mall/mall?coin=' + this.data.user.coin,
+          complete: function () {
+            that.setData({
+              loadContent: ''
+            });
+          }
+        })
+        break;
+      }
+      case '时间历程': {
+        wx.navigateTo({
+          url: '../history/history',
+          complete: function () {
+            that.setData({
+              loadContent: ''
+            });
+          }
+        })
+        break;
+      }
+      case '社区': {
+        wx.navigateTo({
+          url: '../community/community',
+          complete: function () {
+            that.setData({
+              loadContent: ''
+            });
+          }
+        })
+        break;
+      }
+      case '设置': {
+        wx.navigateTo({
+          url: '../config/config',
+          complete: function () {
+            that.setData({
+              loadContent: ''
+            });
+          }
+        })
+        break;
+      }
+      case '自习室': {
         wx.navigateTo({
           url: '../studyRoom/studyRoom',
           complete: function () {
@@ -343,16 +348,15 @@ Page({
         })
         break;
       }
-      default:
-        {
-          that.setData({
-            loadContent: ''
-          });
-        }
+      default: {
+        that.setData({
+          loadContent: ''
+        });
+      }
     }
   },
 
-  record: function() {
+  record: function () {
     //打卡
     console.log(this.data.currentTarget);
     if (this.data.currentTarget == undefined) return;
@@ -363,44 +367,42 @@ Page({
     const _ = db.command;
     let that = this;
     let currentTarget = this.data.currentTarget;
-   
-  ////获取打卡时的树木状态
+
+    ////获取打卡时的树木状态
     let userTrees = this.data.userTrees;
     let oldProgress = currentTarget.progress;
     let currentTree = null;
-    for (let i = 0; i < userTrees.length; i++) {   //找到用户树木图片
+    for (let i = 0; i < userTrees.length; i++) { //找到用户树木图片
       if (currentTarget.treeId == userTrees[i]._id) {
         currentTree = userTrees[i];
         break;
       }
     }
-    if(oldProgress<30){
-      let that=this;
+    if (oldProgress < 30) {
+      let that = this;
       that.setData({
-        treeid:currentTree.path[0]
+        treeid: currentTree.path[0]
       })
-       
+
     }
-    if (oldProgress >= 30 && oldProgress <60) {
+    if (oldProgress >= 30 && oldProgress < 60) {
       //打卡后进度进入第二阶段
-      let that=this;
+      let that = this;
       that.setData({
-        treeid:currentTree.path[0]
+        treeid: currentTree.path[0]
       })
-    }
-    else if (oldProgress >= 60 && oldProgress < 90) {
+    } else if (oldProgress >= 60 && oldProgress < 90) {
       //打卡后进度进入第三阶段
-      let that=this;
+      let that = this;
       that.setData({
-        treeid:currentTree.path[2]
+        treeid: currentTree.path[2]
       })
-    }
-    else if (oldProgress >=90) {
+    } else if (oldProgress >= 90) {
       //打卡后进度进入第四阶段
-     
-      let that=this;
+
+      let that = this;
       that.setData({
-        treeid:currentTree.path[3]
+        treeid: currentTree.path[3]
       })
     }
 
@@ -429,7 +431,7 @@ Page({
               supervisor: supervisor,
               reward: reward
             },
-            fail: function(err) {
+            fail: function (err) {
               console.log(err)
             }
           })
@@ -470,7 +472,7 @@ Page({
           //打卡表没有记录
           lastDate = "";
         }
-   
+
 
         if (lastDate == date) {
           //判断时间，一天只能打卡一次
@@ -483,7 +485,7 @@ Page({
           if (currentTarget.type == "time") {
             console.log(that.data.currentTargetIndex);
             wx.navigateTo({
-              url: '../clock/clock?targetId=' + currentTarget._id + "&duration=" + currentTarget.duration+"&index="+this.data.currentTargetIndex,
+              url: '../clock/clock?targetId=' + currentTarget._id + "&duration=" + currentTarget.duration + "&index=" + this.data.currentTargetIndex,
             })
             this.setData({
               loadContent: ''
@@ -497,8 +499,8 @@ Page({
       })
   },
 
-  addRecord: function(id) {
-    console.log("打卡:"+id);
+  addRecord: function (id) {
+    console.log("打卡:" + id);
     var db = wx.cloud.database();
     if (id != undefined) {
       //表明该目标为计时目标
@@ -506,9 +508,11 @@ Page({
       wx.navigateTo({
         url: '../record/record?targetId=' + id + "&index=" + this.data.currentTargetIndex,
         fail: function () {
-          this.setData({ informContent: "跳转到记录界面失败" });
+          this.setData({
+            informContent: "跳转到记录界面失败"
+          });
         }
-       
+
       })
       return;
     }
@@ -517,14 +521,16 @@ Page({
     //跳转到记录界面
     wx.navigateTo({
       url: '../record/record?targetId=' + this.data.currentTarget._id + "&index=" + this.data.currentTargetIndex,
-      fail:function(){
-        this.setData({informContent:"跳转到记录界面失败"});
+      fail: function () {
+        this.setData({
+          informContent: "跳转到记录界面失败"
+        });
       }
     })
   },
 
-  judgePhase: function(currentTarget) {
-     //根据进度打卡
+  judgePhase: function (currentTarget) {
+    //根据进度打卡
     console.log("judgePhase处理的目标", currentTarget);
     //更新目标表中的打卡记录及任务进度
     let progress = ((currentTarget.record + 1) / currentTarget.amount * 100).toFixed(2);
@@ -538,9 +544,9 @@ Page({
     }
   },
 
-  updateTarget: function(currentTarget, newProgress) {
+  updateTarget: function (currentTarget, newProgress) {
     //打卡后任务未完成
-    console.log("目标未完成",currentTarget);
+    console.log("目标未完成", currentTarget);
     let that = this;
     const db = wx.cloud.database();
     const _ = db.command;
@@ -566,20 +572,20 @@ Page({
       })
   },
 
-  changeTargetTree: function(currentTarget, newProgress) {
+  changeTargetTree: function (currentTarget, newProgress) {
     //根据任务进度更改树木图片
     let userTrees = this.data.userTrees;
     let oldProgress = currentTarget.progress;
     let currentTree = null;
     let treeChangeFlag = false;
-    for (let i = 0; i < userTrees.length; i++) {   //找到用户树木图片
+    for (let i = 0; i < userTrees.length; i++) { //找到用户树木图片
       if (currentTarget.treeId == userTrees[i]._id) {
         currentTree = userTrees[i];
         break;
       }
     }
-    if(oldProgress<30){
-      let treeId=currentTree.path[0];
+    if (oldProgress < 30) {
+      let treeId = currentTree.path[0];
     }
     if (oldProgress < 30 && newProgress >= 30) {
       //打卡后进度进入第二阶段
@@ -593,12 +599,12 @@ Page({
       //打卡后进度进入第四阶段
       currentTarget.tree = currentTree.path[3];
       treeChangeFlag = true;
-      let treeId=currentTree.path[3];
+      let treeId = currentTree.path[3];
     }
     //更新当前页面的数据
     currentTarget.record += 1;
     currentTarget.progress = newProgress;
-    if(currentTarget._id == this.data.currentTarget._id){
+    if (currentTarget._id == this.data.currentTarget._id) {
       this.setData({
         currentTarget: currentTarget
       });
@@ -616,7 +622,7 @@ Page({
 
   },
 
-  completeTarget: function(currentTarget) {
+  completeTarget: function (currentTarget) {
     //打卡后任务完成
     console.log(currentTarget);
     let user = this.data.user;
@@ -674,7 +680,7 @@ Page({
       })
   },
 
-  treeAnimation: function() {
+  treeAnimation: function () {
     //创建树木动画
     let animation = wx.createAnimation({
       duration: 500,
@@ -689,7 +695,7 @@ Page({
     })
 
     let that = this;
-    setTimeout(function() {
+    setTimeout(function () {
       that.setData({
         treeHeight: 0,
         treeOpacity: 0,
@@ -702,21 +708,21 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.initUser();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: async function() {
+  onShow: async function () {
     // 触发组件的choose方法选中目标,阻塞执行,保证当前currentTarget为其他界面处理的对象
     await this.selectComponent('#target').choose({
       currentTarget: {
@@ -724,51 +730,55 @@ Page({
       }
     });
 
-    if(this.data.originPage=="clock"){
+    if (this.data.originPage == "clock") {
       //从计时界面跳转过来，需要打卡记录
       this.addRecord(this.data.originPageTargetId);
-      this.setData({originPage:""});
+      this.setData({
+        originPage: ""
+      });
     }
 
-    if(this.data.originPage=="record"){
+    if (this.data.originPage == "record") {
       //从打卡记录页面过来，需要更新当前目标的状态
       this.judgePhase(this.data.currentTarget);
-      this.setData({originPage:""})
+      this.setData({
+        originPage: ""
+      })
     }
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   }
 })
@@ -776,7 +786,7 @@ Page({
 //对Date类扩充格式化函数
 // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423   
 // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18  
-Date.prototype.Format = function(fmt) {
+Date.prototype.Format = function (fmt) {
   var o = {
     "M+": this.getMonth() + 1, //月份   
     "d+": this.getDate(), //日   

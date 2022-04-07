@@ -18,8 +18,14 @@
     <view class="left_option" bindtap="reachTo" data-target="我的森林" style="margin-top:50rpx;">
       <image class="left_option_icon" src="../../images/forest.png"></image>我的森林
     </view>
+    <view class="left_option" bindtap="reachTo" data-target="目标分析">
+      <image class="left_option_icon" src="../../images/history.png"></image>目标分析
+    </view>
     <view class="left_option" bindtap="reachTo" data-target="我的好友">
       <image class="left_option_icon" src="../../images/friend.png"></image>我的好友
+    </view>
+    <view class="left_option" bindtap="reachTo" data-target="社区">
+      <image class="left_option_icon" src="../../images/community.png"></image>社区
     </view>
     <view class="left_option" bindtap="reachTo" data-target="时间历程">
       <image class="left_option_icon" src="../../images/history.png"></image>时间历程
@@ -30,9 +36,6 @@
     </view>
     <view class="left_option" bindtap="reachTo" data-target="自习室">
       <image class="left_option_icon" src="../../images/mall.png"></image>自习室
-    </view>
-    <view class="left_option" bindtap="reachTo" data-target="社区">
-      <image class="left_option_icon" src="../../images/community.png"></image>社区
     </view>
     <view class="left_option" bindtap="reachTo" data-target="商城">
       <image class="left_option_icon" src="../../images/mall.png"></image>商城

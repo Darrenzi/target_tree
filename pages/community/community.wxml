@@ -18,7 +18,7 @@
 				<view>{{item.userList[0].un}}</view>
 				<view class="targetRecord">已打卡{{item.record}}天</view>
 			</view>
-			<view class="insertCoinButton" catchtap="showInputCoin" id="{{index}}">投币</view>
+			<view class="insertCoinButton" catchtap="showInputCoin" id="{{index}}">鼓励</view>
 	</view>
 
 	<view class="targetTitle">{{item.title}}</view>
@@ -91,6 +91,6 @@
   </view> -->
 	<view class="bottomOption {{currentShow=='围观'?'bottomOptionChoose':''}}" bindtap="choose" data-target="围观">
 		<image src="../../images/xingji.png" class="bottomOtionIcon"></image>
-		围观
+		监督
 	</view>
 </view>
